@@ -5,7 +5,7 @@ orig_lang: ja
 year: 2023
 creators:
 - aoyama-michiko
-subjects: []
+subjects: [空间与记忆]
 expressions:
 - lang: ja
   title: リカバリー・カバヒコ
@@ -15,6 +15,9 @@ expressions:
 readings:
 - date: '2025-03-01'
   platform: NeoDB 标记
+- date: '2026-06-07'
+  platform: NeoDB 标记
+  note: 原重复著录 xiangyu-ri-zhichu 并入
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 6L4Nre7oFgxVxwvIY01PcQ
