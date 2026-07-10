@@ -248,8 +248,8 @@ const hoverData = names.map((s, i) => ({
 <section class="cloud wrap">
   <header class="sec-head">
     <small class="mono">SUBJECTS</small>
-    <h2>主题星图</h2>
-    <span class="sec-meta mono">{N} 个词 · 连线为同书共现</span>
+    <h2>主题词</h2>
+    <span class="sec-meta mono">{N} 个词</span>
   </header>
 
   <div class="constellation-wrap">
@@ -287,6 +287,16 @@ const hoverData = names.map((s, i) => ({
       ))}
     </svg>
     <div id="sky-tip" class="sky-tip" hidden></div>
+    <p class="sky-caption mono">连线为同书共现 · 悬停查看星座</p>
+  </div>
+
+  <!-- 移动端：标签云（触屏无 hover，星图缩到手机宽度不可读） -->
+  <div class="subject-cloud subject-cloud-mobile">
+    {nodes.map(nd => (
+      <a class="subject-chip" href={`/subjects/${nd.s.replace(/\//g, '／')}/`} style={`font-size:${(12 + 6 * Math.sqrt(nd.n / max)).toFixed(1)}px`}>
+        {nd.s}<span class="mono">{nd.n}</span>
+      </a>
+    ))}
   </div>
 </section>
 

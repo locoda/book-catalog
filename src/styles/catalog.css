@@ -340,7 +340,7 @@ footer.site{
 .bar-val{font-size:10px;font-family:'IBM Plex Mono',monospace;color:rgba(233,236,243,.78)}
 .bar-fill.dark-text .bar-val{color:var(--char);font-weight:500}
 
-@media (max-width:640px){
+@media (max-width:700px){
   .heat-grid{display:none}
   .heat-bars{display:flex;flex-direction:column;gap:6px}
 }
@@ -380,7 +380,7 @@ footer.site{
 .mncount{fill:var(--faint);font-size:9.5px;font-family:'IBM Plex Mono',monospace}
 .mlegend{fill:var(--faint);font-size:10px;font-family:'IBM Plex Mono',monospace;letter-spacing:.05em}
 
-@media (max-width:680px){
+@media (max-width:700px){
   .flow-desk{display:none}
   .flow-mob{display:block}
 }
@@ -411,9 +411,9 @@ footer.site{
 .subject-chip .mono{font-size:11px;color:var(--faint)}
 
 /* ---------- 主题星图 ---------- */
-.constellation-wrap{position:relative;margin-top:10px;overflow-x:auto}
+.constellation-wrap{position:relative;margin-top:10px}
 #subject-sky{
-  display:block;width:100%;min-width:700px;height:auto;
+  display:block;width:100%;height:auto;
   background:
     radial-gradient(ellipse 70% 60% at 50% 42%, rgba(233,236,243,.045), transparent 70%),
     var(--ink-2);
@@ -450,3 +450,10 @@ footer.site{
 .sky-tip-books{display:block;margin-top:2px}
 .sky-tip-books span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (hover:none){ .sky-tip{display:none} }
+
+.sky-caption{margin-top:8px;font-size:11px;color:var(--faint);letter-spacing:.06em}
+.subject-cloud-mobile{display:none}
+@media (max-width:700px){
+  .constellation-wrap{display:none}
+  .subject-cloud-mobile{display:flex}
+}
