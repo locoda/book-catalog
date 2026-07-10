@@ -1,12 +1,14 @@
 work_type: book
-title: Somewhere Towards the End
-callno: EN-ATH-2008-SOME
+title: After a Funeral
+callno: EN-ATH-1986-AFTE
 orig_lang: en
-year: 2008
+year: 1986
 creators:
 - athill-diana
-subjects: [练习告别]
+subjects: [与丧失同居]
 expressions:
+- lang: en
+  title: After a Funeral
 - lang: zh-Hans
   title: 葬礼过后
   mine: true

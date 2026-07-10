@@ -30,8 +30,8 @@
 
 迁移中顺带发现的数据问题（与词表无关）：
 - [yishujia-zhilei] slug 与题名不符：文件名 yishujia-zhilei，题名却是《대도시의 사랑법》，且与 daedosiui-sarangbeop 疑似重复（callno OF-PAR-2019-DAED / OF-PAR-2022-DAED 两条）
-- [hoshi-o-amu] 《星を編む》存在两条记录，callno 均为 JF-NAG-2023-HOSH，违反 callno 唯一性
-- [somewhere-towards-the-end] 疑似两条记录共用 callno EN-ATH-2008-SOME，违反 callno 唯一性
+- ~~[hoshi-o-amu] 《星を編む》存在两条记录，callno 均为 JF-NAG-2023-HOSH~~ 馆长确认是两本不同的书：第二条实为《汝、星のごとく》(2022)（《宛如星辰的你》为其中译名），系题名误著录而非重复。已改：title/年份/callno（JF-NAG-2022-NANJ）/文件名（nanji-hoshi-no-gotoku），补 ja 原文 expression；subjects 依新书身份重判为 爱的余烬（原 欲望的旷野 是按错误身份标的），请馆长复核。遗留疑点已解决：馆长确认读的是繁体，`lang` 已改 zh-Hant。
+- ~~[somewhere-towards-the-end] 两条记录共用 callno EN-ATH-2008-SOME~~ 馆长确认第二条实为同作者 Diana Athill《After a Funeral》(1986)，中译《葬礼过后》，系题名误著录。已改：title/年份/callno（EN-ATH-1986-AFTE）/文件名（after-a-funeral），补 en 原文 expression；subjects 依新书身份重判为 与丧失同居（挚友自杀后的回忆录），请馆长复核。
 
 ## 阅读日期（readings[].date）疑似大面积占位假数据 —— 重要，需馆长决定如何处理
 

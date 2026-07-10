@@ -1,12 +1,14 @@
 work_type: book
-title: 星を編む
-callno: JF-NAG-2023-HOSH
+title: 汝、星のごとく
+callno: JF-NAG-2022-NANJ
 orig_lang: ja
-year: 2023
+year: 2022
 creators: [nagira-yuu]
-subjects: [欲望的旷野]
+subjects: [爱的余烬]
 expressions:
-  - lang: zh-Hans
+  - lang: ja
+    title: 汝、星のごとく
+  - lang: zh-Hant
     title: 宛如星辰的你
     translator: 簡捷
     mine: true

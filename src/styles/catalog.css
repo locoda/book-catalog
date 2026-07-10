@@ -229,8 +229,8 @@ footer.site{
   .sec-head h2{font-size:clamp(16px,4.5vw,24px)}
 
   /* 编目卡 */
-  .cat-card{padding:22px 18px 56px}
-  .stamp-badge{width:56px;height:56px;top:18px;right:18px}
+  .cat-card{padding:22px 18px 80px}
+  .stamp-badge{width:56px;height:56px;bottom:18px;right:18px}
   .stamp-badge b{font-size:20px}
   .expr-table,.subjects{font-size:12.5px}
 
@@ -249,8 +249,8 @@ footer.site{
 @media (max-width:480px){
   header.site{padding:20px 14px 14px}
 
-  .cat-card{padding:16px 14px 48px}
-  .stamp-badge{width:48px;height:48px;top:14px;right:14px}
+  .cat-card{padding:16px 14px 72px}
+  .stamp-badge{width:48px;height:48px;bottom:14px;right:14px}
   .stamp-badge b{font-size:17px}
   .stamp-badge span{font-size:8px}
 
