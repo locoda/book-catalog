@@ -30,7 +30,7 @@ const firstRead = d.readings[0]?.date?.slice(0, 4);
 const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
 ---
 <Base title={`${displayTitle} · 乙醚書目`}>
-  <nav class="breadcrumb wrap"><a href="/">← 返回目錄</a></nav>
+  <nav class="breadcrumb wrap"><a href="/works/" onclick="history.back();return false">← 返回</a></nav>
 
   <div class="main wrap">
     <article class="cat-card">
