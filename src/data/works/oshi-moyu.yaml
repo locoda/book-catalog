@@ -14,7 +14,6 @@ expressions:
     mine: true
 readings:
   - date: '2022-08-02'
-    platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: 3HjNLsBfMcOsA5WyKbyLfh
+neodb_uuid: 52OnOtIWCmJSOK4ovzBTQs

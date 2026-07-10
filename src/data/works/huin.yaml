@@ -8,18 +8,12 @@ subjects: [哀悼与丧失, 空间与记忆]
 expressions:
   - lang: ko
     title: 흰
-  - lang: zh-Hans
-    title: 失语者
-    translator: 胡椒筒
-    mine: true
   - lang: zh-Hant
     title: 白
+    translator: 張雅眉
     mine: true
 readings:
-  - date: '2025-05-04'
-    platform: NeoDB 标记
-  - date: "2025-01-01"
-    platform: NeoDB 标记
+  - date: '2025-01-05'
 rating: 8
 status: read
-neodb_uuid: 2J5uBF2FZkPAvbQPRETLCU
+neodb_uuid: 7Zzb00mceTenPcRNdAzsad

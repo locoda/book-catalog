@@ -1,0 +1,19 @@
+work_type: book
+title: 희랍어 시간
+orig_lang: ko
+year: 2011
+creators: [han-kang]
+callno: OF-HAN-2011-HUIR
+subjects: []
+expressions:
+  - lang: ko
+    title: 희랍어 시간
+  - lang: zh-Hans
+    title: 失语者
+    translator: 田禾子
+    mine: true
+readings:
+  - date: '2025-05-04'
+rating: 8
+status: read
+neodb_uuid: 5lP8fFXfdrX3sAhfviZx2N
