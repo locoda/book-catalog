@@ -5,7 +5,7 @@
 import { getCollection } from 'astro:content';
 
 const TOP_N = 24;
-const THRESH_DESK = 3;
+const THRESH_DESK = 4;
 const THRESH_MOB = 7;
 
 const [works, people] = await Promise.all([
@@ -74,8 +74,7 @@ function displayName(id: string): string {
   <header class="sec-head">
     <small class="mono">PEOPLE</small>
     <h2>著者</h2>
-    <span class="sec-meta mono show-desk">{deskAll.length} 位著者 · ≥{THRESH_DESK} 部作品</span>
-    <span class="sec-meta mono show-mob">{mobAll.length} 位著者 · ≥{THRESH_MOB} 部作品</span>
+    <span class="sec-meta mono">{people.length} 位著者</span>
   </header>
 
   <!-- 桌面：≥3 -->
@@ -85,9 +84,7 @@ function displayName(id: string): string {
         {displayName(id)}<span class="mono">{count}</span>
       </a>
     ))}
-    {deskAll.length > TOP_N && (
-      <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
-    )}
+    <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
   </div>
 
   <!-- 手机：≥7 -->

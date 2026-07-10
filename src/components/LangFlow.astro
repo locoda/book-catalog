@@ -12,11 +12,11 @@ const { sources, targets, links, totalWorks } = langFlows(works);
 const label = (k: string) => (k === 'other' ? '其他語言' : langLabel(k));
 
 /* ---- 布局 ---- */
-const U = 0.85;          // px / 種
+const U = 0.72;          // px / 種
 const GAP = 10;          // 节点间距
 const NW = 10;           // 节点宽
-const X0 = 178, X1 = 572; // 左右节点 x
-const W = 760, PAD = 26; // 画布宽、上下留白
+const X0 = 120, X1 = 570; // 左右节点 x
+const W = 680, PAD = 40; // 画布窄 → 渲染大
 
 interface Node { key: string; total: number; y0: number; used: number }
 const layout = (col: { key: string; total: number }[], h: number, colH: number): Node[] => {

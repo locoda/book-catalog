@@ -217,10 +217,10 @@ footer.site{
 
   /* portal */
   .portal{margin-top:clamp(36px,8vw,72px)}
-  .portal-nav{flex-direction:column;gap:12px;margin-top:28px}
-  .portal-card{width:100%;height:auto;flex-direction:row;align-items:center;padding:16px 20px;gap:12px}
-  .portal-card-title{font-size:17px}
-  .portal-card small{margin-top:0;margin-left:auto}
+  .portal-nav{flex-direction:column;gap:6px;margin-top:20px}
+  .portal-card{width:100%;height:auto;flex-direction:row;align-items:center;padding:8px 12px;gap:8px;border:none;border-bottom:1px solid rgba(233,236,243,.1)}
+  .portal-card-title{font-size:14px;font-weight:500}
+  .portal-card small{margin-top:0;margin-left:auto;font-size:10px}
   .portal-bottom{margin-top:clamp(36px,8vw,64px)}
 
   /* sections */
@@ -325,13 +325,6 @@ footer.site{
 }
 .heat-cell.dark-text i{color:var(--char);font-weight:500}
 .heat-cell:hover{outline-color:rgba(233,236,243,.5)}
-
-/* 热力图右侧滚动渐隐 */
-.heat-grid::after{
-  content:'';position:absolute;right:0;top:0;bottom:0;width:40px;
-  background:linear-gradient(to right,transparent,var(--ink));
-  pointer-events:none;z-index:3;
-}
 
 /* 手机：年度柱状图 */
 .heat-bars{display:none}
