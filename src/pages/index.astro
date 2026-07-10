@@ -1,0 +1,102 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const works = await getCollection('works');
+
+// 每条 work 解析出：著者显示名、我读的语言、切面数据
+const rows = await Promise.all(works.map(async (w) => {
+  const creators = await Promise.all(w.data.creators.map((id) => getEntry('people', id)));
+  const mine = w.data.expressions.find((e) => e.mine);
+  const mineTitle = mine?.title ?? w.data.title;
+  return {
+    id: w.id,
+    data: w.data,
+    creatorNames: creators.filter(Boolean).map((p) => p!.data.name).join(' · '),
+    mineLang: mine?.lang ?? w.data.orig_lang,
+    mineTitle,
+    translated: mine && mine.lang !== w.data.orig_lang,
+  };
+}));
+rows.sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
+
+const origLangs = [...new Set(rows.map((r) => r.data.orig_lang))].sort();
+const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
+const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
+
+const langLabel: Record<string, string> = { ja: '日本語', 'zh-CN': '中文', zh: '中文', en: 'English' };
+const label = (l: string) => langLabel[l] ?? l;
+---
+<Base>
+  <section class="facets wrap">
+    <div class="facet-row" data-facet="orig">
+      <span class="facet-label">原語言</span>
+      <button class="chip on" data-value="">全部</button>
+      {origLangs.map((l) => <button class="chip" data-value={l}>{label(l)}</button>)}
+    </div>
+    <div class="facet-row" data-facet="mine">
+      <span class="facet-label">我讀的是</span>
+      <button class="chip on" data-value="">全部</button>
+      {mineLangs.map((l) => <button class="chip" data-value={l}>{label(l)}</button>)}
+    </div>
+    <div class="facet-row" data-facet="subject">
+      <span class="facet-label">主題</span>
+      <button class="chip on" data-value="">全部</button>
+      {subjects.map((s) => <button class="chip" data-value={s}>{s}</button>)}
+    </div>
+  </section>
+
+  <section class="results wrap">
+    <h3 id="result-label">ALL&nbsp;WORKS&nbsp;/&nbsp;全部館藏</h3>
+    <div id="rows">
+      {rows.map((r) => (
+        <a
+          class="row"
+          href={`/works/${r.id}/`}
+          data-orig={r.data.orig_lang}
+          data-mine={r.mineLang}
+          data-subjects={r.data.subjects.join('|')}
+        >
+          <span class="mono">{r.data.callno ?? r.id}</span>
+          <span>{r.mineTitle} <span class="byline">· {r.creatorNames}</span></span>
+          <span class="langs">
+            {r.translated ? `${label(r.data.orig_lang)} → ${label(r.mineLang)}` : `${label(r.data.orig_lang)} 原文`}
+          </span>
+          <span class="score">{r.data.status === 'reading' ? '在讀' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+        </a>
+      ))}
+      <div class="empty-note hidden" id="empty">这个切面下暂时没有著录。</div>
+    </div>
+  </section>
+
+  <script>
+    const active: Record<string, string> = { orig: '', mine: '', subject: '' };
+    document.querySelectorAll<HTMLElement>('.facet-row').forEach((row) => {
+      const facet = row.dataset.facet!;
+      row.querySelectorAll<HTMLButtonElement>('.chip').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          active[facet] = chip.dataset.value ?? '';
+          row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+          chip.classList.add('on');
+          apply();
+        });
+      });
+    });
+    function apply() {
+      let shown = 0;
+      document.querySelectorAll<HTMLElement>('#rows .row').forEach((el) => {
+        const okOrig = !active.orig || el.dataset.orig === active.orig;
+        const okMine = !active.mine || el.dataset.mine === active.mine;
+        const okSubj = !active.subject || (el.dataset.subjects ?? '').split('|').includes(active.subject);
+        const ok = okOrig && okMine && okSubj;
+        el.classList.toggle('hidden', !ok);
+        if (ok) shown++;
+      });
+      document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
+      const anyFilter = active.orig || active.mine || active.subject;
+      document.getElementById('result-label')!.textContent = anyFilter
+        ? `FACET / 切面 — ${shown} 種`
+        : 'ALL WORKS / 全部館藏';
+    }
+  </script>
+</Base>

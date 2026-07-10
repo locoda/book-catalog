@@ -1,0 +1,24 @@
+title: コンビニ人間
+orig_lang: ja
+year: 2016
+creators: [murata-sayaka]
+callno: JF-MUR-2016
+subjects: [非典型女性经验, 劳动异化, 神经多样性]
+expressions:
+  - lang: ja
+    title: コンビニ人間
+  - lang: zh-CN
+    title: 人间便利店
+    translator: 吴曦
+    mine: true
+  - lang: en
+    title: Convenience Store Woman
+    translator: Ginny Tapley Takemori
+readings:
+  - date: "2021-03"
+    platform: 微信读书
+    lang: zh-CN
+    note: 示意数据
+rating: 9
+status: read
+placeholder: true

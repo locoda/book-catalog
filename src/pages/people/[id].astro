@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const people = await getCollection('people');
+  return people.map((p) => ({ params: { id: p.id }, props: { person: p } }));
+}
+
+const { person } = Astro.props;
+const works = (await getCollection('works')).filter((w) => w.data.creators.includes(person.id));
+works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
+---
+<Base title={`${person.data.name} · 乙醚書目`}>
+  <nav class="breadcrumb wrap"><a href="/">← 返回目錄</a></nav>
+
+  <div class="main wrap">
+    <article class="cat-card">
+      <div class="callno"><span>p-{person.id}</span><span>AUTHORITY</span></div>
+      <h1 class="work-title jp">{person.data.name}</h1>
+      {person.data.sort && <p class="work-sub mono">{person.data.sort}</p>}
+
+      <table class="expr-table">
+        <caption>NAME&nbsp;FORMS / 名稱形式</caption>
+        <tr><th>script</th><th>形式</th></tr>
+        {person.data.forms.map((f) => (
+          <tr><td class="mono">{f.script}</td><td class="jp">{f.value}</td></tr>
+        ))}
+      </table>
+
+      <div class="duecard">
+        <h4>WORKS&nbsp;IN&nbsp;CATALOG&nbsp;/&nbsp;館藏著作&nbsp;·&nbsp;{works.length}&nbsp;種</h4>
+        {works.map((w) => (
+          <div class="due-row">
+            <span class="mono">{w.data.year ?? ''}</span>
+            <span><a href={`/works/${w.id}/`} style="border-bottom:1px dashed var(--stamp)">{w.data.title}</a></span>
+            {w.data.rating != null && <em>{w.data.rating} ● {w.data.rating_source}</em>}
+          </div>
+        ))}
+      </div>
+    </article>
+  </div>
+</Base>

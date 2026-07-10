@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/catalog.css';
+
+interface Props { title?: string }
+const { title = '乙醚書目 · Ether Catalog' } = Astro.props;
+
+const works = await getCollection('works');
+const people = await getCollection('people');
+const langs = new Set(works.map(w => w.data.orig_lang));
+const years = works.flatMap(w => w.data.readings.map(r => parseInt(r.date.slice(0, 4)))).filter(n => !isNaN(n));
+const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="乙醚的私人编目：一份跨语言的个人阅读史目录。" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Zen+Old+Mincho:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site">
+    <a href="/"><div class="brand">乙醚書目<small>ETHER&nbsp;CATALOG&nbsp;·&nbsp;1METHER.ME</small></div></a>
+    <div class="stats">
+      <b>{works.length}</b> works · <b>{langs.size}</b> languages · <b>{people.length}</b> authority records{yearRange && ` · ${yearRange}`}
+    </div>
+  </header>
+
+  <slot />
+
+  <footer class="site">
+    <span>generated from catalog.git</span>
+    <span>schema v0.1 · FRBR-lite</span>
+    <span>sources: NeoDB · 豆坟 export · 手工著錄</span>
+    <span>你的閱讀史，攥在你自己手里</span>
+  </footer>
+</body>
+</html>

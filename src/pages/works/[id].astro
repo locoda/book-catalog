@@ -1,0 +1,111 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const works = await getCollection('works');
+  return works.map((w) => ({ params: { id: w.id }, props: { work: w } }));
+}
+
+const { work } = Astro.props;
+const d = work.data;
+
+const creators = (await Promise.all(d.creators.map((id) => getEntry('people', id)))).filter(Boolean);
+const primary = creators[0];
+
+// 同一著者的其他作品（用第一著者）
+const allWorks = await getCollection('works');
+const sameCreator = primary
+  ? allWorks.filter((w) => w.id !== work.id && w.data.creators.includes(primary.id))
+  : [];
+
+const mine = d.expressions.find((e) => e.mine);
+const otherTitles = d.expressions.filter((e) => e.title !== d.title).map((e) => e.title).join(' · ');
+const firstRead = d.readings[0]?.date?.slice(0, 4);
+const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
+---
+<Base title={`${d.title} · 乙醚書目`}>
+  <nav class="breadcrumb wrap"><a href="/">← 返回目錄</a></nav>
+
+  <div class="main wrap">
+    <article class="cat-card">
+      {d.status === 'reading'
+        ? <div class="stamp-badge reading"><b>在讀</b></div>
+        : d.rating != null && <div class="stamp-badge"><b>{d.rating}</b><span>{d.rating_source}</span></div>}
+      <div class="callno"><span>{work.id}</span><span>{d.callno}</span></div>
+      <h1 class="work-title jp">{d.title}</h1>
+      {otherTitles && <p class="work-sub">{otherTitles}</p>}
+      <div>
+        {creators.map((p) => (
+          <a class="author-link" href={`/people/${p!.id}/`}>{p!.data.name}<span class="mono">→ p-{p!.id}</span></a>
+        ))}
+      </div>
+
+      {d.expressions.length > 0 && (
+        <table class="expr-table">
+          <caption>EXPRESSIONS / 版本</caption>
+          <tr><th>語言</th><th>題名</th><th>譯者</th><th></th></tr>
+          {d.expressions.map((e) => (
+            <tr class={e.mine ? 'mine' : ''}>
+              <td>{e.lang}</td>
+              <td class="jp">{e.title}</td>
+              <td>{e.translator ?? (e.lang === d.orig_lang ? '—（原文）' : '')}</td>
+              <td>{e.mine && <span class="tag-mine">我讀的版本</span>}</td>
+            </tr>
+          ))}
+        </table>
+      )}
+
+      {d.subjects.length > 0 && (
+        <div class="subjects">
+          <span class="facet-label">主題詞</span><br />
+          {d.subjects.map((s) => <span class="subj">{s}</span>)}
+        </div>
+      )}
+
+      {d.readings.length > 0 && (
+        <div class="duecard">
+          <h4>READING&nbsp;EVENTS&nbsp;/&nbsp;閱讀記錄</h4>
+          {d.readings.map((r) => (
+            <div class="due-row">
+              <span class="mono">{r.date}</span>
+              {(r.platform || r.lang) && <span>{[r.platform, r.lang].filter(Boolean).join(' · ')}</span>}
+              {r.note && <em>{r.note}</em>}
+            </div>
+          ))}
+        </div>
+      )}
+    </article>
+
+    <aside class="side">
+      {primary && (
+        <div class="panel">
+          <h3>AUTHORITY&nbsp;RECORD</h3>
+          <div class="auth-name">{primary.data.name}</div>
+          <div class="auth-forms">
+            {primary.data.forms.map((f) => (
+              <div><span class="mono">{f.script}</span><span class="jp">{f.value}</span></div>
+            ))}
+            <div><span class="mono">id</span><span>p-{primary.id}</span></div>
+          </div>
+          <div class="auth-count">
+            館藏中著作 <b>{sameCreator.length + 1}</b> 種
+            {firstRead && <> · 閱讀 <b>{firstRead}{lastRead && lastRead !== firstRead ? `–${lastRead}` : ''}</b></>}
+          </div>
+        </div>
+      )}
+
+      {sameCreator.length > 0 && (
+        <div class="panel panel-list">
+          <h3>同著者其他作品</h3>
+          {sameCreator.map((w) => (
+            <a href={`/works/${w.id}/`}>
+              <span>{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</span>
+              <span class="mono">{w.data.rating != null ? `${w.data.rating} ●` : ''}</span>
+            </a>
+          ))}
+        </div>
+      )}
+    </aside>
+  </div>
+</Base>

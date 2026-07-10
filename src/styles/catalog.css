@@ -1,0 +1,184 @@
+:root{
+  --ink:#16233A;
+  --ink-2:#1F2F4D;
+  --card:#EFE7D3;
+  --card-edge:#E2D7BC;
+  --stamp:#B4382D;
+  --char:#2A3242;
+  --faint:#8C96AB;
+  --hair:rgba(42,50,66,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:#E9ECF3;
+  font-family:'Noto Serif SC',serif;
+  line-height:1.7;
+  padding-bottom:80px;
+}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'IBM Plex Mono',monospace}
+.jp{font-family:'Zen Old Mincho','Noto Serif SC',serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- 顶栏 ---------- */
+header.site{
+  max-width:1080px;margin:0 auto;padding:40px 24px 28px;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 28px;
+  border-bottom:1px solid rgba(233,236,243,.14);
+}
+.brand{font-weight:900;font-size:30px;letter-spacing:.14em}
+.brand small{
+  display:block;font-family:'IBM Plex Mono',monospace;font-weight:400;
+  font-size:11px;letter-spacing:.32em;color:var(--faint);margin-top:4px;
+}
+.stats{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--faint);letter-spacing:.05em}
+.stats b{color:#E9ECF3;font-weight:500}
+
+/* ---------- facet 区 ---------- */
+.facets{padding-top:22px}
+.facet-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;align-items:center}
+.facet-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.18em;min-width:72px}
+.chip{
+  font-size:13px;padding:4px 14px;border-radius:2px;cursor:pointer;
+  border:1px solid rgba(233,236,243,.22);color:#CBD3E1;background:none;
+  font-family:'Noto Serif SC',serif;
+}
+.chip.on{background:var(--card);color:var(--char);border-color:var(--card);font-weight:600}
+
+/* ---------- 结果列表 ---------- */
+.results{margin-top:28px}
+.results h3, .panel h3, .duecard h4{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+  letter-spacing:.28em;color:var(--faint);margin-bottom:14px;
+}
+.row{
+  display:grid;grid-template-columns:160px 1.5fr 1fr auto;gap:18px;align-items:baseline;
+  padding:13px 6px;border-top:1px solid rgba(233,236,243,.12);font-size:14.5px;
+}
+.row:hover{background:rgba(233,236,243,.04)}
+.row .mono{font-size:12px;color:var(--faint)}
+.row .langs{font-size:12.5px;color:#9FB0C8}
+.row .score{font-family:'IBM Plex Mono',monospace;color:var(--stamp);font-size:13px;white-space:nowrap}
+.row .byline{color:#9FB0C8;font-size:13px}
+.row.hidden{display:none}
+.empty-note{padding:26px 6px;color:var(--faint);font-size:13.5px;border-top:1px solid rgba(233,236,243,.12)}
+
+/* ---------- 主体两栏（详情页）---------- */
+.main{
+  margin-top:32px;
+  display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start;
+}
+
+/* ---------- 编目卡 ---------- */
+.cat-card{
+  background:var(--card);color:var(--char);border-radius:3px;
+  box-shadow:0 1px 0 var(--card-edge) inset,0 18px 40px rgba(0,0,0,.45);
+  padding:30px 34px 66px;position:relative;overflow:hidden;
+}
+.cat-card::after{
+  content:'';position:absolute;left:50%;bottom:16px;transform:translateX(-50%);
+  width:26px;height:26px;border-radius:50%;
+  background:var(--ink);box-shadow:0 0 0 3px var(--card-edge) inset;
+}
+.callno{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;
+  color:var(--stamp);border-bottom:1px solid var(--hair);padding-bottom:10px;margin-bottom:18px;
+  display:flex;justify-content:space-between;
+}
+.work-title{font-size:34px;font-weight:700;line-height:1.35}
+.work-sub{font-size:14px;color:#5B6478;margin-top:2px}
+.author-link{
+  display:inline-block;margin-top:10px;font-size:15px;
+  border-bottom:1px dashed var(--stamp);color:var(--char);margin-right:16px;
+}
+.author-link .mono{font-size:11px;color:var(--stamp);margin-left:8px}
+
+.expr-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:13.5px}
+.expr-table caption{
+  text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  letter-spacing:.24em;color:#5B6478;padding-bottom:8px;
+}
+.expr-table th{
+  font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;color:#5B6478;
+  text-align:left;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:6px 10px 6px 0;
+}
+.expr-table td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+.expr-table tr.mine td{background:rgba(180,56,45,.07)}
+.tag-mine{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--stamp);
+  border:1px solid var(--stamp);border-radius:2px;padding:1px 6px;white-space:nowrap;
+}
+
+.subjects{margin-top:22px;font-size:13px}
+.subjects .facet-label{color:#5B6478}
+.subj{
+  display:inline-block;margin:4px 6px 0 0;padding:3px 12px;font-size:13px;
+  background:rgba(42,50,66,.08);border:1px solid var(--hair);border-radius:999px;color:var(--char);
+}
+
+.duecard{margin-top:26px;border:1px solid var(--hair);border-radius:2px;padding:14px 16px 16px}
+.duecard h4{color:#5B6478;margin-bottom:10px}
+.due-row{
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;
+  font-size:13.5px;padding:7px 0;border-top:1px dashed var(--hair);
+}
+.due-row .mono{font-size:12px;color:var(--stamp);font-weight:500}
+.due-row em{font-style:normal;color:#5B6478;font-size:12px}
+
+.stamp-badge{
+  position:absolute;top:26px;right:30px;width:76px;height:76px;border-radius:50%;
+  border:2.5px solid var(--stamp);color:var(--stamp);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transform:rotate(-9deg);opacity:.85;
+  font-family:'IBM Plex Mono',monospace;
+}
+.stamp-badge b{font-size:26px;line-height:1}
+.stamp-badge span{font-size:9px;letter-spacing:.2em;margin-top:3px}
+.stamp-badge.reading{border-style:dashed;font-size:0}
+.stamp-badge.reading b{font-size:13px;letter-spacing:.1em}
+
+/* ---------- 右栏面板 ---------- */
+.side{display:flex;flex-direction:column;gap:22px}
+.panel{
+  background:var(--ink-2);border:1px solid rgba(233,236,243,.13);
+  border-radius:3px;padding:22px 24px;
+}
+.auth-name{font-size:22px;font-weight:600}
+.auth-forms{margin-top:10px;font-size:14px;color:#CBD3E1}
+.auth-forms div{padding:5px 0;border-top:1px solid rgba(233,236,243,.1);display:flex;gap:12px}
+.auth-forms .mono{font-size:11px;color:var(--faint);min-width:60px;padding-top:3px}
+.auth-count{margin-top:14px;font-size:13px;color:var(--faint)}
+.auth-count b{color:#E9ECF3}
+.panel-list a{
+  color:#CBD3E1;font-size:13.5px;
+  display:flex;justify-content:space-between;gap:12px;padding:7px 0;
+  border-top:1px solid rgba(233,236,243,.1);
+}
+.panel-list a:first-of-type{border-top:none}
+.panel-list a:hover{color:#fff}
+.panel-list .mono{color:var(--faint);font-size:12px;white-space:nowrap}
+
+.breadcrumb{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--faint);
+  padding-top:22px;letter-spacing:.06em;
+}
+.breadcrumb a:hover{color:#fff}
+
+footer.site{
+  max-width:1080px;margin:56px auto 0;padding:20px 24px 0;
+  border-top:1px solid rgba(233,236,243,.12);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.08em;
+  display:flex;flex-wrap:wrap;gap:8px 24px;
+}
+
+@media (max-width:820px){
+  .main{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr auto}
+  .row .mono,.row .langs{grid-column:1/-1}
+  .stats{margin-left:0}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
