@@ -33,7 +33,7 @@ const rows = await Promise.all(matched.map(async (w) => {
 }));
 ---
 <Base title={`${originalSubject} · 主題 · 乙醚書目`}>
-  <nav class="breadcrumb wrap"><a href="/subjects/">← 返回主題總覽</a></nav>
+  <nav class="breadcrumb wrap"><a href="/subjects/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="results wrap">
     <h3>{originalSubject}&nbsp;/&nbsp;{rows.length}&nbsp;種著作</h3>

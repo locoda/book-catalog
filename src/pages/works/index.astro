@@ -33,7 +33,7 @@ const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
 const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
 ---
 <Base title="館藏列表 · 乙醚書目">
-  <nav class="breadcrumb wrap"><a href="/">← 返回首頁</a></nav>
+  <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="facets wrap">
     <div class="facet-row" data-facet="orig">

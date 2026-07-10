@@ -34,6 +34,40 @@ const deskMax = desk[0]![1];
 const mobMax  = mob[0]![1];
 
 const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
+
+/** 从 people forms 推断原名（native script）。跳过转写/翻译类脚本。 */
+function nativeName(person: typeof people[number]['data']): string {
+  if (!person.forms?.length) return person.name;
+  const TRANSLIT = new Set(['romaji', 'ja-kana']);
+  // 过滤转写类，只留真实文字体系的 form
+  const real = person.forms.filter((f) => !TRANSLIT.has(f.script) && !f.script.endsWith('-Latn'));
+  // 优先：非 en / zh / ko 的 native script（ja / fr / de ...）
+  // 但纯片假名 ja form 跳过——那是外来名转写（如 カズオ・イシグロ），非 native
+  function isKatakanaOnly(s: string) { return /^[\u30A0-\u30FF・\s]+$/.test(s); }
+  const native = real.find((f) => {
+    if (f.script === 'en' || f.script === 'zh' || f.script === 'ko') return false;
+    if (f.script === 'ja' && isKatakanaOnly(f.value)) return false;
+    return true;
+  });
+  if (native) return native.value;
+  // 次选：有 ko 或无 en → 中文/韩文著者用 zh 名
+  const hasEn = real.some((f) => f.script === 'en');
+  const hasKo = real.some((f) => f.script === 'ko');
+  if (!hasEn || hasKo) {
+    const zhForm = real.find((f) => f.script === 'zh');
+    if (zhForm) return zhForm.value;
+  }
+  return person.name;
+}
+
+const nativeMap = new Map(people.map((p) => [p.id, nativeName(p.data)]));
+
+/** chip 显示名：原名与 authority name 不同时用原名，否则用 authority name */
+function displayName(id: string): string {
+  const n = nativeMap.get(id)!;
+  const a = peopleMap.get(id)!;
+  return n !== a ? n : a;
+}
 ---
 
 <section class="cloud wrap">
@@ -48,7 +82,7 @@ const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
   <div class="subject-cloud show-desk">
     {desk.map(([id, count]) => (
       <a class="subject-chip" href={`/people/${id}/`} style={`font-size:${size(count, deskMax)}px`}>
-        {peopleMap.get(id) ?? id}<span class="mono">{count}</span>
+        {displayName(id)}<span class="mono">{count}</span>
       </a>
     ))}
     {deskAll.length > TOP_N && (
@@ -60,7 +94,7 @@ const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
   <div class="subject-cloud show-mob">
     {mob.map(([id, count]) => (
       <a class="subject-chip" href={`/people/${id}/`} style={`font-size:${size(count, mobMax)}px`}>
-        {peopleMap.get(id) ?? id}<span class="mono">{count}</span>
+        {displayName(id)}<span class="mono">{count}</span>
       </a>
     ))}
     <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
