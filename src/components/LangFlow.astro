@@ -68,6 +68,88 @@ const ribbons = ordered.map((l) => {
 });
 
 const nativeTotal = links.filter((l) => l.native).reduce((a, l) => a + l.value, 0);
+
+/* ---- 手機版：垂直桑基（原語言在上 → 我讀的在下）---- */
+const M_W = 360;
+const M_P = 14;
+const M_NH = 22;
+const M_G = 4;
+const M_RH = 200;
+const M_TOP_N = 6;
+
+// 前 N 大 + 合併其餘
+const mTopSources = sources.slice(0, M_TOP_N);
+const mRestSources = sources.slice(M_TOP_N);
+const mRestTotal = mRestSources.reduce((a, n) => a + n.total, 0);
+const mRestKeys = new Set(mRestSources.map(n => n.key));
+
+// 合併 minor source 的 links
+const mLinkMap = new Map<string, { source: string; target: string; value: number; native: boolean }>();
+for (const l of links) {
+  const src = mRestKeys.has(l.source) ? '_rest' : l.source;
+  const k = `${src}→${l.target}`;
+  const existing = mLinkMap.get(k);
+  if (existing) { existing.value += l.value; existing.native = existing.native && l.native; }
+  else { mLinkMap.set(k, { source: src, target: l.target, value: l.value, native: l.native }); }
+}
+const mLinks = [...mLinkMap.values()];
+const mSources: { key: string; total: number }[] = mRestTotal > 0
+  ? [...mTopSources, { key: '_rest', total: mRestTotal }]
+  : mTopSources;
+
+const mSrcW = (M_W - 2 * M_P - (mSources.length - 1) * M_G) / mSources.length;
+const mTgtW = (M_W - 2 * M_P - (targets.length - 1) * M_G) / targets.length;
+
+interface MNode { key: string; total: number; x0: number; w: number; used: number }
+const mSrcNodes: MNode[] = mSources.map((n, i) => ({ ...n, x0: M_P + i * (mSrcW + M_G), w: mSrcW, used: 0 }));
+const mTgtNodes: MNode[] = targets.map((n, i) => ({ ...n, x0: M_P + i * (mTgtW + M_G), w: mTgtW, used: 0 }));
+
+const mSOrder = new Map(mSrcNodes.map((n, i) => [n.key, i]));
+const mTOrder = new Map(mTgtNodes.map((n, i) => [n.key, i]));
+const mSMap = new Map(mSrcNodes.map(n => [n.key, n]));
+const mTMap = new Map(mTgtNodes.map(n => [n.key, n]));
+
+// 目標側偏移
+const mByTgt = [...mLinks].sort((a, b) =>
+  (mTOrder.get(a.target)! - mTOrder.get(b.target)!) || (mSOrder.get(a.source)! - mSOrder.get(b.source)!));
+const mTOffset = new Map<(typeof mLinks)[0], number>();
+for (const l of mByTgt) {
+  const t = mTMap.get(l.target)!;
+  mTOffset.set(l, t.x0 + t.used);
+  t.used += (l.value / t.total) * t.w;
+}
+
+const M_TOP = 38;
+const M_BOT = M_TOP + M_NH + M_RH;
+const M_H = M_BOT + M_NH + 44;
+const M_MID = (M_TOP + M_NH + M_BOT) / 2;
+
+mSrcNodes.forEach(n => n.used = 0);
+
+const mOrdered = [...mLinks].sort((a, b) =>
+  (mSOrder.get(a.source)! - mSOrder.get(b.source)!) || (mTOrder.get(a.target)! - mTOrder.get(b.target)!));
+
+const mRibbons = mOrdered.map(l => {
+  const s = mSMap.get(l.source)!;
+  const sx = s.x0 + s.used;
+  const sw = (l.value / s.total) * s.w;
+  s.used += sw;
+  const tx = mTOffset.get(l)!;
+  const t = mTMap.get(l.target)!;
+  const tw = (l.value / t.total) * t.w;
+
+  const topY = M_TOP + M_NH;
+  const botY = M_BOT;
+  return {
+    ...l,
+    d: `M${sx.toFixed(1)},${topY} C${sx.toFixed(1)},${M_MID} ${tx.toFixed(1)},${M_MID} ${tx.toFixed(1)},${botY} ` +
+       `l${tw.toFixed(1)},0 C${(tx + tw).toFixed(1)},${M_MID} ${(sx + sw).toFixed(1)},${M_MID} ${(sx + sw).toFixed(1)},${topY} Z`,
+    tip: `${label(l.source === '_rest' ? 'other' : l.source)} → ${label(l.target)} · ${l.value} 種${l.native ? '（原文）' : ''}`,
+  };
+});
+
+const mNativeTotal = mLinks.filter(l => l.native).reduce((a, l) => a + l.value, 0);
+const mLabel = (k: string) => k === '_rest' ? '其他' : label(k);
 ---
 <section class="langflow wrap">
   <header class="sec-head">
@@ -76,7 +158,7 @@ const nativeTotal = links.filter((l) => l.native).reduce((a, l) => a + l.value, 
     <span class="sec-meta mono">{totalWorks} 種</span>
     <span class="flow-legend mono"><i class="lg lg-tr"></i>譯本&nbsp;&nbsp;<i class="lg lg-na"></i>原文直讀&nbsp;{nativeTotal}&nbsp;種</span>
   </header>
-  <div class="flow-scroll">
+  <div class="flow-desk flow-scroll">
     <svg viewBox={`0 0 ${W} ${Math.ceil(H)}`} role="img" aria-label="原语言到我读的语言的流向图" style={`--h:${Math.ceil(H)}px`}>
       <text class="col-head" x={X0 + NW} y={14} text-anchor="end">原語言&nbsp;ORIG</text>
       <text class="col-head" x={X1} y={14} text-anchor="start">我讀的&nbsp;MINE</text>
@@ -99,6 +181,39 @@ const nativeTotal = links.filter((l) => l.native).reduce((a, l) => a + l.value, 
           </text>
         </>
       ))}
+    </svg>
+  </div>
+
+  <div class="flow-mob">
+    <svg viewBox={`0 0 ${M_W} ${Math.ceil(M_H)}`} role="img" aria-label="原语言到我读的语言的垂直流向图">
+      <text class="col-head" x={M_W / 2} y={16} text-anchor="middle">原語言 → 我讀的 &nbsp;ORIG → MINE</text>
+      <!-- 原語言節點（上） -->
+      {mSrcNodes.map((n) => (
+        <>
+          <rect class="node" x={n.x0} y={M_TOP} width={n.w} height={M_NH} rx="2" />
+          <text class="mnlabel" x={n.x0 + n.w / 2} y={M_TOP - 6} text-anchor="middle">
+            {mLabel(n.key)}
+            <tspan class="mncount" x={n.x0 + n.w / 2} dy="13">{n.total}</tspan>
+          </text>
+        </>
+      ))}
+      <!-- Ribbons -->
+      {mRibbons.map((r) => (
+        <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d}><title>{r.tip}</title></path>
+      ))}
+      <!-- 我讀的節點（下） -->
+      {mTgtNodes.map((n) => (
+        <>
+          <rect class="node" x={n.x0} y={M_BOT} width={n.w} height={M_NH} rx="2" />
+          <text class="mnlabel" x={n.x0 + n.w / 2} y={M_BOT + M_NH + 16} text-anchor="middle">
+            {label(n.key)}
+            <tspan class="mncount" x={n.x0 + n.w / 2} dy="13">{n.total}</tspan>
+          </text>
+        </>
+      ))}
+      <text class="mlegend" x={M_W / 2} y={Math.ceil(M_H) - 6} text-anchor="middle">
+        譯本 · 原文直讀 {mNativeTotal} 種
+      </text>
     </svg>
   </div>
 </section>

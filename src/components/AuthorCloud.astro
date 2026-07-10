@@ -1,0 +1,77 @@
+---
+/**
+ * 主页著者云：桌面 ≥3 部作品，手机 ≥7 部作品。字号按各自 max sqrt 加权。
+ */
+import { getCollection } from 'astro:content';
+
+const TOP_N = 24;
+const THRESH_DESK = 3;
+const THRESH_MOB = 7;
+
+const [works, people] = await Promise.all([
+  getCollection('works'),
+  getCollection('people'),
+]);
+
+const counts = new Map<string, number>();
+for (const w of works) {
+  for (const c of w.data.creators) counts.set(c, (counts.get(c) ?? 0) + 1);
+}
+
+const byCount = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+const deskAll = byCount.filter(([, n]) => n >= THRESH_DESK);
+const mobAll  = byCount.filter(([, n]) => n >= THRESH_MOB);
+
+if (deskAll.length === 0) return new Response(null, { status: 204 });
+
+const desk = deskAll.slice(0, TOP_N);
+const mob  = mobAll;
+
+const size = (n: number, max: number) => (13 + 8 * Math.sqrt(n / max)).toFixed(1);
+
+const deskMax = desk[0]![1];
+const mobMax  = mob[0]![1];
+
+const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
+---
+
+<section class="cloud wrap">
+  <header class="sec-head">
+    <small class="mono">PEOPLE</small>
+    <h2>著者</h2>
+    <span class="sec-meta mono show-desk">{deskAll.length} 位著者 · ≥{THRESH_DESK} 部作品</span>
+    <span class="sec-meta mono show-mob">{mobAll.length} 位著者 · ≥{THRESH_MOB} 部作品</span>
+  </header>
+
+  <!-- 桌面：≥3 -->
+  <div class="subject-cloud show-desk">
+    {desk.map(([id, count]) => (
+      <a class="subject-chip" href={`/people/${id}/`} style={`font-size:${size(count, deskMax)}px`}>
+        {peopleMap.get(id) ?? id}<span class="mono">{count}</span>
+      </a>
+    ))}
+    {deskAll.length > TOP_N && (
+      <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
+    )}
+  </div>
+
+  <!-- 手机：≥7 -->
+  <div class="subject-cloud show-mob">
+    {mob.map(([id, count]) => (
+      <a class="subject-chip" href={`/people/${id}/`} style={`font-size:${size(count, mobMax)}px`}>
+        {peopleMap.get(id) ?? id}<span class="mono">{count}</span>
+      </a>
+    ))}
+    <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
+  </div>
+</section>
+
+<style>
+  .show-mob { display: none; }
+  @media (max-width: 640px) {
+    .show-desk { display: none; }
+    .show-mob.sec-meta { display: inline; }
+    .subject-cloud.show-mob { display: flex; }
+  }
+</style>
