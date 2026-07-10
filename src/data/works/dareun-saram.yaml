@@ -6,12 +6,14 @@ year: 2017
 creators: [kang-hwagil]
 subjects: [父权的解剖, 不按剧本的她们]
 expressions:
-  - lang: zh-Hant
-    title: 他人
-    translator: 简郁璇
-    mine: true
+- lang: ko
+  title: 다른 사람
+- lang: zh-Hant
+  title: 他人
+  translator: 简郁璇
+  mine: true
 readings:
-  - date: '2025-01-05'
+- date: '2025-01-05'
 rating: 8
 status: read
 neodb_uuid: 4W2cKsYvulHCeypezv53ew

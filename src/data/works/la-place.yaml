@@ -7,6 +7,8 @@ creators:
 - ernaux-annie
 subjects: [谁在定义现实]
 expressions:
+- lang: fr
+  title: La Place
 - lang: zh-Hans
   title: 一个男人的位置
   mine: true

@@ -6,12 +6,14 @@ year: 2010
 creators: [asai-ryo]
 subjects: [谁在定义现实]
 expressions:
-  - lang: zh-Hant
-    title: 聽說桐島退社了
-    translator: 黃薇嬪
-    mine: true
+- lang: ja
+  title: 桐島、部活やめるってよ
+- lang: zh-Hant
+  title: 聽說桐島退社了
+  translator: 黃薇嬪
+  mine: true
 readings:
-  - date: '2024-05-23'
+- date: '2024-05-23'
 rating: 8
 status: read
 neodb_uuid: 7Ol6L8tjMYkfDjBUsdGYTF

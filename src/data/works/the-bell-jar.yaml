@@ -7,6 +7,8 @@ creators:
 - plath-sylvia
 subjects: [不按剧本的她们]
 expressions:
+- lang: en
+  title: The Bell Jar
 - lang: zh-Hans
   title: 鐘形罩
   mine: true

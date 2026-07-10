@@ -6,12 +6,14 @@ year: 1990
 creators: [trevor-william]
 subjects: [记忆的地形]
 expressions:
-  - lang: zh-Hans
-    title: 生活的囚徒
-    translator: 亚可
-    mine: true
+- lang: en
+  title: Family Sins and Other Stories
+- lang: zh-Hans
+  title: 生活的囚徒
+  translator: 亚可
+  mine: true
 readings:
-  - date: '2024-02-15'
+- date: '2024-02-15'
 rating: 8
 status: read
 neodb_uuid: 5ifvCsmYvcHK4szUiWhYJc

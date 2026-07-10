@@ -6,12 +6,14 @@ year: 2004
 creators: [munro-alice]
 subjects: [不按剧本的她们]
 expressions:
-  - lang: zh-Hans
-    title: 逃离
-    translator: 李文俊
-    mine: true
+- lang: en
+  title: Runaway
+- lang: zh-Hans
+  title: 逃离
+  translator: 李文俊
+  mine: true
 readings:
-  - date: '2022-03-07'
+- date: '2022-03-07'
 rating: 8
 status: read
 neodb_uuid: 2TthCCivPGFlWTn6nFvssv

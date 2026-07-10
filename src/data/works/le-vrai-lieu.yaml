@@ -7,6 +7,8 @@ creators:
 - ernaux-annie
 subjects: [文学的后台]
 expressions:
+- lang: fr
+  title: Le vrai lieu
 - lang: zh-Hans
   title: 真正的归宿
   mine: true

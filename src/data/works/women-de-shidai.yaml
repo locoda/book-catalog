@@ -7,6 +7,8 @@ creators:
 - seo-maiko
 subjects: []
 expressions:
+- lang: ja
+  title: 私たちの世代
 - lang: zh-Hant
   title: 我們的世代
   mine: true

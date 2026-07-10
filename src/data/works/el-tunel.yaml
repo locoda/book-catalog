@@ -6,12 +6,14 @@ year: 1948
 creators: [sabato-ernesto]
 subjects: [欲望的旷野]
 expressions:
-  - lang: zh-Hans
-    title: 隧道
-    translator: 徐鹤林
-    mine: true
+- lang: es
+  title: El túnel
+- lang: zh-Hans
+  title: 隧道
+  translator: 徐鹤林
+  mine: true
 readings:
-  - date: '2023-06-26'
+- date: '2023-06-26'
 rating: 8
 status: read
 neodb_uuid: 2Yc0f065EMkCoTEoPwl5oC

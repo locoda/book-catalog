@@ -7,6 +7,8 @@ creators:
 - gottlieb-lori
 subjects: [沙发上的自我]
 expressions:
+- lang: en
+  title: Maybe You Should Talk to Someone
 - lang: zh-Hans
   title: 也许你该找个人聊聊
   mine: true

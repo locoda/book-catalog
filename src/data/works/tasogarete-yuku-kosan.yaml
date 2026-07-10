@@ -6,12 +6,14 @@ year: 2024
 creators: [ito-hiromi]
 subjects: [练习告别]
 expressions:
-  - lang: zh-Hans
-    title: 身后无遗物
-    translator: 蕾克
-    mine: true
+- lang: ja
+  title: たそがれてゆく子さん
+- lang: zh-Hans
+  title: 身后无遗物
+  translator: 蕾克
+  mine: true
 readings:
-  - date: '2024-09-07'
+- date: '2024-09-07'
 rating: 8
 status: read
 neodb_uuid: 0aeWcnhqNgcdAIOSN94uYZ

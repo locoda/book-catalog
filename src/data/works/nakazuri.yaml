@@ -7,6 +7,8 @@ creators:
 - asahina-asuka-2
 subjects: [打卡的灵魂]
 expressions:
+- lang: ja
+  title: 中吊り
 - lang: zh-Hans
   title: 中調
   mine: true

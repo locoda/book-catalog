@@ -7,6 +7,8 @@ creators:
 - aoyama-michiko
 subjects: [一餐一饭]
 expressions:
+- lang: ja
+  title: 木曜日にはココアを
 - lang: zh-Hans
   title: 星期四，喝可可
   mine: true

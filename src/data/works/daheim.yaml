@@ -7,6 +7,8 @@ creators:
 - hermann-judith
 subjects: [记忆的地形, 怠工的自由]
 expressions:
+- lang: de
+  title: Daheim
 - lang: zh-Hans
   title: 在家
   mine: true

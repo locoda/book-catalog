@@ -7,6 +7,8 @@ creators:
 - fromm-erich
 subjects: [概念急救箱]
 expressions:
+- lang: en
+  title: The Art of Loving
 - lang: zh-Hans
   title: 爱的艺术
   mine: true

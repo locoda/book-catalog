@@ -6,12 +6,14 @@ year: 2004
 creators: [murakami-haruki]
 subjects: [街角的人间]
 expressions:
-  - lang: zh-Hans
-    title: 天黑以后
-    translator: 施小炜
-    mine: true
+- lang: ja
+  title: アフターダーク
+- lang: zh-Hans
+  title: 天黑以后
+  translator: 施小炜
+  mine: true
 readings:
-  - date: '2023-11-19'
+- date: '2023-11-19'
 rating: 8
 status: read
 neodb_uuid: 4M5O6ImUtxjrcemdA6GrCi

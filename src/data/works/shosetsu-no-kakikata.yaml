@@ -6,12 +6,14 @@ year: 2014
 creators: [nakamura-atsuhiko]
 subjects: [文学的后台]
 expressions:
-  - lang: zh-Hans
-    title: 我不会写小说
-    translator: 伊之文
-    mine: true
+- lang: ja
+  title: 小説の書き方
+- lang: zh-Hans
+  title: 我不会写小说
+  translator: 伊之文
+  mine: true
 readings:
-  - date: '2022-05-21'
+- date: '2022-05-21'
 rating: 8
 status: read
 neodb_uuid: 4B3y15kaJPShCRDWB3ioae

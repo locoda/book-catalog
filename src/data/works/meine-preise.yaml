@@ -6,12 +6,14 @@ year: 2009
 creators: [bernhard-thomas]
 subjects: [文学的后台]
 expressions:
-  - lang: zh-Hans
-    title: 我的文学奖
-    translator: 马文韬
-    mine: true
+- lang: de
+  title: Meine Preise
+- lang: zh-Hans
+  title: 我的文学奖
+  translator: 马文韬
+  mine: true
 readings:
-  - date: '2026-01-01'
+- date: '2026-01-01'
 rating: 8
 status: read
 neodb_uuid: 3s5fhPnnsHiDx7TYE8OrfR

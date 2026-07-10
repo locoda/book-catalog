@@ -7,6 +7,8 @@ creators:
 - hesse-hermann
 subjects: [文学的后台]
 expressions:
+- lang: de
+  title: Lesebuch
 - lang: zh-Hans
   title: 阅读是安静的自我觉醒
   mine: true

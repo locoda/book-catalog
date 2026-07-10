@@ -6,12 +6,14 @@ year: 2018
 creators: [barnes-julian]
 subjects: [爱的余烬, 欲望的旷野]
 expressions:
-  - lang: zh-Hans
-    title: 唯一的故事
-    translator: 郭国良
-    mine: true
+- lang: en
+  title: The Only Story
+- lang: zh-Hans
+  title: 唯一的故事
+  translator: 郭国良
+  mine: true
 readings:
-  - date: '2021-12-01'
+- date: '2021-12-01'
 rating: 8
 status: read
 neodb_uuid: 7QleNv921S9TI4smYZsY6N

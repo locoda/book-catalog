@@ -6,12 +6,14 @@ year: 2008
 creators: [shaffer-brian]
 subjects: [文学的后台]
 expressions:
-  - lang: zh-Hans
-    title: 石黑一雄访谈录
-    translator: 胡玥
-    mine: true
+- lang: en
+  title: Conversations with Kazuo Ishiguro
+- lang: zh-Hans
+  title: 石黑一雄访谈录
+  translator: 胡玥
+  mine: true
 readings:
-  - date: '2023-11-18'
+- date: '2023-11-18'
 rating: 8
 status: read
 neodb_uuid: 7Nz9TO97FR9YaeF5giO3Xc

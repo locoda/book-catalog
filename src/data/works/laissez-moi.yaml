@@ -7,6 +7,8 @@ creators:
 - sauvageot-marcelle
 subjects: [见字如面, 爱的余烬]
 expressions:
+- lang: fr
+  title: Laissez-moi
 - lang: zh-Hans
   title: 我选择独自一人
   mine: true

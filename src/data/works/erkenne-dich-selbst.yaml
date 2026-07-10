@@ -6,12 +6,14 @@ year: 2017
 creators: [precht-richard]
 subjects: [概念急救箱]
 expressions:
-  - lang: zh-Hans
-    title: 认识你自己
-    translator: 贺腾
-    mine: true
+- lang: de
+  title: Erkenne dich selbst
+- lang: zh-Hans
+  title: 认识你自己
+  translator: 贺腾
+  mine: true
 readings:
-  - date: '2023-05-27'
+- date: '2023-05-27'
 rating: 8
 status: read
 neodb_uuid: 56XQPoCkx0iwVkCp76vskp

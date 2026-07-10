@@ -6,12 +6,14 @@ year: 2000
 creators: [yamamoto-fumio]
 subjects: [不按剧本的她们, 怠工的自由]
 expressions:
-  - lang: zh-Hans
-    title: 涡虫
-    translator: 李洁
-    mine: true
+- lang: ja
+  title: プラナリア
+- lang: zh-Hans
+  title: 涡虫
+  translator: 李洁
+  mine: true
 readings:
-  - date: '2025-01-03'
+- date: '2025-01-03'
 rating: 8
 status: read
 neodb_uuid: 60e7ppXtrDLjGESObxyDwq

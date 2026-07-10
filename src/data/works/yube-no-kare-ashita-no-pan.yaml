@@ -7,6 +7,8 @@ creators:
 - makime-manabu
 subjects: [一餐一饭]
 expressions:
+- lang: ja
+  title: 昨夜のカレー、明日のパン
 - lang: zh-Hans
   title: 昨夜的咖喱，明日的面包
   mine: true

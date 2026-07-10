@@ -6,12 +6,14 @@ year: 2019
 creators: [honigsbaum-mark]
 subjects: [非人尺度]
 expressions:
-  - lang: zh-Hans
-    title: 人类大瘟疫
-    translator: 谷晓阳
-    mine: true
+- lang: en
+  title: The Pandemic Century
+- lang: zh-Hans
+  title: 人类大瘟疫
+  translator: 谷晓阳
+  mine: true
 readings:
-  - date: '2021-03-16'
+- date: '2021-03-16'
 rating: 8
 status: read
 neodb_uuid: 0GGJMypaEHUILyofQ6fHVf

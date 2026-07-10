@@ -6,12 +6,14 @@ year: 2021
 creators: [yoshimoto-banana]
 subjects: [与丧失同居, 记忆的地形]
 expressions:
-  - lang: zh-Hant
-    title: 手套與憐憫
-    translator: 劉子倩
-    mine: true
+- lang: ja
+  title: ミトンとふびん
+- lang: zh-Hant
+  title: 手套與憐憫
+  translator: 劉子倩
+  mine: true
 readings:
-  - date: '2025-06-06'
+- date: '2025-06-06'
 rating: 8
 status: read
 neodb_uuid: 3vDOz9HmyBbkTWZRAkOgKY

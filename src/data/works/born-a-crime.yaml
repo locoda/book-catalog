@@ -6,12 +6,14 @@ year: 2016
 creators: [noah-trevor]
 subjects: [轻盈的重量]
 expressions:
-  - lang: zh-Hans
-    title: 天生有罪
-    translator: 董帅
-    mine: true
+- lang: en
+  title: Born a Crime
+- lang: zh-Hans
+  title: 天生有罪
+  translator: 董帅
+  mine: true
 readings:
-  - date: '2020-05-11'
+- date: '2020-05-11'
 rating: 8
 status: read
 neodb_uuid: 2ud9HTJsY6ez1ZdKqiSIq7

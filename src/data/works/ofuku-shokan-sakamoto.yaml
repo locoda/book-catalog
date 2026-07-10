@@ -1,11 +1,13 @@
 work_type: book
-title: 往復書簡
+title: 限界から始まる
 callno: JF-SAK-2020-OFUK
 orig_lang: ja
 year: 2020
 creators: [sakamoto-yuji]
 subjects: [欲望的旷野]
 expressions:
+  - lang: ja
+    title: 限界から始まる
   - lang: zh-Hans
     title: 往复书简：初恋与不伦
     translator: 蕾克

@@ -1,11 +1,13 @@
 work_type: book
-title: 未命名
-callno: JF-KOD-2024-MIME
+title: "##NAME##"
+callno: JF-KOD-2024-NAME
 orig_lang: ja
 year: 2024
 creators: [kodama-uko]
 subjects: []
 expressions:
+  - lang: ja
+    title: "##NAME##"
   - lang: zh-Hant
     title: 未命名
     translator: 王華懋

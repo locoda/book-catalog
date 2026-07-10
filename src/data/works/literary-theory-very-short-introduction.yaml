@@ -6,12 +6,14 @@ year: 1997
 creators: [culler-jonathan]
 subjects: [文学的后台]
 expressions:
-  - lang: zh-Hans
-    title: 文学理论入门
-    translator: 李平
-    mine: true
+- lang: en
+  title: "Literary Theory: A Very Short Introduction"
+- lang: zh-Hans
+  title: 文学理论入门
+  translator: 李平
+  mine: true
 readings:
-  - date: '2023-06-14'
+- date: '2023-06-14'
 rating: 8
 status: read
 neodb_uuid: 5r3G6j3oMJFVevbTwKh3qv

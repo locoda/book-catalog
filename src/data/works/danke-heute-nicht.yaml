@@ -7,6 +7,8 @@ creators:
 - nussbaum-cordula
 subjects: [怠工的自由]
 expressions:
+- lang: de
+  title: Danke, heute nicht
 - lang: zh-Hans
   title: 谢谢，但今天不行
   mine: true

@@ -7,6 +7,8 @@ creators:
 - kuang-rf
 subjects: [文学的后台]
 expressions:
+- lang: en
+  title: Yellowface
 - lang: zh-Hant
   title: 黃色臉孔
   mine: true

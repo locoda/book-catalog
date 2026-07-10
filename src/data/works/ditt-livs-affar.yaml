@@ -6,12 +6,14 @@ year: 2016
 creators: [backman-fredrik]
 subjects: [练习告别, 打卡的灵魂]
 expressions:
-  - lang: zh-Hans
-    title: 时间的礼物
-    translator: 孙璐
-    mine: true
+- lang: sv
+  title: Ditt livs affär
+- lang: zh-Hans
+  title: 时间的礼物
+  translator: 孙璐
+  mine: true
 readings:
-  - date: '2021-07-27'
+- date: '2021-07-27'
 rating: 8
 status: read
 neodb_uuid: 6Bf5plKYCoocZbLkHgyCNm

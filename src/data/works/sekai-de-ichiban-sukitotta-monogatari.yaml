@@ -6,12 +6,14 @@ year: 2023
 creators: [sugii-hikaru]
 subjects: [精巧的圈套]
 expressions:
-  - lang: zh-Hant
-    title: 世界上最透明的故事
-    translator: 簡捷
-    mine: true
+- lang: ja
+  title: 世界でいちばん透きとおった物語
+- lang: zh-Hant
+  title: 世界上最透明的故事
+  translator: 簡捷
+  mine: true
 readings:
-  - date: '2024-12-04'
+- date: '2024-12-04'
 rating: 8
 status: read
 neodb_uuid: 7KuZBeHQ9eK7u4IwmHnae4

@@ -6,12 +6,14 @@ year: 2018
 creators: [fukuyama-francis]
 subjects: [我是谁的练习]
 expressions:
-  - lang: zh-Hans
-    title: 身份政治
-    translator: 刘芳
-    mine: true
+- lang: en
+  title: Identity
+- lang: zh-Hans
+  title: 身份政治
+  translator: 刘芳
+  mine: true
 readings:
-  - date: '2022-05-03'
+- date: '2022-05-03'
 rating: 8
 status: read
 neodb_uuid: 1CsHlnkJCfWQUczXU63kzX

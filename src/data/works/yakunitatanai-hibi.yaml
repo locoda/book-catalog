@@ -6,11 +6,13 @@ year: 2010
 creators: [sano-yoko]
 subjects: [老年的形状]
 expressions:
-  - lang: zh-Hans
-    title: 痛快的日子
-    mine: true
+- lang: ja
+  title: 役にたたない日々
+- lang: zh-Hans
+  title: 痛快的日子
+  mine: true
 readings:
-  - date: '2023-07-01'
+- date: '2023-07-01'
 rating: 8
 status: read
 neodb_uuid: 0NMGvRiMbjpWAEkV1bx0SF

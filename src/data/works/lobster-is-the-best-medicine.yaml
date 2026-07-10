@@ -6,12 +6,14 @@ year: 2015
 creators: [climo-liz]
 subjects: [轻盈的重量]
 expressions:
-  - lang: zh-Hans
-    title: 我可以咬一口吗
-    translator: 周高逸
-    mine: true
+- lang: en
+  title: Lobster is the Best Medicine
+- lang: zh-Hans
+  title: 我可以咬一口吗
+  translator: 周高逸
+  mine: true
 readings:
-  - date: '2018-12-30'
+- date: '2018-12-30'
 rating: 8
 status: read
 neodb_uuid: 5jLd7wKuDp3oWYghX2FyXm

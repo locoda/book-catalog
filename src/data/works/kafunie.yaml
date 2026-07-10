@@ -7,6 +7,8 @@ creators:
 - abe-akiko
 subjects: [一餐一饭]
 expressions:
+- lang: ja
+  title: カフネ
 - lang: zh-Hant
   title: 卡芙涅
   mine: true

@@ -7,6 +7,8 @@ creators:
 - murakami-haruki
 subjects: [叙事的迷宫]
 expressions:
+- lang: ja
+  title: 羊をめぐる冒険
 - lang: zh-Hans
   title: 寻羊冒险记
   mine: true

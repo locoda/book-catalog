@@ -7,6 +7,8 @@ creators:
 - slimani-leila
 subjects: [文学的后台, 观看的训练]
 expressions:
+- lang: fr
+  title: Le Parfum des fleurs la nuit
 - lang: zh-Hant
   title: 夜裡的花香
   mine: true

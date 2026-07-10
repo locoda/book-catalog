@@ -6,12 +6,14 @@ year: 2016
 creators: [dusapin-elisa]
 subjects: [街角的人间, 我是谁的练习]
 expressions:
-  - lang: zh-Hans
-    title: 束草的冬天
-    translator: 狄佳
-    mine: true
+- lang: fr
+  title: Hiver à Sokcho
+- lang: zh-Hans
+  title: 束草的冬天
+  translator: 狄佳
+  mine: true
 readings:
-  - date: '2024-12-31'
+- date: '2024-12-31'
 rating: 8
 status: read
 neodb_uuid: 43AO7ZZBx7JrbQarg13mqz

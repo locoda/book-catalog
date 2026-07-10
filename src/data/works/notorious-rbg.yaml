@@ -8,6 +8,8 @@ creators:
 - knizhnik-shana
 subjects: [父权的解剖]
 expressions:
+- lang: en
+  title: Notorious RBG
 - lang: zh-Hans
   title: 异见时刻
   mine: true

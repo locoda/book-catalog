@@ -6,12 +6,14 @@ year: 2008
 creators: [felski-rita]
 subjects: [文学的后台]
 expressions:
-  - lang: zh-Hans
-    title: 文学之用
-    translator: 刘洋
-    mine: true
+- lang: en
+  title: Uses of Literature
+- lang: zh-Hans
+  title: 文学之用
+  translator: 刘洋
+  mine: true
 readings:
-  - date: '2021-11-10'
+- date: '2021-11-10'
 rating: 8
 status: read
 neodb_uuid: 4cwcfAQXHwhXf1S26sur25

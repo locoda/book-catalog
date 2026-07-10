@@ -7,6 +7,8 @@ creators:
 - adler-mortimer
 subjects: [概念急救箱]
 expressions:
+- lang: en
+  title: "Philosophy: Who Needs It"
 - lang: zh-Hans
   title: 哲学的迷途
   mine: true

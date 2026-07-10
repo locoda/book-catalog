@@ -6,12 +6,14 @@ year: 2022
 creators: [genberg-ia]
 subjects: [叙事的迷宫]
 expressions:
-  - lang: zh-Hans
-    title: 唯余细节
-    translator: 王梦达
-    mine: true
+- lang: sv
+  title: Detaljerna
+- lang: zh-Hans
+  title: 唯余细节
+  translator: 王梦达
+  mine: true
 readings:
-  - date: '2024-06-06'
+- date: '2024-06-06'
 rating: 8
 status: read
 neodb_uuid: 3hULBDHrW7GKUCzFeMPmT1

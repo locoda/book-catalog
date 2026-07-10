@@ -6,12 +6,14 @@ year: 1941
 creators: [marai-sandor]
 subjects: [并肩的孤独]
 expressions:
-  - lang: zh-Hans
-    title: 伪装成独白的爱情
-    translator: 郭晓晶
-    mine: true
+- lang: hu
+  title: Az igazi
+- lang: zh-Hans
+  title: 伪装成独白的爱情
+  translator: 郭晓晶
+  mine: true
 readings:
-  - date: '2023-09-30'
+- date: '2023-09-30'
 rating: 8
 status: read
 neodb_uuid: 5fFlJph8FwTDzR7jJSqGQd

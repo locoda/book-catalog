@@ -7,6 +7,8 @@ creators:
 - hesse-hermann
 subjects: [见字如面, 文学的后台]
 expressions:
+- lang: de
+  title: Hesse Briefe
 - lang: zh-Hans
   title: 黑塞书信集
   mine: true

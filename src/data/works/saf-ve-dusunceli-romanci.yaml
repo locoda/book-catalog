@@ -6,12 +6,14 @@ year: 2011
 creators: [pamuk-orhan]
 subjects: [文学的后台]
 expressions:
-  - lang: zh-Hans
-    title: 天真的和感伤的小说家
-    translator: 彭发胜
-    mine: true
+- lang: tr
+  title: Saf ve Düşünceli Romancı
+- lang: zh-Hans
+  title: 天真的和感伤的小说家
+  translator: 彭发胜
+  mine: true
 readings:
-  - date: '2024-03-31'
+- date: '2024-03-31'
 rating: 8
 status: read
 neodb_uuid: 1k65WE9xnZlmnMeeiBmGvc

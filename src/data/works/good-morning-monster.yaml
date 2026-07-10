@@ -7,6 +7,8 @@ creators:
 - gildiner-catherine
 subjects: [沙发上的自我]
 expressions:
+- lang: en
+  title: Good Morning, Monster
 - lang: zh-Hans
   title: 早安，怪物
   mine: true

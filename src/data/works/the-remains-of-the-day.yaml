@@ -7,6 +7,8 @@ creators:
 - ishiguro-kazuo
 subjects: [叙事的迷宫, 记忆的地形]
 expressions:
+- lang: en
+  title: The Remains of the Day
 - lang: zh-Hans
   title: 长日将尽
   mine: true

@@ -7,6 +7,8 @@ creators:
 - ishiguro-kazuo
 subjects: [叙事的迷宫, 记忆的地形]
 expressions:
+- lang: en
+  title: A Pale View of Hills
 - lang: zh-Hans
   title: 远山淡影
   mine: true

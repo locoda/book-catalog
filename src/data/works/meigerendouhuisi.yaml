@@ -1,5 +1,5 @@
 work_type: book
-title: 每个人都会死，但我总以为自己不会
+title: Heidegger and a Hippo Walk Through Those Pearly Gates
 callno: EN-CAT-2013-MEIG
 orig_lang: en
 year: 2013
@@ -8,6 +8,8 @@ creators:
 - klein-daniel
 subjects: [练习告别]
 expressions:
+- lang: en
+  title: "Heidegger and a Hippo Walk Through Those Pearly Gates: Using Philosophy (and Jokes!) to Explore Life, Death, the Afterlife, and Everything in Between"
 - lang: zh-Hans
   title: 每个人都会死，但我总以为自己不会
   mine: true

@@ -7,6 +7,8 @@ creators:
 - ernaux-annie
 subjects: [不按剧本的她们]
 expressions:
+- lang: fr
+  title: Mémoire de fille
 - lang: zh-Hans
   title: 一个女孩的记忆
   mine: true

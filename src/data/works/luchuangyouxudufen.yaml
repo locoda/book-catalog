@@ -1,5 +1,5 @@
 work_type: book
-title: 鹿川有许多粪
+title: 녹천에는 똥이 많다
 callno: OF-LEE-1992-NOKC
 orig_lang: ko
 year: 1992
@@ -7,6 +7,8 @@ creators:
 - lee-changdong
 subjects: [谁在定义现实, 记忆的地形]
 expressions:
+- lang: ko
+  title: 녹천에는 똥이 많다
 - lang: zh-Hans
   title: 鹿川有许多粪
   mine: true

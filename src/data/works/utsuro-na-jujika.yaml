@@ -7,6 +7,8 @@ creators:
 - higashino-keigo
 subjects: [精巧的圈套]
 expressions:
+- lang: ja
+  title: 虚ろな十字架
 - lang: zh-Hans
   title: 虚无的十字架
   mine: true

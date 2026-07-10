@@ -6,12 +6,14 @@ year: 2008
 creators: [brook-timothy]
 subjects: [观看的训练]
 expressions:
-  - lang: zh-Hans
-    title: 维米尔的帽子
-    translator: 黄中宪
-    mine: true
+- lang: en
+  title: Vermeer's Hat
+- lang: zh-Hans
+  title: 维米尔的帽子
+  translator: 黄中宪
+  mine: true
 readings:
-  - date: '2022-06-11'
+- date: '2022-06-11'
 rating: 8
 status: read
 neodb_uuid: 63d4zMmmxR6s7gd6bMcJSV

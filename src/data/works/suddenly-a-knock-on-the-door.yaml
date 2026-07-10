@@ -6,12 +6,14 @@ year: 2012
 creators: [keret-etgar]
 subjects: [轻盈的重量]
 expressions:
-  - lang: zh-Hans
-    title: 突然，响起一阵敲门声
-    translator: 楼武挺
-    mine: true
+- lang: he
+  title: Suddenly, a Knock on the Door
+- lang: zh-Hans
+  title: 突然，响起一阵敲门声
+  translator: 楼武挺
+  mine: true
 readings:
-  - date: '2021-08-18'
+- date: '2021-08-18'
 rating: 8
 status: read
 neodb_uuid: 3OttctT8Mm4OGSgCJUL08O

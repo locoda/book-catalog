@@ -8,6 +8,8 @@ creators:
 - johnson-mark
 subjects: [概念急救箱]
 expressions:
+- lang: en
+  title: Metaphors We Live By
 - lang: zh-Hans
   title: 我们赖以生存的隐喻
   mine: true

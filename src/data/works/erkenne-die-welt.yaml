@@ -6,12 +6,14 @@ year: 2015
 creators: [precht-richard]
 subjects: [概念急救箱]
 expressions:
-  - lang: zh-Hans
-    title: 认识世界：古代与中世纪哲学
-    translator: 王俊 等
-    mine: true
+- lang: de
+  title: Erkenne die Welt
+- lang: zh-Hans
+  title: 认识世界：古代与中世纪哲学
+  translator: 王俊 等
+  mine: true
 readings:
-  - date: '2021-09-09'
+- date: '2021-09-09'
 rating: 8
 status: read
 neodb_uuid: 1hk69o99CzBlS5Q9xsneos

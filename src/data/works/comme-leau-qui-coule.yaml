@@ -7,6 +7,8 @@ creators:
 - yourcenar-marguerite
 subjects: [记忆的地形]
 expressions:
+- lang: fr
+  title: Comme leau qui coule
 - lang: zh-Hans
   title: 像水一样流
   mine: true

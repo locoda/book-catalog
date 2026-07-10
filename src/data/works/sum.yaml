@@ -6,12 +6,14 @@ year: 2009
 creators: [eagleman-david]
 subjects: [练习告别]
 expressions:
-  - lang: zh-Hant
-    title: 死後四十種生活
-    translator: 郭寶蓮
-    mine: true
+- lang: en
+  title: Sum
+- lang: zh-Hant
+  title: 死後四十種生活
+  translator: 郭寶蓮
+  mine: true
 readings:
-  - date: '2024-01-03'
+- date: '2024-01-03'
 rating: 8
 status: read
 neodb_uuid: 1TD0PKyxrS9xOYObNSUZ4A

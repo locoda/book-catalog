@@ -6,12 +6,14 @@ year: 2004
 creators: [ugresic-dubravka]
 subjects: [我是谁的练习, 记忆的地形]
 expressions:
-  - lang: zh-Hans
-    title: 疼痛部
-    translator: 姜昊骞
-    mine: true
+- lang: hr
+  title: Ministarstvo boli
+- lang: zh-Hans
+  title: 疼痛部
+  translator: 姜昊骞
+  mine: true
 readings:
-  - date: '2023-11-20'
+- date: '2023-11-20'
 rating: 8
 status: read
 neodb_uuid: 4HJIOtrE5w9rvI7Rx9McsG

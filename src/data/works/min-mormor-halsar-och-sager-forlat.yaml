@@ -6,12 +6,14 @@ year: 2013
 creators: [backman-fredrik]
 subjects: [老年的形状]
 expressions:
-  - lang: zh-Hans
-    title: 外婆的道歉信
-    translator: 孟汇一
-    mine: true
+- lang: sv
+  title: Min mormor hälsar och säger förlåt
+- lang: zh-Hans
+  title: 外婆的道歉信
+  translator: 孟汇一
+  mine: true
 readings:
-  - date: '2019-02-17'
+- date: '2019-02-17'
 rating: 8
 status: read
 neodb_uuid: 2bwVWVrbVNEFEzLQJcj7Ah

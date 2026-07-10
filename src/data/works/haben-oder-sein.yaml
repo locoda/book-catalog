@@ -7,6 +7,8 @@ creators:
 - fromm-erich
 subjects: [概念急救箱]
 expressions:
+- lang: de
+  title: Haben oder Sein
 - lang: zh-Hans
   title: 占有还是存在
   mine: true

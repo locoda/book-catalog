@@ -6,12 +6,14 @@ year: 1948
 creators: [yun-dongju]
 subjects: [我是谁的练习]
 expressions:
-  - lang: zh-Hans
-    title: 数星星的夜
-    translator: 全勇先
-    mine: true
+- lang: ko
+  title: 별 헤는 밤
+- lang: zh-Hans
+  title: 数星星的夜
+  translator: 全勇先
+  mine: true
 readings:
-  - date: '2021-06-29'
+- date: '2021-06-29'
 rating: 8
 status: read
 neodb_uuid: 6AOKAGC8jkrusBEIz8VCip

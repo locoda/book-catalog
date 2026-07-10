@@ -1,5 +1,5 @@
 work_type: book
-title: 救命啊
+title: Can You Hear Me?
 callno: EN-JON-2022-JIUM
 orig_lang: en
 year: 2022
@@ -7,6 +7,8 @@ creators:
 - jones-jack
 subjects: [轻盈的重量]
 expressions:
+- lang: en
+  title: "Can You Hear Me?: An NHS Paramedic's Encounters with Life and Death"
 - lang: zh-Hans
   title: 救命啊
   mine: true

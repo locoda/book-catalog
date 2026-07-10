@@ -1,5 +1,5 @@
 work_type: book
-title: 一只狼在放哨
+title: گرگی در کمین
 callno: OF-KIA-2017-YIZH
 orig_lang: fa
 year: 2017
@@ -7,6 +7,8 @@ creators:
 - kiarostami-abbas
 subjects: [观看的训练]
 expressions:
+- lang: fa
+  title: گرگی در کمین
 - lang: zh-Hans
   title: 一只狼在放哨
   mine: true

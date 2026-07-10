@@ -7,6 +7,8 @@ creators:
 - greene-graham
 subjects: [怠工的自由]
 expressions:
+- lang: en
+  title: A Burnt-Out Case
 - lang: zh-Hans
   title: 一个燃尽自我的病人
   mine: true

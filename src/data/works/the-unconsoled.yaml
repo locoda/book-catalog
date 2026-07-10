@@ -7,6 +7,8 @@ creators:
 - ishiguro-kazuo
 subjects: [记忆的地形, 叙事的迷宫]
 expressions:
+- lang: en
+  title: The Unconsoled
 - lang: zh-Hans
   title: 无可慰藉
   mine: true

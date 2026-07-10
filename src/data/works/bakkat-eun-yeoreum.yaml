@@ -6,12 +6,14 @@ year: 2017
 creators: [kim-aeran]
 subjects: [与丧失同居]
 expressions:
-  - lang: zh-Hant
-    title: 外面是夏天
-    translator: 馮燕珠
-    mine: true
+- lang: ko
+  title: 바깥은 여름
+- lang: zh-Hant
+  title: 外面是夏天
+  translator: 馮燕珠
+  mine: true
 readings:
-  - date: '2025-02-16'
+- date: '2025-02-16'
 rating: 8
 status: read
 neodb_uuid: 7h6oH7JuOiVL7qTHEXTtMJ

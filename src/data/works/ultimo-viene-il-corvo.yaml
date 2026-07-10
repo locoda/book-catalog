@@ -7,6 +7,8 @@ creators:
 - calvino-italo
 subjects: [记忆的地形]
 expressions:
+- lang: it
+  title: Ultimo viene il corvo
 - lang: zh-Hans
   title: 最后来的是乌鸦
   mine: true

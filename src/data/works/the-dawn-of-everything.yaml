@@ -6,12 +6,14 @@ year: 2021
 creators: [graeber-david]
 subjects: [谁在定义现实]
 expressions:
-  - lang: zh-Hant
-    title: 萬事揭曉
-    translator: 林紋沛
-    mine: true
+- lang: en
+  title: The Dawn of Everything
+- lang: zh-Hant
+  title: 萬事揭曉
+  translator: 林紋沛
+  mine: true
 readings:
-  - date: '2024-12-22'
+- date: '2024-12-22'
 rating: 8
 status: read
 neodb_uuid: 5jbYf0PQieGB6YpJxVoqCD

@@ -6,12 +6,14 @@ year: 2017
 creators: [kushiki-riu]
 subjects: [精巧的圈套]
 expressions:
-  - lang: zh-Hans
-    title: 死刑之病
-    translator: 蔡东辉
-    mine: true
+- lang: ja
+  title: 死刑にいたる病
+- lang: zh-Hans
+  title: 死刑之病
+  translator: 蔡东辉
+  mine: true
 readings:
-  - date: '2026-05-22'
+- date: '2026-05-22'
 rating: 8
 status: read
 neodb_uuid: 4Y5KOOKK71XUeHavcatjVS

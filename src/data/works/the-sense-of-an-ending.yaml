@@ -7,6 +7,8 @@ creators:
 - barnes-julian
 subjects: [叙事的迷宫]
 expressions:
+- lang: en
+  title: The Sense of an Ending
 - lang: zh-Hans
   title: 终结的感觉
   mine: true

@@ -7,6 +7,8 @@ creators:
 - cho-namjoo
 subjects: [不按剧本的她们]
 expressions:
+- lang: ko
+  title: 귤의 맛
 - lang: zh-Hans
   title: 橘子的滋味
   mine: true

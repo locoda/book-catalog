@@ -7,6 +7,8 @@ creators:
 - precht-richard
 subjects: [打卡的灵魂]
 expressions:
+- lang: de
+  title: Freiheit für alle
 - lang: zh-Hans
   title: 众生无束
   mine: true

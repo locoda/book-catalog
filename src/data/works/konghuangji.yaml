@@ -7,6 +7,8 @@ creators:
 - molinard-barbara
 subjects: [叙事的迷宫]
 expressions:
+- lang: fr
+  title: Panique
 - lang: zh-Hans
   title: 恐慌集
   mine: true

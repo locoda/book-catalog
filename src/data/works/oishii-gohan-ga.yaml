@@ -7,6 +7,8 @@ creators:
 - takase-junko
 subjects: [一餐一饭]
 expressions:
+- lang: ja
+  title: おいしいごはんが食べられますように
 - lang: zh-Hant
   title: 願能嚐到美味料理
   mine: true

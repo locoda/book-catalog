@@ -7,6 +7,8 @@ creators:
 - terachi-haruna
 subjects: [一餐一饭]
 expressions:
+- lang: ja
+  title: カレーの時間
 - lang: zh-Hans
   title: 咖哩時間
   mine: true

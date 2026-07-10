@@ -7,6 +7,8 @@ creators:
 - ernaux-annie
 subjects: [欲望的旷野]
 expressions:
+- lang: fr
+  title: L Occupation
 - lang: zh-Hans
   title: 占据
   mine: true

@@ -6,12 +6,14 @@ year: 2019
 creators: [kreft-nora]
 subjects: [概念急救箱]
 expressions:
-  - lang: zh-Hans
-    title: 谈情说爱的哲学家
-    translator: 陈敬思
-    mine: true
+- lang: de
+  title: Was ist Liebe, Sokrates?
+- lang: zh-Hans
+  title: 谈情说爱的哲学家
+  translator: 陈敬思
+  mine: true
 readings:
-  - date: '2022-04-23'
+- date: '2022-04-23'
 rating: 8
 status: read
 neodb_uuid: 6KFbzrtdOAdQscNfNqowMU

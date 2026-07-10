@@ -6,12 +6,14 @@ year: 2023
 creators: [natsukawa-sosuke]
 subjects: [沙发上的自我]
 expressions:
-  - lang: zh-Hant
-    title: 史賓諾莎診療室
-    translator: 王華懋
-    mine: true
+- lang: ja
+  title: スピノザの診察室
+- lang: zh-Hant
+  title: 史賓諾莎診療室
+  translator: 王華懋
+  mine: true
 readings:
-  - date: '2025-09-28'
+- date: '2025-09-28'
 rating: 8
 status: read
 neodb_uuid: 3FBhJ9sKaM6zAu8N28CORX

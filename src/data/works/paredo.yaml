@@ -6,12 +6,14 @@ year: 2002
 creators: [yoshida-shuichi]
 subjects: [街角的人间, 叙事的迷宫]
 expressions:
-  - lang: zh-Hans
-    title: 同栖生活
-    translator: 竺家荣
-    mine: true
+- lang: ja
+  title: パレード
+- lang: zh-Hans
+  title: 同栖生活
+  translator: 竺家荣
+  mine: true
 readings:
-  - date: '2024-01-06'
+- date: '2024-01-06'
 rating: 8
 status: read
 neodb_uuid: 2N8mgFrFdx1qSW0KhZDa6l

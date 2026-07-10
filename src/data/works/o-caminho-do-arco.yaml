@@ -6,11 +6,13 @@ year: 2003
 creators: [coelho-paulo]
 subjects: [概念急救箱]
 expressions:
-  - lang: en
-    title: The Way of the Bow
-    mine: true
+- lang: pt
+  title: O caminho do arco
+- lang: en
+  title: The Way of the Bow
+  mine: true
 readings:
-  - date: '2024-11-05'
+- date: '2024-11-05'
 rating: 8
 status: read
 neodb_uuid: 3nXPImyZKKeSfDLm0jWdAE

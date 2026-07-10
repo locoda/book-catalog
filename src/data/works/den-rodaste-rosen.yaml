@@ -7,6 +7,8 @@ creators:
 - stromquist-liv
 subjects: [父权的解剖]
 expressions:
+- lang: sv
+  title: Den rödaste rosen slår ut
 - lang: zh-Hans
   title: 犹在镜中
   mine: true

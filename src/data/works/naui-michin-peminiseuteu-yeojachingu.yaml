@@ -6,12 +6,14 @@ year: 2019
 creators: [min-jihyoung]
 subjects: [父权的解剖, 并肩的孤独]
 expressions:
-  - lang: zh-Hant
-    title: 她厭男，她是我女友
-    translator: 黃莞婷
-    mine: true
+- lang: ko
+  title: 나의 미친 페미니스트 여자친구
+- lang: zh-Hant
+  title: 她厭男，她是我女友
+  translator: 黃莞婷
+  mine: true
 readings:
-  - date: '2023-08-20'
+- date: '2023-08-20'
 rating: 8
 status: read
 neodb_uuid: 2l4fRGed1nE5tfbgZK8mzP

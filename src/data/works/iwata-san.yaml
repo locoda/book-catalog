@@ -7,6 +7,8 @@ creators:
 - iwai-shunji
 subjects: [打卡的灵魂]
 expressions:
+- lang: ja
+  title: 岩田さん
 - lang: zh-Hans
   title: 岩田先生
   mine: true

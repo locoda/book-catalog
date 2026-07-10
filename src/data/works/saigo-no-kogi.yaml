@@ -7,6 +7,8 @@ creators:
 - saibara-rieko
 subjects: [练习告别]
 expressions:
+- lang: ja
+  title: 最後の講義
 - lang: zh-Hans
   title: 最后的讲义
   mine: true

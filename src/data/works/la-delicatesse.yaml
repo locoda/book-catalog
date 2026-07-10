@@ -6,12 +6,14 @@ year: 2009
 creators: [foenkinos-david]
 subjects: [与丧失同居, 心动配方]
 expressions:
-  - lang: zh-Hans
-    title: 微妙
-    translator: 王东亮
-    mine: true
+- lang: fr
+  title: La Délicatesse
+- lang: zh-Hans
+  title: 微妙
+  translator: 王东亮
+  mine: true
 readings:
-  - date: '2022-09-05'
+- date: '2022-09-05'
 rating: 8
 status: read
 neodb_uuid: 4jC5b0MTpGbdKem4yyvT5S

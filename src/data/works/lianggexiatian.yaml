@@ -7,6 +7,8 @@ creators:
 - sano-yoko
 subjects: [老年的形状]
 expressions:
+- lang: ja
+  title: ふたつの夏
 - lang: zh-Hans
   title: 兩個夏天
   mine: true

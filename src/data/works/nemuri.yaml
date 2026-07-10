@@ -7,6 +7,8 @@ creators:
 - murakami-haruki
 subjects: [不按剧本的她们]
 expressions:
+- lang: ja
+  title: ねむり
 - lang: zh-Hans
   title: 眠
   mine: true
