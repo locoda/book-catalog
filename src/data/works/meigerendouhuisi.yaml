@@ -1,0 +1,19 @@
+work_type: book
+title: 每个人都会死，但我总以为自己不会
+callno: ON-CAT-2013-MEIG
+orig_lang: en
+year: 2013
+creators:
+- cathcart-thomas
+- klein-daniel
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 每个人都会死，但我总以为自己不会
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6xrkU3vdK44wFsUW7A172D

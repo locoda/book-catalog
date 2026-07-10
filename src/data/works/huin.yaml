@@ -3,7 +3,6 @@ title: 흰
 orig_lang: ko
 year: 2016
 creators: [han-kang]
-confirmed: true
 callno: OF-HAN-2016-HUIN
 subjects: [哀悼与丧失, 空间与记忆]
 expressions:
@@ -13,8 +12,13 @@ expressions:
     title: 失语者
     translator: 胡椒筒
     mine: true
+  - lang: zh-Hant
+    title: 白
+    mine: true
 readings:
   - date: "2022-01-01"
+    platform: NeoDB 标记
+  - date: "2025-01-01"
     platform: NeoDB 标记
 rating: 8
 status: read

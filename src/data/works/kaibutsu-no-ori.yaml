@@ -1,12 +1,13 @@
 work_type: book
-confirmed: true
-title: 怪物の檻
+title: ぼくは化け物きみは怪物
 callno: OF-SHI-2023-KAIB
 orig_lang: ja
-year: 2023
+year: 2024
 creators: [shirai-tomoyuki]
 subjects: []
 expressions:
+  - lang: ja
+    title: ぼくは化け物きみは怪物
   - lang: zh-Hant
     title: 我是怪異，你是怪物
     translator: 李喬智

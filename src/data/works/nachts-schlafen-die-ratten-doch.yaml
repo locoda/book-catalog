@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: Nachts schlafen die Ratten doch
 callno: OF-BOR-1947-NACH
 orig_lang: de
@@ -16,4 +15,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 75TA5n7D1PdOuYFqGPb7WH

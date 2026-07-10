@@ -1,0 +1,18 @@
+work_type: book
+title: カレーの時間
+callno: OF-TER-2023-KARE
+orig_lang: ja
+year: 2023
+creators:
+- terachi-haruna
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 咖哩時間
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 69RzzM2toQrNFGGq3NhDq1

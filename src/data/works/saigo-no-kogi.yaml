@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: 最後の講義
 callno: OF-SAI-2020-SAIG
 orig_lang: ja
@@ -16,4 +15,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 2jKfVaqUN5X4d0tXU7Pu51

@@ -1,12 +1,13 @@
 work_type: book
-confirmed: true
 title: わたしの美しい庭
 callno: OF-NAG-2023-WATA
 orig_lang: ja
-year: 2023
+year: 2019
 creators: [nagira-yuu]
 subjects: []
 expressions:
+  - lang: ja
+    title: わたしの美しい庭
   - lang: zh-Hant
     title: 我的美麗庭園
     translator: 詹慕如

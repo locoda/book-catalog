@@ -1,0 +1,18 @@
+work_type: book
+title: The Art of Loving
+callno: ON-FRO-1956-ARTO
+orig_lang: en
+year: 1956
+creators:
+- fromm-erich
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 爱的艺术
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 70EcL3wtmS49669Y9LJlc5

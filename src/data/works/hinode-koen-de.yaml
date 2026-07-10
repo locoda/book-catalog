@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 日の出公園で
+title: リカバリー・カバヒコ
 callno: OF-AOY-2024-HINO
 orig_lang: ja
-year: 2024
+year: 2023
 creators:
 - aoyama-michiko
 subjects: []
 expressions:
+- lang: ja
+  title: リカバリー・カバヒコ
 - lang: zh-Hant
   title: 相遇，在日之出公園
   mine: true

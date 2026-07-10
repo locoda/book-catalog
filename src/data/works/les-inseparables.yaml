@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: Les Inséparables
 callno: OF-BEA-2020-INSE
 orig_lang: fr
@@ -16,4 +15,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 07lJaqLevMRtP6mNWOXZWK

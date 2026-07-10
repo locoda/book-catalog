@@ -1,0 +1,18 @@
+work_type: book
+title: Yellowface
+callno: OF-KUA-2023-YELL
+orig_lang: en
+year: 2023
+creators:
+- kuang-rf
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 黃色臉孔
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0KdTv7gfmWxmPiEGP0yBpA

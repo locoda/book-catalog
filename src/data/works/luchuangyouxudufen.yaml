@@ -1,0 +1,18 @@
+work_type: book
+title: 鹿川有许多粪
+callno: OF-LEE-1992-NOKC
+orig_lang: ko
+year: 1992
+creators:
+- lee-changdong
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 鹿川有许多粪
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 648W0B7JJs2S2Ew32lZbnE

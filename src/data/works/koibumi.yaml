@@ -1,0 +1,18 @@
+work_type: book
+title: 恋文
+callno: OF-REN-1985-KOIB
+orig_lang: ja
+year: 1985
+creators:
+- renjo-mikihiko
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 情書
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6EgEwXAwcop7IkMDHUaKk3

@@ -1,0 +1,18 @@
+work_type: book
+title: むらさきのスカートの女
+callno: OF-IMA-2019-MURA
+orig_lang: ja
+year: 2019
+creators:
+- imamura-natsuko
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 无人知晓的真由子
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 61cBN0yMW2svAM8M8hUbMa

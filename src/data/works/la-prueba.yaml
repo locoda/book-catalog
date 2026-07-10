@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: La prueba
 callno: OF-AIR-1992-PRUE
 orig_lang: es
@@ -16,4 +15,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 4S8HZs4L5vwMuqfVyooX0e

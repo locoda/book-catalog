@@ -1,0 +1,18 @@
+work_type: book
+title: 我有一個關於不倫的,小問題
+callno: ZF-XU-2023-WOYO
+orig_lang: zh-Hant
+year: 2023
+creators:
+- xu-liwei
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 我有一個關於不倫的,小問題
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7fXr2Sz9Bc1Uu0BxAWmVFw

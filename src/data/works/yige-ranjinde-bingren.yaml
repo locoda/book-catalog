@@ -1,0 +1,18 @@
+work_type: book
+title: A Burnt-Out Case
+callno: OF-GRE-1960-BURN
+orig_lang: en
+year: 1960
+creators:
+- greene-graham
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 一个燃尽自我的病人
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2Eena07ko1tyMaZfhOdeRZ

@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 資優
+title: ギフテッド
 callno: OF-SUZ-2023-SHIY
 orig_lang: ja
-year: 2023
+year: 2022
 creators:
 - suzuki-suzumi
 subjects: []
 expressions:
+- lang: ja
+  title: ギフテッド
 - lang: zh-Hans
   title: 资优
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 6NzPNE9qEh9SSvgLCFxH5z

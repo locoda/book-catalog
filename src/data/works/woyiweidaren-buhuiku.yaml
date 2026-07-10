@@ -1,0 +1,18 @@
+work_type: book
+title: 大人は泣かないと思っていた
+callno: OF-TER-2023-OTON
+orig_lang: ja
+year: 2023
+creators:
+- terachi-haruna
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 我以為大人不會哭
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1avMhOcIx9DYjp1FLgqfce

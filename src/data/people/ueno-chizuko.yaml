@@ -1,6 +1,7 @@
-name: 上野千鶴子
+name: Chizuko Ueno
 sort: Ueno, Chizuko
 forms:
+  - {script: ja, value: 上野千鶴子}
   - {script: ja-kana, value: うえの ちづこ}
   - {script: ja-Latn, value: Ueno Chizuko}
   - {script: zh, value: 上野千鹤子}

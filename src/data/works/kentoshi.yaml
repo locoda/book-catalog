@@ -1,0 +1,18 @@
+work_type: book
+title: 献灯使
+callno: OF-TAW-2014-KENT
+orig_lang: ja
+year: 2014
+creators:
+- tawada-yoko
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 献灯使
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6txKJZA6SRKWKvTp1U00xr

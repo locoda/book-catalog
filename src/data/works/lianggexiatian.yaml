@@ -1,0 +1,18 @@
+work_type: book
+title: ふたつの夏
+callno: OF-SAN-2020-FUTA
+orig_lang: ja
+year: 2020
+creators:
+- sano-yoko
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 兩個夏天
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4OXC9a96xpJow1ZpIThHu8

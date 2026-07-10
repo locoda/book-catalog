@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 港のホテルの中庭で
+title: ミナトホテルの裏庭には
 callno: OF-TER-2022-MINA
 orig_lang: ja
-year: 2022
+year: 2016
 creators:
 - terachi-haruna
 subjects: []
 expressions:
+- lang: ja
+  title: ミナトホテルの裏庭には
 - lang: zh-Hans
   title: 在那港湾旅馆的内院里
   mine: true
@@ -17,4 +18,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 6ZKoYTVdHyz8rcoAy1RGym

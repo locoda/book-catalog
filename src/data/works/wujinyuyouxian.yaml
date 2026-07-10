@@ -1,0 +1,18 @@
+work_type: book
+title: 无尽与有限
+callno: ZF-QIA-2024-WUJI
+orig_lang: zh-Hans
+year: 2024
+creators:
+- qiaomai
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 无尽与有限
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0pVtykORMeGj2rZGzpBYlJ

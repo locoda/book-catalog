@@ -1,0 +1,18 @@
+work_type: book
+title: Hesse Briefe
+callno: ON-HES-2023-HESS
+orig_lang: de
+year: 2023
+creators:
+- hesse-hermann
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 黑塞书信集
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6e1TnITkJA1nMXJG8ICV1r

@@ -1,0 +1,18 @@
+work_type: book
+title: The Argonauts
+callno: ON-NEL-2015-ARGO
+orig_lang: en
+year: 2015
+creators:
+- nelson-maggie
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 阿尔戈
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 10QUha87g73U1UD6ulRosG

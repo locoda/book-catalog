@@ -1,6 +1,5 @@
 work_type: book
-confirmed: true
-title: 먼바다
+title: 먼 바다
 callno: OF-GON-2020-MEON
 orig_lang: ko
 year: 2020
@@ -8,6 +7,8 @@ creators:
 - gong-jiyoung
 subjects: []
 expressions:
+- lang: ko
+  title: 먼 바다
 - lang: zh-Hans
   title: 远海
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 6xUBslqFTHRWSG9KWdSJqx

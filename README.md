@@ -53,4 +53,5 @@ npx wrangler pages deploy dist --project-name ether-catalog
 - [ ] `import_douban.py`（豆坟 CSV）
 - [ ] 主题词表页（词 → 定义 → 使用统计）
 - [x] 著录规范 → docs/CATALOGING.md
+- [x] 复核/审计流程 → docs/VERIFICATION.md
 - [ ] Phase 2: 抽成 template repo 开源

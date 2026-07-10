@@ -1,6 +1,6 @@
-name: 凪良ゆう
+name: Yuu Nagira
 sort: Nagira, Yuu
 forms:
+  - {script: ja, value: 凪良ゆう}
   - {script: ja-kana, value: なぎら ゆう}
   - {script: ja-Latn, value: Nagira Yuu}
-  - {script: zh, value: 凪良汐}

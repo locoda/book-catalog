@@ -1,0 +1,18 @@
+work_type: book
+title: Panique
+callno: OF-MOL-2026-PANI
+orig_lang: fr
+year: 2026
+creators:
+- molinard-barbara
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 恐慌集
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 53fAkFjag7HhSyJCJSYRwx

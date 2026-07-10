@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 交差点
+title: かさなりあう人へ
 callno: OF-SHR-2020-KOUS
 orig_lang: ja
-year: 2020
+year: 2023
 creators:
 - shiraishi-kazufumi
 subjects: []
 expressions:
+- lang: ja
+  title: かさなりあう人へ
 - lang: zh-Hans
   title: 有所交集的人
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 2EdsLgfIZVTDyXStwaEHsC

@@ -1,14 +1,13 @@
 work_type: book
-title: 海边的房间
+title: 海邊的房間
 orig_lang: zh-Hant
-year: 2021
+year: 2012
 creators: [huang-liqun]
-confirmed: true
 callno: CF-HUA-2021-HAIB
 subjects: [空间与记忆, 非典型女性经验]
 expressions:
   - lang: zh-Hant
-    title: 海边的房间
+    title: 海邊的房間
     mine: true
 readings:
   - date: "2020-09-01"

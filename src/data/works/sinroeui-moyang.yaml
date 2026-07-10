@@ -1,6 +1,5 @@
 work_type: book
-confirmed: true
-title: 신뢰의 모양
+title: 믿음에 대하여
 callno: OF-PAR-2022-SINR
 orig_lang: ko
 year: 2022
@@ -8,6 +7,8 @@ creators:
 - park-sangyoung
 subjects: []
 expressions:
+- lang: ko
+  title: 믿음에 대하여
 - lang: zh-Hant
   title: 信任的模樣
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 4FGINSSP5uvbJiNXyIkxVH

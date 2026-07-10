@@ -1,0 +1,18 @@
+work_type: book
+title: 私たちの世代
+callno: OF-SEO-2025-WATA
+orig_lang: ja
+year: 2025
+creators:
+- seo-maiko
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 我們的世代
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1tU31jUgAph6U0HpAoGvuh

@@ -1,6 +1,7 @@
-name: 村田沙耶香
+name: Sayaka Murata
 sort: Murata, Sayaka
 forms:
+  - {script: ja, value: 村田沙耶香}
   - {script: ja-kana, value: むらた さやか}
   - {script: ja-Latn, value: Murata Sayaka}
   - {script: zh, value: 村田沙耶香}

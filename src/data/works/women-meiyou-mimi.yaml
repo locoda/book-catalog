@@ -1,0 +1,18 @@
+work_type: book
+title: 我們沒有秘密
+callno: ZF-WU-2020-WOME
+orig_lang: zh-Hant
+year: 2020
+creators:
+- wu-xiaole
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 我們沒有秘密
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3bTfXynHpPQOtG1KkDRCnX

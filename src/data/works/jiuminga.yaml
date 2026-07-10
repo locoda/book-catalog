@@ -1,0 +1,18 @@
+work_type: book
+title: 救命啊
+callno: ON-JON-2022-JIUM
+orig_lang: en
+year: 2022
+creators:
+- jones-jack
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 救命啊
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 79nAuAKEKoRDZfLKq4Dc0x

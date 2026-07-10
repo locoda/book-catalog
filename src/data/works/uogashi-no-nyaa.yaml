@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 魚河岸のにゃあ
+title: 漁港の肉子ちゃん
 callno: OF-NIS-2014-UOGA
 orig_lang: ja
-year: 2014
+year: 2011
 creators:
 - nishi-kanako
 subjects: []
 expressions:
+- lang: ja
+  title: 漁港の肉子ちゃん
 - lang: zh-Hans
   title: 鱼河岸小店
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 1OgsRLHTGYONLI8MFJ3JGc

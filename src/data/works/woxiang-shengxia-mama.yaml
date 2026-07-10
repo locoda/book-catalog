@@ -1,0 +1,18 @@
+work_type: book
+title: かか
+callno: OF-USA-2022-KAKA
+orig_lang: ja
+year: 2022
+creators:
+- usami-rin
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 我想生下妈妈
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 59VvG8wRn5lpO72ZgVmqBu

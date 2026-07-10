@@ -1,0 +1,18 @@
+work_type: book
+title: 대도시의 사랑법
+callno: OF-PAR-2019-DAED
+orig_lang: ko
+year: 2019
+creators:
+- park-sangyoung
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 無人知曉的藝術家之淚與宰桐義大利麵
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6a4gi4sKXM7ERVkcWhlggO

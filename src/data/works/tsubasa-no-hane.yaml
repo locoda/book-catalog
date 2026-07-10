@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 翼の羽
+title: 翼の翼
 callno: OF-ASA-2023-TSUB
 orig_lang: ja
-year: 2023
+year: 2021
 creators:
 - asahina-asuka
 subjects: []
 expressions:
+- lang: ja
+  title: 翼の翼
 - lang: zh-Hans
   title: 翼的翅膀
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 7hVSRF8j9ZBdT4ApyMApSS

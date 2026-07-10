@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: The Universe in Your Hand
 callno: ON-TRI-2015-UNIV
 orig_lang: en
@@ -16,4 +15,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 4mLj9EZC3Jop6yCvwphflM

@@ -1,0 +1,18 @@
+work_type: book
+title: 귤의 맛
+callno: OF-CHO-2022-GYUL
+orig_lang: ko
+year: 2022
+creators:
+- cho-namjoo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 橘子的滋味
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 15oojRiiLT2sclBpk1kAAO

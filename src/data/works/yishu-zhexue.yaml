@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: 艺术哲学
 callno: ZF-WAN-2015-YISH
 orig_lang: zh-Hans
@@ -16,4 +15,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 1WEIG3c4Xad7bGSzLaRwm5

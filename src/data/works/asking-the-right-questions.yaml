@@ -1,5 +1,4 @@
 work_type: book
-confirmed: true
 title: Asking the Right Questions
 callno: ON-BRO-1981-ASKI
 orig_lang: en
@@ -17,4 +16,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 3yy2EuWCn24vmuNLp7KR5s

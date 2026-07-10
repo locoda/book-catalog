@@ -1,12 +1,13 @@
 work_type: book
-confirmed: true
-title: 身体を売る女たち
+title: 愛と子宮に花束を　夜のオネエサンの母娘論
 callno: OF-SUZ-2021-KARA
 orig_lang: ja
-year: 2021
+year: 2017
 creators: [suzuki-suzumi]
 subjects: []
 expressions:
+  - lang: ja
+    title: 愛と子宮に花束を　夜のオネエサンの母娘論
   - lang: zh-Hans
     title: 献给爱与子宫的花束
     translator: 蕾克
@@ -16,4 +17,4 @@ readings:
     platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 3iXiggRg1Syxtq6HrgSDlY

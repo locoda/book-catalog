@@ -1,6 +1,7 @@
-name: 角田光代
+name: Mitsuyo Kakuta
 sort: Kakuta, Mitsuyo
 forms:
+  - {script: ja, value: 角田光代}
   - {script: ja-kana, value: かくた みつよ}
   - {script: ja-Latn, value: Kakuta Mitsuyo}
   - {script: zh, value: 角田光代}

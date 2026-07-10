@@ -1,0 +1,18 @@
+work_type: book
+title: 一只狼在放哨
+callno: OF-KIA-2017-YIZH
+orig_lang: fa
+year: 2017
+creators:
+- kiarostami-abbas
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 一只狼在放哨
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3fYjhPSDNRjPuwTfQgKwyV

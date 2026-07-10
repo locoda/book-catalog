@@ -1,0 +1,18 @@
+work_type: book
+title: Stoner
+callno: OF-WIL-1965-STON
+orig_lang: en
+year: 1965
+creators:
+- williams-john
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 斯通纳
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5qyjaxgXRyuD70jH5AQvM0

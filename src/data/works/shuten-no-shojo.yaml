@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 終点の少女
+title: 終点のあの子
 callno: OF-YUZ-2017-SHUT
 orig_lang: ja
-year: 2017
+year: 2010
 creators:
 - yuzuki-asako
 subjects: []
 expressions:
+- lang: ja
+  title: 終点のあの子
 - lang: zh-Hans
   title: 终点的少女
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 5SwJ0hnbP2qw4b1hjh6qje

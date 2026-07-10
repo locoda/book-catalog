@@ -1,13 +1,14 @@
 work_type: book
-confirmed: true
-title: 仕事が見つからない一年
+title: 続 横道世之介
 callno: OF-YOS-2018-SHIG
 orig_lang: ja
-year: 2018
+year: 2019
 creators:
 - yoshida-shuichi
 subjects: []
 expressions:
+- lang: ja
+  title: 続 横道世之介
 - lang: zh-Hans
   title: 找不到工作的一年
   mine: true
@@ -16,4 +17,4 @@ readings:
   platform: NeoDB 标记
 rating: 8
 status: read
-neodb_uuid: TODO
+neodb_uuid: 3MQxBe6fwMFY7c2L8sTaN1

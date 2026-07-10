@@ -1,0 +1,18 @@
+work_type: book
+title: 南货店
+callno: ZF-ZHA-2020-NANH
+orig_lang: zh-Hans
+year: 2020
+creators:
+- zhang-ji
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 南货店
+  mine: true
+readings:
+- date: '2025-01-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 11mTs4I5HKW9HqrExqh6mB
