@@ -2,30 +2,36 @@
 
 ## 词表提案
 
-当前 217 个作品 `subjects: []` 未标主题词。建议新增以下受控词：
+（原提案已被 v0.6 词表扩充和 v0.7 词表 v2 改版先后取代，历史内容删除。新提案请继续记在本节。）
 
-- 行为经济学 / 认知偏误
-- 韩国社会议题
-- 日语悬疑 / 推理
-- 拉美文学
-- 自我成长 / 自助
-- 体育/竞技
-- 当代英文小说（一般 Fiction）
-- 日文 BL / 大众文学
-- 非虚构随笔 / 纪实
-- 回忆录
-- 哲学入门
-- 文学批评
-- 艺术史 / 艺术评论
-- 科普 / 自然科学
-- 社会学
-- 政治 / 法律
-- 心理学
-- 诗歌
-- 后现代 / 实验小说
-- 历史
-- 书信集 / 访谈录
-- 绘本 / 图像
+## 词表 v2 迁移疑点（2026-07-10，v0.7 批量重标时产生）
+
+以下条目因书目信息不足，新词为最佳猜测，请馆长复核：
+
+- [basudei-garu] subjects: 村上《バースデイ・ガール》暂标 轻盈的重量，短篇寓言气质拿不准
+- [comme-leau-qui-coule] subjects: 尤瑟纳尔三联中篇，暂标 记忆的地形，未读细节
+- [kaze] subjects: 青山七恵《風》信息少，暂标 不按剧本的她们+街角的人间
+- [kosaten] subjects: 《かさなりあう人へ》信息少，暂标 未命名的关系
+- [la-prueba] subjects: Aira 中篇暂标 欲望的旷野
+- [ne-yeoreumeun] subjects: 《네 여름은》信息少，暂标 爱的余烬
+- [ningyo-wa-nigenai] subjects: 《人魚は逃げない》信息少，暂标 未命名的关系
+- [perfect] subjects: Rachel Joyce《Perfect》暂标 与丧失同居
+- [shiawase] subjects: 青山七恵《しあわせ》暂标 并肩的孤独+街角的人间
+- [sternstunden-der-menschheit] subjects: 茨威格《人类群星闪耀时》暂标 记忆的地形，与全表气质匹配度一般
+- [taimu-mashin-ni-norenai] subjects: 暂标 记忆的地形
+- [two-can-play] subjects: 按 romance 类型书暂标 心动配方，未核实
+- [ultimo-viene-il-corvo] subjects: 卡尔维诺早期战争短篇，暂标 记忆的地形
+
+仍留空（找不到合适词，不硬凑）：
+- [mimei] subjects: 空。书目信息不明
+- [women-de-shidai] subjects: 空。瀬尾まいこ《私たちの世代》疫情世代题材，现有词都不贴
+- [yigeren-yehuo-chuntian] subjects: 空。励志随笔集，词表刻意不收自助类
+- [zhongguohua] subjects: 空。语言学科普，词表无对应视角（如常读此类可提案新词）
+
+迁移中顺带发现的数据问题（与词表无关）：
+- [yishujia-zhilei] slug 与题名不符：文件名 yishujia-zhilei，题名却是《대도시의 사랑법》，且与 daedosiui-sarangbeop 疑似重复（callno OF-PAR-2019-DAED / OF-PAR-2022-DAED 两条）
+- [hoshi-o-amu] 《星を編む》存在两条记录，callno 均为 JF-NAG-2023-HOSH，违反 callno 唯一性
+- [somewhere-towards-the-end] 疑似两条记录共用 callno EN-ATH-2008-SOME，违反 callno 唯一性
 
 ## 阅读日期（readings[].date）疑似大面积占位假数据 —— 重要，需馆长决定如何处理
 
