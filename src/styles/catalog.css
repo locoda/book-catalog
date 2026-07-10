@@ -33,6 +33,13 @@ header.site{
   display:block;font-family:'IBM Plex Mono',monospace;font-weight:400;
   font-size:11px;letter-spacing:.32em;color:var(--faint);margin-top:4px;
 }
+.site-nav{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--faint);
+  letter-spacing:.08em;display:flex;gap:10px;align-items:center;
+}
+.site-nav a{color:#CBD3E1}
+.site-nav a:hover{color:#fff}
+.site-nav span{color:var(--faint)}
 .stats{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--faint);letter-spacing:.05em}
 .stats b{color:#E9ECF3;font-weight:500}
 
@@ -180,7 +187,47 @@ footer.site{
   .row{grid-template-columns:1fr auto}
   .row .mono,.row .langs{grid-column:1/-1}
   .stats{margin-left:0}
+  .site-nav{order:3;width:100%}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
 }
+
+/* ---------- 门户首页 ---------- */
+.portal{margin-top:72px;text-align:center}
+.portal-intro{
+  font-size:18px;color:#CBD3E1;max-width:600px;margin:0 auto;line-height:2;
+}
+.portal-nav{
+  margin-top:44px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+}
+.portal-card{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:200px;height:140px;border:1px solid rgba(233,236,243,.16);
+  border-radius:2px;transition:background .18s;
+}
+.portal-card:hover{background:rgba(233,236,243,.05);border-color:rgba(233,236,243,.3)}
+.portal-card-title{font-size:20px;font-weight:600}
+.portal-card small{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
+  letter-spacing:.28em;margin-top:10px;
+}
+
+/* ---------- 著者索引 ---------- */
+.people-group{margin-bottom:18px}
+.group-header{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--stamp);
+  letter-spacing:.18em;padding:8px 6px;border-bottom:1px solid rgba(233,236,243,.1);
+}
+
+/* ---------- 主題詞雲 ---------- */
+.subject-cloud{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;
+}
+.subject-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:14px;padding:6px 16px;border:1px solid rgba(233,236,243,.18);
+  border-radius:2px;color:#CBD3E1;transition:background .15s;
+}
+.subject-chip:hover{background:rgba(233,236,243,.06);border-color:rgba(233,236,243,.35)}
+.subject-chip .mono{font-size:11px;color:var(--faint)}

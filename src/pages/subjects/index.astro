@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const works = await getCollection('works');
+
+// 统计每词作品数
+const subjectMap: Record<string, number> = {};
+for (const w of works) {
+  for (const s of w.data.subjects) {
+    subjectMap[s] = (subjectMap[s] || 0) + 1;
+  }
+}
+
+const subjects = Object.entries(subjectMap)
+  .sort(([a, ca], [b, cb]) => cb - ca || a.localeCompare(b, 'zh'));
+---
+<Base title="主題詞 · 乙醚書目">
+  <nav class="breadcrumb wrap"><a href="/">← 返回首頁</a></nav>
+
+  <section class="results wrap">
+    <h3>SUBJECTS&nbsp;/&nbsp;主題詞&nbsp;·&nbsp;{subjects.length}&nbsp;個詞</h3>
+    <div class="subject-cloud">
+      {subjects.map(([s, count]) => (
+        <a class="subject-chip" href={`/subjects/${s.replace(/\//g, '／')}/`}>
+          {s}<span class="mono">{count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

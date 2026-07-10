@@ -69,7 +69,7 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
       {d.subjects.length > 0 && (
         <div class="subjects">
           <span class="facet-label">主題詞</span><br />
-          {d.subjects.map((s) => <span class="subj">{s}</span>)}
+          {d.subjects.map((s) => <a class="subj" href={`/subjects/${s.replace(/\//g, '／')}/`}>{s}</a>)}
         </div>
       )}
 

@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const allPeople = await getCollection('people');
+const allWorks = await getCollection('works');
+
+// 每人著作数
+const workCounts: Record<string, number> = {};
+for (const w of allWorks) {
+  for (const cid of w.data.creators) {
+    workCounts[cid] = (workCounts[cid] || 0) + 1;
+  }
+}
+
+// 排序
+const people = allPeople
+  .map((p) => ({
+    ...p,
+    workCount: workCounts[p.id] || 0,
+    sortKey: p.data.sort || p.data.name,
+  }))
+  .sort((a, b) => a.sortKey.localeCompare(b.sortKey, 'zh'));
+
+// 分组
+function groupChar(s: string): string {
+  const c = s.charAt(0);
+  if (/[A-Za-z]/.test(c)) return 'Latin';
+  if (/[\u3040-\u30FF]/.test(c)) return 'Kana';
+  if (/[\u4E00-\u9FFF\u3400-\u4DBF]/.test(c)) return 'Hanzi';
+  return 'Other';
+}
+
+const groups: Record<string, typeof people> = {};
+for (const p of people) {
+  const g = groupChar(p.sortKey);
+  if (!groups[g]) groups[g] = [];
+  groups[g].push(p);
+}
+
+const groupOrder = ['Latin', 'Kana', 'Hanzi', 'Other'];
+const groupLabels: Record<string, string> = {
+  Latin: 'LATIN',
+  Kana: '仮名',
+  Hanzi: '漢字',
+  Other: 'OTHER',
+};
+---
+<Base title="著者索引 · 乙醚書目">
+  <nav class="breadcrumb wrap"><a href="/">← 返回首頁</a></nav>
+
+  <section class="results wrap">
+    <h3>AUTHORITY&nbsp;INDEX&nbsp;/&nbsp;著者索引&nbsp;·&nbsp;{people.length}&nbsp;人</h3>
+    {groupOrder.map((g) => {
+      const items = groups[g];
+      if (!items || items.length === 0) return null;
+      return (
+        <div class="people-group">
+          <div class="group-header">{groupLabels[g]}</div>
+          {items.map((p) => (
+            <a class="row" href={`/people/${p.id}/`}>
+              <span class="mono">p-{p.id}</span>
+              <span>{p.data.name}</span>
+              <span class="langs">{p.data.forms.length} 種名稱形式</span>
+              <span class="score">{p.workCount} 種著作</span>
+            </a>
+          ))}
+        </div>
+      );
+    })}
+  </section>
+</Base>

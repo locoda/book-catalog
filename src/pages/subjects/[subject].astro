@@ -1,0 +1,53 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { langLabel } from '../../lib/lang';
+
+export async function getStaticPaths() {
+  const works = await getCollection('works');
+  const subjects = new Set(works.flatMap((w) => w.data.subjects));
+  return [...subjects].map((s) => ({
+    params: { subject: s.replace(/\//g, '／') },
+    props: { originalSubject: s },
+  }));
+}
+
+const { originalSubject } = Astro.props;
+const allWorks = await getCollection('works');
+
+const matched = allWorks
+  .filter((w) => w.data.subjects.includes(originalSubject!))
+  .sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
+
+const rows = await Promise.all(matched.map(async (w) => {
+  const creators = await Promise.all(w.data.creators.map((id) => getEntry('people', id)));
+  const mine = w.data.expressions.find((e) => e.mine);
+  return {
+    id: w.id,
+    data: w.data,
+    creatorNames: creators.filter(Boolean).map((p) => p!.data.name).join(' · '),
+    displayTitle: mine?.title ?? w.data.title,
+    mineLang: mine?.lang ?? w.data.orig_lang,
+    translated: mine && mine.lang !== w.data.orig_lang,
+  };
+}));
+---
+<Base title={`${originalSubject} · 主題 · 乙醚書目`}>
+  <nav class="breadcrumb wrap"><a href="/subjects/">← 返回主題總覽</a></nav>
+
+  <section class="results wrap">
+    <h3>{originalSubject}&nbsp;/&nbsp;{rows.length}&nbsp;種著作</h3>
+    <div id="rows">
+      {rows.map((r) => (
+        <a class="row" href={`/works/${r.id}/`}>
+          <span class="mono">{r.data.callno ?? r.id}</span>
+          <span>{r.displayTitle} <span class="byline">· {r.creatorNames}</span></span>
+          <span class="langs">
+            {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
+          </span>
+          <span class="score">{r.data.status === 'reading' ? '在讀' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
