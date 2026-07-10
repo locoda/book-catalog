@@ -1,0 +1,44 @@
+name: pull-neodb
+
+on:
+  schedule:
+    - cron: '23 21 * * 1'   # 每周二 05:23 北京时间（UTC 周一 21:23）
+  workflow_dispatch:         # 也可以随时手动跑
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Import from NeoDB
+        env:
+          NEODB_TOKEN: ${{ secrets.NEODB_TOKEN }}
+        run: |
+          python3 scripts/import_neodb.py                  # 已读
+          python3 scripts/import_neodb.py --shelf progress # 在读
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Validate new records against schema
+        run: |
+          npm ci
+          npm run build   # zod schema 校验：新著录不合法这里会直接失败，不会污染 main
+
+      - name: Commit & push if anything new
+        run: |
+          git config user.name "catalog-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/works
+          if git diff --cached --quiet; then
+            echo "No new marks this week."
+          else
+            git commit -m "chore: auto-import from NeoDB ($(date -u +%F))"
+            git push
+          fi
