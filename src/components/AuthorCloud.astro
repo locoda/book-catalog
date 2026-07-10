@@ -28,7 +28,7 @@ if (deskAll.length === 0) return new Response(null, { status: 204 });
 const desk = deskAll.slice(0, TOP_N);
 const mob  = mobAll;
 
-const size = (n: number, max: number) => (13 + 8 * Math.sqrt(n / max)).toFixed(1);
+const size = (n: number, max: number) => (12 + 7 * Math.sqrt(n / max)).toFixed(1);
 
 const deskMax = desk[0]![1];
 const mobMax  = mob[0]![1];
