@@ -74,7 +74,7 @@ expressions:
     mine: true
 readings:
   - date: "2026-07-04"
-    platform: NeoDB 标记
+    edition: ebook   # 电子书/纸质书/有声书；不确定就留空，不猜
 rating: 10
 status: read
 neodb_uuid: 4W3eJc4ofox11RYFrvJ8Wt
@@ -98,7 +98,7 @@ expressions:
     mine: true
 readings:
   - date: "2026-07-04"
-    platform: NeoDB 标记
+    edition: ebook   # 电子书/纸质书/有声书；不确定就留空，不猜
 rating: 10
 status: read
 neodb_uuid: 4W3eJc4ofox11RYFrvJ8Wt

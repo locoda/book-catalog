@@ -1,6 +1,6 @@
 # 著录规范 · Cataloging Rules
 
-**版本 v0.4 · 本文档是本目录唯一的著录依据。**
+**版本 v0.5 · 本文档是本目录唯一的著录依据。**
 
 本文档的目标读者包括 AI。所有规则写成可机械执行的形式；执行者（人或 AI）在规则未覆盖的情形下**必须停下标记问题，不允许自行发明规则**。
 
@@ -33,7 +33,7 @@
 - **year**：初版年（不是你读的版本的出版年）。查不到 → `TODO`。
 - **creators**：people id 数组，顺序照初版署名。**只允许引用已存在的 people 记录**；对应记录不存在 → 先建 person（§3），再回填。
 - **expressions**：每个语言层版本一条；`mine: true` 恰好标在实际读过的版本上（读过多个版本可多个 mine）。译者写在版本上。非 mine 版本的 `lang` 开放取值（记录该译本客观存在的语言）；**`mine: true` 的 `lang` 是封闭集，只能是 `zh-Hans` / `zh-Hant` / `en`**——这是馆长实际的阅读语言，其它一律不成立，出现即视为数据错误。
-- **readings**：阅读事件，`date` 用 `YYYY-MM-DD` 或 `YYYY-MM`。占位/示意数据必须在 work 上标 `placeholder: true`。
+- **readings**：阅读事件，`date` 用 `YYYY-MM-DD` 或 `YYYY-MM`。占位/示意数据必须在 work 上标 `placeholder: true`。`edition`（可选）记录载体形式——`ebook`/`print`/`audiobook` 三选一封闭枚举，取代了早期版本里几乎全员写"NeoDB 标记"、没有信息量的 `platform` 字段；不确定就留空，不猜，遇到再补。
 - **rating**：NeoDB 十分制原值，不换算。
 - **subjects**：见 §6。
 
@@ -108,6 +108,7 @@
 
 ## 版本记录
 
+- v0.5（2026-07-10）`readings[].platform` 换成 `readings[].edition`（ebook/print/audiobook 封闭枚举）——原 platform 几乎全员写"NeoDB 标记"，没有信息量，实际想记录的是载体形式；历史记录暂不回填，遇到再补。
 - v0.4（2026-07-10）中文语言代码改用文字子标签（`zh-CN`/`zh-TW` → `zh-Hans`/`zh-Hant`），符合 BCP47 惯例；明确 `mine` 版本 `lang` 封闭集规则写入本文档（此前仅见于 TASK.md）；显示层调整——作品详情页大标题改显示「你读的版本」题名，原语言题名降级为副标题；首页语言分面改按四分类（中/日/英/其他）呈现。
 - v0.3（2026-07-10）标识符冻结改为绑定 `confirmed` 标志（整理期可自由改名）；悬空 creators 引用改为构建失败；页面增加未确认「草」标记。
 

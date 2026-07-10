@@ -24,7 +24,7 @@ const works = defineCollection({
     })).default([]),
     readings: z.array(z.object({
       date: z.string(),                   // "2021-03" / "2026-06-24"
-      platform: z.string().optional(),
+      edition: z.enum(['ebook', 'print', 'audiobook']).optional(),  // 电子书/纸质书/有声书；历史记录多数缺失，遇到再补，不猜
       lang: z.string().optional(),
       note: z.string().optional(),
     })).default([]),

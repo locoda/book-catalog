@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langLabel } from '../../lib/lang';
+import { editionLabel } from '../../lib/edition';
 
 export async function getStaticPaths() {
   const works = await getCollection('works');
@@ -79,7 +80,7 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
           {d.readings.map((r) => (
             <div class="due-row">
               <span class="mono">{r.date}</span>
-              {(r.platform || r.lang) && <span>{[r.platform, r.lang].filter(Boolean).join(' · ')}</span>}
+              {(r.edition || r.lang) && <span>{[r.edition && editionLabel(r.edition), r.lang].filter(Boolean).join(' · ')}</span>}
               {r.note && <em>{r.note}</em>}
             </div>
           ))}
