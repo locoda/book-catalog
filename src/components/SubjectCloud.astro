@@ -1,0 +1,37 @@
+---
+/**
+ * 2d 主题词云：取收录数前 N 的主题词，字号按 sqrt 加权。
+ */
+import { getCollection } from 'astro:content';
+
+const TOP_N = 24;
+
+const works = await getCollection('works');
+const counts = new Map<string, number>();
+for (const w of works) {
+  for (const s of w.data.subjects) counts.set(s, (counts.get(s) ?? 0) + 1);
+}
+const all = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh'));
+const top = all.slice(0, TOP_N);
+const max = top[0]?.[1] ?? 1;
+
+// 13px–21px，sqrt 缩放
+const size = (n: number) => (13 + 8 * Math.sqrt(n / max)).toFixed(1);
+---
+<section class="cloud wrap">
+  <header class="sec-head">
+    <small class="mono">SUBJECTS</small>
+    <h2>主題詞</h2>
+    <span class="sec-meta mono">{all.length} 個詞</span>
+  </header>
+  <div class="subject-cloud">
+    {top.map(([s, count]) => (
+      <a class="subject-chip" href={`/subjects/${s.replace(/\//g, '／')}/`} style={`font-size:${size(count)}px`}>
+        {s}<span class="mono">{count}</span>
+      </a>
+    ))}
+    {all.length > TOP_N && (
+      <a class="subject-chip subject-more mono" href="/subjects/">全部主題 →</a>
+    )}
+  </div>
+</section>

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ReadingTimeline from '../components/ReadingTimeline.astro';
 import LangFlow from '../components/LangFlow.astro';
+import SubjectCloud from '../components/SubjectCloud.astro';
 ---
 <Base>
   <section class="portal wrap">
@@ -13,8 +14,13 @@ import LangFlow from '../components/LangFlow.astro';
 
   <ReadingTimeline />
   <LangFlow />
+  <SubjectCloud />
 
-  <section class="portal wrap portal-bottom">
+  <section class="wrap portal-bottom">
+    <header class="sec-head">
+      <small class="mono">INDEXES</small>
+      <h2>檢索入口</h2>
+    </header>
     <nav class="portal-nav">
       <a href="/works/" class="portal-card">
         <span class="portal-card-title">全部館藏</span>

@@ -1,0 +1,104 @@
+---
+/**
+ * 2b 语言流向：原语言 → 我读的语言。手写 SVG 桑基，构建时算好布局，零 JS。
+ */
+import { getCollection } from 'astro:content';
+import { langFlows } from '../lib/stats';
+import { langLabel } from '../lib/lang';
+
+const works = await getCollection('works');
+const { sources, targets, links, totalWorks } = langFlows(works);
+
+const label = (k: string) => (k === 'other' ? '其他語言' : langLabel(k));
+
+/* ---- 布局 ---- */
+const U = 0.85;          // px / 種
+const GAP = 10;          // 节点间距
+const NW = 10;           // 节点宽
+const X0 = 178, X1 = 572; // 左右节点 x
+const W = 760, PAD = 26; // 画布宽、上下留白
+
+interface Node { key: string; total: number; y0: number; used: number }
+const layout = (col: { key: string; total: number }[], h: number, colH: number): Node[] => {
+  let y = PAD + (h - 2 * PAD - colH) / 2;
+  return col.map((n) => {
+    const node = { ...n, y0: y, used: 0 };
+    y += n.total * U + GAP;
+    return node;
+  });
+};
+const colH = (col: { total: number }[]) =>
+  col.reduce((a, n) => a + n.total * U, 0) + (col.length - 1) * GAP;
+const H = Math.max(colH(sources), colH(targets)) + 2 * PAD;
+
+const srcNodes = layout(sources, H, colH(sources));
+const tgtNodes = layout(targets, H, colH(targets));
+const srcIdx = new Map(srcNodes.map((n) => [n.key, n]));
+const tgtIdx = new Map(tgtNodes.map((n) => [n.key, n]));
+
+// 流排序：先按 source 列序，再按 target 列序，保证 ribbon 不交叉过甚
+const tOrder = new Map(tgtNodes.map((n, i) => [n.key, i]));
+const sOrder = new Map(srcNodes.map((n, i) => [n.key, i]));
+const ordered = [...links].sort((a, b) =>
+  (sOrder.get(a.source)! - sOrder.get(b.source)!) || (tOrder.get(a.target)! - tOrder.get(b.target)!));
+
+// 目标侧偏移需按 target 分组、按 source 列序填充
+const byTargetOrder = [...links].sort((a, b) =>
+  (tOrder.get(a.target)! - tOrder.get(b.target)!) || (sOrder.get(a.source)! - sOrder.get(b.source)!));
+const tOffset = new Map<typeof links[0], number>();
+for (const l of byTargetOrder) {
+  const t = tgtIdx.get(l.target)!;
+  tOffset.set(l, t.y0 + t.used);
+  t.used += l.value * U;
+}
+
+const XM = (X0 + NW + X1) / 2;
+const ribbons = ordered.map((l) => {
+  const s = srcIdx.get(l.source)!;
+  const sy = s.y0 + s.used;
+  s.used += l.value * U;
+  const ty = tOffset.get(l)!;
+  const h = l.value * U;
+  return {
+    ...l,
+    d: `M${X0 + NW},${sy.toFixed(1)} C${XM},${sy.toFixed(1)} ${XM},${ty.toFixed(1)} ${X1},${ty.toFixed(1)} ` +
+       `l0,${h.toFixed(1)} C${XM},${(ty + h).toFixed(1)} ${XM},${(sy + h).toFixed(1)} ${X0 + NW},${(sy + h).toFixed(1)} Z`,
+    tip: `${label(l.source)} → ${label(l.target)} · ${l.value} 種${l.native ? '（原文直讀）' : ''}`,
+  };
+});
+
+const nativeTotal = links.filter((l) => l.native).reduce((a, l) => a + l.value, 0);
+---
+<section class="langflow wrap">
+  <header class="sec-head">
+    <small class="mono">LANGUAGE FLOW</small>
+    <h2>語言流向</h2>
+    <span class="sec-meta mono">{totalWorks} 種</span>
+    <span class="flow-legend mono"><i class="lg lg-tr"></i>譯本&nbsp;&nbsp;<i class="lg lg-na"></i>原文直讀&nbsp;{nativeTotal}&nbsp;種</span>
+  </header>
+  <div class="flow-scroll">
+    <svg viewBox={`0 0 ${W} ${Math.ceil(H)}`} role="img" aria-label="原语言到我读的语言的流向图" style={`--h:${Math.ceil(H)}px`}>
+      <text class="col-head" x={X0 + NW} y={14} text-anchor="end">原語言&nbsp;ORIG</text>
+      <text class="col-head" x={X1} y={14} text-anchor="start">我讀的&nbsp;MINE</text>
+      {ribbons.map((r) => (
+        <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d}><title>{r.tip}</title></path>
+      ))}
+      {srcNodes.map((n) => (
+        <>
+          <rect class="node" x={X0} y={n.y0} width={NW} height={Math.max(n.total * U, 1.5)} />
+          <text class="nlabel" x={X0 - 8} y={n.y0 + (n.total * U) / 2 + 4} text-anchor="end">
+            {label(n.key)}<tspan class="ncount">&nbsp;{n.total}</tspan>
+          </text>
+        </>
+      ))}
+      {tgtNodes.map((n) => (
+        <>
+          <rect class="node" x={X1} y={n.y0} width={NW} height={Math.max(n.total * U, 1.5)} />
+          <text class="nlabel" x={X1 + NW + 8} y={n.y0 + (n.total * U) / 2 + 4} text-anchor="start">
+            {label(n.key)}<tspan class="ncount">&nbsp;{n.total}</tspan>
+          </text>
+        </>
+      ))}
+    </svg>
+  </div>
+</section>

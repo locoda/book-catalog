@@ -1,0 +1,41 @@
+---
+/**
+ * 2a 阅读时间线：年 × 月热力网格。构建时渲染，零 JS。
+ */
+import { getCollection } from 'astro:content';
+import { readingHeatmap } from '../lib/stats';
+
+const works = await getCollection('works');
+const { years, maxMonth, totalReadings } = readingHeatmap(works);
+
+// 平方根色阶：极端峰值（2025）不至于把其他月份压成全黑
+const alpha = (n: number) => (n === 0 ? 0 : 0.12 + 0.88 * Math.sqrt(n / maxMonth));
+const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
+---
+<section class="timeline wrap">
+  <header class="sec-head">
+    <small class="mono">TIMELINE</small>
+    <h2>閱讀年表</h2>
+    <span class="sec-meta mono">{totalReadings} 筆</span>
+  </header>
+  <div class="heat">
+    <div class="heat-row heat-head">
+      <span class="heat-year"></span>
+      {MONTHS.map((m) => <span class="heat-m mono">{m}</span>)}
+      <span class="heat-total mono">計</span>
+    </div>
+    {years.map((y) => (
+      <div class="heat-row">
+        <span class="heat-year mono">{y.year}</span>
+        {y.months.map((n, i) => (
+          <span
+            class={`heat-cell ${alpha(n) > 0.68 ? 'dark-text' : ''}`}
+            style={`--a:${alpha(n).toFixed(3)}`}
+            title={`${y.year}-${String(i + 1).padStart(2, '0')} · ${n} 筆`}
+          >{n > 0 && <i>{n}</i>}</span>
+        ))}
+        <span class="heat-total mono">{y.total}</span>
+      </div>
+    ))}
+  </div>
+</section>

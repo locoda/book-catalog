@@ -72,6 +72,8 @@ header.site{
 .hidden{display:none}
 .facet-sub{padding-left:8px;margin-top:-2px}
 .facet-sub .chip{font-size:12px;padding:3px 11px}
+.sort-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.sort-row .facet-label{min-width:auto;margin-right:4px}
 .empty-note{padding:26px 6px;color:var(--faint);font-size:13.5px;border-top:1px solid rgba(233,236,243,.12)}
 
 /* ---------- 主体两栏（详情页）---------- */
@@ -212,6 +214,73 @@ footer.site{
   font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
   letter-spacing:.28em;margin-top:10px;
 }
+
+.portal-bottom{margin-top:64px}
+.portal-bottom .portal-nav{margin-top:0;justify-content:flex-start}
+
+/* ---------- 主页 · 分区标题 ---------- */
+.sec-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;
+  margin-bottom:20px;padding-bottom:12px;
+  border-bottom:1px solid rgba(233,236,243,.16);
+}
+.sec-head small{
+  font-size:11px;font-weight:500;letter-spacing:.3em;color:var(--stamp);
+}
+.sec-head h2{font-size:24px;font-weight:600;letter-spacing:.06em;line-height:1.3}
+.sec-meta{font-size:12px;color:var(--faint);letter-spacing:.05em}
+
+/* ---------- 主页 · 阅读时间线（2a）---------- */
+.timeline{margin-top:72px}
+.heat{display:flex;flex-direction:column;gap:5px}
+.heat-row{display:grid;grid-template-columns:52px repeat(12,1fr) 44px;gap:5px;align-items:center}
+.heat-head{margin-bottom:2px}
+.heat-m,.heat-year,.heat-total{font-size:11px;color:var(--faint);text-align:center}
+.heat-year{text-align:right;padding-right:4px}
+.heat-total{text-align:right;color:#CBD3E1}
+.heat-cell{
+  position:relative;height:30px;border-radius:2px;
+  background:rgba(239,231,211,var(--a,0));
+  outline:1px solid rgba(233,236,243,.07);outline-offset:-1px;
+}
+.heat-cell i{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  color:rgba(233,236,243,.78); /* 浅色格：亮字 */
+}
+.heat-cell.dark-text i{color:var(--char);font-weight:500} /* 深色格（底更亮）：墨字 */
+.heat-cell:hover{outline-color:rgba(233,236,243,.5)}
+
+/* ---------- 主页 · 语言流向（2b）---------- */
+.langflow{margin-top:64px}
+.flow-legend{font-size:11px;color:var(--faint);letter-spacing:.08em;margin-left:auto}
+.flow-legend .lg{
+  display:inline-block;width:14px;height:9px;border-radius:1px;
+  margin-right:6px;vertical-align:baseline;
+}
+.lg-tr{background:rgba(239,231,211,.32)}
+.lg-na{background:rgba(180,56,45,.55)}
+.flow-scroll{overflow-x:auto}
+.flow-scroll svg{display:block;width:100%;min-width:640px;height:auto}
+.langflow .node{fill:#EFE7D3;opacity:.85}
+.langflow .ribbon{fill:rgba(239,231,211,.20);transition:fill .15s}
+.langflow .ribbon.native{fill:rgba(180,56,45,.38)}
+.langflow .ribbon:hover{fill:rgba(239,231,211,.5)}
+.langflow .ribbon.native:hover{fill:rgba(180,56,45,.7)}
+.langflow .nlabel{
+  fill:#CBD3E1;font-size:13px;font-family:'Noto Serif SC',serif;
+}
+.langflow .ncount{fill:var(--faint);font-size:11px;font-family:'IBM Plex Mono',monospace}
+.langflow .col-head{
+  fill:var(--faint);font-size:10px;letter-spacing:.24em;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+/* ---------- 主页 · 主题词云（2d）---------- */
+.cloud{margin-top:64px}
+.cloud .subject-chip{line-height:1.4}
+.subject-more{font-size:12px;color:var(--faint);align-self:center}
+.subject-more:hover{color:#fff}
 
 /* ---------- 著者索引 ---------- */
 .people-group{margin-bottom:18px}
