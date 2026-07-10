@@ -29,19 +29,12 @@ header.site{
   border-bottom:1px solid rgba(233,236,243,.14);
 }
 .brand{font-weight:900;font-size:clamp(22px,5vw,30px);letter-spacing:.14em}
-.brand small{
-  display:block;font-family:'IBM Plex Mono',monospace;font-weight:400;
-  font-size:11px;letter-spacing:.32em;color:var(--faint);margin-top:4px;
-}
 .site-nav{
   font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--faint);
-  letter-spacing:.08em;display:flex;gap:10px;align-items:center;
+  letter-spacing:.08em;display:flex;gap:18px;align-items:center;
 }
 .site-nav a{color:#CBD3E1}
 .site-nav a:hover{color:#fff}
-.site-nav span{color:var(--faint)}
-.stats{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--faint);letter-spacing:.05em}
-.stats b{color:#E9ECF3;font-weight:500}
 
 /* ---------- facet 区 ---------- */
 .facets{padding-top:22px}
@@ -53,6 +46,27 @@ header.site{
   font-family:'Noto Serif SC',serif;
 }
 .chip.on{background:var(--card);color:var(--char);border-color:var(--card);font-weight:600}
+.facet-select{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:#CBD3E1;
+  background:var(--ink-2);border:1px solid rgba(233,236,243,.22);
+  border-radius:2px;padding:6px 10px;letter-spacing:.04em;
+  cursor:pointer;min-width:120px;
+}
+.facet-select:focus{outline:none;border-color:rgba(233,236,243,.45)}
+.facet-input{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:#CBD3E1;
+  background:var(--ink-2);border:1px solid rgba(233,236,243,.22);
+  border-radius:2px;padding:6px 10px;letter-spacing:.04em;
+  min-width:180px;
+}
+.facet-input::placeholder{color:var(--faint)}
+.facet-input:focus{outline:none;border-color:rgba(233,236,243,.45)}
+.facet-year{min-width:0;width:100px}
+.facet-hint{font-size:10px;color:var(--faint);letter-spacing:.04em}
+.facet-toggle{margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:11px}
+.facet-toggle.on{background:transparent;color:#CBD3E1;border-color:rgba(233,236,243,.22)}
+.facet-extra{margin-top:2px}
+.hidden{display:none}
 
 /* ---------- 结果列表 ---------- */
 .results{margin-top:28px}
@@ -183,6 +197,8 @@ footer.site{
   font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.08em;
   display:flex;flex-wrap:wrap;gap:8px 24px;
 }
+.stats-line{width:100%}
+.stats-line b{color:#E9ECF3;font-weight:500}
 
 /* ========================================
    响应式
@@ -192,14 +208,12 @@ footer.site{
   .main{grid-template-columns:1fr}
   .row{grid-template-columns:1fr auto}
   .row .mono,.row .langs{grid-column:1/-1}
-  .stats{margin-left:0}
   .site-nav{order:3;width:100%}
 }
 
 @media (max-width:640px){
   /* header */
   header.site{padding:clamp(22px,5vw,40px) clamp(16px,4vw,24px) clamp(14px,3vw,28px)}
-  .stats{width:100%;font-size:11px}
 
   /* portal */
   .portal{margin-top:clamp(36px,8vw,72px)}
@@ -234,7 +248,6 @@ footer.site{
 
 @media (max-width:480px){
   header.site{padding:20px 14px 14px}
-  .brand small{font-size:9.5px;letter-spacing:.24em}
 
   .cat-card{padding:16px 14px 48px}
   .stamp-badge{width:48px;height:48px;top:14px;right:14px}

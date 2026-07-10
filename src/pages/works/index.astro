@@ -18,6 +18,7 @@ const rows = await Promise.all(works.map(async (w) => {
     mineTitle,
     translated: mine && mine.lang !== w.data.orig_lang,
     origBucket: langBucket(w.data.orig_lang),
+    firstReadYear: w.data.readings[0]?.date?.slice(0, 4) ?? '',
   };
 }));
 rows.sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
@@ -53,10 +54,28 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       <button class="chip on" data-value="">全部</button>
       {mineLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
     </div>
+    <button class="chip facet-toggle" id="facet-toggle">更多篩選 ▸</button>
+    <div class="facet-extra hidden" id="facet-extra">
     <div class="facet-row" data-facet="subject">
       <span class="facet-label">主題</span>
-      <button class="chip on" data-value="">全部</button>
-      {subjects.map((s) => <button class="chip" data-value={s}>{s}</button>)}
+      <select class="facet-select" id="subject-select">
+        <option value="">全部</option>
+        {subjects.map((s) => <option value={s}>{s}</option>)}
+      </select>
+    </div>
+    <div class="facet-row">
+      <span class="facet-label">年份</span>
+      <input class="facet-input facet-year" type="text" id="pubyear-input" placeholder="作品年" autocomplete="off" />
+      <input class="facet-input facet-year" type="text" id="readyear-input" placeholder="閱讀年" autocomplete="off" />
+    </div>
+    <div class="facet-row">
+      <span class="facet-label">評分</span>
+      <input class="facet-input facet-year" type="text" id="rating-input" placeholder="8 / 8- / -8 / 8-10" autocomplete="off" />
+    </div>
+    <div class="facet-row">
+      <span class="facet-label">作者</span>
+      <input class="facet-input" type="text" id="author-input" placeholder="输入著者名筛选…" autocomplete="off" />
+    </div>
     </div>
   </section>
 
@@ -79,6 +98,9 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           data-mine={r.mineLang}
           data-subjects={r.data.subjects.join('|')}
           data-year={r.data.year ?? ''}
+          data-pubyear={r.data.year ?? ''}
+          data-readyear={r.firstReadYear}
+          data-creators={r.creatorNames}
           data-rating={r.data.rating ?? -1}
           data-title={r.mineTitle}
         >
@@ -95,9 +117,38 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
   </section>
 
   <script>
-    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '' };
+    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '', author: '' };
+    let pubFrom = 0, pubTo = 0, readFrom = 0, readTo = 0;
     const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
     let sortMode = 'callno';
+
+    // 通用 range 解析器：支持 X / X- / -X / X-Y
+    function parseRange(v: string): [number, number] {
+      if (v.startsWith('-')) {
+        const n = +v.slice(1);
+        return isNaN(n) ? [0, 0] : [0, n];
+      }
+      const m = v.match(/^(\d+)(?:-(\d+))?$/);
+      if (!m) return [0, 0];
+      const a = +m[1], b = m[2] !== undefined ? +m[2] : -1;
+      if (v.endsWith('-') && b === -1) return [a, 0];
+      if (b >= 0) return [Math.min(a, b), Math.max(a, b)];
+      return [a, a];
+    }
+    function inRange(y: number, from: number, to: number): boolean {
+      if (!from && !to) return true;
+      if (!y && y !== 0) return false;
+      return (!from || y >= from) && (!to || y <= to);
+    }
+
+    // 更多筛选 toggle
+    const facetToggle = document.getElementById('facet-toggle')!;
+    const facetExtra = document.getElementById('facet-extra')!;
+    facetToggle.addEventListener('click', () => {
+      const open = facetExtra.classList.toggle('hidden');
+      facetToggle.textContent = open ? '更多篩選 ▸' : '更多篩選 ▾';
+      facetToggle.classList.toggle('on', !open);
+    });
 
     document.querySelectorAll<HTMLElement>('.facet-row').forEach((row) => {
       const facet = row.dataset.facet!;
@@ -128,6 +179,43 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       });
     });
 
+    // 主題下拉
+    const subjectSelect = document.getElementById('subject-select') as HTMLSelectElement;
+    subjectSelect?.addEventListener('change', () => {
+      active.subject = subjectSelect.value;
+      apply();
+    });
+
+    // 評分輸入（復用 parseRange + none 特殊值）
+    let ratingFrom = 0, ratingTo = 0, ratingNone = false;
+    const ratingInput = document.getElementById('rating-input') as HTMLInputElement;
+    ratingInput?.addEventListener('input', () => {
+      const v = ratingInput.value.trim();
+      if (!v) { ratingFrom = 0; ratingTo = 0; ratingNone = false; }
+      else if (v === 'none') { ratingNone = true; }
+      else { [ratingFrom, ratingTo] = parseRange(v); ratingNone = false; }
+      apply();
+    });
+
+    // 作者搜索
+    const authorInput = document.getElementById('author-input') as HTMLInputElement;
+    authorInput?.addEventListener('input', () => {
+      active.author = authorInput.value.trim().toLowerCase();
+      apply();
+    });
+
+    // 年份输入
+    const pubYearInput = document.getElementById('pubyear-input') as HTMLInputElement;
+    const readYearInput = document.getElementById('readyear-input') as HTMLInputElement;
+    pubYearInput?.addEventListener('input', () => {
+      [pubFrom, pubTo] = parseRange(pubYearInput.value.trim());
+      apply();
+    });
+    readYearInput?.addEventListener('input', () => {
+      [readFrom, readTo] = parseRange(readYearInput.value.trim());
+      apply();
+    });
+
     // 排序 chips
     document.querySelectorAll<HTMLButtonElement>('.sort-row .chip').forEach((chip) => {
       chip.addEventListener('click', () => {
@@ -150,7 +238,12 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           || (el.dataset.origbucket === active.orig && (active.orig !== 'other' || !active.origSub || el.dataset.orig === active.origSub));
         const okMine = !active.mine || el.dataset.mine === active.mine;
         const okSubj = !active.subject || (el.dataset.subjects ?? '').split('|').includes(active.subject);
-        const ok = okOrig && okMine && okSubj;
+        const okAuthor = !active.author || (el.dataset.creators ?? '').toLowerCase().includes(active.author);
+        const okPubYear = inRange(parseInt(el.dataset.pubyear ?? '0') || 0, pubFrom, pubTo);
+        const okReadYear = inRange(parseInt(el.dataset.readyear ?? '0') || 0, readFrom, readTo);
+        const r = parseFloat(el.dataset.rating ?? '-1');
+        const okRating = ratingNone ? r < 0 : inRange(r, ratingFrom, ratingTo);
+        const ok = okOrig && okMine && okSubj && okPubYear && okReadYear && okRating && okAuthor;
         el.classList.toggle('hidden', !ok);
         if (ok) { shown++; visible.push(el); }
       });
@@ -180,7 +273,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       visible.forEach((el) => rowsEl.appendChild(el));
 
       document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
-      const anyFilter = active.orig || active.mine || active.subject;
+      const anyFilter = active.orig || active.mine || active.subject || active.author || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
       const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '評分' : sortMode === 'year' ? '年份' : '題名'}`;
       document.getElementById('result-label')!.textContent = anyFilter
         ? `FACET / 切面 — ${shown} 種${sortLabel}`

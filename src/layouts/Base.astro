@@ -27,26 +27,20 @@ const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}`
 </head>
 <body>
   <header class="site">
-    <a href="/"><div class="brand">乙醚書目<small>ETHER&nbsp;CATALOG&nbsp;·&nbsp;1METHER.ME</small></div></a>
+    <a href="/" class="brand">乙醚書目</a>
     <nav class="site-nav">
       <a href="/works/">目錄</a>
-      <span>·</span>
       <a href="/people/">著者</a>
-      <span>·</span>
       <a href="/subjects/">主題</a>
     </nav>
-    <div class="stats">
-      <b>{works.length}</b> works · <b>{langs.size}</b> languages · <b>{people.length}</b> authority records{yearRange && ` · ${yearRange}`}
-    </div>
   </header>
 
   <slot />
 
   <footer class="site">
-    <span>generated from catalog.git</span>
-    <span>schema v0.1 · FRBR-lite</span>
-    <span>sources: NeoDB · 豆坟 export · 手工著錄</span>
-    <span>你的閱讀史，攥在你自己手里</span>
+    <span class="stats-line"><b>{works.length}</b> works · <b>{langs.size}</b> languages · <b>{people.length}</b> people{yearRange && ` · ${yearRange}`}</span>
+    <span>generated from <a href="https://github.com/locoda/book-catalog">locoda/book-catalog</a></span>
+    <span>sources: NeoDB · 手工著錄</span>
   </footer>
 </body>
 </html>
