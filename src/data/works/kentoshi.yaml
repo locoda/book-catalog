@@ -11,7 +11,7 @@ expressions:
   title: 献灯使
   mine: true
 readings:
-- date: '2025-01-01'
+- date: '2025-05-19'
   platform: NeoDB 标记
 rating: 8
 status: read

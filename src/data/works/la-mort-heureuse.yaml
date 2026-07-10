@@ -13,7 +13,7 @@ expressions:
     translator: 张一乔
     mine: true
 readings:
-  - date: "2021-06-15"
+  - date: '2023-10-15'
     platform: NeoDB 标记
 rating: 8
 status: read

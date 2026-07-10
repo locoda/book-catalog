@@ -10,7 +10,7 @@ expressions:
     title: 活着
     mine: true
 readings:
-  - date: "2021-01-01"
+  - date: '2021-08-11'
     platform: NeoDB 标记
 rating: 10
 status: read

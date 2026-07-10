@@ -10,7 +10,7 @@ expressions:
     title: 看见
     mine: true
 readings:
-  - date: "2025-03-01"
+  - date: '2018-10-28'
     platform: NeoDB 标记
 rating: 10
 status: read

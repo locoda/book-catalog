@@ -10,7 +10,7 @@ expressions:
     title: 海邊的房間
     mine: true
 readings:
-  - date: "2020-09-01"
+  - date: '2022-02-01'
     platform: NeoDB 标记
 rating: 8
 status: read

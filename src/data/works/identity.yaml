@@ -11,7 +11,7 @@ expressions:
     translator: 刘芳
     mine: true
 readings:
-  - date: "2025-03-01"
+  - date: '2022-05-03'
     platform: NeoDB 标记
 rating: 8
 status: read

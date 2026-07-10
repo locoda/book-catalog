@@ -10,7 +10,7 @@ expressions:
     title: 進烤箱的好日子
     mine: true
 readings:
-  - date: "2025-04-01"
+  - date: '2025-06-09'
     platform: NeoDB 标记
 rating: 8
 status: read

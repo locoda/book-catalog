@@ -10,7 +10,7 @@ expressions:
     title: 过得刚好
     mine: true
 readings:
-  - date: "2020-12-01"
+  - date: '2021-05-15'
     platform: NeoDB 标记
 rating: 8
 status: read

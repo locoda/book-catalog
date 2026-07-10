@@ -11,7 +11,7 @@ expressions:
   title: 一间自己的房间
   mine: true
 readings:
-- date: '2025-03-01'
+- date: '2021-05-23'
   platform: NeoDB 标记
 rating: 8
 status: read

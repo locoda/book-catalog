@@ -10,7 +10,7 @@ expressions:
     title: Orbital
     mine: true
 readings:
-  - date: "2020-05-01"
+  - date: '2024-11-18'
     platform: NeoDB 标记
 rating: 8
 status: read
