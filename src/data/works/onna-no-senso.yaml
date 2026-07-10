@@ -1,0 +1,21 @@
+work_type: book
+title: 女の戦争
+orig_lang: ja
+year: 2013
+creators: [ueno-chizuko]
+confirmed: true
+callno: JN-UEN-2013-ONNA
+subjects: [厌女结构, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: 女の戦争
+  - lang: zh-Hans
+    title: 女性生存战争
+    translator: 邹韵
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0oVW8FHLkU5MJJh2i3l6TK

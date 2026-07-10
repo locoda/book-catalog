@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Hiver à Sokcho
+callno: JF-DUS-2016-HIVE
+orig_lang: fr
+year: 2016
+creators: [dusapin-elisa]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 束草的冬天
+    translator: 狄佳
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 43AO7ZZBx7JrbQarg13mqz

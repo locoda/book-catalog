@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 일차원이 되고 싶어
+callno: OF-PAR-2021-ILCH
+orig_lang: ko
+year: 2021
+creators:
+- park-sangyoung
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 想成為一次元
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

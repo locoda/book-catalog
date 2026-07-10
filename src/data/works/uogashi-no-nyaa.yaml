@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 魚河岸のにゃあ
+callno: OF-NIS-2014-UOGA
+orig_lang: ja
+year: 2014
+creators:
+- nishi-kanako
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 鱼河岸小店
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

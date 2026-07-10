@@ -1,0 +1,5 @@
+name: Yu Hua
+sort: Yu, Hua
+forms:
+  - {script: zh, value: 余华}
+  - {script: zh-Latn, value: Yu Hua}

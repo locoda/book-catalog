@@ -1,0 +1,21 @@
+work_type: book
+title: L'existentialisme est un humanisme
+orig_lang: fr
+year: 1946
+creators: [sartre-jeanpaul]
+confirmed: true
+callno: OF-SAR-1946-LEXI
+subjects: [认知权力不对等]
+expressions:
+  - lang: fr
+    title: L'existentialisme est un humanisme
+  - lang: zh-Hans
+    title: 存在主义是一种人道主义
+    translator: 周煦良
+    mine: true
+readings:
+  - date: "2023-10-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1MBU1DELER9QKKO2160gmb

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 往復書簡
+callno: OF-SAK-2020-OFUK
+orig_lang: ja
+year: 2020
+creators: [sakamoto-yuji]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 往复书简：初恋与不伦
+    translator: 蕾克
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 33o7LmH63nMKZDQ0UVtRGP

@@ -1,0 +1,21 @@
+work_type: book
+title: The Good Doctor
+orig_lang: en
+year: 2003
+creators: [galgut-damon]
+confirmed: true
+callno: EN-GAL-2003-GOOD
+subjects: []
+expressions:
+  - lang: en
+    title: The Good Doctor
+  - lang: zh-Hans
+    title: 多余人
+    translator: 朱亚云
+    mine: true
+readings:
+  - date: "2024-11-09"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 20SQXZqE7E86jwHdfRsAxJ

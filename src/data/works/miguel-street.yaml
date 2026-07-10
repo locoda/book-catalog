@@ -1,0 +1,21 @@
+work_type: book
+title: Miguel Street
+orig_lang: en
+year: 1959
+creators: [naipaul-vs]
+confirmed: true
+callno: EF-NAI-1959-MIGU
+subjects: [空间与记忆, 身份流动]
+expressions:
+  - lang: en
+    title: Miguel Street
+  - lang: zh-Hans
+    title: 米格尔街
+    translator: 张琪
+    mine: true
+readings:
+  - date: "2020-08-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4KJqCjGbRpuDbnLCmEPUca

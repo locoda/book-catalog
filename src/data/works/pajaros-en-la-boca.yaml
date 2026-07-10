@@ -1,0 +1,21 @@
+work_type: book
+title: Pájaros en la boca
+orig_lang: es
+year: 2008
+creators: [schweblin-samanta]
+subjects: []
+expressions:
+  - lang: es
+    title: Pájaros en la boca
+  - lang: zh-Hans
+    title: 吃鸟的女孩
+    translator: 姚云青
+    mine: true
+readings:
+  - date: "2024-03-27"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5dQzQQsE61LFGnUZd6DsgQ
+confirmed: true
+callno: OF-SCH-2008-PAJA

@@ -1,0 +1,21 @@
+work_type: book
+title: Palomar
+orig_lang: it
+year: 1983
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1983-PALO
+subjects: [空间与记忆]
+expressions:
+  - lang: it
+    title: Palomar
+  - lang: zh-Hans
+    title: 帕洛马尔
+    translator: 萧天佑
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6oOhR6gJf4bKFqCNLQeDd4

@@ -1,0 +1,21 @@
+work_type: book
+title: "What Would de Beauvoir Do?"
+orig_lang: en
+year: 2018
+creators: [jackson-gee-tabi, rose-freya]
+confirmed: true
+callno: EN-JAC-2018-WOUL
+subjects: [厌女结构]
+expressions:
+  - lang: en
+    title: "What Would de Beauvoir Do?"
+  - lang: zh-Hans
+    title: 女性主义有什么用？
+    translator: 吴庆宏
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6QUtlBuIyQi8MojiFshUC5

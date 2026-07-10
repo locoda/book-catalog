@@ -1,0 +1,21 @@
+work_type: book
+title: 家父長制と資本制
+orig_lang: ja
+year: 1990
+creators: [ueno-chizuko]
+confirmed: true
+callno: JN-UEN-1990-KAFU
+subjects: [厌女结构, 劳动异化]
+expressions:
+  - lang: ja
+    title: 家父長制と資本制
+  - lang: zh-Hans
+    title: 父权制与资本主义
+    translator: 邹韵
+    mine: true
+readings:
+  - date: "2021-04-08"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3qSUXMYnjtFdJipZgGBdJF

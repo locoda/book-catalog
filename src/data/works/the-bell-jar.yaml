@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Bell Jar
+callno: OF-PLA-1963-BELL
+orig_lang: en
+year: 1963
+creators:
+- plath-sylvia
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 鐘形罩
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

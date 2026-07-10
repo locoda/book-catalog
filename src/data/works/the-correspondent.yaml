@@ -1,0 +1,18 @@
+work_type: book
+title: The Correspondent
+orig_lang: en
+year: 2025
+creators: [evans-virginia]
+confirmed: true
+callno: EF-EVA-2025-CORR
+subjects: [书信体, 亲密关系]
+expressions:
+  - lang: en
+    title: The Correspondent
+    mine: true
+readings:
+  - date: "2026-04-03"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 56DlwX0sPt6RsfK8ajmLEm

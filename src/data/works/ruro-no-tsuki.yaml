@@ -1,0 +1,21 @@
+work_type: book
+title: 流浪の月
+orig_lang: ja
+year: 2019
+creators: [nagira-yuu]
+confirmed: true
+callno: JF-NAG-2019-RURO
+subjects: [亲密关系, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: 流浪の月
+  - lang: zh-Hans
+    title: 流浪之月
+    translator: 烨伊
+    mine: true
+readings:
+  - date: "2021-02-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3XPzkXgFJ0HrB3AaM0mjvO

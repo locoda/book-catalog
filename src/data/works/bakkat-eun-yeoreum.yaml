@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 바깥은 여름
+callno: OF-KIM-2017-BAKK
+orig_lang: ko
+year: 2017
+creators: [kim-aeran]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 外面是夏天
+    translator: 馮燕珠
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7h6oH7JuOiVL7qTHEXTtMJ

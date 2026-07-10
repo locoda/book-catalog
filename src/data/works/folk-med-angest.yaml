@@ -1,0 +1,21 @@
+work_type: book
+title: Folk med ångest
+orig_lang: sv
+year: 2019
+creators: [backman-fredrik]
+confirmed: true
+callno: OF-BAC-2019-FOLK
+subjects: [亲密关系, 劳动异化]
+expressions:
+  - lang: sv
+    title: Folk med ångest
+  - lang: zh-Hans
+    title: 焦虑的人
+    translator: 孙璐
+    mine: true
+readings:
+  - date: "2025-11-20"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 737gLyCj3ET1bdWAx5Bzsm

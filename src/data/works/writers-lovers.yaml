@@ -1,0 +1,18 @@
+work_type: book
+title: "Writers & Lovers"
+orig_lang: en
+year: 2020
+creators: [king-lily]
+confirmed: true
+callno: EF-KIN-2020-WRIT
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: "Writers & Lovers"
+    mine: true
+readings:
+  - date: "2026-02-23"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1PzQe9eo08509TJscrxC50

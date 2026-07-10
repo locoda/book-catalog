@@ -1,0 +1,21 @@
+work_type: book
+title: "One: Valuing the Single Life"
+orig_lang: en
+year: 2018
+creators: [payne-clare]
+confirmed: true
+callno: EN-PAY-2018-ONE
+subjects: [厌女结构]
+expressions:
+  - lang: en
+    title: "One: Valuing the Single Life"
+  - lang: zh-Hans
+    title: 单身偏见
+    translator: 张林
+    mine: true
+readings:
+  - date: "2023-03-25"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2PWijlQCtorqFfJ9XB2zeO

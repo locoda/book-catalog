@@ -1,0 +1,18 @@
+work_type: book
+title: Homeseeking
+orig_lang: en
+year: 2025
+creators: [chen-karissa]
+confirmed: true
+callno: EF-CHE-2025-HOME
+subjects: [身份流动, 空间与记忆, 亲密关系]
+expressions:
+  - lang: en
+    title: Homeseeking
+    mine: true
+readings:
+  - date: "2026-03-20"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4C95cIurnG3c9s8kZSwNVj

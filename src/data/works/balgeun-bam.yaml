@@ -1,0 +1,21 @@
+work_type: book
+title: 밝은 밤
+orig_lang: ko
+year: 2021
+creators: [choi-eunyoung]
+confirmed: true
+callno: OF-CHO-2021-BALG
+subjects: [母职与家庭, 亲密关系]
+expressions:
+  - lang: ko
+    title: 밝은 밤
+  - lang: zh-Hans
+    title: 明亮的夜晚
+    translator: 叶蕾
+    mine: true
+readings:
+  - date: "2020-07-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4n5lTCR1l3CdtXnzEOmY3V

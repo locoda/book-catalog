@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Min mormor hälsar och säger förlåt
+callno: OF-BAC-2013-MINM
+orig_lang: sv
+year: 2013
+creators: [backman-fredrik]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 外婆的道歉信
+    translator: 孟汇一
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2bwVWVrbVNEFEzLQJcj7Ah

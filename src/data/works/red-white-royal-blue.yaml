@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Red, White & Royal Blue
+callno: OF-MCQ-2019-REDW
+orig_lang: en
+year: 2019
+creators: [mcquiston-casey]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 王室緋聞守則
+    translator: 曾倚華
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6QRvuQ7bKNMnnVNKRWCz34

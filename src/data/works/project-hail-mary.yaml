@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Project Hail Mary
+callno: OF-WEI-2021-PROJ
+orig_lang: en
+year: 2021
+creators: [weir-andy]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 挽救计划
+    translator: 耿辉
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4AHHgOUjkBvDwx9HOuJ8eQ

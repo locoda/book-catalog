@@ -1,0 +1,21 @@
+work_type: book
+title: Klara and the Sun
+orig_lang: en
+year: 2021
+creators: [ishiguro-kazuo]
+confirmed: true
+callno: EF-ISH-2021-KLAR
+subjects: [身份流动, 亲密关系]
+expressions:
+  - lang: en
+    title: Klara and the Sun
+  - lang: zh-Hans
+    title: 克拉拉与太阳
+    translator: 宋佥
+    mine: true
+readings:
+  - date: "2025-03-15"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1GNhgqY0S8mo936zDDJtCS

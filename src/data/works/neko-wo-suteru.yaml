@@ -1,0 +1,21 @@
+work_type: book
+title: 猫を棄てる
+orig_lang: ja
+year: 2019
+creators: [murakami-haruki]
+confirmed: true
+callno: JN-MUR-2019-NEKO
+subjects: [母职与家庭, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: 猫を棄てる
+  - lang: zh-Hans
+    title: 弃猫
+    translator: 烨伊
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1Bf8kA7KjEjLAlNN3Vxv5z

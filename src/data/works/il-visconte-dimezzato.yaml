@@ -1,0 +1,21 @@
+work_type: book
+title: Il visconte dimezzato
+orig_lang: it
+year: 1952
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1952-IL
+subjects: [身份流动]
+expressions:
+  - lang: it
+    title: Il visconte dimezzato
+  - lang: zh-Hans
+    title: 分成两半的子爵
+    translator: 吴正仪
+    mine: true
+readings:
+  - date: "2021-07-08"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5Htu0WixQdHyBTZW02CqAJ

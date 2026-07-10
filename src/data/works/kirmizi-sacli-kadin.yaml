@@ -1,0 +1,21 @@
+work_type: book
+title: Kırmızı Saçlı Kadın
+orig_lang: tr
+year: 2016
+creators: [pamuk-orhan]
+confirmed: true
+callno: OF-PAM-2016-KIRM
+subjects: [身份流动, 亲密关系]
+expressions:
+  - lang: tr
+    title: Kırmızı Saçlı Kadın
+  - lang: zh-Hans
+    title: 红发女人
+    translator: 尹婷婷
+    mine: true
+readings:
+  - date: "2021-04-22"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1ZitwyQuTVhRpn3IsTv9i8

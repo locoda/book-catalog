@@ -1,0 +1,18 @@
+work_type: book
+title: 格外的活法
+orig_lang: zh-Hans
+year: 2024
+creators: [yoshii-shinobu]
+confirmed: true
+callno: CN-YOS-2024-GEWA
+subjects: [劳动异化, 空间与记忆]
+expressions:
+  - lang: zh-Hans
+    title: 格外的活法
+    mine: true
+readings:
+  - date: "2025-11-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7cmvuTHLepBvZxdDHHDyAK

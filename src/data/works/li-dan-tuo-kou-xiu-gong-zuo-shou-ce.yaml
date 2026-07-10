@@ -1,0 +1,18 @@
+work_type: book
+title: 李诞脱口秀工作手册
+orig_lang: zh-Hans
+year: 2021
+creators: [li-dan]
+confirmed: true
+callno: CN-LI-2021-LIDA
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 李诞脱口秀工作手册
+    mine: true
+readings:
+  - date: "2025-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5bBvE8QjynrvOGmb6cw2X

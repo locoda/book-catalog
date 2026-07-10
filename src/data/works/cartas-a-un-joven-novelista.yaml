@@ -1,0 +1,21 @@
+work_type: book
+title: Cartas a un joven novelista
+orig_lang: es
+year: 1997
+creators: [vargas-llosa-mario]
+confirmed: true
+callno: OF-VAR-1997-CART
+subjects: [书信体]
+expressions:
+  - lang: es
+    title: Cartas a un joven novelista
+  - lang: zh-Hans
+    title: 给青年小说家的信
+    translator: 赵德明
+    mine: true
+readings:
+  - date: "2021-05-25"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1oVx5UgSbZGWwrqgmNg4iS

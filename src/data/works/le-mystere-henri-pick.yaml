@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Le Mystère Henri Pick
+callno: OF-FOE-2016-MYST
+orig_lang: fr
+year: 2016
+creators: [foenkinos-david]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 退稿图书馆
+    translator: 吕如羽
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2QX6OE8U6Rucr0WIzft67g

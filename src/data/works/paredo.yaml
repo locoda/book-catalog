@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: パレード
+callno: JF-YOS-2002-PARA
+orig_lang: ja
+year: 2002
+creators: [yoshida-shuichi]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 同栖生活
+    translator: 竺家荣
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2N8mgFrFdx1qSW0KhZDa6l

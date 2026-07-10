@@ -1,0 +1,21 @@
+work_type: book
+title: ブラックボックス
+orig_lang: ja
+year: 2022
+creators: [sunakawa-bunji]
+confirmed: true
+callno: JF-SUN-2022-BURA
+subjects: [劳动异化, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: ブラックボックス
+  - lang: zh-Hant
+    title: 黑盒城市
+    translator: 劉名揚
+    mine: true
+readings:
+  - date: "2024-12-23"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4tOxtREHI6Wt2yW2Z3QdLC

@@ -1,0 +1,18 @@
+work_type: book
+title: Smart Brevity
+orig_lang: en
+year: 2022
+creators: [vandehei-jim, allen-mike, schwartz-roy]
+confirmed: true
+callno: EN-VAN-2022-SMAR
+subjects: []
+expressions:
+  - lang: en
+    title: Smart Brevity
+    mine: true
+readings:
+  - date: "2025-09-08"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0upECQUEIch9USWTToixSX

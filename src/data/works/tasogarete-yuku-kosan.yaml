@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: たそがれてゆく子さん
+callno: JN-ITO-2024-TASO
+orig_lang: ja
+year: 2024
+creators: [ito-hiromi]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 身后无遗物
+    translator: 蕾克
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0aeWcnhqNgcdAIOSN94uYZ

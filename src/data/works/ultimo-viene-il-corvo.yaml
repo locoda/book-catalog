@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Ultimo viene il corvo
+callno: OF-CAL-1949-ULTI
+orig_lang: it
+year: 1949
+creators:
+- calvino-italo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 最后来的是乌鸦
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

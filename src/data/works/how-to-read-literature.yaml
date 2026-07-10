@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: How to Read Literature
+callno: ON-EAG-2013-HOWT
+orig_lang: en
+year: 2013
+creators: [eagleton-terry]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 文学的读法
+    translator: 吴文权
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2DdGHBkhTykbkaSzcw1NiE

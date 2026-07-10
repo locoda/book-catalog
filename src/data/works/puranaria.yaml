@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: プラナリア
+callno: OF-YAM-2000-PURA
+orig_lang: ja
+year: 2000
+creators: [yamamoto-fumio]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 涡虫
+    translator: 李洁
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 60e7ppXtrDLjGESObxyDwq

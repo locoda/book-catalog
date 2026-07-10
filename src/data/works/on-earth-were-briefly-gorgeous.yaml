@@ -1,0 +1,21 @@
+work_type: book
+title: On Earth We're Briefly Gorgeous
+orig_lang: en
+year: 2019
+creators: [vuong-ocean]
+confirmed: true
+callno: EN-VUO-2019-ON
+subjects: [身份流动, 书信体, 亲密关系]
+expressions:
+  - lang: en
+    title: On Earth We're Briefly Gorgeous
+  - lang: zh-Hant
+    title: 此生，你我皆短暫燦爛
+    translator: 何穎怡
+    mine: true
+readings:
+  - date: "2026-01-19"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 19zy2JVnlsKzddlFR9kChL

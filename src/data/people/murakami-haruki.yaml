@@ -1,0 +1,7 @@
+name: Haruki Murakami
+sort: Murakami, Haruki
+forms:
+  - {script: en, value: Haruki Murakami}
+  - {script: ja, value: 村上春樹}
+  - {script: ja-kana, value: むらかみ はるき}
+  - {script: zh, value: 村上春树}

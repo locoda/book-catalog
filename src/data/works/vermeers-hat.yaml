@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Vermeer's Hat
+callno: ON-BRO-2008-VERM
+orig_lang: en
+year: 2008
+creators: [brook-timothy]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 维米尔的帽子
+    translator: 黄中宪
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 63d4zMmmxR6s7gd6bMcJSV

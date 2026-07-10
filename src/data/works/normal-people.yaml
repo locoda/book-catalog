@@ -1,0 +1,18 @@
+work_type: book
+title: Normal People
+orig_lang: en
+year: 2018
+creators: [rooney-sally]
+confirmed: true
+callno: EF-ROO-2018-NORM
+subjects: [亲密关系, 身份流动]
+expressions:
+  - lang: en
+    title: Normal People
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5JL2PxOXKyOQAACl6WFQkG

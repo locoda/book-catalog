@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 仕事が見つからない一年
+callno: OF-YOS-2018-SHIG
+orig_lang: ja
+year: 2018
+creators:
+- yoshida-shuichi
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 找不到工作的一年
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

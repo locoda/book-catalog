@@ -1,0 +1,14 @@
+work_type: book
+confirmed: true
+title: Touching the Unreachable
+callno: NF-INN-2021-TOUC
+orig_lang: en
+year: 2021
+creators: [innami-fusako]
+subjects: []
+readings:
+  - date: "2025-07-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6CJIMZ48zoDIWYBk7AE3Zs

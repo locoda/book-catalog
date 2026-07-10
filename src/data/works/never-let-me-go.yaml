@@ -1,0 +1,21 @@
+work_type: book
+title: Never Let Me Go
+orig_lang: en
+year: 2005
+creators: [ishiguro-kazuo]
+confirmed: true
+callno: EF-ISH-2005-NEVE
+subjects: [身份流动, 哀悼与丧失]
+expressions:
+  - lang: en
+    title: Never Let Me Go
+  - lang: zh-Hans
+    title: 莫失莫忘
+    translator: 张坤
+    mine: true
+readings:
+  - date: "2020-09-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6td8kLRbGyYpWeq9KCnHLY

@@ -1,0 +1,18 @@
+work_type: book
+title: Flesh
+orig_lang: en
+year: 2025
+creators: [szalay-david]
+confirmed: true
+callno: EF-SZA-2025-FLES
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Flesh
+    mine: true
+readings:
+  - date: "2025-12-21"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0kEu7up5VKHEqfuwdYnV9x

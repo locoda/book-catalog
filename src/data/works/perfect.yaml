@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Perfect
+callno: JF-JOY-2013-PERF
+orig_lang: en
+year: 2013
+creators: [joyce-rachel]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 时间停止的那一天
+    translator: 焦晓菊
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1tBNLBw8jbZGSjCE0OM5Ic

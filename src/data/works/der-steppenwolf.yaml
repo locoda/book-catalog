@@ -1,0 +1,21 @@
+work_type: book
+title: Der Steppenwolf
+orig_lang: de
+year: 1927
+creators: [hesse-hermann]
+confirmed: true
+callno: OF-HES-1927-DER
+subjects: [身份流动]
+expressions:
+  - lang: de
+    title: Der Steppenwolf
+  - lang: zh-Hans
+    title: 荒原狼
+    translator: 姜乙
+    mine: true
+readings:
+  - date: "2021-07-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1IXYABO2aW92Z9G4KjNtJ5

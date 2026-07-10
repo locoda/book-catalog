@@ -1,0 +1,21 @@
+work_type: book
+title: 二十億光年の孤独
+orig_lang: ja
+year: 1952
+creators: [tanikawa-shuntaro]
+confirmed: true
+callno: JF-TAN-1952-NIJU
+subjects: [空间与记忆]
+expressions:
+  - lang: ja
+    title: 二十億光年の孤独
+  - lang: zh-Hans
+    title: 二十亿光年的孤独
+    translator: 田原
+    mine: true
+readings:
+  - date: "2021-11-21"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 68zU99H73kGsOHFZl19VUQ

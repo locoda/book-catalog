@@ -1,0 +1,21 @@
+work_type: book
+title: Nocturnes
+orig_lang: en
+year: 2009
+creators: [ishiguro-kazuo]
+confirmed: true
+callno: EF-ISH-2009-NOCT
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: "Nocturnes: Five Stories of Music and Nightfall"
+  - lang: zh-Hans
+    title: 小夜曲
+    translator: 张晓意
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3WkW2OIDacW6PoEYqvzuox

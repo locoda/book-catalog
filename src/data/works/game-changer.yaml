@@ -1,0 +1,18 @@
+work_type: book
+title: Game Changer
+orig_lang: en
+year: 2018
+creators: [reid-rachel]
+confirmed: true
+callno: EF-REI-2018-GAME
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Game Changer
+    mine: true
+readings:
+  - date: "2025-12-24"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0jZHafFMSZxyfi0U2GmqfN

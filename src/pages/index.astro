@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { langLabel, langBucket, BUCKET_LABELS, type LangBucket } from '../lib/lang';
 
 const works = await getCollection('works');
 
@@ -16,28 +17,39 @@ const rows = await Promise.all(works.map(async (w) => {
     mineLang: mine?.lang ?? w.data.orig_lang,
     mineTitle,
     translated: mine && mine.lang !== w.data.orig_lang,
+    origBucket: langBucket(w.data.orig_lang),
   };
 }));
 rows.sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
 
-const origLangs = [...new Set(rows.map((r) => r.data.orig_lang))].sort();
+// 原语言：按 Callno 的四分类（中/日/英/其他）合并，避免几十种具体语言把筛选器塞爆
+const bucketOrder: LangBucket[] = ['zh', 'ja', 'en', 'other'];
+const origBuckets = bucketOrder.filter((b) => rows.some((r) => r.origBucket === b));
+// “其他”桶下的具体语言，展开时再选
+const otherLangs = [...new Set(rows.filter((r) => r.origBucket === 'other').map((r) => r.data.orig_lang))]
+  .sort((a, b) => langLabel(a).localeCompare(langLabel(b), 'zh'));
+
 const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
 const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
-
-const langLabel: Record<string, string> = { ja: '日本語', 'zh-CN': '中文', zh: '中文', en: 'English' };
-const label = (l: string) => langLabel[l] ?? l;
 ---
 <Base>
   <section class="facets wrap">
     <div class="facet-row" data-facet="orig">
       <span class="facet-label">原語言</span>
       <button class="chip on" data-value="">全部</button>
-      {origLangs.map((l) => <button class="chip" data-value={l}>{label(l)}</button>)}
+      {origBuckets.map((b) => <button class="chip" data-value={b}>{BUCKET_LABELS[b]}</button>)}
     </div>
+    {otherLangs.length > 0 && (
+      <div class="facet-row facet-sub hidden" data-facet="orig-sub">
+        <span class="facet-label">其他語言</span>
+        <button class="chip on" data-value="">不限</button>
+        {otherLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
+      </div>
+    )}
     <div class="facet-row" data-facet="mine">
       <span class="facet-label">我讀的是</span>
       <button class="chip on" data-value="">全部</button>
-      {mineLangs.map((l) => <button class="chip" data-value={l}>{label(l)}</button>)}
+      {mineLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
     </div>
     <div class="facet-row" data-facet="subject">
       <span class="facet-label">主題</span>
@@ -53,6 +65,7 @@ const label = (l: string) => langLabel[l] ?? l;
         <a
           class="row"
           href={`/works/${r.id}/`}
+          data-origbucket={r.origBucket}
           data-orig={r.data.orig_lang}
           data-mine={r.mineLang}
           data-subjects={r.data.subjects.join('|')}
@@ -60,7 +73,7 @@ const label = (l: string) => langLabel[l] ?? l;
           <span class="mono">{r.data.callno ?? r.id}</span>
           <span>{r.mineTitle} <span class="byline">· {r.creatorNames}</span></span>
           <span class="langs">
-            {r.translated ? `${label(r.data.orig_lang)} → ${label(r.mineLang)}` : `${label(r.data.orig_lang)} 原文`}
+            {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
           </span>
           <span class="score">{r.data.status === 'reading' ? '在讀' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
         </a>
@@ -70,22 +83,43 @@ const label = (l: string) => langLabel[l] ?? l;
   </section>
 
   <script>
-    const active: Record<string, string> = { orig: '', mine: '', subject: '' };
+    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '' };
+    const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
+
     document.querySelectorAll<HTMLElement>('.facet-row').forEach((row) => {
       const facet = row.dataset.facet!;
       row.querySelectorAll<HTMLButtonElement>('.chip').forEach((chip) => {
         chip.addEventListener('click', () => {
-          active[facet] = chip.dataset.value ?? '';
-          row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
-          chip.classList.add('on');
+          if (facet === 'orig') {
+            active.orig = chip.dataset.value ?? '';
+            active.origSub = '';
+            row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+            chip.classList.add('on');
+            if (origSubRow) {
+              const showSub = active.orig === 'other';
+              origSubRow.classList.toggle('hidden', !showSub);
+              origSubRow.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+              origSubRow.querySelector('.chip')?.classList.add('on'); // 重置为「不限」
+            }
+          } else if (facet === 'orig-sub') {
+            active.origSub = chip.dataset.value ?? '';
+            row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+            chip.classList.add('on');
+          } else {
+            active[facet] = chip.dataset.value ?? '';
+            row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+            chip.classList.add('on');
+          }
           apply();
         });
       });
     });
+
     function apply() {
       let shown = 0;
       document.querySelectorAll<HTMLElement>('#rows .row').forEach((el) => {
-        const okOrig = !active.orig || el.dataset.orig === active.orig;
+        const okOrig = !active.orig
+          || (el.dataset.origbucket === active.orig && (active.orig !== 'other' || !active.origSub || el.dataset.orig === active.origSub));
         const okMine = !active.mine || el.dataset.mine === active.mine;
         const okSubj = !active.subject || (el.dataset.subjects ?? '').split('|').includes(active.subject);
         const ok = okOrig && okMine && okSubj;

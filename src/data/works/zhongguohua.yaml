@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 中国话
+callno: ZF-ZHE-2021-ZHON
+orig_lang: zh-Hans
+year: 2021
+creators:
+- zheng-zining
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 中国话
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

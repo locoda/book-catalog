@@ -1,0 +1,18 @@
+work_type: book
+title: 流俗地
+orig_lang: zh-Hans
+year: 2020
+creators: [li-zishu]
+confirmed: true
+callno: CF-LI-2020-LIUS
+subjects: [空间与记忆, 身份流动]
+expressions:
+  - lang: zh-Hans
+    title: 流俗地
+    mine: true
+readings:
+  - date: "2021-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2mhAFKy6B3YTB75hwhtqpx

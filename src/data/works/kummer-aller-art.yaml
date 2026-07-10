@@ -1,0 +1,21 @@
+work_type: book
+title: Kummer aller Art
+orig_lang: de
+year: 2021
+creators: [leky-mariana]
+confirmed: true
+callno: OF-LEK-2021-KUMM
+subjects: [哀悼与丧失, 非典型女性经验]
+expressions:
+  - lang: de
+    title: Kummer aller Art
+  - lang: zh-Hant
+    title: 各種悲傷
+    translator: 區立遠
+    mine: true
+readings:
+  - date: "2026-05-30"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0Mvmm8pe3RBZ0zgDHKTuWT

@@ -1,0 +1,21 @@
+work_type: book
+title: Return to The Why Cafe
+orig_lang: en
+year: 2015
+creators: [strelecky-john]
+subjects: []
+expressions:
+  - lang: en
+    title: Return to The Why Cafe
+  - lang: zh-Hans
+    title: 重返世界尽头的咖啡馆
+    translator: 万洁
+    mine: true
+readings:
+  - date: "2023-07-02"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4SzeTIKCWZtyKWzCXIlmt4
+confirmed: true
+callno: EN-STR-2015-RETU

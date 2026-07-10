@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 十戒
+callno: JF-YUK-2024-JIKK
+orig_lang: ja
+year: 2024
+creators: [yuki-haruo]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 十誡
+    translator: 鍾雨璇
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5f8gin1ocw8VOG8hjnuOlU

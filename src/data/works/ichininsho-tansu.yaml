@@ -1,0 +1,21 @@
+work_type: book
+title: 一人称単数
+orig_lang: ja
+year: 2020
+creators: [murakami-haruki]
+confirmed: true
+callno: JF-MUR-2020-ICHI
+subjects: [空间与记忆]
+expressions:
+  - lang: ja
+    title: 一人称単数
+  - lang: zh-Hans
+    title: 第一人称单数
+    translator: 烨伊
+    mine: true
+readings:
+  - date: "2021-11-24"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 16cSnQWUcrtTfp9lbqgvXW

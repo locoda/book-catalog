@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: おひとりさまの最期
+callno: ON-UEN-2015-OHIT
+orig_lang: ja
+year: 2015
+creators:
+- ueno-chizuko
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 在熟悉的家中向世界道别
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

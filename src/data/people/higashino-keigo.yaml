@@ -1,0 +1,9 @@
+name: Keigo Higashino
+sort: Higashino, Keigo
+forms:
+  - script: ja
+    value: 東野圭吾
+  - script: ja-Latn
+    value: Higashino Keigo
+  - script: zh
+    value: 东野圭吾

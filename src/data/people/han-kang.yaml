@@ -1,0 +1,6 @@
+name: Han Kang
+sort: Han, Kang
+forms:
+  - {script: en, value: Han Kang}
+  - {script: ko, value: 한강}
+  - {script: zh, value: 韩江}

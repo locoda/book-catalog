@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Sense of an Ending
+callno: OF-BAR-2011-SENS
+orig_lang: en
+year: 2011
+creators:
+- barnes-julian
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 终结的感觉
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

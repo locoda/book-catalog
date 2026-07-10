@@ -1,0 +1,5 @@
+name: Alice Munro
+sort: Munro, Alice
+forms:
+  - {script: en, value: Alice Munro}
+  - {script: zh, value: 艾丽丝·门罗}

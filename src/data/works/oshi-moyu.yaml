@@ -1,0 +1,21 @@
+work_type: book
+title: 推し、燃ゆ
+orig_lang: ja
+year: 2020
+creators: [usami-rin]
+confirmed: true
+callno: JF-USA-2020-OSHI
+subjects: [亲密关系, 劳动异化]
+expressions:
+  - lang: ja
+    title: 推し、燃ゆ
+  - lang: zh-Hans
+    title: 偶像失格
+    translator: 千早
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3HjNLsBfMcOsA5WyKbyLfh

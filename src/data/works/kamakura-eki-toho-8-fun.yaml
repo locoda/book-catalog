@@ -1,0 +1,21 @@
+work_type: book
+title: 鎌倉駅徒歩8分、空室あり
+orig_lang: ja
+year: 2024
+creators: [ochi-tsukiko]
+confirmed: true
+callno: JF-OCH-2024-KAMA
+subjects: [空间与记忆, 亲密关系]
+expressions:
+  - lang: ja
+    title: 鎌倉駅徒歩8分、空室あり
+  - lang: zh-Hant
+    title: 鎌倉車站徒步八分鐘，空房招租中
+    translator: 侯萱憶
+    mine: true
+readings:
+  - date: "2025-11-27"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 71zfbngF845A9ytkv2y2Cv

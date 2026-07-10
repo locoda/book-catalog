@@ -1,0 +1,21 @@
+work_type: book
+title: バター
+orig_lang: ja
+year: 2017
+creators: [yuzuki-asako]
+confirmed: true
+callno: JF-YUZ-2017-BATA
+subjects: [亲密关系, 厌女结构]
+expressions:
+  - lang: ja
+    title: バター
+  - lang: zh-Hans
+    title: 黄油
+    translator: 亮夕
+    mine: true
+readings:
+  - date: "2021-04-05"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4s76agbLVyRlETrhD4K928

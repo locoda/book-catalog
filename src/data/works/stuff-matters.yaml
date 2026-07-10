@@ -1,0 +1,21 @@
+work_type: book
+title: Stuff Matters
+orig_lang: en
+year: 2013
+creators: [miodownik-mark]
+confirmed: true
+callno: EN-MIO-2013-STUF
+subjects: []
+expressions:
+  - lang: en
+    title: Stuff Matters
+  - lang: zh-Hans
+    title: 迷人的材料
+    translator: 赖盈满
+    mine: true
+readings:
+  - date: "2020-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2qJpxmIsXXCtoFt62Kc8y4

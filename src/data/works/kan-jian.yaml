@@ -1,0 +1,18 @@
+work_type: book
+title: 看见
+orig_lang: zh-Hans
+year: 2013
+creators: [chai-jing]
+confirmed: true
+callno: CN-CHA-2013-KANJ
+subjects: [劳动异化, 认知权力不对等]
+expressions:
+  - lang: zh-Hans
+    title: 看见
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 725HRuLqX57mY5El3KMVIF

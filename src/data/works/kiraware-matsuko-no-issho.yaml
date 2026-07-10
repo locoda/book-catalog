@@ -1,0 +1,21 @@
+work_type: book
+title: 嫌われ松子の一生
+orig_lang: ja
+year: 2003
+creators: [yamada-muneki]
+confirmed: true
+callno: JF-YAM-2003-KIRA
+subjects: [厌女结构, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: 嫌われ松子の一生
+  - lang: zh-Hans
+    title: 被嫌弃的松子的一生
+    translator: 王蕴洁
+    mine: true
+readings:
+  - date: "2019-01-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 689Lu9h0UKIJSgCQIDsmdp

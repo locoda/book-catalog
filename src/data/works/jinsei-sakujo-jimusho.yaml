@@ -1,0 +1,21 @@
+work_type: book
+title: 人生削除事務所
+orig_lang: ja
+year: 2016
+creators: [honda-takayoshi]
+confirmed: true
+callno: JF-HON-2016-JINS
+subjects: [不可靠/碎片化叙事, 亲密关系]
+expressions:
+  - lang: ja
+    title: 人生削除事務所
+  - lang: zh-Hans
+    title: 人生删除事务所
+    translator: 吕灵芝
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 67LYwlmo37fqMDLkCbwuZE

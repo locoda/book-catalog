@@ -1,0 +1,21 @@
+work_type: book
+title: いい子のあくび
+orig_lang: ja
+year: 2023
+creators: [takase-junko]
+confirmed: true
+callno: JF-TAK-2023-IIKO
+subjects: [劳动异化, 厌女结构]
+expressions:
+  - lang: ja
+    title: いい子のあくび
+  - lang: zh-Hant
+    title: 好孩子的哈欠
+    translator: 涂紋凰
+    mine: true
+readings:
+  - date: "2025-06-30"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 42oieL1fEHWZJdsZ7gAdfm

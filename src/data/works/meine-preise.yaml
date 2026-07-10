@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Meine Preise
+callno: ON-BER-2009-MEIN
+orig_lang: de
+year: 2009
+creators: [bernhard-thomas]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 我的文学奖
+    translator: 马文韬
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3s5fhPnnsHiDx7TYE8OrfR

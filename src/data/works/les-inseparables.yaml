@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Les Inséparables
+callno: OF-BEA-2020-INSE
+orig_lang: fr
+year: 2020
+creators:
+- beauvoir-simone
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 形影不离
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

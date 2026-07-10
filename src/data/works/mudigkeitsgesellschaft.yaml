@@ -1,0 +1,21 @@
+work_type: book
+title: Müdigkeitsgesellschaft
+orig_lang: de
+year: 2010
+creators: [han-byungchul]
+confirmed: true
+callno: ON-HAN-2010-MUDI
+subjects: [劳动异化]
+expressions:
+  - lang: de
+    title: Müdigkeitsgesellschaft
+  - lang: zh-Hans
+    title: 倦怠社会
+    translator: 王一力
+    mine: true
+readings:
+  - date: "2025-05-15"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3lvnXkbLjU3Rbl7IvuKtUq

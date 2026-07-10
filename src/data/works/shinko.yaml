@@ -1,0 +1,21 @@
+work_type: book
+title: 信仰
+orig_lang: ja
+year: 2019
+creators: [murata-sayaka]
+confirmed: true
+callno: JF-MUR-2019-SHIN
+subjects: [身份流动, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: 信仰
+  - lang: zh-Hans
+    title: 信仰
+    translator: 蔡鸣雁
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5JLCcxarGXDLbI6DJsGLCU

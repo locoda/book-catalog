@@ -1,0 +1,21 @@
+work_type: book
+title: Misbehaving
+orig_lang: en
+year: 2015
+creators: [thaler-richard]
+confirmed: true
+callno: EN-THA-2015-MISB
+subjects: []
+expressions:
+  - lang: en
+    title: Misbehaving
+  - lang: zh-Hans
+    title: '"错误"的行为'
+    translator: 王晋
+    mine: true
+readings:
+  - date: "2023-04-16"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 06ztINvZsRlaYMUcbrLHD1

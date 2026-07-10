@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 羊をめぐる冒険
+callno: OF-MUR-1982-HITS
+orig_lang: ja
+year: 1982
+creators:
+- murakami-haruki
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 寻羊冒险记
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,20 @@
+work_type: book
+confirmed: true
+title: Flowers for Algernon
+callno: ON-key-1966-FLOW
+orig_lang: en
+year: 1966
+creators:
+- keyes-daniel
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 献给阿尔吉侬的花束
+  mine: true
+  translator: 陈澄和
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4RcTj1AilRVONB8RIKJSVA

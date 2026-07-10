@@ -1,0 +1,21 @@
+work_type: book
+title: Der König verneigt sich und tötet
+orig_lang: de
+year: 2003
+creators: [muller-herta]
+confirmed: true
+callno: ON-MUL-2003-DER
+subjects: [空间与记忆, 认知权力不对等]
+expressions:
+  - lang: de
+    title: Der König verneigt sich und tötet
+  - lang: zh-Hans
+    title: 每一句话语都坐着别的眼睛
+    translator: 李贻琼
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5ublSE5TiXzm5VS4152Nno

@@ -1,0 +1,21 @@
+work_type: book
+title: N/A
+orig_lang: ja
+year: 2022
+creators: [toshimori-akira]
+confirmed: true
+callno: JF-TOS-2022-N
+subjects: [身份流动, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: N/A
+  - lang: zh-Hant
+    title: N/A 不適用
+    translator: 涂紋凰
+    mine: true
+readings:
+  - date: "2025-08-02"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5BOuvEnSUhotCG1tv75CmM

@@ -1,0 +1,21 @@
+work_type: book
+title: Work, Consumerism and the New Poor
+orig_lang: en
+year: 1998
+creators: [bauman-zygmunt]
+confirmed: true
+callno: EN-BAU-1998-WORK
+subjects: [劳动异化]
+expressions:
+  - lang: en
+    title: Work, Consumerism and the New Poor
+  - lang: zh-Hans
+    title: 工作、消费主义和新穷人
+    translator: 郭楠
+    mine: true
+readings:
+  - date: "2021-06-08"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3Lellbdoz8yNGMnWIUHGjS

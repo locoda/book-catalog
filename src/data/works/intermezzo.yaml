@@ -1,0 +1,18 @@
+work_type: book
+title: Intermezzo
+orig_lang: en
+year: 2024
+creators: [rooney-sally]
+confirmed: true
+callno: EF-ROO-2024-INTE
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Intermezzo
+    mine: true
+readings:
+  - date: "2025-07-20"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5eSBqoOXe1kI7n9t5WCSzA

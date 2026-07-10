@@ -1,0 +1,21 @@
+work_type: book
+title: Beginning Theory
+orig_lang: en
+year: 1995
+creators: [barry-peter]
+confirmed: true
+callno: EN-BAR-1995-BEGI
+subjects: []
+expressions:
+  - lang: en
+    title: "Beginning Theory: An Introduction to Literary and Cultural Theory"
+  - lang: zh-Hans
+    title: 理论入门
+    translator: 杨建国
+    mine: true
+readings:
+  - date: "2021-04-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7kv7Vy4DoGvIDubzqToyXy

@@ -1,0 +1,21 @@
+work_type: book
+title: Reflections on Totalitarianism
+orig_lang: en
+year: 2026
+creators: []
+confirmed: true
+callno: EN-ARE-2026-REFL
+subjects: []
+expressions:
+  - lang: en
+    title: Reflections on Totalitarianism
+  - lang: zh-Hant
+    title: 反思極權政治
+    translator: 劉達寬
+    mine: true
+readings:
+  - date: "2026-04-02"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7buG3ro0HAp4Vn9wsiZNEz

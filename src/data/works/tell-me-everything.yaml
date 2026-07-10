@@ -1,0 +1,18 @@
+work_type: book
+title: Tell Me Everything
+orig_lang: en
+year: 2024
+creators: [strout-elizabeth]
+confirmed: true
+callno: EF-STR-2024-TELL
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Tell Me Everything
+    mine: true
+readings:
+  - date: "2025-09-16"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4oGsuwF1yN787ip1KM3Dpo

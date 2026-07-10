@@ -1,0 +1,21 @@
+work_type: book
+title: お探し物は図書室まで
+orig_lang: ja
+year: 2020
+creators: [aoyama-michiko]
+confirmed: true
+callno: JF-AOY-2020-OSAG
+subjects: [空间与记忆, 亲密关系]
+expressions:
+  - lang: ja
+    title: お探し物は図書室まで
+  - lang: zh-Hans
+    title: 人生借阅室
+    translator: 烨伊
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1nNx7Itb9uQe9LHqO7d5Rs

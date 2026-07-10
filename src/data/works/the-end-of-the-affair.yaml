@@ -1,0 +1,21 @@
+work_type: book
+title: The End of the Affair
+orig_lang: en
+year: 1951
+creators: [greene-graham]
+confirmed: true
+callno: EF-GRE-1951-END
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: en
+    title: The End of the Affair
+  - lang: zh-Hans
+    title: 恋情的终结
+    translator: 柯平
+    mine: true
+readings:
+  - date: "2021-03-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7fAsIzCM6AamSjCGO5uFY2

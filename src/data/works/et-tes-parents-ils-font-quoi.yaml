@@ -1,0 +1,21 @@
+work_type: book
+title: Et tes parents, ils font quoi ?
+orig_lang: fr
+year: 2022
+creators: [naselli-adrien]
+confirmed: true
+callno: ON-NAS-2022-ET
+subjects: [劳动异化, 身份流动]
+expressions:
+  - lang: fr
+    title: Et tes parents, ils font quoi ?
+  - lang: zh-Hans
+    title: 逆袭
+    translator: 张蕊子
+    mine: true
+readings:
+  - date: "2023-08-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1IFN1TTakgMDfEuXK1dVlw

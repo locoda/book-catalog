@@ -1,0 +1,18 @@
+work_type: book
+title: 人生海海
+orig_lang: zh-Hans
+year: 2019
+creators: [mai-jia]
+confirmed: true
+callno: CF-MAI-2019-RENS
+subjects: [身份流动, 空间与记忆]
+expressions:
+  - lang: zh-Hans
+    title: 人生海海
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 45sIM7b0laL0fVcS9yKiG7

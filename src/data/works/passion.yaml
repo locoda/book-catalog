@@ -1,0 +1,21 @@
+work_type: book
+title: Passion
+orig_lang: en
+year: 1987
+creators: [winterson-jeanette]
+confirmed: true
+callno: EF-WIN-1987-PASS
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Passion
+  - lang: zh-Hans
+    title: 激情
+    translator: 杨雪
+    mine: true
+readings:
+  - date: "2025-09-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0AygUNCKOYrRPyUZuTs2H5

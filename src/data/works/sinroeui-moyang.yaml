@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 신뢰의 모양
+callno: OF-PAR-2022-SINR
+orig_lang: ko
+year: 2022
+creators:
+- park-sangyoung
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 信任的模樣
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

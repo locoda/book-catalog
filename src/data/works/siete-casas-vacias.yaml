@@ -1,0 +1,21 @@
+work_type: book
+title: Siete casas vacías
+orig_lang: es
+year: 2015
+creators: [schweblin-samanta]
+confirmed: true
+callno: OF-SCH-2015-SIET
+subjects: [空间与记忆, 不可靠/碎片化叙事]
+expressions:
+  - lang: es
+    title: Siete casas vacías
+  - lang: zh-Hans
+    title: 七座空屋
+    translator: 姚云青
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1xgwM7VzSlSLS5CrcM6YpD

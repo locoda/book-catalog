@@ -1,0 +1,21 @@
+work_type: book
+title: 흰
+orig_lang: ko
+year: 2016
+creators: [han-kang]
+confirmed: true
+callno: OF-HAN-2016-HUIN
+subjects: [哀悼与丧失, 空间与记忆]
+expressions:
+  - lang: ko
+    title: 흰
+  - lang: zh-Hans
+    title: 失语者
+    translator: 胡椒筒
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2J5uBF2FZkPAvbQPRETLCU

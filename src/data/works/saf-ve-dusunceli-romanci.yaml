@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Saf ve Düşünceli Romancı
+callno: NF-PAM-2011-SAFV
+orig_lang: tr
+year: 2011
+creators: [pamuk-orhan]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 天真的和感伤的小说家
+    translator: 彭发胜
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1k65WE9xnZlmnMeeiBmGvc

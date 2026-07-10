@@ -1,0 +1,18 @@
+work_type: book
+confirmed: true
+title: Dictee
+orig_lang: en
+year: 1982
+creators: [cha-theresa-hak-kyung]
+callno: NF-CHA-1982-DICT
+subjects: []
+expressions:
+  - lang: en
+    title: Dictee
+    mine: true
+readings:
+  - date: "2025-07-07"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3A08DkJvGIYMoVX5ICa5mo

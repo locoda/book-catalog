@@ -1,0 +1,21 @@
+work_type: book
+title: プラチナデータ
+orig_lang: ja
+year: 2010
+creators: [higashino-keigo]
+confirmed: true
+callno: JF-HIG-2010-PURA
+subjects: []
+expressions:
+  - lang: ja
+    title: プラチナデータ
+  - lang: zh-Hans
+    title: 白金数据
+    translator: 王蕴洁
+    mine: true
+readings:
+  - date: "2019-01-06"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4XKklcwkrzMzYsSVntWAXf

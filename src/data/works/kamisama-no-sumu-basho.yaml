@@ -1,0 +1,21 @@
+work_type: book
+title: 神様の棲む場所
+orig_lang: ja
+year: 2023
+creators: [nagira-yuu]
+confirmed: true
+callno: JF-NAG-2023-KAMI
+subjects: [亲密关系, 空间与记忆]
+expressions:
+  - lang: ja
+    title: 神様の棲む場所
+  - lang: zh-Hant
+    title: 神的棲息地
+    translator: 邱香凝
+    mine: true
+readings:
+  - date: "2025-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3VsRGQOQFMd37lbUA9UtZJ

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Une femme
+callno: OF-ERN-1987-UNEF
+orig_lang: fr
+year: 1987
+creators:
+- ernaux-annie
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 一个女人的故事
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,21 @@
+work_type: book
+title: Agonie des Eros
+orig_lang: de
+year: 2012
+creators: [han-byungchul]
+confirmed: true
+callno: ON-HAN-2012-AGON
+subjects: [亲密关系]
+expressions:
+  - lang: de
+    title: Agonie des Eros
+  - lang: zh-Hans
+    title: 爱欲之死
+    translator: 宋娀
+    mine: true
+readings:
+  - date: "2024-01-20"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5eyBTM9xHAPdOqZADnvK0S

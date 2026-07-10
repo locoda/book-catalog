@@ -1,0 +1,20 @@
+work_type: book
+title: TODO
+orig_lang: ja
+creators: [ichiho-michi]
+confirmed: true
+callno: JF-ICH-TODO-TODO
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: TODO
+  - lang: zh-Hant
+    title: 愛戀
+    translator: 陳學儀
+    mine: true
+readings:
+  - date: "2025-09-29"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6NHxcunbeKmZlt3f5fIc0r

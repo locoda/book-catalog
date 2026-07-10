@@ -1,0 +1,21 @@
+work_type: book
+title: ピンクのバス
+orig_lang: ja
+year: 1993
+creators: [kakuta-mitsuyo]
+confirmed: true
+callno: JF-KAK-1993-PINK
+subjects: [母职与家庭, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: ピンクのバス
+  - lang: zh-Hans
+    title: 粉色巴士
+    translator: 郑世凤
+    mine: true
+readings:
+  - date: "2021-09-04"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3EDFrZGnuX4eIGHKxsFsbW

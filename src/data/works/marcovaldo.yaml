@@ -1,0 +1,21 @@
+work_type: book
+title: Marcovaldo
+orig_lang: it
+year: 1963
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1963-MARC
+subjects: [劳动异化, 空间与记忆]
+expressions:
+  - lang: it
+    title: Marcovaldo
+  - lang: zh-Hans
+    title: 马可瓦尔多
+    translator: 马小漠
+    mine: true
+readings:
+  - date: "2020-12-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0wbLwtqaVNbaBxmNZ23M0q

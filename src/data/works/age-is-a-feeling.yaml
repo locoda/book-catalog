@@ -1,0 +1,21 @@
+work_type: book
+title: Age Is a Feeling
+orig_lang: en
+year: 2022
+creators: [mcgee-haley]
+confirmed: true
+callno: EN-MCG-2022-AGE
+subjects: [哀悼与丧失, 非典型女性经验]
+expressions:
+  - lang: en
+    title: Age Is a Feeling
+  - lang: zh-Hans
+    title: 年龄是一种感觉
+    translator: 陈鲁豫
+    mine: true
+readings:
+  - date: "2023-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0A1hO4u9E9Xizx013b3yGs

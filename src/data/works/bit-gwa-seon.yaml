@@ -1,0 +1,21 @@
+work_type: book
+title: 빛과 선
+orig_lang: ko
+year: 2024
+creators: [han-kang]
+confirmed: true
+callno: OF-HAN-2024-BIT
+subjects: [空间与记忆, 哀悼与丧失]
+expressions:
+  - lang: ko
+    title: 빛과 선
+  - lang: zh-Hant
+    title: 光與線
+    translator: 簡郁璇
+    mine: true
+readings:
+  - date: "2026-05-20"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1MY5Y9NKA7BsyQ8KVF49vI

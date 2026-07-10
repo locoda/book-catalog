@@ -1,0 +1,18 @@
+work_type: book
+title: Conversations with Friends
+orig_lang: en
+year: 2017
+creators: [rooney-sally]
+confirmed: true
+callno: EN-ROO-2017-CONV
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Conversations with Friends
+    mine: true
+readings:
+  - date: "2023-05-30"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 51MvNZFAMMWDBM9kXnn7Ue

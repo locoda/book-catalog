@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: A Pale View of Hills
+callno: OF-ISH-1982-PALE
+orig_lang: en
+year: 1982
+creators:
+- ishiguro-kazuo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 远山淡影
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

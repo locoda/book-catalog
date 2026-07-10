@@ -1,0 +1,18 @@
+work_type: book
+title: "The Subtle Art of Not Giving a F*ck"
+orig_lang: en
+year: 2016
+creators: [manson-mark]
+confirmed: true
+callno: EN-MAN-2016-SUBT
+subjects: []
+expressions:
+  - lang: en
+    title: "The Subtle Art of Not Giving a F*ck"
+    mine: true
+readings:
+  - date: "2026-01-13"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 24IkK2eGYHU7Kuv8JXzHO6

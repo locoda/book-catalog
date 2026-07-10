@@ -1,0 +1,21 @@
+work_type: book
+title: The Why Cafe
+orig_lang: en
+year: 2003
+creators: [strelecky-john]
+confirmed: true
+callno: EF-STR-2003-WHY
+subjects: []
+expressions:
+  - lang: en
+    title: The Why Cafe
+  - lang: zh-Hans
+    title: 世界尽头的咖啡馆
+    translator: 靳婷婷
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7FcyWhs2ztEFZNIFtSw6cX

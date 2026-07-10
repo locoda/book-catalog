@@ -1,0 +1,21 @@
+work_type: book
+title: 어른은 아니고, 서른입니다
+orig_lang: ko
+year: 2021
+creators: [kim-jinsol]
+confirmed: true
+callno: ON-KIM-2021-EORE
+subjects: []
+expressions:
+  - lang: ko
+    title: 어른은 아니고, 서른입니다
+  - lang: zh-Hant
+    title: 30歲可以是大人嗎？
+    translator: 陳品芳
+    mine: true
+readings:
+  - date: "2023-05-20"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2RgY75FEiqMyYV82NQpngN

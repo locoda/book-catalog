@@ -1,0 +1,18 @@
+work_type: book
+title: Eleanor Oliphant is Completely Fine
+orig_lang: en
+year: 2017
+creators: [honeyman-gail]
+confirmed: true
+callno: EN-HON-2017-ELEA
+subjects: [神经多样性, 亲密关系]
+expressions:
+  - lang: en
+    title: Eleanor Oliphant is Completely Fine
+    mine: true
+readings:
+  - date: "2026-01-22"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 14pLPT8rA2DFDwMktSLlNZ

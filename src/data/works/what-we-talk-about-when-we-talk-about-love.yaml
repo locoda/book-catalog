@@ -1,0 +1,21 @@
+work_type: book
+title: What We Talk About When We Talk About Love
+orig_lang: en
+year: 1981
+creators: [carver-raymond]
+confirmed: true
+callno: EN-CAR-1981-WHAT
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: What We Talk About When We Talk About Love
+  - lang: zh-Hans
+    title: 当我们谈论爱情时我们在谈论什么
+    translator: 小二
+    mine: true
+readings:
+  - date: "2022-10-09"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3DmFjmLl499VurXWB15mee

@@ -1,0 +1,21 @@
+work_type: book
+title: 対岸の彼女
+orig_lang: ja
+year: 2004
+creators: [kakuta-mitsuyo]
+confirmed: true
+callno: JF-KAK-2004-TAIG
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: 対岸の彼女
+  - lang: zh-Hans
+    title: 彼岸的她
+    translator: 赵乐平
+    mine: true
+readings:
+  - date: "2026-05-10"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4rtfbuItl2L2kUwPE76XMh

@@ -1,0 +1,21 @@
+work_type: book
+title: 지구 끝의 온실
+orig_lang: ko
+year: 2021
+creators: [kim-choyeop]
+confirmed: true
+callno: OF-KIM-2021-JIGU
+subjects: []
+expressions:
+  - lang: ko
+    title: 지구 끝의 온실
+  - lang: zh-Hans
+    title: 地球尽头的温室
+    translator: 胡椒筒
+    mine: true
+readings:
+  - date: "2026-05-28"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5AD5JvEAJsmwMK4a8uTyZV

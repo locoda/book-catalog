@@ -1,0 +1,21 @@
+work_type: book
+title: 恋愛中毒
+orig_lang: ja
+year: 1999
+creators: [yamamoto-fumio]
+confirmed: true
+callno: JF-YAM-1999-RENA
+subjects: [亲密关系, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: 恋愛中毒
+  - lang: zh-Hans
+    title: 戀愛中毒
+    translator: 黃心寧
+    mine: true
+readings:
+  - date: "2021-08-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5SF6tLl8DdxnH7TzadN3j0

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Lesebuch
+callno: ON-HES-2020-LESE
+orig_lang: de
+year: 2020
+creators:
+- hesse-hermann
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 阅读是安静的自我觉醒
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

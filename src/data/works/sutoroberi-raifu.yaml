@@ -1,0 +1,21 @@
+work_type: book
+title: ストロベリーライフ
+orig_lang: ja
+year: 2016
+creators: [ogiwara-hiroshi]
+confirmed: true
+callno: JF-OGI-2016-SUTO
+subjects: []
+expressions:
+  - lang: ja
+    title: ストロベリーライフ
+  - lang: zh-Hans
+    title: 草莓人生
+    translator: 黄悦生
+    mine: true
+readings:
+  - date: "2022-04-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 53fMKrJMQVfJo8M5BwZgJr

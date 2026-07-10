@@ -1,0 +1,21 @@
+work_type: book
+title: Oranges Are Not the Only Fruit
+orig_lang: en
+year: 1985
+creators: [winterson-jeanette]
+confirmed: true
+callno: EF-WIN-1985-ORAN
+subjects: [身份流动, 非典型女性经验]
+expressions:
+  - lang: en
+    title: Oranges Are Not the Only Fruit
+  - lang: zh-Hans
+    title: 橘子不是唯一的水果
+    translator: 于是
+    mine: true
+readings:
+  - date: "2025-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5GXMnWdVm2ZZ9aTVWNIYa0

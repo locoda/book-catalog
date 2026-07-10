@@ -1,0 +1,21 @@
+work_type: book
+title: La giornata d'uno scrutatore
+orig_lang: it
+year: 1963
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1963-LA
+subjects: [认知权力不对等]
+expressions:
+  - lang: it
+    title: La giornata d'uno scrutatore
+  - lang: zh-Hans
+    title: 观察者
+    translator: 毕艳红
+    mine: true
+readings:
+  - date: "2026-04-25"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6XE1da0zQqU6Md7Zlgu4eR

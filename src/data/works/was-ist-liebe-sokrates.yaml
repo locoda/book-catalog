@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Was ist Liebe, Sokrates?
+callno: NF-KRE-2019-WAS
+orig_lang: de
+year: 2019
+creators: [kreft-nora]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 谈情说爱的哲学家
+    translator: 陈敬思
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6KFbzrtdOAdQscNfNqowMU

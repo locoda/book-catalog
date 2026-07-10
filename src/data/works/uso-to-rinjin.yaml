@@ -1,0 +1,21 @@
+work_type: book
+title: 嘘と隣人
+orig_lang: ja
+year: 2025
+creators: [ashizawa-yo]
+confirmed: true
+callno: JF-ASH-2025-USO
+subjects: [不可靠/碎片化叙事, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: 嘘と隣人
+  - lang: zh-Hant
+    title: 謊言與鄰人
+    translator: 王華懋
+    mine: true
+readings:
+  - date: "2026-06-20"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 77S9LKslGVsHftd27CPJ8P

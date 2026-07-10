@@ -1,0 +1,21 @@
+work_type: book
+title: How to Suppress Women's Writing
+orig_lang: en
+year: 1983
+creators: [russ-joanna]
+confirmed: true
+callno: EN-RUS-1983-HOW
+subjects: [厌女结构, 认知权力不对等]
+expressions:
+  - lang: en
+    title: How to Suppress Women's Writing
+  - lang: zh-Hans
+    title: 如何抑止女性写作
+    translator: 章艳
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7EnjeICkUz3RBpDncyHNC8

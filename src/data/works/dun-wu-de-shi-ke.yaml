@@ -1,0 +1,18 @@
+work_type: book
+title: 顿悟的时刻
+orig_lang: zh-Hans
+year: 2020
+creators: [zhang-yueran]
+confirmed: true
+callno: CN-ZHA-2020-DUNW
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 顿悟的时刻
+    mine: true
+readings:
+  - date: "2021-07-22"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5nYzm4SIBd3EDHrQVQeAsI

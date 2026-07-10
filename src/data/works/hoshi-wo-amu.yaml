@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 星を編む
+callno: OF-NAG-2023-HOSH
+orig_lang: ja
+year: 2023
+creators: [nagira-yuu]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 宛如星辰的你
+    translator: 簡捷
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4r2aToIT6cVqvtubIX72j3

@@ -1,0 +1,21 @@
+work_type: book
+title: Beautiful World, Where Are You
+orig_lang: en
+year: 2021
+creators: [rooney-sally]
+confirmed: true
+callno: EF-ROO-2021-BEAU
+subjects: [亲密关系, 书信体]
+expressions:
+  - lang: en
+    title: Beautiful World, Where Are You
+  - lang: zh-Hans
+    title: 美丽的世界，你在哪里
+    translator: 钟娜
+    mine: true
+readings:
+  - date: "2021-11-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5srDxvcjwnc1SYfO2lGlYj

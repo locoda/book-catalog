@@ -1,0 +1,21 @@
+work_type: book
+title: 女の子が生きていくときに、覚えていてほしいこと
+orig_lang: ja
+year: 2019
+creators: [ueno-chizuko]
+confirmed: true
+callno: JN-UEN-2019-ONNA
+subjects: [厌女结构, 母职与家庭]
+expressions:
+  - lang: ja
+    title: 女の子が生きていくときに、覚えていてほしいこと
+  - lang: zh-Hans
+    title: 女生怎样活？
+    translator: 吕灵芝
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1BUx0iKQjOjFxGXOhSK7mS

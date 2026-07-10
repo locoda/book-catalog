@@ -1,0 +1,21 @@
+work_type: book
+title: The Museum of Unconditional Surrender
+orig_lang: en
+year: 1997
+creators: [ugresic-dubravka]
+confirmed: true
+callno: OF-UGR-1997-MUSE
+subjects: [空间与记忆, 哀悼与丧失]
+expressions:
+  - lang: en
+    title: The Museum of Unconditional Surrender
+  - lang: zh-Hans
+    title: 无条件投降博物馆
+    translator: 何静芝
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1XUAeFtwRXhgj7YyjsuFRH

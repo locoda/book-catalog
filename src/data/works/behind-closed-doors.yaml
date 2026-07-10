@@ -1,0 +1,18 @@
+work_type: book
+title: Behind Closed Doors
+orig_lang: en
+year: 2016
+creators: [paris-ba]
+confirmed: true
+callno: EN-PAR-2016-BEHI
+subjects: []
+expressions:
+  - lang: en
+    title: Behind Closed Doors
+    mine: true
+readings:
+  - date: "2026-01-07"
+    platform: NeoDB 标记
+rating: 6
+status: read
+neodb_uuid: 4VEPGLdDWZXOlr2OWocIkD

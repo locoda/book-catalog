@@ -1,0 +1,9 @@
+name: Emi Yagi
+sort: Yagi, Emi
+forms:
+  - script: ja
+    value: 八木詠美
+  - script: ja-Latn
+    value: Yagi Emi
+  - script: zh
+    value: 八木咏美

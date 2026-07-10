@@ -1,0 +1,21 @@
+work_type: book
+title: Theft
+orig_lang: en
+year: 2025
+creators: [gurnah-abdulrazak]
+confirmed: true
+callno: EF-GUR-2025-THEF
+subjects: [身份流动, 空间与记忆]
+expressions:
+  - lang: en
+    title: Theft
+  - lang: zh-Hant
+    title: 竊
+    translator: 何穎怡
+    mine: true
+readings:
+  - date: "2026-04-13"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5PvRsv5W2lYxaZJe7NkpY9

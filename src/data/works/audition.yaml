@@ -1,0 +1,18 @@
+work_type: book
+title: Audition
+orig_lang: en
+year: 2025
+creators: [kitamura-katie]
+confirmed: true
+callno: EN-KIT-2025-AUDI
+subjects: []
+expressions:
+  - lang: en
+    title: Audition
+    mine: true
+readings:
+  - date: "2026-03-19"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2iNeevaC0ygUFkk1PjrucC

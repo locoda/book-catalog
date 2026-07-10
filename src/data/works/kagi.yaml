@@ -1,0 +1,21 @@
+work_type: book
+title: 鍵
+orig_lang: ja
+year: 1956
+creators: [tanizaki-junichiro]
+confirmed: true
+callno: JF-TAN-1956-KAGI
+subjects: [亲密关系, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: 鍵
+  - lang: zh-Hans
+    title: 钥匙
+    translator: 竺家荣
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0Z8asVX0UXw2RZkAUPPC6P

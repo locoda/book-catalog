@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Comme leau qui coule
+callno: OF-YOU-1982-COMM
+orig_lang: fr
+year: 1982
+creators:
+- yourcenar-marguerite
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 像水一样流
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

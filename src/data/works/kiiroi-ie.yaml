@@ -1,0 +1,21 @@
+work_type: book
+title: 黄色い家
+orig_lang: ja
+year: 2023
+creators: [kawakami-mieko]
+confirmed: true
+callno: JF-KAW-2023-KIIR
+subjects: [母职与家庭, 身份流动]
+expressions:
+  - lang: ja
+    title: 黄色い家
+  - lang: zh-Hant
+    title: 黃房子
+    translator: 詹幕如
+    mine: true
+readings:
+  - date: "2026-03-10"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4cBICAueeCCXvNnPXqmJbq

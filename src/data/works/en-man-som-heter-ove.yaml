@@ -1,0 +1,21 @@
+work_type: book
+title: En man som heter Ove
+orig_lang: sv
+year: 2012
+creators: [backman-fredrik]
+confirmed: true
+callno: OF-BAC-2012-EN
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: sv
+    title: En man som heter Ove
+  - lang: zh-Hans
+    title: 一个叫欧维的男人决定去死
+    translator: 宁蒙
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7NHeEZB9XoSWOd4JH0n5pc

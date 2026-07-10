@@ -1,0 +1,21 @@
+work_type: book
+title: Mina vänner
+orig_lang: sv
+year: 2025
+creators: [backman-fredrik]
+confirmed: true
+callno: OF-BAC-2025-MINA
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: sv
+    title: Mina vänner
+  - lang: en
+    title: My Friends
+    translator: Neil Smith
+    mine: true
+readings:
+  - date: "2025-11-25"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2Qw4MWKIInnnDZC6li9LLo

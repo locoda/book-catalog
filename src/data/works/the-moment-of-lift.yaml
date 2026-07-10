@@ -1,0 +1,21 @@
+work_type: book
+title: The Moment of Lift
+orig_lang: en
+year: 2019
+creators: [gates-melinda]
+confirmed: true
+callno: EN-GAT-2019-MOME
+subjects: [厌女结构, 母职与家庭]
+expressions:
+  - lang: en
+    title: "The Moment of Lift: How Empowering Women Changes the World"
+  - lang: zh-Hans
+    title: 女性的时刻
+    translator: 齐彦婧
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3OqAfl9nYq1JvhHncnVtBg

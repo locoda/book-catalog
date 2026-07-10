@@ -1,0 +1,21 @@
+work_type: book
+title: 사라지고 싶은 날
+orig_lang: ko
+year: 2023
+creators: [kim-jinsol]
+confirmed: true
+callno: OF-KIM-2023-SARA
+subjects: [哀悼与丧失, 亲密关系]
+expressions:
+  - lang: ko
+    title: 사라지고 싶은 날
+  - lang: zh-Hant
+    title: 好想消失的日子
+    translator: 王品涵
+    mine: true
+readings:
+  - date: "2021-10-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5PZftKNq0aapMEGmrVPO3b

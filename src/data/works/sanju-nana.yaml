@@ -1,0 +1,21 @@
+work_type: book
+title: 三十七
+orig_lang: ja
+year: 2018
+creators: [kakuta-mitsuyo]
+confirmed: true
+callno: JF-KAK-2018-SANJ
+subjects: [非典型女性经验, 母职与家庭]
+expressions:
+  - lang: ja
+    title: 三十七
+  - lang: zh-Hans
+    title: 三十七
+    translator: 郑世凤
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5Okh4Fv3H7n2YIoZ9bPXlG

@@ -1,0 +1,18 @@
+work_type: book
+title: The Rest of Our Lives
+orig_lang: en
+year: 2025
+creators: [markovits-ben]
+confirmed: true
+callno: EF-MAR-2025-REST
+subjects: [亲密关系, 空间与记忆]
+expressions:
+  - lang: en
+    title: The Rest of Our Lives
+    mine: true
+readings:
+  - date: "2026-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5J1xl9o731ncko1YZ2EmU8

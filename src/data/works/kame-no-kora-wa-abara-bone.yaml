@@ -1,0 +1,21 @@
+work_type: book
+title: カメの甲羅はあばら骨
+orig_lang: ja
+year: 2019
+creators: [kawasaki-satoshi]
+confirmed: true
+callno: JF-KAW-2019-KAME
+subjects: []
+expressions:
+  - lang: ja
+    title: カメの甲羅はあばら骨
+  - lang: zh-Hans
+    title: 跟动物交换身体
+    translator: 董方
+    mine: true
+readings:
+  - date: "2026-05-12"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6wn9gijlt3VDH0PFhiUkpe

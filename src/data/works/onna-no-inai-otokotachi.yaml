@@ -1,0 +1,21 @@
+work_type: book
+title: 女のいない男たち
+orig_lang: ja
+year: 2014
+creators: [murakami-haruki]
+confirmed: true
+callno: JF-MUR-2014-ONNA
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: 女のいない男たち
+  - lang: zh-Hans
+    title: 沒有女人的男人們
+    translator: 赖明珠
+    mine: true
+readings:
+  - date: "2020-11-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1t6zV0DnH9p8oqwj8s0oxo

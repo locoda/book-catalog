@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Wittgenstein Reader
+callno: ON-WIT-2020-WITT
+orig_lang: de
+year: 2020
+creators: []
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 维特根斯坦读本
+    translator: 陈嘉映
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 70mW5dZguTt8ndDcU4wCZ0

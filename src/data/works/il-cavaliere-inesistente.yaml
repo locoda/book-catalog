@@ -1,0 +1,21 @@
+work_type: book
+title: Il cavaliere inesistente
+orig_lang: it
+year: 1959
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1959-IL
+subjects: []
+expressions:
+  - lang: it
+    title: Il cavaliere inesistente
+  - lang: zh-Hans
+    title: 不存在的骑士
+    translator: 吴正仪
+    mine: true
+readings:
+  - date: "2021-07-18"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1sdNczcS6zHVJlqTl2ODeF

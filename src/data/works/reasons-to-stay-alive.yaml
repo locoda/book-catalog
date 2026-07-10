@@ -1,0 +1,21 @@
+work_type: book
+title: Reasons to Stay Alive
+orig_lang: en
+year: 2015
+creators: [haig-matt]
+confirmed: true
+callno: EN-HAI-2015-REAS
+subjects: [哀悼与丧失]
+expressions:
+  - lang: en
+    title: Reasons to Stay Alive
+  - lang: zh-Hans
+    title: 活下去的理由
+    translator: 赵燕飞
+    mine: true
+readings:
+  - date: "2021-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4wkTK866WbbuN1gkyicpLB

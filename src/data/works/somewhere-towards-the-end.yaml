@@ -1,0 +1,21 @@
+work_type: book
+title: Somewhere Towards the End
+orig_lang: en
+year: 2008
+creators: [athill-diana]
+confirmed: true
+callno: EN-ATH-2008-SOME
+subjects: [哀悼与丧失, 非典型女性经验]
+expressions:
+  - lang: en
+    title: Somewhere Towards the End
+  - lang: zh-Hans
+    title: 暮色将尽
+    translator: 曾嵘
+    mine: true
+readings:
+  - date: "2020-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7hRvcYxVKU3yI1LPcfZ3Fy

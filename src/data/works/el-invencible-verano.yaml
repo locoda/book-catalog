@@ -1,0 +1,21 @@
+work_type: book
+title: El invencible verano de Liliana
+orig_lang: es
+year: 2021
+creators: [rivera-garza-cristina]
+confirmed: true
+callno: OF-RIV-2021-EL
+subjects: [哀悼与丧失, 厌女结构]
+expressions:
+  - lang: es
+    title: El invencible verano de Liliana
+  - lang: zh-Hant
+    title: 莉莉安娜的夏天
+    translator: 賴懷宇
+    mine: true
+readings:
+  - date: "2022-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 17phoBUjCwA7JNOYBEJXCX

@@ -1,0 +1,20 @@
+work_type: book
+confirmed: true
+title: All Grown Up
+callno: ON-att-2017-ALLG
+orig_lang: en
+year: 2017
+creators:
+- attenberg-jami
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 无处停歇
+  mine: true
+  translator: 祖颖
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4H1n8FqUZrlJZZCrtFsQr1

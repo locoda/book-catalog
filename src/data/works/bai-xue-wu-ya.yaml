@@ -1,0 +1,18 @@
+work_type: book
+title: 白雪乌鸦
+orig_lang: zh-Hans
+year: 2010
+creators: [chi-zijian]
+confirmed: true
+callno: CN-CHI-2010-BAIX
+subjects: [哀悼与丧失]
+expressions:
+  - lang: zh-Hans
+    title: 白雪乌鸦
+    mine: true
+readings:
+  - date: "2024-01-16"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 50hVqDlFVchWLqb1eKQvqc

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Undying
+callno: ON-BOY-2019-UNDY
+orig_lang: en
+year: 2019
+creators: [boyer-anne]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 未死之身
+    translator: 李宜然
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1MjElVK1cYu63o39a0kch6

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Identity
+callno: NF-FUK-2018-IDEN
+orig_lang: en
+year: 2018
+creators: [fukuyama-francis]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 身份政治
+    translator: 刘芳
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1CsHlnkJCfWQUczXU63kzX

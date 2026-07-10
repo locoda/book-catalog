@@ -1,0 +1,18 @@
+work_type: book
+confirmed: true
+title: The God of Small Things
+callno: JF-ROY-1997-GODO
+orig_lang: en
+year: 1997
+creators: [roy-arundhati]
+subjects: []
+expressions:
+  - lang: en
+    title: The God of Small Things
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2AaA3DxdBz58x19L5Si5eO

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Sum
+callno: NF-EAG-2009-SUM
+orig_lang: en
+year: 2009
+creators: [eagleman-david]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 死後四十種生活
+    translator: 郭寶蓮
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1TD0PKyxrS9xOYObNSUZ4A

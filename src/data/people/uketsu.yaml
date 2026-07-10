@@ -1,0 +1,5 @@
+name: Uketsu
+sort: Uketsu
+forms:
+  - {script: en, value: Uketsu}
+  - {script: ja, value: 雨穴}

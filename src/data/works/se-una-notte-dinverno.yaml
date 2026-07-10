@@ -1,0 +1,21 @@
+work_type: book
+title: Se una notte d'inverno un viaggiatore
+orig_lang: it
+year: 1979
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1979-SE
+subjects: [不可靠/碎片化叙事, 书信体]
+expressions:
+  - lang: it
+    title: Se una notte d'inverno un viaggiatore
+  - lang: zh-Hans
+    title: 如果在冬夜，一个旅人
+    translator: 萧天佑
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3fFJRQL8jJ3dHUYx1Fvg7B

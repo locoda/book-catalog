@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: La Place
+callno: OF-ERN-1983-PLAC
+orig_lang: fr
+year: 1983
+creators:
+- ernaux-annie
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 一个男人的位置
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,21 @@
+work_type: book
+title: L'insoutenable légèreté de l'être
+orig_lang: fr
+year: 1984
+creators: [kundera-milan]
+confirmed: true
+callno: OF-KUN-1984-LINS
+subjects: [亲密关系, 身份流动]
+expressions:
+  - lang: fr
+    title: L'insoutenable légèreté de l'être
+  - lang: zh-Hans
+    title: 不能承受的生命之轻
+    translator: 许钧
+    mine: true
+readings:
+  - date: "2023-07-22"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 28i6yVVJrunC31jAtV86Z4

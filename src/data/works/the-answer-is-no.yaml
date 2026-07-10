@@ -1,0 +1,18 @@
+work_type: book
+confirmed: true
+title: The Answer Is No
+callno: EF-BAC-2024-THEA
+orig_lang: en
+year: 2024
+creators: [backman-fredrik]
+subjects: []
+expressions:
+  - lang: en
+    title: The Answer Is No
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2iCE41jkQwTsWfPGwf2RU6

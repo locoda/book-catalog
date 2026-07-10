@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 昨夜のカレー、明日のパン
+callno: OF-MAK-2013-YUUB
+orig_lang: ja
+year: 2013
+creators:
+- makime-manabu
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 昨夜的咖喱，明日的面包
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

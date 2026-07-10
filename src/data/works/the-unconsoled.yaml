@@ -1,0 +1,20 @@
+work_type: book
+confirmed: true
+title: The Unconsoled
+callno: ON-ish-1995-THEU
+orig_lang: en
+year: 1995
+creators:
+- ishiguro-kazuo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 无可慰藉
+  mine: true
+  translator: 郭国良
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3WnDLpOF4J4BhFQt6F2yU2

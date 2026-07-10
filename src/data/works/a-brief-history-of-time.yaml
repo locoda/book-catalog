@@ -1,0 +1,21 @@
+work_type: book
+title: A Brief History of Time
+orig_lang: en
+year: 1988
+creators: [hawking-stephen]
+confirmed: true
+callno: EN-HAW-1988-A
+subjects: []
+expressions:
+  - lang: en
+    title: A Brief History of Time
+  - lang: zh-Hans
+    title: 时间简史
+    translator: 许明贤
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6YjP3tGNi9NVGpgX5lQoW6

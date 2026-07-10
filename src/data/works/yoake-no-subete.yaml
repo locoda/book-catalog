@@ -1,0 +1,21 @@
+work_type: book
+title: 夜明けのすべて
+orig_lang: ja
+year: 2020
+creators: [seo-maiko]
+confirmed: true
+callno: JF-SEO-2020-YOAK
+subjects: [亲密关系, 神经多样性]
+expressions:
+  - lang: ja
+    title: 夜明けのすべて
+  - lang: zh-Hant
+    title: 黎明前的全部
+    translator: 黃涓芳
+    mine: true
+readings:
+  - date: "2025-01-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5fEzEfGKitdEEf2t7EGf7z

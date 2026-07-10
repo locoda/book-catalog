@@ -1,0 +1,18 @@
+work_type: book
+title: Blue Nights
+orig_lang: en
+year: 2011
+creators: [didion-joan]
+confirmed: true
+callno: EN-DID-2011-BLUE
+subjects: [哀悼与丧失]
+expressions:
+  - lang: en
+    title: Blue Nights
+    mine: true
+readings:
+  - date: "2025-11-05"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 67NbMd358mVvweBtH2IwKD

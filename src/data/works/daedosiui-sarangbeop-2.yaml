@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 대도시의 사랑법 2
+callno: OF-PAR-2022-DAED
+orig_lang: ko
+year: 2022
+creators:
+- park-sangyoung
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 在熙，燒酒，我，還有冰箱裡的藍莓與菸
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

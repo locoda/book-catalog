@@ -1,0 +1,18 @@
+work_type: book
+title: Two Can Play
+orig_lang: en
+year: 2024
+creators: [hazelwood-ali]
+confirmed: true
+callno: EF-HAZ-2024-TWO
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Two Can Play
+    mine: true
+readings:
+  - date: "2026-02-06"
+    platform: NeoDB 标记
+rating: 6
+status: read
+neodb_uuid: 0oaY93TTPiUgyYiBN5RD8g

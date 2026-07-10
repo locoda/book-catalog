@@ -1,0 +1,21 @@
+work_type: book
+title: 光のとこにいてね
+orig_lang: ja
+year: 2022
+creators: [ichiho-michi]
+confirmed: true
+callno: JF-ICH-2022-HIKA
+subjects: [亲密关系, 身份流动]
+expressions:
+  - lang: ja
+    title: 光のとこにいてね
+  - lang: zh-Hant
+    title: 請待在有光的地方
+    translator: 簡捷
+    mine: true
+readings:
+  - date: "2025-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1xikSo9T7TiVQNinzIeg9b

@@ -1,0 +1,21 @@
+work_type: book
+title: Stray Birds
+orig_lang: en
+year: 1916
+creators: [tagore-rabindranath]
+confirmed: true
+callno: OF-TAG-1916-STRA
+subjects: []
+expressions:
+  - lang: en
+    title: Stray Birds
+  - lang: zh-Hans
+    title: 飞鸟集
+    translator: 徐翰林
+    mine: true
+readings:
+  - date: "2022-02-02"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 20dhHtqtEJQco2tw30rPRg

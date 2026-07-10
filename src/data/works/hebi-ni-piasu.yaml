@@ -1,0 +1,21 @@
+work_type: book
+title: 蛇にピアス
+orig_lang: ja
+year: 2003
+creators: [kanehara-hitomi]
+confirmed: true
+callno: JF-KAN-2003-HEBI
+subjects: [身份流动, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: 蛇にピアス
+  - lang: zh-Hans
+    title: 裂舌
+    translator: 秦岚
+    mine: true
+readings:
+  - date: "2021-01-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0fwEZw7j7IF2hKe4gAYrgV

@@ -1,0 +1,21 @@
+work_type: book
+title: 事実
+orig_lang: en
+year: 2018
+creators: [rosling-hans]
+confirmed: true
+callno: EN-ROS-2018-FACT
+subjects: [认知权力不对等]
+expressions:
+  - lang: en
+    title: "Factfulness: Ten Reasons We're Wrong About the World"
+  - lang: zh-Hans
+    title: 事实
+    translator: 张征
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2sLhKTHjApWDKm6kVzB6Rx

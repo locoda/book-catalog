@@ -1,0 +1,21 @@
+work_type: book
+title: 方舟
+orig_lang: ja
+year: 2022
+creators: [yuki-haruo]
+confirmed: true
+callno: JF-YUK-2022-HAKO
+subjects: []
+expressions:
+  - lang: ja
+    title: 方舟
+  - lang: zh-Hant
+    title: 方舟
+    translator: 鍾雨璇
+    mine: true
+readings:
+  - date: "2025-02-17"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3rTp68qz7LjqjyZiin1jon

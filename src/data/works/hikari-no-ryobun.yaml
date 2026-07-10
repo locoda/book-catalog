@@ -1,0 +1,21 @@
+work_type: book
+title: 光の領分
+orig_lang: ja
+year: 1979
+creators: [tsushima-yuko]
+confirmed: true
+callno: JF-TSU-1979-HIKA
+subjects: [母职与家庭, 空间与记忆]
+expressions:
+  - lang: ja
+    title: 光の領分
+  - lang: zh-Hans
+    title: 光之领地
+    translator: 王燕
+    mine: true
+readings:
+  - date: "2021-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6A1jBWzza0AtNJFAVAtcXU

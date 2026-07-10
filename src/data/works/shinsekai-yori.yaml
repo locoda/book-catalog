@@ -1,0 +1,21 @@
+work_type: book
+title: 新世界より
+orig_lang: ja
+year: 2008
+creators: [kishi-yusuke]
+confirmed: true
+callno: JF-KIS-2008-SHIN
+subjects: [空间与记忆, 认知权力不对等]
+expressions:
+  - lang: ja
+    title: 新世界より
+  - lang: zh-Hans
+    title: 来自新世界
+    translator: 丁丁虫
+    mine: true
+readings:
+  - date: "2021-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6VCFfSkhDjfQmtoRRuHgBN

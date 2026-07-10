@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Conversations with Kazuo Ishiguro
+callno: NF-SHA-2008-CONV
+orig_lang: en
+year: 2008
+creators: [shaffer-brian]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 石黑一雄访谈录
+    translator: 胡玥
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7Nz9TO97FR9YaeF5giO3Xc

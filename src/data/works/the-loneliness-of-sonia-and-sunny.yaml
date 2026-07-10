@@ -1,0 +1,18 @@
+work_type: book
+title: The Loneliness of Sonia and Sunny
+orig_lang: en
+year: 2025
+creators: [desai-kiran]
+confirmed: true
+callno: EF-DES-2025-LONE
+subjects: [亲密关系, 身份流动]
+expressions:
+  - lang: en
+    title: The Loneliness of Sonia and Sunny
+    mine: true
+readings:
+  - date: "2026-03-13"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 45frIXfT1uyQgAtGxncCKS

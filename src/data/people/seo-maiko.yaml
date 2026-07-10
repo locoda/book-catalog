@@ -1,0 +1,7 @@
+name: Maiko Seo
+sort: Seo, Maiko
+forms:
+  - {script: en, value: Maiko Seo}
+  - {script: ja, value: 瀬尾まいこ}
+  - {script: ja-kana, value: せお まいこ}
+  - {script: zh, value: 濑尾麻衣子}

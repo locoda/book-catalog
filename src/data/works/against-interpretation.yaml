@@ -1,0 +1,21 @@
+work_type: book
+title: Against Interpretation
+orig_lang: en
+year: 1966
+creators: [sontag-susan]
+confirmed: true
+callno: EN-SON-1966-AGAI
+subjects: []
+expressions:
+  - lang: en
+    title: Against Interpretation
+  - lang: zh-Hans
+    title: 反对阐释
+    translator: 程巍
+    mine: true
+readings:
+  - date: "2023-11-26"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4KjVK9m16Th7ZmiafRiCiD

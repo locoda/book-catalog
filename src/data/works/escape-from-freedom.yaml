@@ -1,0 +1,21 @@
+work_type: book
+title: Escape from Freedom
+orig_lang: en
+year: 1941
+creators: [fromm-erich]
+confirmed: true
+callno: EN-FRO-1941-ESCA
+subjects: [认知权力不对等, 身份流动]
+expressions:
+  - lang: en
+    title: Escape from Freedom
+  - lang: zh-Hans
+    title: 逃避自由
+    translator: 刘林海
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2JIsUHwTz5Y0BcnpYp0Vx5

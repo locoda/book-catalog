@@ -1,0 +1,21 @@
+work_type: book
+title: 東京貧困女子
+orig_lang: ja
+year: 2019
+creators: [nakamura-atsuhiko]
+confirmed: true
+callno: CN-NAK-2019-TOKY
+subjects: [厌女结构, 劳动异化]
+expressions:
+  - lang: ja
+    title: 東京貧困女子
+  - lang: zh-Hans
+    title: 东京贫困女子
+    translator: 傅栩
+    mine: true
+readings:
+  - date: "2022-10-30"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0NOoNIRJvZohHgooRHarnI

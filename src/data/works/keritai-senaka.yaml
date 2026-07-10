@@ -1,0 +1,21 @@
+work_type: book
+title: 蹴りたい背中
+orig_lang: ja
+year: 2003
+creators: [wataya-risa]
+confirmed: true
+callno: JF-WAT-2003-KERI
+subjects: [身份流动, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: 蹴りたい背中
+  - lang: zh-Hans
+    title: 欠踹的背影
+    translator: 涂愫芸
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1I0T7mtAG0YAOANjToaNYn

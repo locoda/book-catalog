@@ -1,0 +1,18 @@
+work_type: book
+title: Grief Is the Thing with Feathers
+orig_lang: en
+year: 2015
+creators: [porter-max]
+confirmed: true
+callno: EF-POR-2015-GRIE
+subjects: [哀悼与丧失]
+expressions:
+  - lang: en
+    title: Grief Is the Thing with Feathers
+    mine: true
+readings:
+  - date: "2026-07-09"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2dXTWLsYlARjSStfLSdg3Z

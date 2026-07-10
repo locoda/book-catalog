@@ -1,0 +1,21 @@
+work_type: book
+title: バースデイ・ガール
+orig_lang: ja
+year: 2002
+creators: [murakami-haruki]
+confirmed: true
+callno: JF-MUR-2002-BASU
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: バースデイ・ガール
+  - lang: zh-Hans
+    title: 过生日的女孩
+    translator: 施小炜
+    mine: true
+readings:
+  - date: "2020-12-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0m168Mmm9FVLSHHcR2oKc9

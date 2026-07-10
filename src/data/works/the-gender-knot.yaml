@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Gender Knot
+callno: ON-JOH-1997-GEND
+orig_lang: en
+year: 1997
+creators:
+- johnson-allan
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 性别打结
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

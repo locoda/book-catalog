@@ -1,0 +1,21 @@
+work_type: book
+title: Dance of the Happy Shades
+orig_lang: en
+year: 1968
+creators: [munro-alice]
+confirmed: true
+callno: EF-MUN-1968-DANC
+subjects: [非典型女性经验, 空间与记忆]
+expressions:
+  - lang: en
+    title: Dance of the Happy Shades
+  - lang: zh-Hans
+    title: 快乐影子之舞
+    translator: 李玉瑶
+    mine: true
+readings:
+  - date: "2021-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3MiLj8TiEtFo3zgCpGFiey

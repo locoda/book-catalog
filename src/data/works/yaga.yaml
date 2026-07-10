@@ -1,0 +1,18 @@
+work_type: book
+title: Yaga
+orig_lang: en
+year: 2023
+creators: [sandler-kat]
+confirmed: true
+callno: EF-SAN-2023-YAGA
+subjects: [厌女结构, 非典型女性经验]
+expressions:
+  - lang: en
+    title: Yaga
+    mine: true
+readings:
+  - date: "2026-03-29"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 64pLz9kZZC4EazodGkzkWN

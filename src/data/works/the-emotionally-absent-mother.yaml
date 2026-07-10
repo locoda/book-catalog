@@ -1,0 +1,21 @@
+work_type: book
+title: The Emotionally Absent Mother
+orig_lang: en
+year: 2010
+creators: [cori-jasmin]
+confirmed: true
+callno: EN-COR-2010-EMOT
+subjects: [母职与家庭, 神经多样性]
+expressions:
+  - lang: en
+    title: The Emotionally Absent Mother
+  - lang: zh-Hans
+    title: 情感忽视
+    translator: 赵晓曦
+    mine: true
+readings:
+  - date: "2024-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 22WSSQqb35Ctx8Nq6bg7gI

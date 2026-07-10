@@ -1,0 +1,21 @@
+work_type: book
+title: "The Molecule of More"
+orig_lang: en
+year: 2018
+creators: [lieberman-daniel]
+confirmed: true
+callno: EN-LIE-2018-MOLE
+subjects: [神经多样性]
+expressions:
+  - lang: en
+    title: "The Molecule of More: How a Single Chemical in Your Brain Drives Love, Sex, and Creativity"
+  - lang: zh-Hans
+    title: 贪婪的多巴胺
+    translator: 郑李垚
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1WqWYne5zNzGKoVkGXrnbU

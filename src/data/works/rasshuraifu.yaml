@@ -1,0 +1,21 @@
+work_type: book
+title: ラッシュライフ
+orig_lang: ja
+year: 2002
+creators: [isaka-kotaro]
+confirmed: true
+callno: JF-ISA-2002-RUSH
+subjects: [不可靠/碎片化叙事, 亲密关系]
+expressions:
+  - lang: ja
+    title: ラッシュライフ
+  - lang: zh-Hans
+    title: 华丽人生
+    translator: 吕灵芝
+    mine: true
+readings:
+  - date: "2021-02-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5fr1PEunNCBnLBlcUwvbJz

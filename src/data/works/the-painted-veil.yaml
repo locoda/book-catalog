@@ -1,0 +1,21 @@
+work_type: book
+title: The Painted Veil
+orig_lang: en
+year: 1925
+creators: [maugham-somerset]
+confirmed: true
+callno: EF-MAU-1925-PAIN
+subjects: [亲密关系, 厌女结构]
+expressions:
+  - lang: en
+    title: The Painted Veil
+  - lang: zh-Hans
+    title: 面纱
+    translator: 于大卫
+    mine: true
+readings:
+  - date: "2020-08-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4v9YxGPKrmtVVhOU18o509

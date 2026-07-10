@@ -1,0 +1,21 @@
+work_type: book
+title: The Lemon Table
+orig_lang: en
+year: 2004
+creators: [barnes-julian]
+confirmed: true
+callno: EF-BAR-2004-LEMO
+subjects: [哀悼与丧失]
+expressions:
+  - lang: en
+    title: The Lemon Table
+  - lang: zh-Hans
+    title: 柠檬桌子
+    translator: 郭国良
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2XUFZ5lPDpkF6b6cHILjFp

@@ -1,0 +1,21 @@
+work_type: book
+title: Morgon og kveld
+orig_lang: nb
+year: 2000
+creators: [fosse-jon]
+confirmed: true
+callno: OF-FOS-2000-MORG
+subjects: [哀悼与丧失, 空间与记忆]
+expressions:
+  - lang: nb
+    title: Morgon og kveld
+  - lang: en
+    title: Morning and Evening
+    translator: Damion Searls
+    mine: true
+readings:
+  - date: "2020-08-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0k78sMTXwSSFI7afIgWQXP

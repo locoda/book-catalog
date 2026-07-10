@@ -1,0 +1,18 @@
+work_type: book
+title: My Name Is Lucy Barton
+orig_lang: en
+year: 2016
+creators: [strout-elizabeth]
+confirmed: true
+callno: EF-STR-2016-MY
+subjects: [母职与家庭, 亲密关系]
+expressions:
+  - lang: en
+    title: My Name Is Lucy Barton
+    mine: true
+readings:
+  - date: "2025-09-24"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5EVRzPRVYDG0M7rkAc4wzG

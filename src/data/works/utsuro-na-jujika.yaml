@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 虚ろな十字架
+callno: OF-HIG-2014-UTSU
+orig_lang: ja
+year: 2014
+creators:
+- higashino-keigo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 虚无的十字架
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

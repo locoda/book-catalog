@@ -33,7 +33,7 @@ works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
         {works.map((w) => (
           <div class="due-row">
             <span class="mono">{w.data.year ?? ''}</span>
-            <span><a href={`/works/${w.id}/`} style="border-bottom:1px dashed var(--stamp)">{w.data.title}</a></span>
+            <span><a href={`/works/${w.id}/`} style="border-bottom:1px dashed var(--stamp)">{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</a></span>
             {w.data.rating != null && <em>{w.data.rating} ● {w.data.rating_source}</em>}
           </div>
         ))}

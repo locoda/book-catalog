@@ -1,0 +1,21 @@
+work_type: book
+title: ツバキ文具店
+orig_lang: ja
+year: 2016
+creators: [ogawa-ito]
+confirmed: true
+callno: JF-OGA-2016-TSUB
+subjects: [空间与记忆, 亲密关系, 书信体]
+expressions:
+  - lang: ja
+    title: ツバキ文具店
+  - lang: zh-Hans
+    title: 山茶文具店
+    translator: 王蕴洁
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0QX3GZPaaYti096vbdaCyT

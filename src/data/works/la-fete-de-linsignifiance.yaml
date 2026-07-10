@@ -1,0 +1,21 @@
+work_type: book
+title: La fête de l'insignifiance
+orig_lang: fr
+year: 2014
+creators: [kundera-milan]
+confirmed: true
+callno: OF-KUN-2014-LA
+subjects: [身份流动]
+expressions:
+  - lang: fr
+    title: La fête de l'insignifiance
+  - lang: zh-Hans
+    title: 庆祝无意义
+    translator: 马振骋
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2HnLmCqLWMpTaWnMwd6HkD

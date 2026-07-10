@@ -1,0 +1,21 @@
+work_type: book
+title: 今夜、世界からこの恋が消えても
+orig_lang: ja
+year: 2020
+creators: [ichijo-misaki]
+confirmed: true
+callno: JF-ICH-2020-KONY
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: 今夜、世界からこの恋が消えても
+  - lang: zh-Hant
+    title: 即使，這份戀情今晚就會從世界上消失
+    translator: 林于楟
+    mine: true
+readings:
+  - date: "2023-02-15"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5TxvzN7McEHAmkYukMijGQ

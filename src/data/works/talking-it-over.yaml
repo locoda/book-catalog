@@ -1,0 +1,21 @@
+work_type: book
+title: Talking It Over
+orig_lang: en
+year: 1991
+creators: [barnes-julian]
+confirmed: true
+callno: EF-BAR-1991-TALK
+subjects: [亲密关系, 不可靠/碎片化叙事]
+expressions:
+  - lang: en
+    title: Talking It Over
+  - lang: zh-Hans
+    title: 尚待商榷的爱情
+    translator: 郭国良
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4ZPAA5xfzNGtLx1RIkX2zI

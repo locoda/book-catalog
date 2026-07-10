@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 私たちは25歳で死んでしまう
+callno: JF-SUN-2022-WATA
+orig_lang: ja
+year: 2022
+creators: [sunagawa-amemichi]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 如果我们将在25岁死去
+    translator: 丁丁虫
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3kmhhfoBpelWUy1XZBBEjF

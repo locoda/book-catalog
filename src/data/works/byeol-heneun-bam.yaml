@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 별 헤는 밤
+callno: KP-YUN-1948-BYEOL
+orig_lang: ko
+year: 1948
+creators: [yun-dongju]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 数星星的夜
+    translator: 全勇先
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6AOKAGC8jkrusBEIz8VCip

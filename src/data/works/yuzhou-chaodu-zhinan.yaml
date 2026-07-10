@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 宇宙超度指南
+callno: ZF-LI-2017-YUZH
+orig_lang: zh-Hans
+year: 2017
+creators:
+- li-dan
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 宇宙超度指南
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

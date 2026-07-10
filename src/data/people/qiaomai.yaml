@@ -1,0 +1,7 @@
+name: Qiaomai
+sort: Qiaomai
+forms:
+- script: en
+  value: Qiaomai
+- script: zh
+  value: 荞麦

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Pandemic Century
+callno: NH-HON-2019-PAND
+orig_lang: en
+year: 2019
+creators: [honigsbaum-mark]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 人类大瘟疫
+    translator: 谷晓阳
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0GGJMypaEHUILyofQ6fHVf

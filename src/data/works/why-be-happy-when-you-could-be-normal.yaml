@@ -1,0 +1,20 @@
+work_type: book
+confirmed: true
+title: Why Be Happy When You Could Be Normal?
+callno: ON-win-2011-WHYB
+orig_lang: en
+year: 2011
+creators:
+- winterson-jeanette
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 我要快乐，不必正常
+  mine: true
+  translator: 冯倩珠
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 377r5QULNLKiTG3m7IXiBF

@@ -1,0 +1,5 @@
+name: John Berger
+sort: Berger, John
+forms:
+  - {script: en, value: John Berger}
+  - {script: zh, value: 约翰·伯格}

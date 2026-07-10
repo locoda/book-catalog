@@ -1,24 +1,21 @@
+work_type: book
 title: コンビニ人間
 orig_lang: ja
 year: 2016
 creators: [murata-sayaka]
-callno: JF-MUR-2016
-subjects: [非典型女性经验, 劳动异化, 神经多样性]
+confirmed: true
+callno: JF-MUR-2016-KONB
+subjects: [劳动异化, 身份流动, 非典型女性经验]
 expressions:
   - lang: ja
     title: コンビニ人間
-  - lang: zh-CN
+  - lang: zh-Hans
     title: 人间便利店
-    translator: 吴曦
+    translator: 竺家荣
     mine: true
-  - lang: en
-    title: Convenience Store Woman
-    translator: Ginny Tapley Takemori
 readings:
-  - date: "2021-03"
-    platform: 微信读书
-    lang: zh-CN
-    note: 示意数据
-rating: 9
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
 status: read
-placeholder: true
+neodb_uuid: 4Ilo7GsdMCPdltBQWBUz0e

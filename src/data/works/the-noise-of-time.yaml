@@ -1,0 +1,21 @@
+work_type: book
+title: The Noise of Time
+orig_lang: en
+year: 2016
+creators: [barnes-julian]
+confirmed: true
+callno: EF-BAR-2016-NOIS
+subjects: [空间与记忆, 认知权力不对等]
+expressions:
+  - lang: en
+    title: The Noise of Time
+  - lang: zh-Hans
+    title: 时间的噪音
+    translator: 严蓓雯
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2MqUX5MJFLa8CbLbkKmQdB

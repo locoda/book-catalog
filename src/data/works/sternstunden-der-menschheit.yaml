@@ -1,0 +1,21 @@
+work_type: book
+title: Sternstunden der Menschheit
+orig_lang: de
+year: 1927
+creators: [zweig-stefan]
+confirmed: true
+callno: ON-ZWE-1927-STER
+subjects: [空间与记忆]
+expressions:
+  - lang: de
+    title: Sternstunden der Menschheit
+  - lang: zh-Hans
+    title: 人类群星闪耀时
+    translator: 姜乙
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6n3CgQKJm4qIpLJ8NZUpY3

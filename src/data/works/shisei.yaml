@@ -1,0 +1,21 @@
+work_type: book
+title: 刺青
+orig_lang: ja
+year: 1910
+creators: [tanizaki-junichiro]
+confirmed: true
+callno: JF-TAN-1910-SHIS
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: 刺青
+  - lang: zh-Hans
+    title: 刺青
+    translator: 林青华
+    mine: true
+readings:
+  - date: "2023-08-19"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0XbOWamV4vWfCjpnjnawmD

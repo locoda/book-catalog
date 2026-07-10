@@ -1,0 +1,21 @@
+work_type: book
+title: 星を編む
+orig_lang: ja
+year: 2023
+creators: [nagira-yuu]
+confirmed: true
+callno: JF-NAG-2023-HOSH
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: 星を編む
+  - lang: zh-Hant
+    title: 編織星辰的你
+    translator: 簡捷
+    mine: true
+readings:
+  - date: "2025-06-28"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6H0EHkPEQD2a8gMTGOutEY

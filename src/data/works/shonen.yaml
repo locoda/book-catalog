@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 少年
+callno: JF-KAW-1948-SHON
+orig_lang: ja
+year: 1948
+creators: [kawabata-yasunari]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 少年
+    translator: 劉姿君
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1AXUFV69Pyu29c8XGo2cgu

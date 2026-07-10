@@ -1,0 +1,21 @@
+work_type: book
+title: Mrs Dalloway
+orig_lang: en
+year: 1925
+creators: [woolf-virginia]
+confirmed: true
+callno: EN-WOO-1925-MRS
+subjects: [非典型女性经验, 空间与记忆]
+expressions:
+  - lang: en
+    title: Mrs Dalloway
+  - lang: zh-Hans
+    title: 达洛维夫人
+    translator: 姜向明
+    mine: true
+readings:
+  - date: "2022-12-16"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6zhnAB1P0QhWDbCGlvgjJ6

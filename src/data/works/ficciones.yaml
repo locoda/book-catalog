@@ -1,0 +1,21 @@
+work_type: book
+title: Ficciones
+orig_lang: es
+year: 1944
+creators: [borges-jorge]
+confirmed: true
+callno: OF-BOR-1944-FICC
+subjects: [不可靠/碎片化叙事, 空间与记忆]
+expressions:
+  - lang: es
+    title: Ficciones
+  - lang: zh-Hans
+    title: 虚构集
+    translator: 王永年
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1D3BRNmDAd4XH2uMLhL4LF

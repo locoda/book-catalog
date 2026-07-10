@@ -1,0 +1,21 @@
+work_type: book
+title: 乳と卵
+orig_lang: ja
+year: 2008
+creators: [kawakami-mieko]
+confirmed: true
+callno: JF-KAW-2008-CHIC
+subjects: [厌女结构, 母职与家庭, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: 乳と卵
+  - lang: zh-Hans
+    title: 乳与卵
+    translator: 楊明綺
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3j8j4gHGWUExLSDG5SJRz3

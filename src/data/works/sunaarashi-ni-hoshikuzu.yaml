@@ -1,0 +1,21 @@
+work_type: book
+title: 砂嵐に星屑
+orig_lang: ja
+year: 2022
+creators: [ichiho-michi]
+confirmed: true
+callno: JF-ICH-2022-SUNA
+subjects: [劳动异化, 亲密关系]
+expressions:
+  - lang: ja
+    title: 砂嵐に星屑
+  - lang: zh-Hant
+    title: 風暴中的星屑
+    translator: 劉姿君
+    mine: true
+readings:
+  - date: "2025-01-10"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4wXn9aKQ5aLGzcwvpzFeo4

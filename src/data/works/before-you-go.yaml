@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Before You Go
+callno: OF-BUT-2021-BEFO
+orig_lang: en
+year: 2021
+creators:
+- butler-tommy
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 抓落叶
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

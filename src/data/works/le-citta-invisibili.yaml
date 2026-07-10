@@ -1,0 +1,21 @@
+work_type: book
+title: Le città invisibili
+orig_lang: it
+year: 1972
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1972-LE
+subjects: [空间与记忆, 不可靠/碎片化叙事]
+expressions:
+  - lang: it
+    title: Le città invisibili
+  - lang: zh-Hans
+    title: 看不见的城市
+    translator: 张密
+    mine: true
+readings:
+  - date: "2025-06-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2WWpABYXoZbu8Je0yQ8iVD

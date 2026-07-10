@@ -1,0 +1,21 @@
+work_type: book
+title: 채식주의자
+orig_lang: ko
+year: 2007
+creators: [han-kang]
+confirmed: true
+callno: OF-HAN-2007-CHAE
+subjects: [厌女结构, 非典型女性经验]
+expressions:
+  - lang: ko
+    title: 채식주의자
+  - lang: zh-Hans
+    title: 素食者
+    translator: 胡椒筒
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6DBAo7Pjl3sO1rQySEp0eN

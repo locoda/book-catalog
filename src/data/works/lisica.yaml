@@ -1,0 +1,21 @@
+work_type: book
+title: Lisica
+orig_lang: hr
+year: 2017
+creators: [ugresic-dubravka]
+confirmed: true
+callno: OF-UGR-2017-LISI
+subjects: [非典型女性经验, 身份流动]
+expressions:
+  - lang: hr
+    title: Lisica
+  - lang: zh-Hans
+    title: 狐狸
+    translator: 刘伟
+    mine: true
+readings:
+  - date: "2021-02-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2mNw9u90Yr8PRi52RPbbDL

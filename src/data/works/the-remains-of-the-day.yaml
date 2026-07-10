@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Remains of the Day
+callno: OF-ISH-1989-REMA
+orig_lang: en
+year: 1989
+creators:
+- ishiguro-kazuo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 长日将尽
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

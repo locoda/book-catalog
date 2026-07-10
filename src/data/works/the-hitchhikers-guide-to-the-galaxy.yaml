@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Hitchhikers Guide to the Galaxy
+callno: OF-ADA-1979-HITC
+orig_lang: en
+year: 1979
+creators:
+- adams-douglas
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 银河系搭车客指南
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

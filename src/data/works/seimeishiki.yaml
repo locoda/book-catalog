@@ -1,0 +1,21 @@
+work_type: book
+title: 生命式
+orig_lang: ja
+year: 2019
+creators: [murata-sayaka]
+confirmed: true
+callno: JF-MUR-2019-SEIM
+subjects: [厌女结构, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: 生命式
+  - lang: zh-Hans
+    title: 生命式
+    translator: 李佳纯
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6IGkMXkL8XW0S78i2w8hx1

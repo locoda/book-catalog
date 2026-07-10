@@ -1,0 +1,21 @@
+work_type: book
+title: 여자 둘이 살고 있습니다
+orig_lang: ko
+year: 2019
+creators: [kim-hana, hwang-seonu]
+confirmed: true
+callno: ON-KIM-2019-YEOJ
+subjects: [非典型女性经验, 空间与记忆, 亲密关系]
+expressions:
+  - lang: ko
+    title: 여자 둘이 살고 있습니다
+  - lang: zh-Hant
+    title: 兩個女人住一起
+    translator: 簡郁璇
+    mine: true
+readings:
+  - date: "2026-04-12"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 62Si3rNPOKb5LqlsqqlluR

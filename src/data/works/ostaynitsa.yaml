@@ -1,0 +1,21 @@
+work_type: book
+title: Остайница
+orig_lang: bg
+year: 2018
+creators: [karabash-rene]
+confirmed: true
+callno: OF-KAR-2018-OSTA
+subjects: [身份流动, 厌女结构, 非典型女性经验]
+expressions:
+  - lang: bg
+    title: Остайница
+  - lang: en
+    title: She Who Remains
+    translator: Izidora Angel
+    mine: true
+readings:
+  - date: "2026-06-26"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0CmErPgOU1u2vYXNdKZ4Hq

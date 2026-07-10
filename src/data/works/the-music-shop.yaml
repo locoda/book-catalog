@@ -1,0 +1,21 @@
+work_type: book
+title: The Music Shop
+orig_lang: en
+year: 2017
+creators: [joyce-rachel]
+confirmed: true
+callno: EF-JOY-2017-MUSI
+subjects: [空间与记忆, 亲密关系]
+expressions:
+  - lang: en
+    title: The Music Shop
+  - lang: zh-Hans
+    title: 奇迹唱片行
+    translator: 刘晓桦
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6c1oxRu24ZuliQqKsyywiK

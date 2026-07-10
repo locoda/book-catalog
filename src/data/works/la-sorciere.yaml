@@ -1,0 +1,21 @@
+work_type: book
+title: La Sorcière
+orig_lang: fr
+year: 1996
+creators: [ndiaye-marie]
+confirmed: true
+callno: OF-NDI-1996-LA
+subjects: [母职与家庭, 非典型女性经验, 厌女结构]
+expressions:
+  - lang: fr
+    title: La Sorcière
+  - lang: en
+    title: "The Witch: A Novel"
+    translator: Jordan Stump
+    mine: true
+readings:
+  - date: "2026-04-17"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 74LHvmSdVijm67NOLZaDQn

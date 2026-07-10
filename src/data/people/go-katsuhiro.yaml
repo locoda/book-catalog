@@ -1,0 +1,9 @@
+name: Go Katsuhiro
+sort: Go, Katsuhiro
+forms:
+  - script: ja
+    value: 呉勝浩
+  - script: ja-Latn
+    value: Go Katsuhiro
+  - script: zh
+    value: 吳勝浩

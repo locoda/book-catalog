@@ -1,0 +1,21 @@
+work_type: book
+title: 娼婦の本棚
+orig_lang: ja
+year: 2022
+creators: [suzuki-suzumi]
+confirmed: true
+callno: CN-SUZ-2022-SHOF
+subjects: [厌女结构]
+expressions:
+  - lang: ja
+    title: 娼婦の本棚
+  - lang: zh-Hans
+    title: 恶女书架
+    translator: 蕾克
+    mine: true
+readings:
+  - date: "2025-10-11"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0cu7ZDpTKJ8oFYP4TzEJZw

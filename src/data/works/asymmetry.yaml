@@ -1,0 +1,21 @@
+work_type: book
+title: Asymmetry
+orig_lang: en
+year: 2018
+creators: [halliday-lisa]
+confirmed: true
+callno: EN-HAL-2018-ASYM
+subjects: [认知权力不对等]
+expressions:
+  - lang: en
+    title: Asymmetry
+  - lang: zh-Hans
+    title: 不对称
+    translator: 陈晓菲
+    mine: true
+readings:
+  - date: "2022-03-18"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3IdfQt63C3f3enHUbgRuAp

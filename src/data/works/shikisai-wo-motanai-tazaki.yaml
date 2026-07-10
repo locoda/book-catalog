@@ -1,0 +1,21 @@
+work_type: book
+title: 色彩を持たない多崎つくると、彼の巡礼の年
+orig_lang: ja
+year: 2013
+creators: [murakami-haruki]
+confirmed: true
+callno: JF-MUR-2013-SHIK
+subjects: [身份流动, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: 色彩を持たない多崎つくると、彼の巡礼の年
+  - lang: zh-Hans
+    title: 没有色彩的多崎作和他的巡礼之年
+    translator: 施小炜
+    mine: true
+readings:
+  - date: "2020-10-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4MVWPHq412brMkzy2NmBgo

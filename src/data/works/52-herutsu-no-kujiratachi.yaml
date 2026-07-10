@@ -1,0 +1,21 @@
+work_type: book
+title: 52ヘルツのクジラたち
+orig_lang: ja
+year: 2020
+creators: [machida-sonoko]
+confirmed: true
+callno: JF-MAC-2020-52HE
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: 52ヘルツのクジラたち
+  - lang: zh-Hant
+    title: 52赫茲的鯨魚們
+    translator: 王蘊潔
+    mine: true
+readings:
+  - date: "2024-03-23"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7MhnC2R8WxVQzb0wgOxtCX

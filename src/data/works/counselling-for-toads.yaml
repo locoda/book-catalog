@@ -1,0 +1,21 @@
+work_type: book
+title: Counselling for Toads
+orig_lang: en
+year: 1998
+creators: [de-board-robert]
+confirmed: true
+callno: EN-DEB-1998-COUN
+subjects: []
+expressions:
+  - lang: en
+    title: "Counselling for Toads: A Psychological Adventure"
+  - lang: zh-Hans
+    title: 蛤蟆先生去看心理医生
+    translator: 陈赢
+    mine: true
+readings:
+  - date: "2021-02-20"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2Tfk0Rb0MwpqPjgdNjo8Gg

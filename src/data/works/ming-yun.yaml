@@ -1,0 +1,18 @@
+work_type: book
+title: 命运
+orig_lang: zh-Hans
+year: 2022
+creators: [cai-chongda]
+confirmed: true
+callno: CF-CAI-2022-MING
+subjects: [身份流动, 空间与记忆]
+expressions:
+  - lang: zh-Hans
+    title: 命运
+    mine: true
+readings:
+  - date: "2020-07-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6nU1SKDTw19HhNsMhB88Rp

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Lying on the Couch
+callno: ON-YAL-1996-LYIN
+orig_lang: en
+year: 1996
+creators:
+- yalom-irvin
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 诊疗椅上的谎言
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

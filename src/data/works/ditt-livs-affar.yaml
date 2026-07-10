@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Ditt livs affär
+callno: JF-BAC-2016-DITT
+orig_lang: sv
+year: 2016
+creators: [backman-fredrik]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 时间的礼物
+    translator: 孙璐
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6Bf5plKYCoocZbLkHgyCNm

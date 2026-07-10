@@ -1,0 +1,21 @@
+work_type: book
+title: 女性たちの貧困
+orig_lang: ja
+year: 2014
+creators: [nhk-josei-hinkon]
+confirmed: true
+callno: JN-NHK-2014-JOSE
+subjects: [厌女结构, 劳动异化]
+expressions:
+  - lang: ja
+    title: 女性たちの貧困
+  - lang: zh-Hans
+    title: 女性贫困
+    translator: 李颖
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2aFDSS5tLQtK2kLXzNsKBs

@@ -1,0 +1,20 @@
+work_type: book
+title: The Uncommon Reader
+orig_lang: en
+year: 2007
+creators: [bennett-alan]
+confirmed: true
+callno: EF-BEN-2007-UNCO
+subjects: []
+expressions:
+  - lang: en
+    title: The Uncommon Reader
+  - lang: zh-Hant
+    title: 非普通讀者
+    mine: true
+readings:
+  - date: "2025-09-14"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1k96hHrcrMfXkWd9JIL87T

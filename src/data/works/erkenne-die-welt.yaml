@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Erkenne die Welt
+callno: NF-PRE-2015-ERKE
+orig_lang: de
+year: 2015
+creators: [precht-richard]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 认识世界：古代与中世纪哲学
+    translator: 王俊 等
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1hk69o99CzBlS5Q9xsneos

@@ -1,0 +1,21 @@
+work_type: book
+title: Cuentos de amor de locura y de muerte
+orig_lang: es
+year: 1917
+creators: [quiroga-horacio]
+confirmed: true
+callno: OF-QUI-1917-CUEN
+subjects: []
+expressions:
+  - lang: es
+    title: Cuentos de amor de locura y de muerte
+  - lang: zh-Hans
+    title: 爱情、疯狂和死亡的故事
+    translator: 林光
+    mine: true
+readings:
+  - date: "2021-11-16"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6JEBgQkPUdHGWNsTXVMJo6

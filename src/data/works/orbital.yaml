@@ -1,0 +1,18 @@
+work_type: book
+title: Orbital
+orig_lang: en
+year: 2024
+creators: [harvey-samantha]
+confirmed: true
+callno: EF-HAR-2024-ORBI
+subjects: [空间与记忆]
+expressions:
+  - lang: en
+    title: Orbital
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6QfFjRcX6Nu51dJFb6oN8W

@@ -1,0 +1,21 @@
+work_type: book
+title: 침이 고인다
+orig_lang: ko
+year: 2007
+creators: [kim-aeran]
+confirmed: true
+callno: OF-KIM-2007-CHIM
+subjects: [劳动异化]
+expressions:
+  - lang: ko
+    title: 침이 고인다
+  - lang: zh-Hant
+    title: 垂涎三尺
+    translator: 許先哲
+    mine: true
+readings:
+  - date: "2025-05-04"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2c5A10dMLuQcO3A85N2DbT

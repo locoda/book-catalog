@@ -1,0 +1,21 @@
+work_type: book
+title: La mort heureuse
+orig_lang: fr
+year: 1971
+creators: [camus-albert]
+confirmed: true
+callno: OF-CAM-1971-LA
+subjects: [哀悼与丧失, 身份流动]
+expressions:
+  - lang: fr
+    title: La mort heureuse
+  - lang: zh-Hans
+    title: 快乐的死
+    translator: 张一乔
+    mine: true
+readings:
+  - date: "2021-06-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5beFFOR3tqHxIdF6VAVYnD

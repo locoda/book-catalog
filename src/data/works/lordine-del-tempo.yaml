@@ -1,0 +1,21 @@
+work_type: book
+title: L'ordine del tempo
+orig_lang: it
+year: 2017
+creators: [rovelli-carlo]
+confirmed: true
+callno: ON-ROV-2017-LOR
+subjects: []
+expressions:
+  - lang: it
+    title: L'ordine del tempo
+  - lang: zh-Hans
+    title: 时间的秩序
+    translator: 杨光
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4CmFIU1nZ37HqKZfQb9YSB

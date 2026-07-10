@@ -1,0 +1,21 @@
+work_type: book
+title: ノルウェイの森
+orig_lang: ja
+year: 1987
+creators: [murakami-haruki]
+confirmed: true
+callno: JF-MUR-1987-NORU
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: ja
+    title: ノルウェイの森
+  - lang: zh-Hans
+    title: 挪威的森林
+    translator: 林少华
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1AfqGpBZQkQvNYkgz5J8xA

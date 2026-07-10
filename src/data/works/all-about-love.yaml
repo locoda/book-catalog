@@ -1,0 +1,18 @@
+work_type: book
+title: All About Love
+orig_lang: en
+year: 2000
+creators: [bell-hooks]
+confirmed: true
+callno: EN-HOO-2000-ALL
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: All About Love
+    mine: true
+readings:
+  - date: "2025-07-28"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 46r3KJOV6XzJ14revkm8hU

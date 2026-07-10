@@ -1,0 +1,18 @@
+work_type: book
+title: 打开
+orig_lang: zh-Hans
+year: 2019
+creators: [zhou-lian]
+confirmed: true
+callno: CN-ZHO-2019-DAKA
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 打开
+    mine: true
+readings:
+  - date: "2020-08-04"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3FNrkYHMikBsa9kT3WmsNJ

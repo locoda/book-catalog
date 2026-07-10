@@ -1,0 +1,21 @@
+work_type: book
+title: Libre, seul et assoupi
+orig_lang: fr
+year: 2010
+creators: [monnery-romain]
+subjects: []
+expressions:
+  - lang: fr
+    title: Libre, seul et assoupi
+  - lang: zh-Hans
+    title: 床，沙发，我的人生
+    translator: 吕俊君
+    mine: true
+readings:
+  - date: "2023-09-16"
+    platform: NeoDB 标记
+rating: 6
+status: read
+neodb_uuid: 6ArISJyWQr4EsvZ7LGPedg
+confirmed: true
+callno: OF-MON-2010-LIBR

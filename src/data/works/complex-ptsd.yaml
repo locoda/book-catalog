@@ -1,0 +1,21 @@
+work_type: book
+title: "Complex PTSD: From Surviving to Thriving"
+orig_lang: en
+year: 2013
+creators: [walker-pete]
+confirmed: true
+callno: EN-WAL-2013-COMP
+subjects: [哀悼与丧失]
+expressions:
+  - lang: en
+    title: "Complex PTSD: From Surviving to Thriving"
+  - lang: zh-Hans
+    title: 不原谅也没关系
+    translator: 严菲菲
+    mine: true
+readings:
+  - date: "2023-03-13"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6lHChcwz9FfIUDfIfp7LnA

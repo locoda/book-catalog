@@ -1,0 +1,4 @@
+name: Stephanie Foo
+sort: Foo, Stephanie
+forms:
+  - {script: en, value: Stephanie Foo}

@@ -1,0 +1,21 @@
+work_type: book
+title: ブルーもしくはブルー
+orig_lang: ja
+year: 1992
+creators: [yamamoto-fumio]
+confirmed: true
+callno: JF-YAM-1992-BLUE
+subjects: [身份流动, 亲密关系]
+expressions:
+  - lang: ja
+    title: ブルーもしくはブルー
+  - lang: zh-Hans
+    title: 蓝，另一种蓝
+    translator: 张苓
+    mine: true
+readings:
+  - date: "2021-07-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2iaigxpGEEmTyuy7nyA2Jc

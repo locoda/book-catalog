@@ -1,0 +1,7 @@
+name: Uko Kodama
+sort: Kodama, Uko
+forms:
+  - {script: en, value: Uko Kodama}
+  - {script: ja, value: 兒玉雨子}
+  - {script: ja-kana, value: こだま うこ}
+  - {script: zh, value: 儿玉雨子}

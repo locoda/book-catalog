@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Somewhere Towards the End
+callno: ON-ATH-2008-SOME
+orig_lang: en
+year: 2008
+creators:
+- athill-diana
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 葬礼过后
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

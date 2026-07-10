@@ -1,0 +1,21 @@
+work_type: book
+title: 成瀬は天下を取りにいく
+orig_lang: ja
+year: 2023
+creators: [miyajima-mina]
+confirmed: true
+callno: JF-MIY-2023-NARU
+subjects: []
+expressions:
+  - lang: ja
+    title: 成瀬は天下を取りにいく
+  - lang: zh-Hant
+    title: 奪取天下的少女
+    translator: 李寇潔
+    mine: true
+readings:
+  - date: "2024-11-02"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6YyYOpIQvfX1OdrPjO4Zt6

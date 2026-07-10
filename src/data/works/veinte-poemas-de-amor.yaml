@@ -1,0 +1,21 @@
+work_type: book
+title: Veinte poemas de amor y una canción desesperada
+orig_lang: es
+year: 1924
+creators: [neruda-pablo]
+confirmed: true
+callno: OF-NER-1924-VEIN
+subjects: [亲密关系]
+expressions:
+  - lang: es
+    title: Veinte poemas de amor y una canción desesperada
+  - lang: zh-Hans
+    title: 二十首情诗和一首绝望的歌
+    translator: 陈黎
+    mine: true
+readings:
+  - date: "2023-10-17"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4axV98T2PRh5ntw2QSFZyB

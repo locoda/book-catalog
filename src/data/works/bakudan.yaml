@@ -1,0 +1,21 @@
+work_type: book
+title: 爆弾
+orig_lang: ja
+year: 2022
+creators: [go-katsuhiro]
+confirmed: true
+callno: JF-GO-2022-BAKU
+subjects: []
+expressions:
+  - lang: ja
+    title: 爆弾
+  - lang: zh-Hant
+    title: 爆彈
+    translator: 陳綠文
+    mine: true
+readings:
+  - date: "2024-09-19"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5WvJ78hABosQEhaycGzy2Z

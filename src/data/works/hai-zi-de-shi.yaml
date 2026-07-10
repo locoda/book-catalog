@@ -1,0 +1,18 @@
+work_type: book
+title: 海子的诗
+orig_lang: zh-Hans
+year: 1989
+creators: [hai-zi]
+confirmed: true
+callno: CF-HAI-1989-HAIZ
+subjects: [哀悼与丧失]
+expressions:
+  - lang: zh-Hans
+    title: 海子的诗
+    mine: true
+readings:
+  - date: "2020-11-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4RTqTIu4uZFFm0hpRzAVO1

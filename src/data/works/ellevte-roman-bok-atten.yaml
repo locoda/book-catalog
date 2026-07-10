@@ -1,0 +1,21 @@
+work_type: book
+title: Ellevte roman, bok atten
+orig_lang: nb
+year: 1992
+creators: [solstad-dag]
+confirmed: true
+callno: OF-SOL-1992-ELLE
+subjects: [身份流动]
+expressions:
+  - lang: nb
+    title: Ellevte roman, bok atten
+  - lang: zh-Hant
+    title: 第11本小說，第18本書
+    translator: 非爾
+    mine: true
+readings:
+  - date: "2026-02-09"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6eTPdlu55LEf0K6eG0jWcm

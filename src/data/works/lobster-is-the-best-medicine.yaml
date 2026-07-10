@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Lobster is the Best Medicine
+callno: ON-CLI-2015-LOBS
+orig_lang: en
+year: 2015
+creators: [climo-liz]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 我可以咬一口吗
+    translator: 周高逸
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5jLd7wKuDp3oWYghX2FyXm

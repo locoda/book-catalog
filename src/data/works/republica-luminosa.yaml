@@ -1,0 +1,21 @@
+work_type: book
+title: República luminosa
+orig_lang: es
+year: 2017
+creators: [barba-andres]
+confirmed: true
+callno: OF-BAR-2017-REPU
+subjects: [空间与记忆, 不可靠/碎片化叙事]
+expressions:
+  - lang: es
+    title: República luminosa
+  - lang: zh-Hans
+    title: 光明共和国
+    translator: 蔡学娣
+    mine: true
+readings:
+  - date: "2021-05-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2YPuASFvZ66pi6pPrcp32l

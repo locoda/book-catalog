@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: L Occupation
+callno: OF-ERN-2002-OCCU
+orig_lang: fr
+year: 2002
+creators:
+- ernaux-annie
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 占据
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

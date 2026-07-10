@@ -1,0 +1,21 @@
+work_type: book
+title: The Little World of Liz Climo
+orig_lang: en
+year: 2014
+creators: [climo-liz]
+confirmed: true
+callno: EN-CLI-2014-LITT
+subjects: []
+expressions:
+  - lang: en
+    title: The Little World of Liz Climo
+  - lang: zh-Hans
+    title: 你今天真好看
+    translator: 周高逸
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0JdYqoNZHNMqS3JTH4OmMk

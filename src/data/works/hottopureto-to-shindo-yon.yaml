@@ -1,0 +1,21 @@
+work_type: book
+title: ホットプレートと震度四
+orig_lang: ja
+year: 2024
+creators: [inoue-areno]
+confirmed: true
+callno: JF-INO-2024-HOTT
+subjects: []
+expressions:
+  - lang: ja
+    title: ホットプレートと震度四
+  - lang: zh-Hant
+    title: 電烤盤與四級地震
+    translator: 黃詩婷
+    mine: true
+readings:
+  - date: "2025-10-26"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4akp9qbZieXeGGZhZnmgsi

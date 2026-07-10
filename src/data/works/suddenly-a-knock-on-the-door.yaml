@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Suddenly, a Knock on the Door
+callno: OF-KER-2012-SUDD
+orig_lang: he
+year: 2012
+creators: [keret-etgar]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 突然，响起一阵敲门声
+    translator: 楼武挺
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3OttctT8Mm4OGSgCJUL08O

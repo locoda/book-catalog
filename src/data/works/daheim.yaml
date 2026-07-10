@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Daheim
+callno: OF-HER-2021-DAHE
+orig_lang: de
+year: 2021
+creators:
+- hermann-judith
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 在家
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

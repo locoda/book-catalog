@@ -11,7 +11,7 @@ const works = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/data/works' }),
   schema: z.object({
     title: z.string(),                    // authority title（原语言）
-    orig_lang: z.string(),                // ja / zh / en / ...
+    orig_lang: z.string(),                // BCP 47：ja / en / zh-Hans / zh-Hant / ...（中文用文字子标签区分简繁）
     year: z.number().optional(),          // 初版年
     creators: z.array(z.string()),        // -> people collection ids
     callno: z.string().optional(),        // 个人索书号

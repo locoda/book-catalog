@@ -1,0 +1,21 @@
+work_type: book
+title: 네 여름은
+orig_lang: ko
+year: 2017
+creators: [kim-aeran]
+confirmed: true
+callno: OF-KIM-2017-NE
+subjects: [亲密关系, 空间与记忆]
+expressions:
+  - lang: ko
+    title: 네 여름은
+  - lang: zh-Hans
+    title: 你的夏天还好吗？
+    translator: 徐丽红
+    mine: true
+readings:
+  - date: "2020-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0I8WSjLDkx7sGpHZ0FHAqF

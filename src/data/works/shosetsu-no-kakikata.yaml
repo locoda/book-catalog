@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 小説の書き方
+callno: OF-NAK-2014-SHOS
+orig_lang: ja
+year: 2014
+creators: [nakamura-atsuhiko]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 我不会写小说
+    translator: 伊之文
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4B3y15kaJPShCRDWB3ioae

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Sei du selbst
+callno: ON-PRE-2018-SEID
+orig_lang: de
+year: 2018
+creators:
+- precht-richard
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 做你自己：西洋哲學史. 卷三
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

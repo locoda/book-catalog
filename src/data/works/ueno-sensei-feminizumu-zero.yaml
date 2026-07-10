@@ -1,0 +1,21 @@
+work_type: book
+title: 上野先生、フェミニズムについてゼロから教えてください！
+orig_lang: ja
+year: 2020
+creators: [ueno-chizuko, tabusa-eiko]
+confirmed: true
+callno: CN-UEN-2020-UENO
+subjects: [厌女结构]
+expressions:
+  - lang: ja
+    title: 上野先生、フェミニズムについてゼロから教えてください！
+  - lang: zh-Hans
+    title: 从零开始的女性主义
+    translator: 吕灵芝
+    mine: true
+readings:
+  - date: "2022-01-07"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 19mPNEJd68DbC2nRX3Dnfi

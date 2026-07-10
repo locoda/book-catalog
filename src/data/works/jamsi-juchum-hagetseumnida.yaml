@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 잠시 주춤, 하겠습니다
+callno: KN-KIM-2018-JAMS
+orig_lang: ko
+year: 2018
+creators: [nina-kim]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 稍微暫停一下吧
+    translator: 陈品芳
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 55B6XGX52wemeWjS5Lg7dh

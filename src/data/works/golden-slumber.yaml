@@ -1,0 +1,21 @@
+work_type: book
+title: ゴールデンスランバー
+orig_lang: ja
+year: 2007
+creators: [isaka-kotaro]
+confirmed: true
+callno: JF-ISA-2007-GOLD
+subjects: [不可靠/碎片化叙事]
+expressions:
+  - lang: ja
+    title: ゴールデンスランバー
+  - lang: zh-Hans
+    title: 金色梦乡
+    translator: 代珂
+    mine: true
+readings:
+  - date: "2025-08-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5sKUwA1HSibNthFUNahjXW

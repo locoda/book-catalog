@@ -1,0 +1,21 @@
+work_type: book
+title: Ways of Seeing
+orig_lang: en
+year: 1972
+creators: [berger-john]
+confirmed: true
+callno: EN-BER-1972-WAYS
+subjects: []
+expressions:
+  - lang: en
+    title: Ways of Seeing
+  - lang: zh-Hans
+    title: 观看之道
+    translator: 戴行钺
+    mine: true
+readings:
+  - date: "2021-06-12"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3lIEhEp89Gbre5dWSf5QQb

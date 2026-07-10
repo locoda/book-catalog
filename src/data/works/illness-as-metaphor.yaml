@@ -1,0 +1,18 @@
+work_type: book
+title: Illness as Metaphor
+orig_lang: en
+year: 1978
+creators: [sontag-susan]
+confirmed: true
+callno: EN-SON-1978-ILLN
+subjects: []
+expressions:
+  - lang: en
+    title: Illness as Metaphor and AIDS and Its Metaphors
+    mine: true
+readings:
+  - date: "2025-08-27"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4eIqCjZ13e2unhUbuHssdF

@@ -1,0 +1,18 @@
+work_type: book
+title: Role Model
+orig_lang: en
+year: 2021
+creators: [reid-rachel]
+confirmed: true
+callno: EF-REI-2021-ROLE
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Role Model
+    mine: true
+readings:
+  - date: "2025-12-27"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 38VRwMIumLK3KFfCQZWmBn

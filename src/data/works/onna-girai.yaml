@@ -1,20 +1,22 @@
+work_type: book
+confirmed: true
 title: 女ぎらい
 orig_lang: ja
 year: 2010
 creators: [ueno-chizuko]
-callno: SOC-UEN-2010
+callno: JN-UEN-2010-ONNA
 subjects: [厌女结构, 认知权力不对等]
 expressions:
   - lang: ja
     title: 女ぎらい ニッポンのミソジニー
-  - lang: zh-CN
+  - lang: zh-Hans
     title: 厌女：日本的女性嫌恶
     translator: 王兰
     mine: true
 readings:
   - date: "2023-02"
     platform: 微信读书
-    lang: zh-CN
+    lang: zh-Hans
     note: 示意数据
 rating: 9
 status: read

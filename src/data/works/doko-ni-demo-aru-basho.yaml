@@ -1,0 +1,21 @@
+work_type: book
+title: どこにでもある場所とどこにもいない私
+orig_lang: ja
+year: 2003
+creators: [murakami-ryu]
+confirmed: true
+callno: JF-MUR-2003-DOKO
+subjects: [劳动异化]
+expressions:
+  - lang: ja
+    title: どこにでもある場所とどこにもいない私
+  - lang: zh-Hans
+    title: 到处存在的场所，到处不存在的我
+    translator: 张致斌
+    mine: true
+readings:
+  - date: "2025-12-07"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4A94LFHp2CUPkPC9uBXQDE

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 心理医生在吗
+callno: ZF-YAN-1998-XINL
+orig_lang: zh-Hans
+year: 1998
+creators:
+- yan-geling
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 心理医生在吗
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

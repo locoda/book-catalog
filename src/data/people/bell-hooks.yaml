@@ -1,0 +1,7 @@
+name: bell hooks
+sort: hooks, bell
+forms:
+  - script: en
+    value: bell hooks
+  - script: zh
+    value: 贝尔·胡克斯

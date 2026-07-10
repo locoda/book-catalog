@@ -1,0 +1,18 @@
+work_type: book
+confirmed: true
+title: O caminho do arco
+callno: JF-COE-2003-CAMI
+orig_lang: pt
+year: 2003
+creators: [coelho-paulo]
+subjects: []
+expressions:
+  - lang: en
+    title: The Way of the Bow
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3nXPImyZKKeSfDLm0jWdAE

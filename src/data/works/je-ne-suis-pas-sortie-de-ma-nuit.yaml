@@ -1,0 +1,20 @@
+work_type: book
+confirmed: true
+title: Je ne suis pas sortie de ma nuit
+callno: OF-ern-1997-JENE
+orig_lang: fr
+year: 1997
+creators:
+- ernaux-annie
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 我走不出我的黑夜
+  mine: true
+  translator: 黄荭
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0MbUIsA9hQxyiPihM7QVnG

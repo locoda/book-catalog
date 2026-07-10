@@ -1,0 +1,21 @@
+work_type: book
+title: Second Place
+orig_lang: en
+year: 2021
+creators: [cusk-rachel]
+confirmed: true
+callno: EN-CUS-2021-SECO
+subjects: [空间与记忆]
+expressions:
+  - lang: en
+    title: Second Place
+  - lang: zh-Hans
+    title: 第二处
+    translator: 苏凉
+    mine: true
+readings:
+  - date: "2024-12-22"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6SWkm7Av4gNLX4yhrifSQn

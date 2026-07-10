@@ -1,0 +1,21 @@
+work_type: book
+title: 고래
+orig_lang: ko
+year: 2004
+creators: [cheon-myeong-gwan]
+confirmed: true
+callno: OF-CHE-2004-GORA
+subjects: [厌女结构, 非典型女性经验]
+expressions:
+  - lang: ko
+    title: 고래
+  - lang: zh-Hans
+    title: 鯨
+    translator: 胡椒筒
+    mine: true
+readings:
+  - date: "2025-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 26PzStDalfh0VX0wpTDDEB

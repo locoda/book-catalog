@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: The Universe in Your Hand
+callno: ON-TRI-2015-UNIV
+orig_lang: en
+year: 2015
+creators:
+- trinh-xuan-thuan
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 一个天文学家的夜空漫游指南
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,18 @@
+work_type: book
+title: The Anthropologists
+orig_lang: en
+year: 2024
+creators: [savas-aysegul]
+confirmed: true
+callno: EF-SAV-2024-ANTH
+subjects: [空间与记忆, 身份流动]
+expressions:
+  - lang: en
+    title: The Anthropologists
+    mine: true
+readings:
+  - date: "2026-07-02"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5kmMQeiMNolfJ3Z5k0hZ7D

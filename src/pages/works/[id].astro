@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { langLabel } from '../../lib/lang';
 
 export async function getStaticPaths() {
   const works = await getCollection('works');
@@ -20,11 +21,15 @@ const sameCreator = primary
   : [];
 
 const mine = d.expressions.find((e) => e.mine);
-const otherTitles = d.expressions.filter((e) => e.title !== d.title).map((e) => e.title).join(' · ');
+const displayTitle = mine?.title ?? d.title;
+const showOrigSubtitle = d.title !== displayTitle;
+const otherTitles = [...new Set(
+  d.expressions.map((e) => e.title).filter((t) => t !== displayTitle && t !== d.title)
+)].join(' · ');
 const firstRead = d.readings[0]?.date?.slice(0, 4);
 const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
 ---
-<Base title={`${d.title} · 乙醚書目`}>
+<Base title={`${displayTitle} · 乙醚書目`}>
   <nav class="breadcrumb wrap"><a href="/">← 返回目錄</a></nav>
 
   <div class="main wrap">
@@ -33,7 +38,12 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
         ? <div class="stamp-badge reading"><b>在讀</b></div>
         : d.rating != null && <div class="stamp-badge"><b>{d.rating}</b><span>{d.rating_source}</span></div>}
       <div class="callno"><span>{work.id}</span><span>{d.callno}</span></div>
-      <h1 class="work-title jp">{d.title}</h1>
+      <h1 class="work-title jp">{displayTitle}</h1>
+      {showOrigSubtitle && (
+        <p class="work-sub work-orig">
+          原題 · <span class="jp">{d.title}</span> <span class="mono">{langLabel(d.orig_lang)}</span>
+        </p>
+      )}
       {otherTitles && <p class="work-sub">{otherTitles}</p>}
       <div>
         {creators.map((p) => (
@@ -47,7 +57,7 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
           <tr><th>語言</th><th>題名</th><th>譯者</th><th></th></tr>
           {d.expressions.map((e) => (
             <tr class={e.mine ? 'mine' : ''}>
-              <td>{e.lang}</td>
+              <td>{langLabel(e.lang)} <span class="mono">{e.lang}</span></td>
               <td class="jp">{e.title}</td>
               <td>{e.translator ?? (e.lang === d.orig_lang ? '—（原文）' : '')}</td>
               <td>{e.mine && <span class="tag-mine">我讀的版本</span>}</td>

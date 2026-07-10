@@ -1,0 +1,21 @@
+work_type: book
+title: Il barone rampante
+orig_lang: it
+year: 1957
+creators: [calvino-italo]
+confirmed: true
+callno: OF-CAL-1957-IL
+subjects: [身份流动, 空间与记忆]
+expressions:
+  - lang: it
+    title: Il barone rampante
+  - lang: zh-Hans
+    title: 树上的男爵
+    translator: 吴正仪
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3OWlKmIlLZ1adCNwWVs4S3

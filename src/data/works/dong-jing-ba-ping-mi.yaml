@@ -1,0 +1,18 @@
+work_type: book
+title: 东京八平米
+orig_lang: zh-Hans
+year: 2023
+creators: [yoshii-shinobu]
+confirmed: true
+callno: CN-YOS-2023-DONG
+subjects: [空间与记忆]
+expressions:
+  - lang: zh-Hans
+    title: 东京八平米
+    mine: true
+readings:
+  - date: "2024-07-24"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0lxuPGRYESQbbhMjZ6z720

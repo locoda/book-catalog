@@ -1,0 +1,21 @@
+work_type: book
+title: 廃遊園地の殺人
+orig_lang: ja
+year: 2020
+creators: [shasendo-yuki]
+confirmed: true
+callno: JF-SHA-2020-HAIY
+subjects: []
+expressions:
+  - lang: ja
+    title: 廃遊園地の殺人
+  - lang: zh-Hans
+    title: 废乐园事件
+    translator: 李家齐
+    mine: true
+readings:
+  - date: "2026-05-27"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4YrETeijz0qVdFVLeOKTxt

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 死刑にいたる病
+callno: JF-KUS-2017-SHIK
+orig_lang: ja
+year: 2017
+creators: [kushiki-riu]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 死刑之病
+    translator: 蔡东辉
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4Y5KOOKK71XUeHavcatjVS

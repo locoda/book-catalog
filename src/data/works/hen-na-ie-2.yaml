@@ -1,0 +1,21 @@
+work_type: book
+title: 変な家2
+orig_lang: ja
+year: 2023
+creators: [uketsu]
+confirmed: true
+callno: JF-UKE-2023-HENN
+subjects: []
+expressions:
+  - lang: ja
+    title: 変な家2
+  - lang: zh-Hant
+    title: 詭屋2
+    translator: 丁世佳
+    mine: true
+readings:
+  - date: "2026-04-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5gxLi4WdJgbw8ru7ElUMSI

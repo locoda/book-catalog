@@ -1,0 +1,21 @@
+work_type: book
+title: タイムマシンに乗れない
+orig_lang: ja
+year: 2023
+creators: [terachi-haruna]
+confirmed: true
+callno: JF-TER-2023-TAIM
+subjects: [空间与记忆, 亲密关系]
+expressions:
+  - lang: ja
+    title: タイムマシンに乗れない
+  - lang: zh-Hant
+    title: 如果無法搭乘時光機
+    translator: 王蘊潔
+    mine: true
+readings:
+  - date: "2025-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3YDaE3VArbF67vppjaU0Hp

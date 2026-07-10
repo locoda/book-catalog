@@ -1,0 +1,21 @@
+work_type: book
+title: 商売の原点
+orig_lang: ja
+year: 2014
+creators: [suzuki-toshifumi]
+confirmed: true
+callno: JN-SUZ-2014-SHOB
+subjects: [劳动异化]
+expressions:
+  - lang: ja
+    title: 商売の原点
+  - lang: zh-Hans
+    title: 零售的哲学
+    translator: 顾晓琳
+    mine: true
+readings:
+  - date: "2021-06-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5VLhY29twi7lh5fqMCWzEa

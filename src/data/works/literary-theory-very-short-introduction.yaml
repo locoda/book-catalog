@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: "Literary Theory: A Very Short Introduction"
+callno: ON-CUL-1997-LITE
+orig_lang: en
+year: 1997
+creators: [culler-jonathan]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 文学理论入门
+    translator: 李平
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5r3G6j3oMJFVevbTwKh3qv

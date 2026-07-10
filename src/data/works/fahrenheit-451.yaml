@@ -1,0 +1,21 @@
+work_type: book
+title: Fahrenheit 451
+orig_lang: en
+year: 1953
+creators: [bradbury-ray]
+confirmed: true
+callno: EF-BRA-1953-FAHR
+subjects: [认知权力不对等]
+expressions:
+  - lang: en
+    title: Fahrenheit 451
+  - lang: zh-Hans
+    title: 华氏451
+    translator: 于而彦
+    mine: true
+readings:
+  - date: "2021-03-15"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3e2PI3PXOpk2hQ1jYTW9Bs

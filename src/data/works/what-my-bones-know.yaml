@@ -1,0 +1,18 @@
+work_type: book
+confirmed: true
+title: What My Bones Know
+callno: ON-FOO-2022-WHAT
+orig_lang: en
+year: 2022
+creators: [foo-stephanie]
+subjects: []
+expressions:
+  - lang: en
+    title: What My Bones Know
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1D4qkG42qCeWJuebhGKVG8

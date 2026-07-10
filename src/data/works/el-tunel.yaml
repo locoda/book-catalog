@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: El túnel
+callno: JF-SAB-1948-TUNE
+orig_lang: es
+year: 1948
+creators: [sabato-ernesto]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 隧道
+    translator: 徐鹤林
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2Yc0f065EMkCoTEoPwl5oC

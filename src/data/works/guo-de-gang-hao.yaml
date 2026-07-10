@@ -1,0 +1,18 @@
+work_type: book
+title: 过得刚好
+orig_lang: zh-Hans
+year: 2020
+creators: [guo-degang]
+confirmed: true
+callno: CN-GUO-2020-GUOD
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 过得刚好
+    mine: true
+readings:
+  - date: "2020-12-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0BpoWTxBYlHxew4GxmnGV0

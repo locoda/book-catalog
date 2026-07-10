@@ -1,0 +1,18 @@
+work_type: book
+title: 5%的改变
+orig_lang: zh-Hans
+year: 2022
+creators: [li-songwei]
+confirmed: true
+callno: CN-LI-2022-5
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 5%的改变
+    mine: true
+readings:
+  - date: "2022-09-17"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1EB9NpX53RaOTPEWFZDvK4

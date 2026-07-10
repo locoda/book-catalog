@@ -1,0 +1,7 @@
+name: Yoko Sano
+sort: Sano, Yoko
+forms:
+  - {script: en, value: Yoko Sano}
+  - {script: ja, value: 佐野洋子}
+  - {script: ja-kana, value: さの ようこ}
+  - {script: zh, value: 佐野洋子}

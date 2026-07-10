@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: La prueba
+callno: OF-AIR-1992-PRUE
+orig_lang: es
+year: 1992
+creators:
+- aira-cesar
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 音乐大脑
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 最後の講義
+callno: OF-SAI-2020-SAIG
+orig_lang: ja
+year: 2020
+creators:
+- saibara-rieko
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 最后的讲义
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

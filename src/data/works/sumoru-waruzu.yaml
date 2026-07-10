@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: スモールワールズ
+callno: OF-ICH-2022-SUMO
+orig_lang: ja
+year: 2022
+creators:
+- ichiho-michi
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 小小世界
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

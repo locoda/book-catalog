@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 終点の少女
+callno: OF-YUZ-2017-SHUT
+orig_lang: ja
+year: 2017
+creators:
+- yuzuki-asako
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 终点的少女
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 文化就是身体
+callno: ON-SUZ-1984-BUNK
+orig_lang: ja
+year: 1984
+creators: [suzuki-tadashi]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 文化就是身体(修订版)
+    translator: 李集庆
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4Fr2pBbOckSg5wbCjkUdbL

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 다른 사람
+callno: KF-KAN-2017-DARE
+orig_lang: ko
+year: 2017
+creators: [kang-hwagil]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 他人
+    translator: 简郁璇
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4W2cKsYvulHCeypezv53ew

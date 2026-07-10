@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: ミトンとふびん
+callno: JF-YOS-2021-MITO
+orig_lang: ja
+year: 2021
+creators: [yoshimoto-banana]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 手套與憐憫
+    translator: 劉子倩
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3vDOz9HmyBbkTWZRAkOgKY

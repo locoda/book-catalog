@@ -1,0 +1,5 @@
+name: Li Dan
+sort: Li, Dan
+forms:
+  - {script: zh, value: 李诞}
+  - {script: zh-Latn, value: Li Dan}

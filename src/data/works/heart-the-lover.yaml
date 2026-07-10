@@ -1,0 +1,18 @@
+work_type: book
+title: Heart the Lover
+orig_lang: en
+year: 2025
+creators: [king-lily]
+confirmed: true
+callno: EF-KIN-2025-HEAR
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Heart the Lover
+    mine: true
+readings:
+  - date: "2026-02-11"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6H4LO2ajp6M3G6eQe0Z7p3

@@ -1,0 +1,18 @@
+work_type: book
+title: Small Things Like These
+orig_lang: en
+year: 2021
+creators: [keegan-claire]
+confirmed: true
+callno: EF-KEE-2021-SMAL
+subjects: [认知权力不对等, 空间与记忆]
+expressions:
+  - lang: en
+    title: Small Things Like These
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 1AT8GfqFQETwLmDx9v1aBO

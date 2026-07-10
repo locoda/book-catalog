@@ -1,0 +1,21 @@
+work_type: book
+title: An Artist of the Floating World
+orig_lang: en
+year: 1986
+creators: [ishiguro-kazuo]
+confirmed: true
+callno: EF-ISH-1986-ARTI
+subjects: [空间与记忆, 身份流动]
+expressions:
+  - lang: en
+    title: An Artist of the Floating World
+  - lang: zh-Hans
+    title: 浮世画家
+    translator: 马爱农
+    mine: true
+readings:
+  - date: "2021-07-18"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1fesfNYh3QU0dHhG9ziNUu

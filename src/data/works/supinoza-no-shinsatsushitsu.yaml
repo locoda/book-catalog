@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: スピノザの診察室
+callno: JF-NAT-2023-SUPI
+orig_lang: ja
+year: 2023
+creators: [natsukawa-sosuke]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 史賓諾莎診療室
+    translator: 王華懋
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3FBhJ9sKaM6zAu8N28CORX

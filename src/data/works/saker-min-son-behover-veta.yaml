@@ -1,0 +1,21 @@
+work_type: book
+title: Saker min son behöver veta om världen
+orig_lang: sv
+year: 2012
+creators: [backman-fredrik]
+confirmed: true
+callno: OF-BAC-2012-SAKE
+subjects: [母职与家庭]
+expressions:
+  - lang: sv
+    title: Saker min son behöver veta om världen
+  - lang: zh-Hans
+    title: 不要和你妈争辩
+    translator: 陶曚
+    mine: true
+readings:
+  - date: "2020-12-17"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7EwnKp9tpRVOx4hg9ItDHV

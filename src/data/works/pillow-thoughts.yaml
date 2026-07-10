@@ -1,0 +1,18 @@
+work_type: book
+title: Pillow Thoughts
+orig_lang: en
+year: 2017
+creators: [peppernell-courtney]
+confirmed: true
+callno: EF-PEP-2017-PILL
+subjects: [亲密关系, 哀悼与丧失]
+expressions:
+  - lang: en
+    title: Pillow Thoughts
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3TMctN9HSsK2I0q2cHPF4f

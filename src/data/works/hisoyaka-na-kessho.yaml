@@ -1,0 +1,21 @@
+work_type: book
+confirmed: true
+title: 密やかな結晶
+orig_lang: ja
+year: 1994
+creators: [ogawa-yoko]
+callno: JF-OGA-1994-HISO
+subjects: []
+expressions:
+  - lang: ja
+    title: 密やかな結晶
+  - lang: zh-Hant
+    title: 祕密結晶
+    translator: 王蘊潔
+    mine: true
+readings:
+  - date: "2026-07-04"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4W3eJc4ofox11RYFrvJ8Wt

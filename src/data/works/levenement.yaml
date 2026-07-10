@@ -1,0 +1,21 @@
+work_type: book
+title: L'événement
+orig_lang: fr
+year: 2000
+creators: [ernaux-annie]
+confirmed: true
+callno: OF-ERN-2000-LEVE
+subjects: [非典型女性经验, 母职与家庭]
+expressions:
+  - lang: fr
+    title: L'événement
+  - lang: zh-Hant
+    title: 記憶無非看透的一切
+    translator: 張穎綺
+    mine: true
+readings:
+  - date: "2025-07-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4kS7k0Dz3L1IudMehckHng

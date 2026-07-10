@@ -1,0 +1,21 @@
+work_type: book
+title: Guns, Germs, and Steel
+orig_lang: en
+year: 1997
+creators: [diamond-jared]
+confirmed: true
+callno: EN-DIA-1997-GUNS
+subjects: [认知权力不对等]
+expressions:
+  - lang: en
+    title: "Guns, Germs, and Steel"
+  - lang: zh-Hans
+    title: 枪炮、病菌与钢铁
+    translator: 谢延光
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0QnlGkAca1sJmYV7ALgUXY

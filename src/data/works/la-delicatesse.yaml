@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: La Délicatesse
+callno: OF-FOE-2009-DELI
+orig_lang: fr
+year: 2009
+creators: [foenkinos-david]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 微妙
+    translator: 王东亮
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4jC5b0MTpGbdKem4yyvT5S

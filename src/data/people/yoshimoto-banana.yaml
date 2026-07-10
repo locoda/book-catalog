@@ -1,0 +1,7 @@
+name: Banana Yoshimoto
+sort: Yoshimoto, Banana
+forms:
+  - {script: en, value: Banana Yoshimoto}
+  - {script: ja, value: よしもとばなな}
+  - {script: ja-kana, value: よしもと ばなな}
+  - {script: zh, value: 吉本芭娜娜}

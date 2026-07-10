@@ -1,0 +1,21 @@
+work_type: book
+title: Il disprezzo
+orig_lang: it
+year: 1954
+creators: [moravia-alberto]
+confirmed: true
+callno: OF-MOR-1954-IL
+subjects: [亲密关系]
+expressions:
+  - lang: it
+    title: Il disprezzo
+  - lang: zh-Hans
+    title: 鄙视
+    translator: 沈萼梅
+    mine: true
+readings:
+  - date: "2022-04-06"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5YcdpThkH4bAo7HR1I8GCh

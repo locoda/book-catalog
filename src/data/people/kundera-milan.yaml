@@ -1,0 +1,9 @@
+name: Milan Kundera
+sort: Kundera, Milan
+forms:
+  - script: fr
+    value: Milan Kundera
+  - script: cs
+    value: Milan Kundera
+  - script: zh
+    value: 米兰·昆德拉

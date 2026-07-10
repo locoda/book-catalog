@@ -1,0 +1,21 @@
+work_type: book
+title: 往復書簡
+orig_lang: ja
+year: 2021
+creators: [ueno-chizuko, suzuki-suzumi]
+confirmed: true
+callno: JN-UEN-2021-OFU
+subjects: [厌女结构, 亲密关系, 书信体]
+expressions:
+  - lang: ja
+    title: 往復書簡
+  - lang: zh-Hans
+    title: 始于极限
+    translator: 曹逸冰
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6KX2BThRLgkpP3GLlOs0yf

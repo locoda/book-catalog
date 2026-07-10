@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 未命名
+callno: OF-KOD-2024-MIME
+orig_lang: ja
+year: 2024
+creators: [kodama-uko]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 未命名
+    translator: 王華懋
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6Sxkn7Tj2lvFOetnFbU7LE

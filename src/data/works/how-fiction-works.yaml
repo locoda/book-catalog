@@ -1,0 +1,18 @@
+work_type: book
+title: How Fiction Works
+orig_lang: en
+year: 2008
+creators: [wood-james]
+confirmed: true
+callno: EN-WOO-2008-HOW
+subjects: []
+expressions:
+  - lang: en
+    title: How Fiction Works
+    mine: true
+readings:
+  - date: "2025-10-08"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0UrsrSQExUrBbp8WrMoo43

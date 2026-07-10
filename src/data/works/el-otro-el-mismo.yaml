@@ -1,0 +1,21 @@
+work_type: book
+title: El otro, el mismo
+orig_lang: es
+year: 1964
+creators: [borges-jorge]
+confirmed: true
+callno: OF-BOR-1964-EL
+subjects: [空间与记忆, 不可靠/碎片化叙事]
+expressions:
+  - lang: es
+    title: El otro, el mismo
+  - lang: zh-Hans
+    title: 另一个，同一个
+    translator: 王永年
+    mine: true
+readings:
+  - date: "2021-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3RYHylzFGSoAP8MQpfVpYH

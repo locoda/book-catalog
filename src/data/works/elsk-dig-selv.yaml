@@ -1,0 +1,21 @@
+work_type: book
+title: Elsk dig selv
+orig_lang: da
+year: 2016
+creators: [sand-ilse]
+confirmed: true
+callno: ON-SAN-2016-ELSK
+subjects: [神经多样性]
+expressions:
+  - lang: da
+    title: Elsk dig selv
+  - lang: zh-Hans
+    title: 高敏感是种天赋
+    translator: 李红霞
+    mine: true
+readings:
+  - date: "2021-08-05"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4EYiTikwZQvCTPqeRDhGer

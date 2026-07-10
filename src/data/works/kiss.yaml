@@ -1,0 +1,21 @@
+work_type: book
+title: キス
+orig_lang: ja
+year: 2023
+creators: [ichiho-michi]
+confirmed: true
+callno: JF-ICH-2023-KISS
+subjects: [亲密关系, 身份流动]
+expressions:
+  - lang: ja
+    title: キス
+  - lang: zh-Hant
+    title: 親吻
+    translator: 陳學儀
+    mine: true
+readings:
+  - date: "2025-11-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0ON24SSAdx8w0yEHi82Eue

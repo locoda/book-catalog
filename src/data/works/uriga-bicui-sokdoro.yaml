@@ -1,0 +1,21 @@
+work_type: book
+title: 우리가 빛의 속도로 갈 수 없다면
+orig_lang: ko
+year: 2019
+creators: [kim-choyeop]
+confirmed: true
+callno: OF-KIM-2019-URIG
+subjects: [空间与记忆, 身份流动]
+expressions:
+  - lang: ko
+    title: 우리가 빛의 속도로 갈 수 없다면
+  - lang: zh-Hans
+    title: 如果我们无法以光速前行
+    translator: 胡椒筒
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0AFvMLBNSJAHoPMJkDFEn0

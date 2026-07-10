@@ -1,0 +1,21 @@
+work_type: book
+title: Siddhartha
+orig_lang: de
+year: 1922
+creators: [hesse-hermann]
+confirmed: true
+callno: OF-HES-1922-SIDD
+subjects: [身份流动]
+expressions:
+  - lang: de
+    title: Siddhartha
+  - lang: zh-Hans
+    title: 悉达多
+    translator: 姜乙
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 4yDDhHZJJnH8kGM8CHBrs2

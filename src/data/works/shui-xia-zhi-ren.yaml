@@ -1,0 +1,18 @@
+work_type: book
+confirmed: true
+title: 水下之人
+callno: ZF-LU-2023-SHUI
+orig_lang: zh-Hans
+year: 2023
+creators: [lu-xiaoyu]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 水下之人
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5ae9o7KQulTeqIXyAnTbni

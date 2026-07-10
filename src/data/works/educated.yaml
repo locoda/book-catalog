@@ -1,0 +1,21 @@
+work_type: book
+title: Educated
+orig_lang: en
+year: 2018
+creators: [westover-tara]
+confirmed: true
+callno: EN-WES-2018-EDUC
+subjects: [母职与家庭, 身份流动, 认知权力不对等]
+expressions:
+  - lang: en
+    title: Educated
+  - lang: zh-Hans
+    title: 你当像鸟飞往你的山
+    translator: 任爱红
+    mine: true
+readings:
+  - date: "2020-06-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 2mdEocABJPjYSzuEs2c5QC

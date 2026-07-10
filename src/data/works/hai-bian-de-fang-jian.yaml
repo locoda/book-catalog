@@ -1,0 +1,18 @@
+work_type: book
+title: 海边的房间
+orig_lang: zh-Hant
+year: 2021
+creators: [huang-liqun]
+confirmed: true
+callno: CF-HUA-2021-HAIB
+subjects: [空间与记忆, 非典型女性经验]
+expressions:
+  - lang: zh-Hant
+    title: 海边的房间
+    mine: true
+readings:
+  - date: "2020-09-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 0WLVS9uCB34J3rYMXAzaio

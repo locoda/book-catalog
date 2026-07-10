@@ -1,0 +1,18 @@
+work_type: book
+title: 老派約會之必要
+orig_lang: zh-Hant
+year: 2013
+creators: [li-weijing]
+confirmed: true
+callno: CF-LI-2013-LAOP
+subjects: [亲密关系, 书信体]
+expressions:
+  - lang: zh-Hant
+    title: 老派約會之必要
+    mine: true
+readings:
+  - date: "2021-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2dSq7URPWNhuPRclQc6T6s

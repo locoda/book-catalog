@@ -1,0 +1,21 @@
+work_type: book
+title: 空芯手帳
+orig_lang: ja
+year: 2020
+creators: [yagi-emi]
+confirmed: true
+callno: JF-YAG-2020-KUSH
+subjects: [厌女结构, 劳动异化]
+expressions:
+  - lang: ja
+    title: 空芯手帳
+  - lang: zh-Hant
+    title: 空心手帳
+    translator: 黃涓芳
+    mine: true
+readings:
+  - date: "2025-01-15"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4tCGy8pQjynrvOGmb6cw2W

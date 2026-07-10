@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 怪物の檻
+callno: OF-SHI-2023-KAIB
+orig_lang: ja
+year: 2023
+creators: [shirai-tomoyuki]
+subjects: []
+expressions:
+  - lang: zh-Hant
+    title: 我是怪異，你是怪物
+    translator: 李喬智
+    mine: true
+readings:
+  - date: "2025-05-22"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7eFFgMEkZAY4h9G2gXI4Xq

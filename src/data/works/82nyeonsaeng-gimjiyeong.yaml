@@ -1,0 +1,21 @@
+work_type: book
+title: 82년생 김지영
+orig_lang: ko
+year: 2016
+creators: [cho-namjoo]
+confirmed: true
+callno: ON-CHO-2016-82NY
+subjects: [厌女结构, 非典型女性经验]
+expressions:
+  - lang: ko
+    title: 82년생 김지영
+  - lang: zh-Hans
+    title: 82年生的金智英
+    translator: 尹嘉玄
+    mine: true
+readings:
+  - date: "2023-12-04"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3iQ28GlfMnNLgXpgHKA0I6

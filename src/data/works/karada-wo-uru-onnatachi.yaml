@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 身体を売る女たち
+callno: OF-SUZ-2021-KARA
+orig_lang: ja
+year: 2021
+creators: [suzuki-suzumi]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 献给爱与子宫的花束
+    translator: 蕾克
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

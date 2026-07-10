@@ -1,0 +1,6 @@
+name: Yo Ashizawa
+sort: Ashizawa, Yo
+forms:
+  - {script: ja, value: 芦沢央}
+  - {script: ja-kana, value: あしざわ よう}
+  - {script: zh, value: 蘆澤央}

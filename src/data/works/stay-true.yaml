@@ -1,0 +1,18 @@
+work_type: book
+title: Stay True
+orig_lang: en
+year: 2022
+creators: [hsu-hua]
+confirmed: true
+callno: EN-HSU-2022-STAY
+subjects: [哀悼与丧失, 身份流动]
+expressions:
+  - lang: en
+    title: Stay True
+    mine: true
+readings:
+  - date: "2026-07-08"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1HUn79m3IRfSBbgr1p4gvu

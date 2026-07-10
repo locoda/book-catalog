@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Die berührungslose Gesellschaft
+callno: ON-VON-2018-DIEB
+orig_lang: de
+year: 2018
+creators:
+- vonthadden-elisabeth
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 自我决定的孤独
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

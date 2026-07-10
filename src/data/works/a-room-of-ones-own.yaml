@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: A Room of Ones Own
+callno: ON-WOO-1929-ROOM
+orig_lang: en
+year: 1929
+creators:
+- woolf-virginia
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 一间自己的房间
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

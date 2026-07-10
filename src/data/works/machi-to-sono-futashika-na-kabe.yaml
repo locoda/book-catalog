@@ -1,0 +1,21 @@
+work_type: book
+title: 街とその不確かな壁
+orig_lang: ja
+year: 2023
+creators: [murakami-haruki]
+confirmed: true
+callno: JF-MUR-2023-MACH
+subjects: [空间与记忆, 不可靠/碎片化叙事]
+expressions:
+  - lang: ja
+    title: 街とその不確かな壁
+  - lang: zh-Hans
+    title: 小城与不确定性的墙
+    translator: 赖明珠
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 6AcPwItS0zLMH2cuzDnwkI

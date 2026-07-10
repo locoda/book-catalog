@@ -1,0 +1,21 @@
+work_type: book
+title: On Disobedience
+orig_lang: en
+year: 1981
+creators: [fromm-erich]
+confirmed: true
+callno: EN-FRO-1981-ON
+subjects: [认知权力不对等]
+expressions:
+  - lang: en
+    title: On Disobedience
+  - lang: zh-Hans
+    title: 论不服从
+    translator: 叶安宁
+    mine: true
+readings:
+  - date: "2021-10-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 49kyuLoXhk63Idy8k63VSo

@@ -1,0 +1,18 @@
+work_type: book
+title: "Oh William!"
+orig_lang: en
+year: 2021
+creators: [strout-elizabeth]
+confirmed: true
+callno: EF-STR-2021-OH
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: "Oh William!"
+    mine: true
+readings:
+  - date: "2025-09-21"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 6X5bN4whvD4EA2osAVxbHE

@@ -1,0 +1,5 @@
+name: Chai Jing
+sort: Chai, Jing
+forms:
+  - {script: zh, value: 柴静}
+  - {script: zh-Latn, value: Chai Jing}

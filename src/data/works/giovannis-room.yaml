@@ -1,0 +1,21 @@
+work_type: book
+title: Giovanni's Room
+orig_lang: en
+year: 1956
+creators: [baldwin-james]
+confirmed: true
+callno: EF-BAL-1956-GIOV
+subjects: [身份流动, 亲密关系]
+expressions:
+  - lang: en
+    title: Giovanni's Room
+  - lang: zh-Hans
+    title: 乔瓦尼的房间
+    translator: 李佳纯
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 7GIQoTF9n1y5JqqlNfj3Cc

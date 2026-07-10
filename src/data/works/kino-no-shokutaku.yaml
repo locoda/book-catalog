@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 昨日の食卓
+callno: OF-KAK-2024-KINO
+orig_lang: ja
+year: 2024
+creators:
+- kakuta-mitsuyo
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 昨夜的餐桌風景
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

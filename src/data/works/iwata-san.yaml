@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: 岩田さん
+callno: OF-IWA-2019-IWAT
+orig_lang: ja
+year: 2019
+creators:
+- iwai-shunji
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 岩田先生
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

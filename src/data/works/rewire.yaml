@@ -1,0 +1,21 @@
+work_type: book
+title: Rewire
+orig_lang: en
+year: 2024
+creators: [vignola-nicole]
+confirmed: true
+callno: EN-VIG-2024-REWI
+subjects: [神经多样性]
+expressions:
+  - lang: en
+    title: "Rewire: Break the Cycle, Alter Your Thoughts and Create Lasting Change"
+  - lang: zh-Hant
+    title: Rewire神經可塑性
+    translator: 梁永安
+    mine: true
+readings:
+  - date: "2025-01-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 77XDmjb9MrMFRcRigGkdre

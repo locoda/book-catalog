@@ -1,0 +1,21 @@
+work_type: book
+title: 八月の御所グラウンド
+orig_lang: ja
+year: 2023
+creators: [makime-manabu]
+confirmed: true
+callno: JF-MAK-2023-HACH
+subjects: []
+expressions:
+  - lang: ja
+    title: 八月の御所グラウンド
+  - lang: zh-Hant
+    title: 八月的御所球場
+    translator: 王華懋
+    mine: true
+readings:
+  - date: "2025-06-11"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2myjFR7aQixCPubyjw6M1h

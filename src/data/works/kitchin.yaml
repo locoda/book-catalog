@@ -1,0 +1,21 @@
+work_type: book
+title: キッチン
+orig_lang: ja
+year: 1988
+creators: [yoshimoto-banana]
+subjects: []
+expressions:
+  - lang: ja
+    title: キッチン
+  - lang: zh-Hans
+    title: 厨房
+    translator: 李萍
+    mine: true
+readings:
+  - date: "2019-01-21"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3RAHpnALm02rPnEFtDbaM9
+confirmed: true
+callno: JF-YOS-1988-KITC

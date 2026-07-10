@@ -1,0 +1,21 @@
+work_type: book
+title: くるまの娘
+orig_lang: ja
+year: 2022
+creators: [usami-rin]
+subjects: []
+expressions:
+  - lang: ja
+    title: くるまの娘
+  - lang: zh-Hant
+    title: 車上的女兒
+    translator: 葉廷昭
+    mine: true
+readings:
+  - date: "2024-01-12"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 0x2TNEtn9DbqDLIfKT004o
+confirmed: true
+callno: JF-USA-2022-KURU

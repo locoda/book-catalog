@@ -1,0 +1,18 @@
+work_type: book
+title: Five Tuesdays in Winter
+orig_lang: en
+year: 2021
+creators: [king-lily]
+confirmed: true
+callno: EF-KIN-2021-FIVE
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Five Tuesdays in Winter
+    mine: true
+readings:
+  - date: "2026-03-25"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 785eoZOagUtZbw2MDaysBN

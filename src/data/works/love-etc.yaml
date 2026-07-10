@@ -1,0 +1,21 @@
+work_type: book
+title: Love, etc
+orig_lang: en
+year: 2000
+creators: [barnes-julian]
+confirmed: true
+callno: EN-BAR-2000-LOVE
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Love, etc
+  - lang: zh-Hans
+    title: 爱，以及其他
+    translator: 郭国良
+    mine: true
+readings:
+  - date: "2023-01-29"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3xicI79gepaTCO7odzTLkm

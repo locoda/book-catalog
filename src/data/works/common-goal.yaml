@@ -1,0 +1,18 @@
+work_type: book
+title: Common Goal
+orig_lang: en
+year: 2020
+creators: [reid-rachel]
+confirmed: true
+callno: EF-REI-2020-COMM
+subjects: [亲密关系]
+expressions:
+  - lang: en
+    title: Common Goal
+    mine: true
+readings:
+  - date: "2025-12-31"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 68IyXGCSEHYu19M7Z2nO7K

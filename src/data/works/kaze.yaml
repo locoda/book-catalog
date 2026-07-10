@@ -1,0 +1,21 @@
+work_type: book
+title: 風
+orig_lang: ja
+year: 2014
+creators: [aoyama-michiko]
+confirmed: true
+callno: JF-AOY-2014-KAZE
+subjects: [空间与记忆, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: 風
+  - lang: zh-Hans
+    title: 风
+    translator: 蔡鸣雁
+    mine: true
+readings:
+  - date: "2021-09-02"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 2h13euxyF1Laap8XiVE7WH

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Nachts schlafen die Ratten doch
+callno: OF-BOR-1947-NACH
+orig_lang: de
+year: 1947
+creators:
+- borchert-wolfgang
+subjects: []
+expressions:
+- lang: zh-Hans
+  title: 夜里老鼠们要睡觉
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

@@ -1,0 +1,18 @@
+work_type: book
+title: 被猜死的人
+orig_lang: zh-Hans
+year: 2018
+creators: [tian-er]
+confirmed: true
+callno: CN-TIA-2018-BEIC
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 被猜死的人
+    mine: true
+readings:
+  - date: "2019-01-14"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 3JPv3Xqr7SdpAF85nXktK8

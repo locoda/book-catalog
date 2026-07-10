@@ -2,5 +2,5 @@ name: 村田沙耶香
 sort: Murata, Sayaka
 forms:
   - {script: ja-kana, value: むらた さやか}
-  - {script: romaji, value: Murata Sayaka}
+  - {script: ja-Latn, value: Murata Sayaka}
   - {script: zh, value: 村田沙耶香}

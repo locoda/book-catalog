@@ -1,0 +1,21 @@
+work_type: book
+title: Thinking, Fast and Slow
+orig_lang: en
+year: 2011
+creators: [kahneman-daniel]
+confirmed: true
+callno: EN-KAH-2011-THIN
+subjects: [认知权力不对等]
+expressions:
+  - lang: en
+    title: Thinking, Fast and Slow
+  - lang: zh-Hans
+    title: 思考, 快与慢
+    translator: 胡晓姣
+    mine: true
+readings:
+  - date: "2022-01-01"
+    platform: NeoDB 标记
+rating: 10
+status: read
+neodb_uuid: 5CnGkA2JLTQEAF9PfSIBPS

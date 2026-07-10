@@ -1,0 +1,21 @@
+work_type: book
+title: ぎょらん
+orig_lang: ja
+year: 2019
+creators: [machida-sonoko]
+confirmed: true
+callno: JF-MAC-2019-GYOR
+subjects: [母职与家庭, 非典型女性经验]
+expressions:
+  - lang: ja
+    title: ぎょらん
+  - lang: zh-Hant
+    title: 普通的孩子
+    translator: 李喬智
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7MxBTO5qkwpYGZqOCILGfS

@@ -1,0 +1,21 @@
+work_type: book
+title: 愛なき世界
+orig_lang: ja
+year: 2018
+creators: [miura-shion]
+confirmed: true
+callno: JF-MIU-2018-AINA
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: 愛なき世界
+  - lang: zh-Hant
+    title: 沒有愛的世界
+    translator: 劉子倩
+    mine: true
+readings:
+  - date: "2020-07-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 1O84zPQ95UofywxwR1Hctm

@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: おいしいごはんが食べられますように
+callno: OF-TAK-2022-OISH
+orig_lang: ja
+year: 2022
+creators:
+- takase-junko
+subjects: []
+expressions:
+- lang: zh-Hant
+  title: 願能嚐到美味料理
+  mine: true
+readings:
+- date: '2025-03-01'
+  platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: TODO

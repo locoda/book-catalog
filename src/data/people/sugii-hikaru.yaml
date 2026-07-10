@@ -1,0 +1,7 @@
+name: Hikaru Sugii
+sort: Sugii, Hikaru
+forms:
+  - {script: en, value: Hikaru Sugii}
+  - {script: ja, value: 杉井光}
+  - {script: ja-kana, value: すぎい ひかる}
+  - {script: zh, value: 杉井光}

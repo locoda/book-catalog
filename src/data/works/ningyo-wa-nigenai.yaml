@@ -1,0 +1,21 @@
+work_type: book
+title: 人魚は逃げない
+orig_lang: ja
+year: 2007
+creators: [yamamoto-fumio]
+confirmed: true
+callno: JF-YAM-2007-NING
+subjects: [亲密关系]
+expressions:
+  - lang: ja
+    title: 人魚は逃げない
+  - lang: zh-Hant
+    title: 人魚逃走了
+    translator: 王蘊潔
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 7CJd6uFCDPKHvFjUOufGOW

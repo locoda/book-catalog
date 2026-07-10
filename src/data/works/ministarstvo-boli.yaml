@@ -1,0 +1,19 @@
+work_type: book
+confirmed: true
+title: Ministarstvo boli
+callno: JF-UGR-2004-MINI
+orig_lang: hr
+year: 2004
+creators: [ugresic-dubravka]
+subjects: []
+expressions:
+  - lang: zh-Hans
+    title: 疼痛部
+    translator: 姜昊骞
+    mine: true
+readings:
+  - date: "2025-03-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 4HJIOtrE5w9rvI7Rx9McsG

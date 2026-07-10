@@ -1,0 +1,21 @@
+work_type: book
+title: 休館日の彼女たち
+orig_lang: ja
+year: 2023
+creators: [yagi-emi]
+confirmed: true
+callno: JF-YAG-2023-KYUK
+subjects: [非典型女性经验]
+expressions:
+  - lang: ja
+    title: 休館日の彼女たち
+  - lang: zh-Hant
+    title: 閉館日的女孩們
+    translator: 緋華璃
+    mine: true
+readings:
+  - date: "2025-08-11"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 3jxUaRZiz12VzHM0naidoD

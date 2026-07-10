@@ -1,0 +1,21 @@
+work_type: book
+title: Le jeune homme
+orig_lang: fr
+year: 2022
+creators: [ernaux-annie]
+confirmed: true
+callno: OF-ERN-2022-LE
+subjects: [亲密关系, 非典型女性经验]
+expressions:
+  - lang: fr
+    title: Le jeune homme
+  - lang: zh-Hans
+    title: 年轻男人
+    translator: 栾颖新
+    mine: true
+readings:
+  - date: "2020-05-01"
+    platform: NeoDB 标记
+rating: 8
+status: read
+neodb_uuid: 5lGnfIYljZvETI2HCKLd3X
