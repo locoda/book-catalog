@@ -1,37 +1,340 @@
 ---
 /**
- * 2d 主题词云：取收录数前 N 的主题词，字号按 sqrt 加权。
+ * 主题星图：28 个主题词为星，藏书量定星等；
+ * 同一本书共现过的词之间连线成星座（共现 ≥2 才连线，线宽/亮度按共现次数）。
+ * 布局为构建期确定性力导向模拟，无运行时依赖；hover 高亮邻接星 + 例书浮层。
  */
 import { getCollection } from 'astro:content';
 
-const TOP_N = 24;
-
 const works = await getCollection('works');
-const counts = new Map<string, number>();
-for (const w of works) {
-  for (const s of w.data.subjects) counts.set(s, (counts.get(s) ?? 0) + 1);
-}
-const all = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh'));
-const top = all.slice(0, TOP_N);
-const max = top[0]?.[1] ?? 1;
 
-// 13px–21px，sqrt 缩放
-const size = (n: number) => (13 + 8 * Math.sqrt(n / max)).toFixed(1);
+// —— 统计 ——
+const counts = new Map<string, number>();
+const co = new Map<string, number>();
+const samples = new Map<string, string[]>();
+
+const displayTitle = (w: any) => {
+  const mine = (w.data.expressions ?? []).find((e: any) => e.mine && e.title);
+  return mine?.title ?? w.data.title;
+};
+
+for (const w of works) {
+  const subs: string[] = w.data.subjects ?? [];
+  for (const s of subs) {
+    counts.set(s, (counts.get(s) ?? 0) + 1);
+    const arr = samples.get(s) ?? [];
+    if (arr.length < 3) { arr.push(displayTitle(w)); samples.set(s, arr); }
+  }
+  const sorted = [...subs].sort((a, b) => a.localeCompare(b, 'zh'));
+  for (let i = 0; i < sorted.length; i++)
+    for (let j = i + 1; j < sorted.length; j++) {
+      const k = sorted[i] + '␟' + sorted[j];
+      co.set(k, (co.get(k) ?? 0) + 1);
+    }
+}
+
+const names = [...counts.keys()].sort((a, b) => (counts.get(b)! - counts.get(a)!) || a.localeCompare(b, 'zh'));
+const idx = new Map(names.map((n, i) => [n, i]));
+const N = names.length;
+
+type Edge = { a: number; b: number; w: number };
+const edges: Edge[] = [];
+for (const [k, w] of co) {
+  if (w < 2) continue;
+  const [a, b] = k.split('␟');
+  edges.push({ a: idx.get(a)!, b: idx.get(b)!, w });
+}
+
+// —— 力导向布局（确定性）——
+const W = 1032, H = 560;
+const MX = 84, MY = 42; // 留给标签的边距
+const pos = names.map((_, i) => {
+  const ang = i * 2.399963; // 黄金角
+  const r = 26 + 15 * Math.sqrt(i + 1);
+  return { x: W / 2 + r * Math.cos(ang) * 1.6, y: H / 2 + r * Math.sin(ang) };
+});
+
+const adj: number[][] = names.map(() => []);
+for (const e of edges) { adj[e.a].push(e.b); adj[e.b].push(e.a); }
+
+const maxCount = counts.get(names[0]) ?? 1;
+// 布局用的相对"质量"：大星（藏书多、边多）占更大地盘
+const mass = names.map((s, i) => 0.6 + 1.6 * Math.sqrt(counts.get(s)! / maxCount) + 0.05 * adj[i].length);
+
+for (let it = 0; it < 500; it++) {
+  const fx = new Array(N).fill(0), fy = new Array(N).fill(0);
+  // 斥力
+  for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
+    let dx = pos[i].x - pos[j].x, dy = pos[i].y - pos[j].y;
+    let d2 = dx * dx + dy * dy; if (d2 < 1) { d2 = 1; dx = 1; dy = 0; }
+    const d = Math.sqrt(d2);
+    const f = Math.min(9000 * mass[i] * mass[j] / d2, 34) * (d < 106 ? 2.4 : 1); // 大星互斥更强，近距加倍防标签重叠
+    fx[i] += (dx / d) * f; fy[i] += (dy / d) * f;
+    fx[j] -= (dx / d) * f; fy[j] -= (dy / d) * f;
+  }
+  // 引力（沿共现边）
+  for (const e of edges) {
+    const dx = pos[e.b].x - pos[e.a].x, dy = pos[e.b].y - pos[e.a].y;
+    const d = Math.sqrt(dx * dx + dy * dy) || 1;
+    const f = (d - 195) * 0.018 * Math.min(e.w, 6) / 6;
+    fx[e.a] += (dx / d) * f; fy[e.a] += (dy / d) * f;
+    fx[e.b] -= (dx / d) * f; fy[e.b] -= (dy / d) * f;
+  }
+  // 角分辨：同一颗星引出的边夹角太小时，把两端邻星沿切向推开
+  const MIN_ANG = 0.22; // ≈ 13°
+  for (let i = 0; i < N; i++) {
+    if (adj[i].length < 2) continue;
+    const around = adj[i]
+      .map(j => ({ j, a: Math.atan2(pos[j].y - pos[i].y, pos[j].x - pos[i].x) }))
+      .sort((p, q) => p.a - q.a);
+    for (let k = 0; k < around.length; k++) {
+      const p = around[k], q = around[(k + 1) % around.length];
+      let gap = q.a - p.a; if (gap <= 0) gap += Math.PI * 2;
+      if (gap >= MIN_ANG) continue;
+      const push = (MIN_ANG - gap) * 30;
+      // p 沿其切向负方向、q 沿正方向
+      for (const [node, sgn] of [[p, -1], [q, 1]] as const) {
+        const dx = pos[node.j].x - pos[i].x, dy = pos[node.j].y - pos[i].y;
+        const d = Math.sqrt(dx * dx + dy * dy) || 1;
+        fx[node.j] += (-dy / d) * push * sgn;
+        fy[node.j] += (dx / d) * push * sgn;
+      }
+    }
+  }
+  // 向心 + 椭圆整形（横向摊开）
+  for (let i = 0; i < N; i++) {
+    fx[i] += (W / 2 - pos[i].x) * 0.006;
+    fy[i] += (H / 2 - pos[i].y) * 0.024;
+  }
+  const cool = 1 - it / 500;
+  for (let i = 0; i < N; i++) {
+    pos[i].x = Math.max(MX, Math.min(W - MX, pos[i].x + Math.max(-9, Math.min(9, fx[i])) * cool));
+    pos[i].y = Math.max(MY, Math.min(H - MY, pos[i].y + Math.max(-9, Math.min(9, fy[i])) * cool));
+  }
+}
+
+const max = maxCount;
+const R = (n: number) => 3 + 12 * Math.pow(n / max, 0.85);
+const FS = (n: number) => 11 + 5.5 * Math.sqrt(n / max);      // 标签字号
+const OP = (n: number) => 0.5 + 0.5 * Math.sqrt(n / max);     // 星亮度
+
+// —— 标签防撞：右/左/上/下四方位择优 + 残余冲突垂直推星 ——
+type Box = { x0: number; y0: number; x1: number; y1: number };
+const ovArea = (a: Box, b: Box) =>
+  Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) *
+  Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+
+const rArr = names.map(s => R(counts.get(s)!));
+const fsArr = names.map(s => FS(counts.get(s)!));
+const labelW = names.map((s, i) =>
+  s.length * fsArr[i] + String(counts.get(s)!).length * fsArr[i] * 0.62 + 8);
+
+const starBox = (i: number): Box => ({
+  x0: pos[i].x - rArr[i] - 3, y0: pos[i].y - rArr[i] - 3,
+  x1: pos[i].x + rArr[i] + 3, y1: pos[i].y + rArr[i] + 3,
+});
+const SIDES = ['right', 'left', 'top', 'bottom'] as const;
+type Side = typeof SIDES[number];
+const candBox = (i: number, side: Side): Box => {
+  const r = rArr[i] , fs = fsArr[i], w = labelW[i], h = fs + 7;
+  const { x, y } = pos[i];
+  if (side === 'right')  return { x0: x + r + 6, y0: y - h / 2, x1: x + r + 6 + w, y1: y + h / 2 };
+  if (side === 'left')   return { x0: x - r - 6 - w, y0: y - h / 2, x1: x - r - 6, y1: y + h / 2 };
+  if (side === 'top')    return { x0: x - w / 2, y0: y - r - 7 - h, x1: x + w / 2, y1: y - r - 7 };
+  return { x0: x - w / 2, y0: y + r + 7, x1: x + w / 2, y1: y + r + 7 + h };
+};
+
+const order = names.map((_, i) => i)
+  .sort((a, b) => counts.get(names[b])! - counts.get(names[a])!);
+const chosen: Side[] = new Array(N).fill('right');
+let labelBoxes: Box[] = new Array(N);
+
+for (let round = 0; round < 80; round++) {
+  const stars = names.map((_, i) => starBox(i));
+  const placed: Box[] = [];
+  const placedOwner: number[] = [];
+  for (const i of order) {
+    let bestSide: Side = 'right', bestBox = candBox(i, 'right'), bestScore = Infinity;
+    for (const s of SIDES) {
+      const b = candBox(i, s);
+      let sc = s === 'right' ? 0 : 2; // 平局偏好右侧
+      if (b.x0 < 4) sc += (4 - b.x0) * 30;
+      if (b.x1 > W - 4) sc += (b.x1 - W + 4) * 30;
+      if (b.y0 < 2) sc += (2 - b.y0) * 30;
+      if (b.y1 > H - 2) sc += (b.y1 - H + 2) * 30;
+      for (let j = 0; j < N; j++) if (j !== i) sc += ovArea(b, stars[j]) * 2;
+      for (const pb of placed) sc += ovArea(b, pb) * 3;
+      if (sc < bestScore) { bestScore = sc; bestSide = s; bestBox = b; }
+    }
+    chosen[i] = bestSide; labelBoxes[i] = bestBox;
+    placed.push(bestBox); placedOwner.push(i);
+  }
+  // 残余冲突：把书更少的那颗星垂直推开
+  let moved = false;
+  for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
+    const clash = ovArea(labelBoxes[i], labelBoxes[j])
+      + ovArea(labelBoxes[i], starBox(j)) + ovArea(labelBoxes[j], starBox(i));
+    if (clash > 4) {
+      const m = counts.get(names[i])! <= counts.get(names[j])! ? i : j;
+      const other = m === i ? j : i;
+      const dir = pos[m].y >= pos[other].y ? 1 : -1;
+      pos[m].y = Math.max(MY, Math.min(H - MY, pos[m].y + dir * 7));
+      moved = true;
+    }
+  }
+  if (!moved) break;
+}
+
+const nodes = names.map((s, i) => {
+  const r = rArr[i], fs = fsArr[i], side = chosen[i];
+  const { x, y } = pos[i];
+  let lx = x + r + 6, ly = y + fs * 0.34, anchor = 'start';
+  if (side === 'left')   { lx = x - r - 6; anchor = 'end'; }
+  if (side === 'top')    { lx = x; ly = y - r - 11; anchor = 'middle'; }
+  if (side === 'bottom') { lx = x; ly = y + r + 7 + fs * 0.8; anchor = 'middle'; }
+  return {
+    s, i, n: counts.get(s)!,
+    x: +x.toFixed(1), y: +y.toFixed(1),
+    r: +r.toFixed(1), fs: +fs.toFixed(1),
+    op: +OP(counts.get(s)!).toFixed(2),
+    lx: +lx.toFixed(1), ly: +ly.toFixed(1), anchor,
+  };
+});
+
+// —— 弧线分离：同一颗星引出的两条边夹角过小时，各自向外弯 ——
+const bow = new Array(edges.length).fill(0);
+{
+  const incident: { e: number; other: number }[][] = names.map(() => []);
+  edges.forEach((e, k) => {
+    incident[e.a].push({ e: k, other: e.b });
+    incident[e.b].push({ e: k, other: e.a });
+  });
+  const SMALL = 0.19; // ≈ 11°
+  for (let i = 0; i < N; i++) {
+    if (incident[i].length < 2) continue;
+    const around = incident[i]
+      .map(({ e, other }) => ({ e, a: Math.atan2(pos[other].y - pos[i].y, pos[other].x - pos[i].x) }))
+      .sort((p, q) => p.a - q.a);
+    for (let k = 0; k < around.length; k++) {
+      const p = around[k], q = around[(k + 1) % around.length];
+      let gap = q.a - p.a; if (gap <= 0) gap += Math.PI * 2;
+      if (gap >= SMALL) continue;
+      const amt = 7 + 14 * (1 - gap / SMALL);
+      // p 边向切向负侧弯、q 边向正侧弯；弯的正方向定义在 a→b 坐标系，i 是 b 端时取反
+      const sgnAt = (ek: number) => (edges[ek].a === i ? 1 : -1);
+      bow[p.e] += -amt * sgnAt(p.e);
+      bow[q.e] += amt * sgnAt(q.e);
+    }
+  }
+  for (let k = 0; k < bow.length; k++) bow[k] = Math.max(-14, Math.min(14, bow[k]));
+}
+
+const edgePath = (e: Edge, k: number) => {
+  const A = pos[e.a], B = pos[e.b];
+  if (!bow[k]) return `M${A.x.toFixed(1)} ${A.y.toFixed(1)} L${B.x.toFixed(1)} ${B.y.toFixed(1)}`;
+  const dx = B.x - A.x, dy = B.y - A.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
+  const mx = (A.x + B.x) / 2 - (dy / d) * bow[k];
+  const my = (A.y + B.y) / 2 + (dx / d) * bow[k];
+  return `M${A.x.toFixed(1)} ${A.y.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${B.x.toFixed(1)} ${B.y.toFixed(1)}`;
+};
+
+const maxW = Math.max(...edges.map(e => e.w), 2);
+const hoverData = names.map((s, i) => ({
+  nbrs: [...new Set(adj[i])],
+  books: samples.get(s) ?? [],
+  n: counts.get(s)!,
+}));
 ---
 <section class="cloud wrap">
   <header class="sec-head">
     <small class="mono">SUBJECTS</small>
-    <h2>主题词</h2>
-    <span class="sec-meta mono">{all.length} 个词</span>
+    <h2>主题星图</h2>
+    <span class="sec-meta mono">{N} 个词 · 连线为同书共现</span>
   </header>
-  <div class="subject-cloud">
-    {top.map(([s, count]) => (
-      <a class="subject-chip" href={`/subjects/${s.replace(/\//g, '／')}/`} style={`font-size:${size(count)}px`}>
-        {s}<span class="mono">{count}</span>
-      </a>
-    ))}
-    {all.length > TOP_N && (
-      <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
-    )}
+
+  <div class="constellation-wrap">
+    <svg id="subject-sky" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="主题词星图" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="star-glow" r="50%">
+          <stop offset="0%" stop-color="#E9ECF3" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#E9ECF3" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      {edges.map((e, k) => (
+        <path
+          class="sky-edge"
+          data-a={e.a} data-b={e.b}
+          d={edgePath(e, k)}
+          fill="none"
+          stroke-width={(0.5 + 1.3 * (e.w / maxW)).toFixed(2)}
+          opacity={(0.14 + 0.3 * (e.w / maxW)).toFixed(2)}
+        />
+      ))}
+
+      {nodes.map(nd => (
+        <a href={`/subjects/${nd.s.replace(/\//g, '／')}/`} class="sky-node" data-i={nd.i}>
+          <circle class="sky-hit" cx={nd.x} cy={nd.y} r={Math.max(nd.r + 14, 20)} fill="transparent"/>
+          <circle class="sky-halo" cx={nd.x} cy={nd.y} r={nd.r * 3} fill="url(#star-glow)" opacity="0"/>
+          <circle class="sky-star" cx={nd.x} cy={nd.y} r={nd.r} fill-opacity={nd.op}/>
+          <text
+            class="sky-label"
+            x={nd.lx} y={nd.ly}
+            style={`font-size:${nd.fs}px`}
+            text-anchor={nd.anchor}
+          >{nd.s}<tspan class="sky-count mono"> {nd.n}</tspan></text>
+        </a>
+      ))}
+    </svg>
+    <div id="sky-tip" class="sky-tip" hidden></div>
   </div>
 </section>
+
+<script is:inline define:vars={{ hoverData }}>
+  const svg = document.getElementById('subject-sky');
+  const tip = document.getElementById('sky-tip');
+  if (svg && tip) {
+    const wrap = svg.parentElement;
+    const nodes = [...svg.querySelectorAll('.sky-node')];
+    const edges = [...svg.querySelectorAll('.sky-edge')];
+
+    const clear = () => {
+      svg.classList.remove('focused');
+      nodes.forEach(n => n.classList.remove('lit', 'dim'));
+      edges.forEach(e => e.classList.remove('lit'));
+      tip.hidden = true;
+    };
+
+    nodes.forEach(node => {
+      const i = +node.dataset.i;
+      node.addEventListener('mouseenter', () => {
+        const d = hoverData[i];
+        svg.classList.add('focused');
+        const keep = new Set([i, ...d.nbrs]);
+        nodes.forEach(n => n.classList.toggle('lit', keep.has(+n.dataset.i)));
+        nodes.forEach(n => n.classList.toggle('dim', !keep.has(+n.dataset.i)));
+        edges.forEach(e => e.classList.toggle('lit', +e.dataset.a === i || +e.dataset.b === i));
+
+        tip.innerHTML =
+          `<b>${d.n}</b> 本` +
+          (d.books.length ? '<span class="sky-tip-books">' +
+            d.books.map(t => `<span>${t.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</span>`).join('') +
+            (d.n > d.books.length ? '<span class="mono">…</span>' : '') + '</span>' : '');
+        tip.hidden = false;
+
+        const star = node.querySelector('.sky-star');
+        const nb = star.getBoundingClientRect();
+        const wb = wrap.getBoundingClientRect();
+        let x = nb.left - wb.left + nb.width / 2 + 14;
+        let y = nb.top - wb.top - 8;
+        tip.style.left = '0'; tip.style.top = '0';
+        const tw = tip.offsetWidth, th = tip.offsetHeight;
+        if (x + tw > wrap.clientWidth - 8) x = nb.left - wb.left - tw - 14;
+        y = Math.max(4, Math.min(y, wrap.clientHeight - th - 4));
+        tip.style.left = x + 'px'; tip.style.top = y + 'px';
+      });
+      node.addEventListener('mouseleave', clear);
+    });
+    svg.addEventListener('mouseleave', clear);
+  }
+</script>

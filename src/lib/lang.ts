@@ -22,6 +22,7 @@ export const LANG_LABELS: Record<string, string> = {
   de: '德文',
   it: '意大利文',
   es: '西班牙文',
+  fa: '波斯文',
   sv: '瑞典文',
   tr: '土耳其文',
   pt: '葡萄牙文',
