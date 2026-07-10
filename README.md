@@ -1,20 +1,34 @@
 # 乙醚書目 · Ether Catalog
 
-一份跨语言的个人阅读史目录。不存书，只存**关于书的结构化描述**——目录，不是馆藏。
+一份跨语言的个人阅读史编目系统。不存书，只存**关于书的结构化著录**——是目录，不是馆藏。
 
 > 线上地址：[reading.1mether.me](https://reading.1mether.me)
 
-## 为什么做
+## 缘起
 
-你的阅读数据散落在各处：NeoDB 标记、微信读书笔记、豆瓣书评、Kindle 高亮。平台不会替你互通，换一个平台就意味着数据从头开始。
+阅读数据散落在各处：NeoDB 标记、微信读书笔记、豆瓣书评、Kindle 高亮。平台之间不互通，换平台就意味着数据从头开始。
 
-这个目录把阅读历史从平台手里拿回来。数据是纯文本 YAML，你自己攥着；网站是 Astro 静态生成，随便找个地方就能部署。不依赖任何第三方服务持续运行。
+这个项目把阅读历史从平台手里拿回来。数据是纯文本 YAML，自己攥着；网站用 Astro 静态生成，随便找个地方就能部署，不依赖任何第三方服务持续运行。
 
-更具体的说，它是一个**个人编目系统**——不是把书单列出来就完了，而是对每一本书做结构化的著录：原语言题名、初版年份、权威著者记录、受控主题词。编目本身是一种理解自己读过什么的方式。
+它不只是把书单列出来，而是一个**个人编目系统**——对每一本书做结构化著录：原语言规范题名、初版年份、权威著者记录、受控主题词。编目本身是一种理解自己读过什么的方式。
 
 ## 当前规模
 
-496 篇 works · 13 种原语言 · 322 条权威记录 · 2019–2026
+- **492** 篇 works（作品）
+- **322** 条 people（权威记录）
+- **21** 种原语言（ja / en / zh-Hans / zh-Hant / fr / ko / de / es / sv / he / ru / ……）
+- 初版年跨度 **1910–2026**
+- 阅读记录跨度 **2019–2026**
+
+## 技术栈
+
+| 层 | 选型 |
+|---|---|
+| 框架 | [Astro](https://astro.build) 7（静态生成） |
+| 数据 | YAML 文件 + Astro Content Collections（`glob` loader） |
+| 校验 | Zod schema（`src/content.config.ts`），`npm run build` 即校验 |
+| 部署 | Cloudflare Pages，域名 `reading.1mether.me` |
+| 依赖 | 仅 `astro`，无运行时第三方服务 |
 
 ## 数据模型
 
@@ -23,18 +37,46 @@
 ```
 works/          一个作品一条——规范题名、原语言、初版年、著者引用
   ├── expressions    语言层版本（日语原版、繁中译本、英译本……）
-  │     └── mine: true    标记你实际读过的版本（可以多个）
-  └── readings       阅读事件（日期、平台来源）
+  │     └── mine: true    标记实际读过的版本（可多个）
+  └── readings       阅读事件（日期、载体形式）
 people/         权威记录——一人一条，日/中/英/韩等形式全部归拢到同一 id
-subjects        个人受控词表，每条 work 标 1–4 个；
-                词表以"目录里实际用过的词"为准，首页自动汇总
+subjects        个人受控词表，每条 work 标 1–4 个
 ```
 
 **硬性规则**：
 
-- works 里的 `creators` 只允许引用 people id，不允许写裸字符串。悬空引用会导致构建失败。
-- schema 用 zod 做机器校验（`src/content.config.ts`），字段写错 `npm run build` 直接报。
+- works 里的 `creators` 只允许引用 people id，不允许写裸字符串。悬空引用会导致构建失败（安全网）。
+- `mine: true` 版本的 `lang` 是封闭集，只能是 `zh-Hans` / `zh-Hant` / `en`——馆长实际的阅读语言。
+- 主题词只能从受控词表（`docs/CATALOGING.md` §6）中选用，不发明新词。
+- `confirmed: true` 的记录标识符（slug / callno / people id）永久冻结。
+- schema 用 Zod 做机器校验，字段写错 `npm run build` 直接报。
 - 著录规则见 `docs/CATALOGING.md`——这是唯一的著录依据。
+
+## 项目结构
+
+```
+.
+├── src/
+│   ├── content.config.ts      # Zod schema（works + people 集合定义）
+│   ├── data/
+│   │   ├── works/             # 作品记录（YAML）
+│   │   └── people/            # 权威记录（YAML）
+│   ├── pages/
+│   │   ├── index.astro        # 首页（时间线 + 语言流向 + 词云）
+│   │   ├── works/             # 馆藏列表 + 详情
+│   │   ├── people/            # 著者索引 + 详情
+│   │   └── subjects/          # 主题词索引 + 详情
+│   ├── components/            # ReadingTimeline / LangFlow / SubjectCloud / AuthorCloud
+│   ├── layouts/Base.astro
+│   ├── lib/                   # lang.ts（语言字典）/ stats.ts（聚合）/ edition.ts
+│   └── styles/catalog.css
+├── scripts/
+│   ├── import_neodb.py        # NeoDB → work YAML 骨架
+│   └── survey.py              # 批量编目辅助
+├── docs/                      # 著录规范、复核流程、任务手册、疑点追踪
+├── astro.config.mjs
+└── package.json
+```
 
 ## 快速开始
 
@@ -42,6 +84,7 @@ subjects        个人受控词表，每条 work 标 1–4 个；
 npm install
 npm run dev        # http://localhost:4321
 npm run build      # 产出 dist/
+npm run preview    # 预览构建产物
 ```
 
 ## 导入数据
@@ -54,7 +97,7 @@ python scripts/import_neodb.py                  # 已读
 python scripts/import_neodb.py --shelf progress  # 在读
 ```
 
-脚本生成的是骨架——把原始导入变成一条完整的 work 记录，你需要做：work/expression 归并、权威记录建立、主题词标引。这些判断不交给脚本，因为编目本身就是阅读行为的一部分。
+脚本生成的是骨架——把原始导入变成一条 work 记录，之后需要人工完成：work/expression 归并、权威记录建立、主题词标引。这些判断不交给脚本，因为编目本身就是阅读行为的一部分。
 
 ### 豆瓣
 
@@ -82,10 +125,11 @@ npx wrangler pages deploy dist --project-name ether-catalog
 
 | 文档 | 用途 |
 |---|---|
-| `docs/CATALOGING.md` | 著录规范——题名规则、语言码、Callno 算法、主题词表、slug 命名、AI 批处理协议 |
+| `docs/CATALOGING.md` | 著录规范（唯一依据）——题名规则、语言码、Callno 算法、主题词表、slug 命名、AI 批处理协议、§9 编目作业流程 |
 | `docs/VERIFICATION.md` | 复核/审计流程——程序化体检脚本 + 联网核实指南 |
-| `docs/TASK.md` | 编目助理操作手册——逐文件整理 NeoDB 骨架的算法 |
 | `docs/QUESTIONS.md` | 编目疑点追踪——词表提案、数据异常、待馆长确认事项 |
+
+> `docs/` 另有 `audit-missing-original-version.md`，是原文版本缺失的一次性审计快照，非规范文档。
 
 ## Roadmap
 
@@ -95,4 +139,5 @@ npx wrangler pages deploy dist --project-name ether-catalog
 - [ ] 主题词表页（词 → 定义 → 使用统计）
 - [x] 著录规范 → `docs/CATALOGING.md`
 - [x] 复核/审计流程 → `docs/VERIFICATION.md`
+- [x] 主题词表 v2 改版（28 词，诗意视角型语域）
 - [ ] Phase 2: 抽成 template repo，让其他人也能搭自己的编目系统
