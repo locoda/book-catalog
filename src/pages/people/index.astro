@@ -49,16 +49,21 @@ const groupLabels: Record<string, string> = {
 <Base title="著者索引 · 乙醚書目">
   <nav class="breadcrumb wrap"><a href="/">← 返回首頁</a></nav>
 
-  <section class="results wrap">
+  <section class="results wrap" id="people-results">
+    <div class="sort-row">
+      <span class="facet-label">排序</span>
+      <button class="chip on" data-sort="name">名稱索引</button>
+      <button class="chip" data-sort="count">著作數 ↓</button>
+    </div>
     <h3>AUTHORITY&nbsp;INDEX&nbsp;/&nbsp;著者索引&nbsp;·&nbsp;{people.length}&nbsp;人</h3>
     {groupOrder.map((g) => {
       const items = groups[g];
       if (!items || items.length === 0) return null;
       return (
-        <div class="people-group">
+        <div class="people-group" data-group={g}>
           <div class="group-header">{groupLabels[g]}</div>
           {items.map((p) => (
-            <a class="row" href={`/people/${p.id}/`}>
+            <a class="row" href={`/people/${p.id}/`} data-sortkey={p.sortKey} data-workcount={p.workCount} data-group={g}>
               <span class="mono">p-{p.id}</span>
               <span>{p.data.name}</span>
               <span class="langs">{p.data.forms.length} 種名稱形式</span>
@@ -69,4 +74,46 @@ const groupLabels: Record<string, string> = {
       );
     })}
   </section>
+
+  <script>
+    let peopleSort = 'name';
+
+    document.querySelectorAll<HTMLButtonElement>('.sort-row .chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        peopleSort = chip.dataset.sort!;
+        document.querySelectorAll('.sort-row .chip').forEach((c) => c.classList.remove('on'));
+        chip.classList.add('on');
+        applyPeopleSort();
+      });
+    });
+
+    function applyPeopleSort() {
+      const container = document.getElementById('people-results')!;
+      const groups = container.querySelectorAll<HTMLElement>('.people-group');
+      const allRows = [...container.querySelectorAll<HTMLElement>('.row')];
+
+      if (peopleSort === 'count') {
+        // 扁平化：隐藏分组标题，所有行按著作数降序
+        groups.forEach((g) => { g.querySelector<HTMLElement>('.group-header')!.style.display = 'none'; });
+        allRows.sort((a, b) => {
+          const ca = parseInt(a.dataset.workcount ?? '0');
+          const cb = parseInt(b.dataset.workcount ?? '0');
+          if (ca !== cb) return cb - ca;
+          return (a.dataset.sortkey ?? '').localeCompare(b.dataset.sortkey ?? '', 'zh');
+        });
+        allRows.forEach((el) => container.appendChild(el));
+      } else {
+        // 分组模式：恢复分组标题，行归组后按 sortKey 排序
+        groups.forEach((g) => {
+          g.querySelector<HTMLElement>('.group-header')!.style.display = '';
+        });
+        groups.forEach((g) => {
+          const gName = g.dataset.group!;
+          const gRows = allRows.filter((r) => r.dataset.group === gName);
+          gRows.sort((a, b) => (a.dataset.sortkey ?? '').localeCompare(b.dataset.sortkey ?? '', 'zh'));
+          gRows.forEach((el) => g.appendChild(el));
+        });
+      }
+    }
+  </script>
 </Base>

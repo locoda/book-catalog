@@ -61,6 +61,13 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
   </section>
 
   <section class="results wrap">
+    <div class="sort-row">
+      <span class="facet-label">排序</span>
+      <button class="chip on" data-sort="callno">索書號</button>
+      <button class="chip" data-sort="rating">評分 ↓</button>
+      <button class="chip" data-sort="year">年份 ↓</button>
+      <button class="chip" data-sort="title">題名 A–Z</button>
+    </div>
     <h3 id="result-label">ALL&nbsp;WORKS&nbsp;/&nbsp;全部館藏</h3>
     <div id="rows">
       {rows.map((r) => (
@@ -71,6 +78,9 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           data-orig={r.data.orig_lang}
           data-mine={r.mineLang}
           data-subjects={r.data.subjects.join('|')}
+          data-year={r.data.year ?? ''}
+          data-rating={r.data.rating ?? -1}
+          data-title={r.mineTitle}
         >
           <span class="mono">{r.data.callno ?? r.id}</span>
           <span>{r.mineTitle} <span class="byline">· {r.creatorNames}</span></span>
@@ -87,6 +97,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
   <script>
     const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '' };
     const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
+    let sortMode = 'callno';
 
     document.querySelectorAll<HTMLElement>('.facet-row').forEach((row) => {
       const facet = row.dataset.facet!;
@@ -117,22 +128,63 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       });
     });
 
+    // 排序 chips
+    document.querySelectorAll<HTMLButtonElement>('.sort-row .chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        sortMode = chip.dataset.sort!;
+        document.querySelectorAll('.sort-row .chip').forEach((c) => c.classList.remove('on'));
+        chip.classList.add('on');
+        apply();
+      });
+    });
+
     function apply() {
       let shown = 0;
-      document.querySelectorAll<HTMLElement>('#rows .row').forEach((el) => {
+      const rowsEl = document.getElementById('rows')!;
+      const allRows = [...rowsEl.querySelectorAll<HTMLElement>('.row')];
+
+      // 先 filter
+      const visible: HTMLElement[] = [];
+      allRows.forEach((el) => {
         const okOrig = !active.orig
           || (el.dataset.origbucket === active.orig && (active.orig !== 'other' || !active.origSub || el.dataset.orig === active.origSub));
         const okMine = !active.mine || el.dataset.mine === active.mine;
         const okSubj = !active.subject || (el.dataset.subjects ?? '').split('|').includes(active.subject);
         const ok = okOrig && okMine && okSubj;
         el.classList.toggle('hidden', !ok);
-        if (ok) shown++;
+        if (ok) { shown++; visible.push(el); }
       });
+
+      // 排序
+      visible.sort((a, b) => {
+        if (sortMode === 'rating') {
+          const ra = parseFloat(a.dataset.rating ?? '-1');
+          const rb = parseFloat(b.dataset.rating ?? '-1');
+          if (ra !== rb) return rb - ra;
+          return (a.dataset.title ?? '').localeCompare(b.dataset.title ?? '', 'zh');
+        }
+        if (sortMode === 'year') {
+          const ya = parseInt(a.dataset.year ?? '0') || 0;
+          const yb = parseInt(b.dataset.year ?? '0') || 0;
+          if (ya !== yb) return yb - ya;
+          return (a.dataset.title ?? '').localeCompare(b.dataset.title ?? '', 'zh');
+        }
+        if (sortMode === 'title') {
+          return (a.dataset.title ?? '').localeCompare(b.dataset.title ?? '', 'zh');
+        }
+        // callno (default)
+        return (a.querySelector('.mono')?.textContent ?? '').localeCompare(b.querySelector('.mono')?.textContent ?? '');
+      });
+
+      // 重新插入排序后的可见行
+      visible.forEach((el) => rowsEl.appendChild(el));
+
       document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
       const anyFilter = active.orig || active.mine || active.subject;
+      const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '評分' : sortMode === 'year' ? '年份' : '題名'}`;
       document.getElementById('result-label')!.textContent = anyFilter
-        ? `FACET / 切面 — ${shown} 種`
-        : 'ALL WORKS / 全部館藏';
+        ? `FACET / 切面 — ${shown} 種${sortLabel}`
+        : `ALL WORKS / 全部館藏${sortLabel}`;
     }
   </script>
 </Base>

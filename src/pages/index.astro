@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import ReadingTimeline from '../components/ReadingTimeline.astro';
+import LangFlow from '../components/LangFlow.astro';
 ---
 <Base>
   <section class="portal wrap">
@@ -7,6 +9,12 @@ import Base from '../layouts/Base.astro';
       乙醚的私人編目。<br/>
       一份跨語言的個人閱讀史目錄。
     </p>
+  </section>
+
+  <ReadingTimeline />
+  <LangFlow />
+
+  <section class="portal wrap portal-bottom">
     <nav class="portal-nav">
       <a href="/works/" class="portal-card">
         <span class="portal-card-title">全部館藏</span>
