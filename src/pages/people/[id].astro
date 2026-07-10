@@ -11,7 +11,7 @@ const { person } = Astro.props;
 const works = (await getCollection('works')).filter((w) => w.data.creators.includes(person.id));
 works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
 ---
-<Base title={`${person.data.name} · 乙醚書目`}>
+<Base title={`${person.data.name} · 乙醚书目`}>
   <nav class="breadcrumb wrap"><a href="/people/" onclick="history.back();return false">← 返回</a></nav>
 
   <div class="main wrap">
@@ -21,7 +21,7 @@ works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
       {person.data.sort && <p class="work-sub mono">{person.data.sort}</p>}
 
       <table class="expr-table">
-        <caption>NAME&nbsp;FORMS / 名稱形式</caption>
+        <caption>NAME&nbsp;FORMS / 名称形式</caption>
         <tr><th>script</th><th>形式</th></tr>
         {person.data.forms.map((f) => (
           <tr><td class="mono">{f.script}</td><td class="jp">{f.value}</td></tr>
@@ -29,7 +29,7 @@ works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
       </table>
 
       <div class="duecard">
-        <h4>WORKS&nbsp;IN&nbsp;CATALOG&nbsp;/&nbsp;館藏著作&nbsp;·&nbsp;{works.length}&nbsp;種</h4>
+        <h4>WORKS&nbsp;IN&nbsp;CATALOG&nbsp;/&nbsp;馆藏著作&nbsp;·&nbsp;{works.length}&nbsp;种</h4>
         {works.map((w) => (
           <div class="due-row">
             <span class="mono">{w.data.year ?? ''}</span>

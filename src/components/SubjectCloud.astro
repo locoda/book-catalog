@@ -21,8 +21,8 @@ const size = (n: number) => (13 + 8 * Math.sqrt(n / max)).toFixed(1);
 <section class="cloud wrap">
   <header class="sec-head">
     <small class="mono">SUBJECTS</small>
-    <h2>主題詞</h2>
-    <span class="sec-meta mono">{all.length} 個詞</span>
+    <h2>主题词</h2>
+    <span class="sec-meta mono">{all.length} 个词</span>
   </header>
   <div class="subject-cloud">
     {top.map(([s, count]) => (
@@ -31,7 +31,7 @@ const size = (n: number) => (13 + 8 * Math.sqrt(n / max)).toFixed(1);
       </a>
     ))}
     {all.length > TOP_N && (
-      <a class="subject-chip subject-more mono" href="/subjects/">全部主題 →</a>
+      <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
     )}
   </div>
 </section>

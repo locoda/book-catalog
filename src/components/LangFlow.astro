@@ -9,7 +9,7 @@ import { langLabel } from '../lib/lang';
 const works = await getCollection('works');
 const { sources, targets, links, totalWorks } = langFlows(works);
 
-const label = (k: string) => (k === 'other' ? '其他語言' : langLabel(k));
+const label = (k: string) => (k === 'other' ? '其他语言' : langLabel(k));
 
 /* ---- 布局 ---- */
 const U = 0.72;          // px / 種
@@ -63,7 +63,7 @@ const ribbons = ordered.map((l) => {
     ...l,
     d: `M${X0 + NW},${sy.toFixed(1)} C${XM},${sy.toFixed(1)} ${XM},${ty.toFixed(1)} ${X1},${ty.toFixed(1)} ` +
        `l0,${h.toFixed(1)} C${XM},${(ty + h).toFixed(1)} ${XM},${(sy + h).toFixed(1)} ${X0 + NW},${(sy + h).toFixed(1)} Z`,
-    tip: `${label(l.source)} → ${label(l.target)} · ${l.value} 種${l.native ? '（原文直讀）' : ''}`,
+    tip: `${label(l.source)} → ${label(l.target)} · ${l.value} 种${l.native ? '（原文直读）' : ''}`,
   };
 });
 
@@ -144,7 +144,7 @@ const mRibbons = mOrdered.map(l => {
     ...l,
     d: `M${sx.toFixed(1)},${topY} C${sx.toFixed(1)},${M_MID} ${tx.toFixed(1)},${M_MID} ${tx.toFixed(1)},${botY} ` +
        `l${tw.toFixed(1)},0 C${(tx + tw).toFixed(1)},${M_MID} ${(sx + sw).toFixed(1)},${M_MID} ${(sx + sw).toFixed(1)},${topY} Z`,
-    tip: `${label(l.source === '_rest' ? 'other' : l.source)} → ${label(l.target)} · ${l.value} 種${l.native ? '（原文）' : ''}`,
+    tip: `${label(l.source === '_rest' ? 'other' : l.source)} → ${label(l.target)} · ${l.value} 种${l.native ? '（原文）' : ''}`,
   };
 });
 
@@ -154,14 +154,14 @@ const mLabel = (k: string) => k === '_rest' ? '其他' : label(k);
 <section class="langflow wrap">
   <header class="sec-head">
     <small class="mono">LANGUAGE FLOW</small>
-    <h2>語言流向</h2>
-    <span class="sec-meta mono">{totalWorks} 種</span>
-    <span class="flow-legend mono"><i class="lg lg-tr"></i>譯本&nbsp;&nbsp;<i class="lg lg-na"></i>原文直讀&nbsp;{nativeTotal}&nbsp;種</span>
+    <h2>语言流向</h2>
+    <span class="sec-meta mono">{totalWorks} 种</span>
+    <span class="flow-legend mono"><i class="lg lg-tr"></i>译本&nbsp;&nbsp;<i class="lg lg-na"></i>原文直读&nbsp;{nativeTotal}&nbsp;种</span>
   </header>
   <div class="flow-desk flow-scroll">
     <svg viewBox={`0 0 ${W} ${Math.ceil(H)}`} role="img" aria-label="原语言到我读的语言的流向图" style={`--h:${Math.ceil(H)}px`}>
-      <text class="col-head" x={X0 + NW} y={14} text-anchor="end">原語言&nbsp;ORIG</text>
-      <text class="col-head" x={X1} y={14} text-anchor="start">我讀的&nbsp;MINE</text>
+      <text class="col-head" x={X0 + NW} y={14} text-anchor="end">原语言&nbsp;ORIG</text>
+      <text class="col-head" x={X1} y={14} text-anchor="start">我读的&nbsp;MINE</text>
       {ribbons.map((r) => (
         <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d}><title>{r.tip}</title></path>
       ))}
@@ -186,7 +186,7 @@ const mLabel = (k: string) => k === '_rest' ? '其他' : label(k);
 
   <div class="flow-mob">
     <svg viewBox={`0 0 ${M_W} ${Math.ceil(M_H)}`} role="img" aria-label="原语言到我读的语言的垂直流向图">
-      <text class="col-head" x={M_W / 2} y={16} text-anchor="middle">原語言 → 我讀的 &nbsp;ORIG → MINE</text>
+      <text class="col-head" x={M_W / 2} y={16} text-anchor="middle">原语言 → 我读的 &nbsp;ORIG → MINE</text>
       <!-- 原語言節點（上） -->
       {mSrcNodes.map((n) => (
         <>
@@ -212,7 +212,7 @@ const mLabel = (k: string) => k === '_rest' ? '其他' : label(k);
         </>
       ))}
       <text class="mlegend" x={M_W / 2} y={Math.ceil(M_H) - 6} text-anchor="middle">
-        譯本 · 原文直讀 {mNativeTotal} 種
+        译本 · 原文直读 {mNativeTotal} 种
       </text>
     </svg>
   </div>

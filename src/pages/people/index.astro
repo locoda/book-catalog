@@ -41,19 +41,19 @@ for (const p of people) {
 const groupOrder = ['Latin', 'Kana', 'Hanzi', 'Other'];
 const groupLabels: Record<string, string> = {
   Latin: 'LATIN',
-  Kana: '仮名',
-  Hanzi: '漢字',
+      Kana: '假名',
+  Hanzi: '汉字',
   Other: 'OTHER',
 };
 ---
-<Base title="著者索引 · 乙醚書目">
+<Base title="著者索引 · 乙醚书目">
   <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="results wrap" id="people-results">
     <div class="sort-row">
       <span class="facet-label">排序</span>
-      <button class="chip on" data-sort="name">名稱索引</button>
-      <button class="chip" data-sort="count">著作數 ↓</button>
+      <button class="chip on" data-sort="name">名称索引</button>
+      <button class="chip" data-sort="count">著作数 ↓</button>
     </div>
     <h3>AUTHORITY&nbsp;INDEX&nbsp;/&nbsp;著者索引&nbsp;·&nbsp;{people.length}&nbsp;人</h3>
     {groupOrder.map((g) => {
@@ -66,8 +66,8 @@ const groupLabels: Record<string, string> = {
             <a class="row" href={`/people/${p.id}/`} data-sortkey={p.sortKey} data-workcount={p.workCount} data-group={g}>
               <span class="mono">p-{p.id}</span>
               <span>{p.data.name}</span>
-              <span class="langs">{p.data.forms.length} 種名稱形式</span>
-              <span class="score">{p.workCount} 種著作</span>
+              <span class="langs">{p.data.forms.length} 种名称形式</span>
+              <span class="score">{p.workCount} 种著作</span>
             </a>
           ))}
         </div>

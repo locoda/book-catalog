@@ -32,11 +32,11 @@ const rows = await Promise.all(matched.map(async (w) => {
   };
 }));
 ---
-<Base title={`${originalSubject} · 主題 · 乙醚書目`}>
+<Base title={`${originalSubject} · 主题 · 乙醚书目`}>
   <nav class="breadcrumb wrap"><a href="/subjects/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="results wrap">
-    <h3>{originalSubject}&nbsp;/&nbsp;{rows.length}&nbsp;種著作</h3>
+    <h3>{originalSubject}&nbsp;/&nbsp;{rows.length}&nbsp;种著作</h3>
     <div id="rows">
       {rows.map((r) => (
         <a class="row" href={`/works/${r.id}/`}>
@@ -45,7 +45,7 @@ const rows = await Promise.all(matched.map(async (w) => {
           <span class="langs">
             {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
           </span>
-          <span class="score">{r.data.status === 'reading' ? '在讀' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+          <span class="score">{r.data.status === 'reading' ? '在读' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
         </a>
       ))}
     </div>

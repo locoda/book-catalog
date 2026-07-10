@@ -15,11 +15,11 @@ for (const w of works) {
 const subjects = Object.entries(subjectMap)
   .sort(([a, ca], [b, cb]) => cb - ca || a.localeCompare(b, 'zh'));
 ---
-<Base title="主題詞 · 乙醚書目">
+<Base title="主题词 · 乙醚书目">
   <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="results wrap">
-    <h3>SUBJECTS&nbsp;/&nbsp;主題詞&nbsp;·&nbsp;{subjects.length}&nbsp;個詞</h3>
+    <h3>SUBJECTS&nbsp;/&nbsp;主题词&nbsp;·&nbsp;{subjects.length}&nbsp;个词</h3>
     <div class="subject-cloud">
       {subjects.map(([s, count]) => (
         <a class="subject-chip" href={`/subjects/${s.replace(/\//g, '／')}/`}>

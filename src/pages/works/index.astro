@@ -33,31 +33,31 @@ const otherLangs = [...new Set(rows.filter((r) => r.origBucket === 'other').map(
 const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
 const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
 ---
-<Base title="館藏列表 · 乙醚書目">
+<Base title="馆藏列表 · 乙醚书目">
   <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="facets wrap">
     <div class="facet-row" data-facet="orig">
-      <span class="facet-label">原語言</span>
+      <span class="facet-label">原语言</span>
       <button class="chip on" data-value="">全部</button>
       {origBuckets.map((b) => <button class="chip" data-value={b}>{BUCKET_LABELS[b]}</button>)}
     </div>
     {otherLangs.length > 0 && (
       <div class="facet-row facet-sub hidden" data-facet="orig-sub">
-        <span class="facet-label">其他語言</span>
+        <span class="facet-label">其他语言</span>
         <button class="chip on" data-value="">不限</button>
         {otherLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
       </div>
     )}
     <div class="facet-row" data-facet="mine">
-      <span class="facet-label">我讀的是</span>
+      <span class="facet-label">我读的是</span>
       <button class="chip on" data-value="">全部</button>
       {mineLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
     </div>
-    <button class="chip facet-toggle" id="facet-toggle">更多篩選 ▸</button>
+    <button class="chip facet-toggle" id="facet-toggle">更多筛选 ▸</button>
     <div class="facet-extra hidden" id="facet-extra">
     <div class="facet-row" data-facet="subject">
-      <span class="facet-label">主題</span>
+      <span class="facet-label">主题</span>
       <select class="facet-select" id="subject-select">
         <option value="">全部</option>
         {subjects.map((s) => <option value={s}>{s}</option>)}
@@ -66,7 +66,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
     <div class="facet-row">
       <span class="facet-label">年份</span>
       <input class="facet-input facet-year" type="text" id="pubyear-input" placeholder="作品年" autocomplete="off" />
-      <input class="facet-input facet-year" type="text" id="readyear-input" placeholder="閱讀年" autocomplete="off" />
+      <input class="facet-input facet-year" type="text" id="readyear-input" placeholder="阅读年" autocomplete="off" />
     </div>
     <div class="facet-row">
       <span class="facet-label">評分</span>
@@ -82,12 +82,12 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
   <section class="results wrap">
     <div class="sort-row">
       <span class="facet-label">排序</span>
-      <button class="chip on" data-sort="callno">索書號</button>
+      <button class="chip on" data-sort="callno">索书号</button>
       <button class="chip" data-sort="rating">評分 ↓</button>
       <button class="chip" data-sort="year">年份 ↓</button>
-      <button class="chip" data-sort="title">題名 A–Z</button>
+      <button class="chip" data-sort="title">题名 A–Z</button>
     </div>
-    <h3 id="result-label">ALL&nbsp;WORKS&nbsp;/&nbsp;全部館藏</h3>
+    <h3 id="result-label">ALL&nbsp;WORKS&nbsp;/&nbsp;全部馆藏</h3>
     <div id="rows">
       {rows.map((r) => (
         <a
@@ -109,7 +109,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           <span class="langs">
             {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
           </span>
-          <span class="score">{r.data.status === 'reading' ? '在讀' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+          <span class="score">{r.data.status === 'reading' ? '在读' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
         </a>
       ))}
       <div class="empty-note hidden" id="empty">这个切面下暂时没有著录。</div>
@@ -146,7 +146,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
     const facetExtra = document.getElementById('facet-extra')!;
     facetToggle.addEventListener('click', () => {
       const open = facetExtra.classList.toggle('hidden');
-      facetToggle.textContent = open ? '更多篩選 ▸' : '更多篩選 ▾';
+      facetToggle.textContent = open ? '更多筛选 ▸' : '更多筛选 ▾';
       facetToggle.classList.toggle('on', !open);
     });
 
@@ -274,10 +274,10 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
 
       document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
       const anyFilter = active.orig || active.mine || active.subject || active.author || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
-      const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '評分' : sortMode === 'year' ? '年份' : '題名'}`;
+      const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '评分' : sortMode === 'year' ? '年份' : '题名'}`;
       document.getElementById('result-label')!.textContent = anyFilter
-        ? `FACET / 切面 — ${shown} 種${sortLabel}`
-        : `ALL WORKS / 全部館藏${sortLabel}`;
+        ? `FACET / 切面 — ${shown} 种${sortLabel}`
+        : `ALL WORKS / 全部馆藏${sortLabel}`;
     }
   </script>
 </Base>

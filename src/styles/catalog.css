@@ -268,7 +268,7 @@ footer.site{
 /* ---------- 门户首页 ---------- */
 .portal{margin-top:72px;text-align:center}
 .portal-intro{
-  font-size:clamp(15px,2.5vw,18px);color:#CBD3E1;max-width:600px;margin:0 auto;line-height:2;
+  font-size:clamp(24px,4.5vw,36px);color:#CBD3E1;max-width:600px;margin:0 auto;line-height:1.6;
 }
 .portal-nav{
   margin-top:44px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
