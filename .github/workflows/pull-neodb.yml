@@ -14,22 +14,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Import from NeoDB
-        env:
-          NEODB_TOKEN: ${{ secrets.NEODB_TOKEN }}
-        run: |
-          python3 scripts/import_neodb.py                  # 已读
-          python3 scripts/import_neodb.py --shelf progress # 在读
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Validate new records against schema
+      - run: npm ci
+
+      - name: Import from NeoDB
+        env:
+          NEODB_TOKEN: ${{ secrets.NEODB_TOKEN }}
         run: |
-          npm ci
-          npm run build   # zod schema 校验：新著录不合法这里会直接失败，不会污染 main
+          node scripts/import_neodb.mjs                  # 已读
+          node scripts/import_neodb.mjs --shelf progress # 在读
+
+      - name: Validate new records against schema
+        run: npm run build   # prebuild 跑 validate.mjs + zod schema 校验：新著录不合法这里会直接失败，不会污染 main
 
       - name: Commit & push if anything new
         run: |

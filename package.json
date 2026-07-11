@@ -13,6 +13,7 @@
     "astro": "^7.0.7"
   },
   "devDependencies": {
+    "pinyin-pro": "^3.27.0",
     "yaml": "^2.9.0"
   }
 }

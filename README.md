@@ -28,7 +28,7 @@
 | 数据 | YAML 文件 + Astro Content Collections（`glob` loader） |
 | 校验 | Zod schema（`src/content.config.ts`），`npm run build` 即校验 |
 | 部署 | Cloudflare Pages，域名 `reading.1mether.me` |
-| 依赖 | 仅 `astro`，无运行时第三方服务 |
+| 依赖 | 运行时仅 `astro`；开发依赖 `yaml`（校验/导入脚本）、`pinyin-pro`（slug 拼音）。无运行时第三方服务 |
 
 ## 数据模型
 
@@ -71,8 +71,8 @@ subjects        个人受控词表，每条 work 标 1–4 个
 │   ├── lib/                   # lang.ts（语言字典）/ stats.ts（聚合）/ edition.ts
 │   └── styles/catalog.css
 ├── scripts/
-│   ├── import_neodb.py        # NeoDB → work YAML 骨架
-│   └── survey.py              # 批量编目辅助
+│   ├── import_neodb.mjs       # NeoDB → work YAML 骨架
+│   └── validate.mjs           # 编目校验（prebuild 自动执行）
 ├── docs/                      # 著录规范、复核流程、任务手册、疑点追踪
 ├── astro.config.mjs
 └── package.json
@@ -93,15 +93,15 @@ npm run preview    # 预览构建产物
 
 ```bash
 export NEODB_TOKEN=xxxx    # neodb.social → 设置 → 应用 → 生成 access token
-python scripts/import_neodb.py                  # 已读
-python scripts/import_neodb.py --shelf progress  # 在读
+node scripts/import_neodb.mjs                   # 已读
+node scripts/import_neodb.mjs --shelf progress  # 在读
 ```
 
 脚本生成的是骨架——把原始导入变成一条 work 记录，之后需要人工完成：work/expression 归并、权威记录建立、主题词标引。这些判断不交给脚本，因为编目本身就是阅读行为的一部分。
 
 ### 豆瓣
 
-豆坟导出 CSV → `import_douban.py` 解析（TODO）。
+豆坟导出 CSV → `import_douban.mjs` 解析（TODO）。
 
 ## 部署
 
@@ -135,7 +135,7 @@ npx wrangler pages deploy dist --project-name ether-catalog
 
 - [ ] NeoDB 全量导入 + 人工归并
 - [ ] 微信读书笔记数量/时长回填
-- [ ] `import_douban.py`（豆坟 CSV）
+- [ ] `import_douban.mjs`（豆坟 CSV）
 - [ ] 主题词表页（词 → 定义 → 使用统计）
 - [x] 著录规范 → `docs/CATALOGING.md`
 - [x] 复核/审计流程 → `docs/VERIFICATION.md`
