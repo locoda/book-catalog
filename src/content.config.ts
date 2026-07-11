@@ -45,6 +45,7 @@ const works = defineCollection({
     rating_source: z.string().default('NeoDB'),
     status: z.enum(['read', 'reading', 'shelved']).default('read'),
     placeholder: z.boolean().default(false),  // 示意数据，待真实导入覆盖
+    confirmed: z.boolean().default(false),    // 馆长确认：true 后 slug/callno/people id 永久冻结（CATALOGING §0.2）
   }).superRefine((w, ctx) => {
     // 硬性规则 1：主题词只能出自受控词表（src/data/subjects.yaml）
     for (const s of w.subjects) {

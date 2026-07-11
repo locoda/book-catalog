@@ -72,7 +72,8 @@ subjects        个人受控词表，每条 work 标 1–4 个
 │   └── styles/catalog.css
 ├── scripts/
 │   ├── import_neodb.mjs       # NeoDB → work YAML 骨架
-│   └── validate.mjs           # 编目校验（prebuild 自动执行）
+│   ├── validate.mjs           # 阻断性校验（prebuild 自动执行）
+│   └── audit.mjs              # 全库机器核查（advisory，npm run audit [--report]）
 ├── docs/                      # 著录规范、复核流程、任务手册、疑点追踪
 ├── astro.config.mjs
 └── package.json

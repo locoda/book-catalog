@@ -8,6 +8,8 @@
 
 ## 0. 先跑免费的程序化体检（不用联网）
 
+> **快捷方式**：本节的检查项（及更多——callno 四段算法逐段核对、NFC、语言代码风格、people sort 格式等）已整合进 `npm run audit`（`scripts/audit.mjs`）；`npm run audit -- --report` 会生成 `docs/audit-report.md` 逐文件明细 + edition 回填清单。下面的单项命令保留作参考。
+
 改任何东西之前，先跑一遍——这几项几秒钟就能挖出几十条问题，且**不会有幻觉风险**，因为都是纯规则匹配：
 
 **a. callno 全库唯一性**
