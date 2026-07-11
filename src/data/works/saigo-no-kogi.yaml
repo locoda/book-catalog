@@ -1,6 +1,6 @@
 work_type: book
 title: 最後の講義
-callno: JF-SAI-2020-SAIG
+callno: JN-SAI-2020-SAIG
 orig_lang: ja
 year: 2020
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2022-08-30'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 2jKfVaqUN5X4d0tXU7Pu51

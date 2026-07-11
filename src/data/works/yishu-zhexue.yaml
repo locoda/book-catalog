@@ -1,6 +1,6 @@
 work_type: book
 title: 艺术哲学
-callno: CF-WAN-2015-YISH
+callno: CN-WAN-2015-YISH
 orig_lang: zh-Hans
 year: 2015
 creators:
@@ -14,4 +14,5 @@ readings:
 - date: '2024-01-01'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1WEIG3c4Xad7bGSzLaRwm5

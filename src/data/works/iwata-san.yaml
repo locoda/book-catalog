@@ -1,10 +1,10 @@
 work_type: book
 title: 岩田さん
-callno: JF-IWA-2019-IWAT
+callno: JN-HOB-2019-IWAT
 orig_lang: ja
 year: 2019
 creators:
-- iwai-shunji
+- hobo-nikkan-itoi-shinbun
 subjects: [打卡的灵魂]
 expressions:
 - lang: ja
@@ -16,4 +16,5 @@ readings:
 - date: '2021-08-11'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 2J3Ans6BFnUt9mn1KzizmA

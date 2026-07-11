@@ -3,7 +3,7 @@ title: Cartas a un joven novelista
 orig_lang: es
 year: 1997
 creators: [vargas-llosa-mario]
-callno: OF-VAR-1997-CART
+callno: ON-VAR-1997-CART
 subjects: [见字如面]
 expressions:
   - lang: es
@@ -16,4 +16,5 @@ readings:
   - date: '2022-04-09'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1oVx5UgSbZGWwrqgmNg4iS

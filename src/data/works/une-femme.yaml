@@ -1,6 +1,6 @@
 work_type: book
 title: Une femme
-callno: OF-ERN-1987-UNEF
+callno: ON-ERN-1987-UNEF
 orig_lang: fr
 year: 1987
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2023-09-16'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 6BlyAd6s6LYZznRbAD7150

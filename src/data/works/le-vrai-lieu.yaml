@@ -1,6 +1,6 @@
 work_type: book
 title: Le vrai lieu
-callno: OF-ERN-2022-LEVR
+callno: ON-ERN-2022-LEVR
 orig_lang: fr
 year: 2022
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2025-03-29'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1RtdoZNLvuLEhAoxfhrBpR

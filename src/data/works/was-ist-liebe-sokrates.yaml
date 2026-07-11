@@ -1,6 +1,6 @@
 work_type: book
 title: Was ist Liebe, Sokrates?
-callno: OF-KRE-2019-WASI
+callno: ON-KRE-2019-WASI
 orig_lang: de
 year: 2019
 creators: [kreft-nora]
@@ -16,4 +16,5 @@ readings:
 - date: '2022-04-23'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 6KFbzrtdOAdQscNfNqowMU

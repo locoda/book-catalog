@@ -1,10 +1,10 @@
 work_type: book
 title: 昨夜のカレー、明日のパン
-callno: JF-MAK-2013-YUBE
+callno: JF-KIZ-2013-YUBE
 orig_lang: ja
 year: 2013
 creators:
-- makime-manabu
+- kizara-izumi
 subjects: [一餐一饭]
 expressions:
 - lang: ja
@@ -16,4 +16,5 @@ readings:
 - date: '2019-01-20'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1AG8xHa0JHjKGYHygDgsqP

@@ -5,5 +5,7 @@ forms:
     value: 一穂ミチ
   - script: ja-Latn
     value: Ichiho Michi
-  - script: zh
+  - script: zh-Hant
     value: 一穂ミチ
+  - script: zh-Hans
+    value: 一穗三千

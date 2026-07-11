@@ -1,6 +1,6 @@
 work_type: book
 title: 无尽与有限
-callno: CF-QIA-2024-WUJI
+callno: CN-QIA-2024-WUJI
 orig_lang: zh-Hans
 year: 2024
 creators:
@@ -14,4 +14,5 @@ readings:
 - date: '2024-12-15'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 0pVtykORMeGj2rZGzpBYlJ

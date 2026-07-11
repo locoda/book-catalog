@@ -16,4 +16,5 @@ readings:
   - date: '2024-01-27'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 3VsRGQOQFMd37lbUA9UtZJ

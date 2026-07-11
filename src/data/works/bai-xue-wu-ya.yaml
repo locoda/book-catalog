@@ -3,7 +3,7 @@ title: 白雪乌鸦
 orig_lang: zh-Hans
 year: 2010
 creators: [chi-zijian]
-callno: CN-CHI-2010-BAIX
+callno: CF-CHI-2010-BAIX
 subjects: [与丧失同居]
 expressions:
   - lang: zh-Hans
@@ -13,4 +13,5 @@ readings:
   - date: "2024-01-16"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 50hVqDlFVchWLqb1eKQvqc

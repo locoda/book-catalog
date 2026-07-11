@@ -1,6 +1,6 @@
 work_type: book
 title: 中国话
-callno: CF-ZHE-2021-ZHON
+callno: CN-ZHE-2021-ZHON
 orig_lang: zh-Hans
 year: 2021
 creators:
@@ -14,4 +14,5 @@ readings:
 - date: '2021-06-21'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1TZAcz9gOB9O8ADGCmsYqm

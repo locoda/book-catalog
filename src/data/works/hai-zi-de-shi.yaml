@@ -13,4 +13,5 @@ readings:
   - date: '2023-05-28'
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 4RTqTIu4uZFFm0hpRzAVO1

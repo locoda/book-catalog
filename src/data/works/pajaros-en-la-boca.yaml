@@ -15,5 +15,6 @@ readings:
   - date: "2024-03-27"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 5dQzQQsE61LFGnUZd6DsgQ
 callno: OF-SCH-2008-PAJA

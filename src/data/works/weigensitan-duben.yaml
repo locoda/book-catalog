@@ -1,19 +1,18 @@
 work_type: book
-title: Wittgenstein Reader
-callno: ON-WIT-2020-WITT
-orig_lang: de
+title: 维特根斯坦读本
+callno: CN-CHE-2020-WEIG
+orig_lang: zh-Hans
 year: 2020
-creators: []
+creators:
+- chen-jiaying
 subjects: [概念急救箱]
 expressions:
-- lang: de
-  title: Wittgenstein Reader
 - lang: zh-Hans
   title: 维特根斯坦读本
-  translator: 陈嘉映
   mine: true
 readings:
 - date: '2024-07-07'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 70mW5dZguTt8ndDcU4wCZ0

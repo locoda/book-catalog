@@ -15,5 +15,6 @@ readings:
   - date: "2019-01-21"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 3RAHpnALm02rPnEFtDbaM9
 callno: JF-YOS-1988-KITC

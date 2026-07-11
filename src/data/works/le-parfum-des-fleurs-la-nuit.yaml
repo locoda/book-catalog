@@ -1,6 +1,6 @@
 work_type: book
 title: Le Parfum des fleurs la nuit
-callno: OF-SLI-2020-LEPA
+callno: ON-SLI-2020-LEPA
 orig_lang: fr
 year: 2020
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2026-02-03'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 2j8gl6LiZY5V9gfD7CPGa3

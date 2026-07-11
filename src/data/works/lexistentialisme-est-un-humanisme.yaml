@@ -3,7 +3,7 @@ title: L'existentialisme est un humanisme
 orig_lang: fr
 year: 1946
 creators: [sartre-jeanpaul]
-callno: OF-SAR-1946-LEXI
+callno: ON-SAR-1946-LEXI
 subjects: [谁在定义现实]
 expressions:
   - lang: fr
@@ -16,4 +16,5 @@ readings:
   - date: "2023-10-01"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1MBU1DELER9QKKO2160gmb

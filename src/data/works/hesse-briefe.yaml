@@ -1,6 +1,6 @@
 work_type: book
 title: Hesse Briefe
-callno: ON-HES-2023-HEIS
+callno: ON-HES-2023-HESS
 orig_lang: de
 year: 2023
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2023-06-27'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 6e1TnITkJA1nMXJG8ICV1r

@@ -16,4 +16,5 @@ readings:
   - date: '2018-11-08'
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 30uDt7HWKZPWU33TlZPUwX

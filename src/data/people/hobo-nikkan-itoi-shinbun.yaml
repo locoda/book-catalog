@@ -1,0 +1,9 @@
+name: Hobo Nikkan Itoi Shinbun
+sort: HOBO日刊ITOI新聞
+forms:
+  - script: ja
+    value: ほぼ日刊イトイ新聞
+  - script: ja-Latn
+    value: Hobo Nikkan Itoi Shinbun
+  - script: zh
+    value: HOBO日刊ITOI新闻

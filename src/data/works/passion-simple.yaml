@@ -3,7 +3,7 @@ title: Passion simple
 orig_lang: fr
 year: 1991
 creators: [ernaux-annie]
-callno: OF-ERN-1991-PASS
+callno: ON-ERN-1991-PASS
 subjects: [欲望的旷野]
 expressions:
   - lang: fr
@@ -16,4 +16,5 @@ readings:
   - date: '2024-06-08'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 590dmlrhK3c3HwZ5KXj9bH

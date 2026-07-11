@@ -3,7 +3,7 @@ title: L'événement
 orig_lang: fr
 year: 2000
 creators: [ernaux-annie]
-callno: OF-ERN-2000-LEVE
+callno: ON-ERN-2000-LEVE
 subjects: [不按剧本的她们, 血缘的引力]
 expressions:
   - lang: fr
@@ -16,4 +16,5 @@ readings:
   - date: '2024-11-25'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 4kS7k0Dz3L1IudMehckHng

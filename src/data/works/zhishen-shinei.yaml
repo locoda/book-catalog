@@ -1,6 +1,6 @@
 work_type: book
 title: 置身事内
-callno: CF-LAN-2021-ZHIS
+callno: CN-LAN-2021-ZHIS
 orig_lang: zh-Hans
 year: 2021
 creators:
@@ -14,4 +14,5 @@ readings:
 - date: '2021-12-29'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 4ljpMck8iNfGmYEnixA6QX

@@ -3,7 +3,7 @@ title: Saker min son behöver veta om världen
 orig_lang: sv
 year: 2012
 creators: [backman-fredrik]
-callno: OF-BAC-2012-SAKE
+callno: ON-BAC-2012-SAKE
 subjects: [血缘的引力]
 expressions:
   - lang: sv
@@ -16,4 +16,5 @@ readings:
   - date: "2020-12-17"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 7EwnKp9tpRVOx4hg9ItDHV

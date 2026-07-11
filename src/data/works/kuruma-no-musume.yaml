@@ -15,5 +15,6 @@ readings:
   - date: "2024-01-12"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 0x2TNEtn9DbqDLIfKT004o
 callno: JF-USA-2022-KURU

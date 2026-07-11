@@ -1,6 +1,6 @@
 work_type: book
 title: Mémoire de fille
-callno: OF-ERN-2016-MEMO
+callno: ON-ERN-2016-MEMO
 orig_lang: fr
 year: 2016
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2023-10-07'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1jVvD9KAPDadYzQwbm75k8

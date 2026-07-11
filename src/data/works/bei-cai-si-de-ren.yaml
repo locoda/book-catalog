@@ -3,7 +3,7 @@ title: 被猜死的人
 orig_lang: zh-Hans
 year: 2018
 creators: [tian-er]
-callno: CN-TIA-2018-BEIC
+callno: CF-TIA-2018-BEIC
 subjects: [精巧的圈套]
 expressions:
   - lang: zh-Hans
@@ -13,4 +13,5 @@ readings:
   - date: "2019-01-14"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 3JPv3Xqr7SdpAF85nXktK8

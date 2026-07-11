@@ -1,6 +1,6 @@
 work_type: book
 title: Je ne suis pas sortie de ma nuit
-callno: OF-ERN-1997-JENE
+callno: ON-ERN-1997-JENE
 orig_lang: fr
 year: 1997
 creators:
@@ -17,4 +17,5 @@ readings:
 - date: '2025-05-18'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 0MbUIsA9hQxyiPihM7QVnG

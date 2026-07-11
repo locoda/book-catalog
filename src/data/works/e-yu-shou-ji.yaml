@@ -3,7 +3,7 @@ title: 鳄鱼手记
 orig_lang: zh-Hans
 year: 1994
 creators: [qiu-miaojin]
-callno: CN-QIU-1994-EYUS
+callno: CF-QIU-1994-EYUS
 subjects: [未命名的关系, 不按剧本的她们]
 expressions:
   - lang: zh-Hans
@@ -13,4 +13,5 @@ readings:
   - date: "2021-08-22"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 53KrUCEGO6tgEvURNK1A2v

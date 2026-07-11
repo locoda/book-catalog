@@ -1,6 +1,6 @@
 work_type: book
 title: Erkenne die Welt
-callno: OF-PRE-2015-ERKE
+callno: ON-PRE-2015-ERKE
 orig_lang: de
 year: 2015
 creators: [precht-richard]
@@ -16,4 +16,5 @@ readings:
 - date: '2021-09-09'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 1hk69o99CzBlS5Q9xsneos

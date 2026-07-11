@@ -1,6 +1,6 @@
 work_type: book
 title: Le Consentement
-callno: OF-SPR-2020-LECO
+callno: ON-SPR-2020-LECO
 orig_lang: fr
 year: 2020
 creators: [springora-vanessa]
@@ -16,4 +16,5 @@ readings:
 - date: '2023-06-28'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 5B7neAzNVOLKPEcx7XBnuY

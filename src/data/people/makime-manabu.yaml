@@ -3,7 +3,7 @@ sort: Makime, Manabu
 forms:
   - script: ja
     value: 万城目学
-  - script: ja
+  - script: zh-Hant
     value: 萬城目學
   - script: ja-Latn
     value: Makime Manabu

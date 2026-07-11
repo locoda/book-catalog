@@ -15,5 +15,6 @@ readings:
   - date: "2023-09-16"
 rating: 6
 status: read
+confirmed: true
 neodb_uuid: 6ArISJyWQr4EsvZ7LGPedg
 callno: OF-MON-2010-LIBR

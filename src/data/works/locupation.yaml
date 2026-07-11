@@ -1,6 +1,6 @@
 work_type: book
 title: L Occupation
-callno: OF-ERN-2002-LOCU
+callno: ON-ERN-2002-LOCU
 orig_lang: fr
 year: 2002
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2024-06-10'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 4gPABW9ESf2TYH6ODV92eR

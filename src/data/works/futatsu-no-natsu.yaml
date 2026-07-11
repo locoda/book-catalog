@@ -1,6 +1,6 @@
 work_type: book
 title: ふたつの夏
-callno: JF-SAN-2020-LIAN
+callno: JF-SAN-2020-FUTA
 orig_lang: ja
 year: 2020
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2025-05-11'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 4OXC9a96xpJow1ZpIThHu8

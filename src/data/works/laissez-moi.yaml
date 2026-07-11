@@ -1,6 +1,6 @@
 work_type: book
 title: Laissez-moi
-callno: OF-SAU-1933-LAIS
+callno: ON-SAU-1933-LAIS
 orig_lang: fr
 year: 1933
 creators:
@@ -17,4 +17,5 @@ readings:
 - date: '2024-12-22'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 07rwXQH6u7elsdTai0kuJo

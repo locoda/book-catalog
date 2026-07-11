@@ -1,6 +1,6 @@
 work_type: book
 title: The Art of Loving
-callno: EN-FRO-1956-AIDE
+callno: EN-FRO-1956-ART
 orig_lang: en
 year: 1956
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2024-02-18'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 70EcL3wtmS49669Y9LJlc5

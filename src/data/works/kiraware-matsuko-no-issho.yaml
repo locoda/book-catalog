@@ -16,4 +16,5 @@ readings:
   - date: "2019-01-15"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 689Lu9h0UKIJSgCQIDsmdp

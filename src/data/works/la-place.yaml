@@ -1,6 +1,6 @@
 work_type: book
 title: La Place
-callno: OF-ERN-1983-LAPL
+callno: ON-ERN-1983-LAPL
 orig_lang: fr
 year: 1983
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2023-09-14'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 0UZCR918tiYF6v0lRDFBS7
