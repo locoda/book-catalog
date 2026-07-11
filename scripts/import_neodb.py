@@ -13,7 +13,7 @@
   - creators 先写成 raw 字符串（creators_raw），建好权威记录后手动替换成 people id。
   - 已存在的文件不会覆盖（--force 可覆盖）。
 """
-import argparse, json, os, re, sys, unicodedata, urllib.request
+import argparse, glob, json, os, re, sys, unicodedata, urllib.request
 
 try:
     from pypinyin import lazy_pinyin
@@ -56,6 +56,23 @@ def api(url: str, token: str):
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read().decode('utf-8'))
 
+_DATE_RE = re.compile(r"""['\"](\d{4}-\d{2}-\d{2})['\"]""")
+
+def latest_reading_date(works_dir: str) -> str | None:
+    """扫描已有 work 文件的 readings[].date，返回最新的日期字符串。"""
+    latest = None
+    for fpath in glob.glob(os.path.join(works_dir, '*.yaml')):
+        try:
+            with open(fpath, encoding='utf-8') as f:
+                text = f.read()
+        except Exception:
+            continue
+        dates = _DATE_RE.findall(text)
+        for d in dates:
+            if latest is None or d > latest:
+                latest = d
+    return latest
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--instance', default='https://neodb.social')
@@ -69,7 +86,13 @@ def main():
         sys.exit('缺少 NEODB_TOKEN 环境变量。')
 
     os.makedirs(args.out, exist_ok=True)
-    used_slugs = {}          # slug → 已用次数
+
+    # 找到已有目录里最新的阅读日期，作为增量导入的截止线
+    cutoff = latest_reading_date(args.out) if not args.force else None
+    if cutoff:
+        print(f'已有目录最新阅读日期: {cutoff}，仅导入此日期之后的条目。')
+
+    used_slugs = {}          # slug → 已用次数（仅计入通过日期过滤的条目）
     collisions = []          # 记录碰撞信息
     page, written, skipped = 1, 0, 0
     while True:
@@ -81,9 +104,21 @@ def main():
             item = mark.get('item', {})
             title = item.get('title') or 'untitled'
             uuid = item.get('uuid') or ''
-            uid = uuid[:12] if uuid else ''
+
+            # 从 credits 里提取作者和译者
+            credits = item.get('credits') or []
+            authors = [c['name'] for c in credits if c.get('role') == 'author']
+            translators = [c['name'] for c in credits if c.get('role') == 'translator']
+            rating = mark.get('rating_grade')          # NeoDB 10 分制
+            created = (mark.get('created_time') or '')[:10]
+            lang = (item.get('localized_title') or [{}])[0].get('lang') or ''
+
+            # 增量模式：跳过不晚于截止日期的条目
+            if cutoff and created and created <= cutoff:
+                skipped += 1
+                continue
+
             slug = slugify(title)[:50]
-            # 纯 slug 文件名，碰撞时加 -2, -3 ...
             base = slug
             n = used_slugs.get(base, 0) + 1
             used_slugs[base] = n
@@ -96,14 +131,6 @@ def main():
             if os.path.exists(path) and not args.force:
                 skipped += 1
                 continue
-
-            # 从 credits 里提取作者和译者
-            credits = item.get('credits') or []
-            authors = [c['name'] for c in credits if c.get('role') == 'author']
-            translators = [c['name'] for c in credits if c.get('role') == 'translator']
-            rating = mark.get('rating_grade')          # NeoDB 10 分制
-            created = (mark.get('created_time') or '')[:10]
-            lang = (item.get('localized_title') or [{}])[0].get('lang') or ''
 
             lines = [
                 f'title: {yaml_str(title)}',
