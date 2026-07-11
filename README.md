@@ -128,6 +128,7 @@ npx wrangler pages deploy dist --project-name ether-catalog
 |---|---|
 | `docs/CATALOGING.md` | 著录规范（唯一依据）——题名规则、语言码、Callno 算法、主题词表、slug 命名、AI 批处理协议、§9 编目作业流程 |
 | `docs/VERIFICATION.md` | 复核/审计流程——程序化体检脚本 + 联网核实指南 |
+| `docs/CONFIRM-PLAYBOOK.md` | 确认作业手册——AI 逐批联网核实 → 馆长批准 → `confirmed: true` 冻结；进度见 `docs/confirm-progress.md` |
 | `docs/QUESTIONS.md` | 编目疑点追踪——词表提案、数据异常、待馆长确认事项 |
 
 > `docs/` 另有 `audit-missing-original-version.md`，是原文版本缺失的一次性审计快照，非规范文档。

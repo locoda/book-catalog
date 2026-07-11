@@ -82,6 +82,7 @@ const people = defineCollection({
       script: z.string(),                 // ja-kana / romaji / zh / en ...
       value: z.string(),
     })).default([]),
+    confirmed: z.boolean().default(false),  // 馆长确认：true 后 id（文件名）永久冻结（CATALOGING §0.2）
   }),
 });
 

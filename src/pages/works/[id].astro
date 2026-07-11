@@ -18,13 +18,13 @@ if (missing.length) {
   throw new Error(`「${work.id}」引用了不存在的 people 记录：${missing.join(', ')}（安全网：悬空引用阻断构建）`);
 }
 const creators = resolved.filter((p) => p != null);
-const primary = creators[0];
 
-// 同一著者的其他作品（用第一著者）
+// 每位著者的馆藏中其他作品
 const allWorks = await getCollection('works');
-const sameCreator = primary
-  ? allWorks.filter((w) => w.id !== work.id && w.data.creators.some((c) => c.id === primary.id))
-  : [];
+const creatorData = creators.map((p) => ({
+  person: p,
+  otherWorks: allWorks.filter((w) => w.id !== work.id && w.data.creators.some((c) => c.id === p!.id)),
+}));
 
 const mine = d.expressions.find((e) => e.mine);
 const displayTitle = mine?.title ?? d.title;
@@ -94,34 +94,36 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
     </article>
 
     <aside class="side">
-      {primary && (
-        <div class="panel">
-          <h3>AUTHORITY&nbsp;RECORD</h3>
-          <div class="auth-name">{primary.data.name}</div>
-          <div class="auth-forms">
-            {primary.data.forms.map((f) => (
-              <div><span class="mono">{f.script}</span><span class="jp">{f.value}</span></div>
-            ))}
-            <div><span class="mono">id</span><span>p-{primary.id}</span></div>
+      {creatorData.map(({ person, otherWorks }) => (
+        <>
+          <div class="panel">
+            <h3>AUTHORITY&nbsp;RECORD</h3>
+            <div class="auth-name">{person!.data.name}</div>
+            <div class="auth-forms">
+              {person!.data.forms.map((f) => (
+                <div><span class="mono">{f.script}</span><span class="jp">{f.value}</span></div>
+              ))}
+              <div><span class="mono">id</span><span>p-{person!.id}</span></div>
+            </div>
+            <div class="auth-count">
+              馆藏中著作 <b>{otherWorks.length + 1}</b> 种
+              {firstRead && <> · 阅读 <b>{firstRead}{lastRead && lastRead !== firstRead ? `–${lastRead}` : ''}</b></>}
+            </div>
           </div>
-          <div class="auth-count">
-            馆藏中著作 <b>{sameCreator.length + 1}</b> 种
-            {firstRead && <> · 阅读 <b>{firstRead}{lastRead && lastRead !== firstRead ? `–${lastRead}` : ''}</b></>}
-          </div>
-        </div>
-      )}
 
-      {sameCreator.length > 0 && (
-        <div class="panel panel-list">
-          <h3>同著者其他作品</h3>
-          {sameCreator.map((w) => (
-            <a href={`/works/${w.id}/`}>
-              <span>{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</span>
-              <span class="mono">{w.data.rating != null ? `${w.data.rating} ●` : ''}</span>
-            </a>
-          ))}
-        </div>
-      )}
+          {otherWorks.length > 0 && (
+            <div class="panel panel-list">
+              <h3>同著者其他作品</h3>
+              {otherWorks.map((w) => (
+                <a href={`/works/${w.id}/`}>
+                  <span>{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</span>
+                  <span class="mono">{w.data.rating != null ? `${w.data.rating} ●` : ''}</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </>
+      ))}
     </aside>
   </div>
 </Base>
