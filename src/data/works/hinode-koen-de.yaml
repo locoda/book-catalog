@@ -14,6 +14,7 @@ expressions:
   mine: true
 readings:
 - date: '2026-06-07'
+  edition: ebook
   note: 原重复著录 xiangyu-ri-zhichu 并入
 rating: 8
 status: read

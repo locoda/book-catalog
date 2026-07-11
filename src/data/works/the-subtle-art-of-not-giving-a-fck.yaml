@@ -11,6 +11,7 @@ expressions:
     mine: true
 readings:
   - date: "2026-01-13"
+    edition: audiobook
 rating: 8
 status: read
 confirmed: true

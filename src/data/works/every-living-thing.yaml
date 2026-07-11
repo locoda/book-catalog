@@ -11,6 +11,7 @@ expressions:
     mine: true
 readings:
   - date: "2026-02-05"
+    edition: ebook
 rating: 10
 status: read
 confirmed: true

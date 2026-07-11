@@ -9,11 +9,12 @@ subjects: [不按剧本的她们, 欲望的旷野]
 expressions:
 - lang: ja
   title: ハンチバック
-- lang: zh-Hans
+- lang: zh-Hant
   title: 傴僂
   mine: true
 readings:
 - date: '2024-09-01'
+  edition: ebook
 rating: 8
 status: read
 confirmed: true

@@ -13,6 +13,7 @@ expressions:
     mine: true
 readings:
   - date: "2024-01-12"
+    edition: print
 rating: 10
 status: read
 confirmed: true

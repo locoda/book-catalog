@@ -11,6 +11,7 @@ expressions:
     mine: true
 readings:
   - date: '2023-07-18'
+    edition: print
 rating: 8
 status: read
 confirmed: true

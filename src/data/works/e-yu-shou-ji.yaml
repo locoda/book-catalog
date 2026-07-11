@@ -13,6 +13,7 @@ expressions:
     mine: true
 readings:
   - date: "2021-08-22"
+    edition: ebook
 rating: 8
 status: read
 confirmed: true
