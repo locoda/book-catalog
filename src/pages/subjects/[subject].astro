@@ -20,7 +20,7 @@ const matched = allWorks
   .sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
 
 const rows = await Promise.all(matched.map(async (w) => {
-  const creators = await Promise.all(w.data.creators.map((id) => getEntry('people', id)));
+  const creators = await Promise.all(w.data.creators.map((ref) => getEntry(ref)));
   const mine = w.data.expressions.find((e) => e.mine);
   return {
     id: w.id,

@@ -4,11 +4,15 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "validate": "python3 scripts/validate.py",
+    "validate": "node scripts/validate.mjs",
+    "prebuild": "node scripts/validate.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^7.0.7"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.0"
   }
 }

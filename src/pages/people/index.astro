@@ -8,8 +8,8 @@ const allWorks = await getCollection('works');
 // 每人著作数
 const workCounts: Record<string, number> = {};
 for (const w of allWorks) {
-  for (const cid of w.data.creators) {
-    workCounts[cid] = (workCounts[cid] || 0) + 1;
+  for (const c of w.data.creators) {
+    workCounts[c.id] = (workCounts[c.id] || 0) + 1;
   }
 }
 

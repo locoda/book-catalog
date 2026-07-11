@@ -45,11 +45,11 @@ subjects        个人受控词表，每条 work 标 1–4 个
 
 **硬性规则**：
 
-- works 里的 `creators` 只允许引用 people id，不允许写裸字符串。悬空引用会导致构建失败（安全网）。
-- `mine: true` 版本的 `lang` 是封闭集，只能是 `zh-Hans` / `zh-Hant` / `en`——馆长实际的阅读语言。
-- 主题词只能从受控词表（`docs/CATALOGING.md` §6）中选用，不发明新词。
+- works 里的 `creators` 只允许引用 people id，不允许写裸字符串。schema 用 `reference('people')`，悬空引用会导致构建失败（安全网）。
+- `mine: true` 版本的 `lang` 是封闭集，只能是 `zh-Hans` / `zh-Hant` / `en`——馆长实际的阅读语言。schema 强制。
+- 主题词只能从受控词表中选用，不发明新词。机器可读单一来源是 `src/data/subjects.yaml`（schema 与 `validate.mjs` 共同读取），词条定义见 `docs/CATALOGING.md` §6；每条 work ≤4 个，允许留空。
 - `confirmed: true` 的记录标识符（slug / callno / people id）永久冻结。
-- schema 用 Zod 做机器校验，字段写错 `npm run build` 直接报。
+- schema 用 Zod 做机器校验；`npm run build` 会先自动跑 `scripts/validate.mjs`（prebuild：悬空引用、callno 唯一性、词表、mine-lang、原文版本齐备），再做 Zod 结构校验，任一 ERROR 即失败。纯 Node 实现，Cloudflare Pages / CI 无需 Python。
 - 著录规则见 `docs/CATALOGING.md`——这是唯一的著录依据。
 
 ## 项目结构

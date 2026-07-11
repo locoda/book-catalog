@@ -15,7 +15,7 @@ const [works, people] = await Promise.all([
 
 const counts = new Map<string, number>();
 for (const w of works) {
-  for (const c of w.data.creators) counts.set(c, (counts.get(c) ?? 0) + 1);
+  for (const c of w.data.creators) counts.set(c.id, (counts.get(c.id) ?? 0) + 1);
 }
 
 const byCount = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));

@@ -7,7 +7,7 @@ const works = await getCollection('works');
 
 // 每条 work 解析出：著者显示名、我读的语言、切面数据
 const rows = await Promise.all(works.map(async (w) => {
-  const creators = await Promise.all(w.data.creators.map((id) => getEntry('people', id)));
+  const creators = await Promise.all(w.data.creators.map((ref) => getEntry(ref)));
   const mine = w.data.expressions.find((e) => e.mine);
   const mineTitle = mine?.title ?? w.data.title;
   return {

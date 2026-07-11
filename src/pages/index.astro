@@ -29,7 +29,7 @@ const pick = (w: Work) => {
   return {
     id: w.id,
     title: mineExpr?.title ?? w.data.title,
-    creator: peopleMap.get(w.data.creators[0]) ?? '',
+    creator: (w.data.creators[0] && peopleMap.get(w.data.creators[0].id)) ?? '',
     lang: mineExpr?.lang ?? w.data.orig_lang,
   };
 };

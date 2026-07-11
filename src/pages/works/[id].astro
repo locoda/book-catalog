@@ -12,13 +12,18 @@ export async function getStaticPaths() {
 const { work } = Astro.props;
 const d = work.data;
 
-const creators = (await Promise.all(d.creators.map((id) => getEntry('people', id)))).filter(Boolean);
+const resolved = await Promise.all(d.creators.map((ref) => getEntry(ref)));
+const missing = d.creators.filter((_, i) => !resolved[i]).map((ref) => ref.id);
+if (missing.length) {
+  throw new Error(`「${work.id}」引用了不存在的 people 记录：${missing.join(', ')}（安全网：悬空引用阻断构建）`);
+}
+const creators = resolved.filter((p) => p != null);
 const primary = creators[0];
 
 // 同一著者的其他作品（用第一著者）
 const allWorks = await getCollection('works');
 const sameCreator = primary
-  ? allWorks.filter((w) => w.id !== work.id && w.data.creators.includes(primary.id))
+  ? allWorks.filter((w) => w.id !== work.id && w.data.creators.some((c) => c.id === primary.id))
   : [];
 
 const mine = d.expressions.find((e) => e.mine);
