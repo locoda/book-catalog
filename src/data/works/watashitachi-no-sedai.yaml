@@ -5,15 +5,16 @@ orig_lang: ja
 year: 2025
 creators:
 - seo-maiko
-subjects: []
+subjects: [我是谁的练习]
 expressions:
-- lang: ja
-  title: 私たちの世代
-- lang: zh-Hant
-  title: 我們的世代
-  mine: true
+  - lang: ja
+    title: 私たちの世代
+  - lang: zh-Hant
+    title: 我們的世代
+    translator: 楊佳慧
+    mine: true
 readings:
-- date: '2025-12-21'
+  - date: '2025-12-21'
 rating: 8
 status: read
 neodb_uuid: 1tU31jUgAph6U0HpAoGvuh

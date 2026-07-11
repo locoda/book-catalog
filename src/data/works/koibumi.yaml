@@ -1,17 +1,19 @@
 work_type: book
 title: 恋文
-callno: JF-REN-1985-KOIB
+callno: JF-REN-1984-KOIB
 orig_lang: ja
-year: 1985
+year: 1984
 creators:
 - renjo-mikihiko
 subjects: [欲望的旷野, 见字如面]
 expressions:
-- lang: zh-Hant
-  title: 情書
-  mine: true
+  - lang: ja
+    title: 恋文
+  - lang: zh-Hant
+    title: 情書
+    mine: true
 readings:
-- date: '2023-09-19'
+  - date: '2023-09-19'
 rating: 8
 status: read
 neodb_uuid: 6EgEwXAwcop7IkMDHUaKk3

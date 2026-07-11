@@ -1,5 +1,5 @@
 work_type: book
-title: 小鳥
+title: ことり
 callno: JF-OGA-2012-KOTO
 orig_lang: ja
 year: 2012
@@ -7,11 +7,13 @@ creators:
 - ogawa-yoko
 subjects: [不同频的大脑]
 expressions:
-- lang: zh-Hans
-  title: 小鸟
-  mine: true
+  - lang: ja
+    title: ことり
+  - lang: zh-Hans
+    title: 小鸟
+    mine: true
 readings:
-- date: '2025-05-24'
+  - date: '2025-05-24'
 rating: 8
 status: read
 neodb_uuid: 35yd2U6diWdUHOruEKqsoy

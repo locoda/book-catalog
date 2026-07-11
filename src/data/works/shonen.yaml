@@ -1,11 +1,13 @@
 work_type: book
 title: 少年
-callno: JF-KAW-1948-SHON
+callno: JF-KAW-1951-SHON
 orig_lang: ja
-year: 1948
+year: 1951
 creators: [kawabata-yasunari]
 subjects: [欲望的旷野, 见字如面]
 expressions:
+  - lang: ja
+    title: 少年
   - lang: zh-Hant
     title: 少年
     translator: 劉姿君
