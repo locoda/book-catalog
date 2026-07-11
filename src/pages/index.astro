@@ -205,6 +205,11 @@ const rated = works
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  @media (max-width:640px) {
+    #page-reveal,
+    #page-reveal::after { animation: none; opacity: 0; }
+    .hero, .statband { animation: none; opacity: 1; transform: none; }
+  }
   @media (prefers-reduced-motion: reduce) {
     #page-reveal,
     #page-reveal::after { animation: none; opacity: 0; }
