@@ -586,6 +586,7 @@ footer.site{
   .stat b{font-size:clamp(26px,8vw,34px)}
   .stat-wide{display:none}
   .statband-jump{display:none}
-  .hero-cta .btn{flex:1 1 auto;justify-content:center}
+  .hero-cta .btn-ghost{flex:1 1 auto;justify-content:center}
+  .hero-cta .btn-primary{flex:1 1 100%;justify-content:center}
   .feat-card:nth-child(n+6){display:none}
 }
