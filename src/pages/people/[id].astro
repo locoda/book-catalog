@@ -11,7 +11,7 @@ const { person } = Astro.props;
 const works = (await getCollection('works')).filter((w) => w.data.creators.includes(person.id));
 works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
 ---
-<Base title={`${person.data.name} · 乙醚书目`}>
+<Base title={`${person.data.name} · 乙觅书阁`}>
   <nav class="breadcrumb wrap"><a href="/people/" onclick="history.back();return false">← 返回</a></nav>
 
   <div class="main wrap">

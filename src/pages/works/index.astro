@@ -33,7 +33,7 @@ const otherLangs = [...new Set(rows.filter((r) => r.origBucket === 'other').map(
 const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
 const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
 ---
-<Base title="馆藏列表 · 乙醚书目">
+<Base title="馆藏列表 · 乙觅书阁">
   <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="facets wrap">
