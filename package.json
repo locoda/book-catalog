@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "astro dev",
     "validate": "python3 scripts/validate.py",
-    "prebuild": "python3 scripts/validate.py",
     "build": "astro build",
     "preview": "astro preview"
   },

@@ -290,13 +290,18 @@ const hoverData = names.map((s, i) => ({
     <p class="sky-caption mono">连线为同书共现 · 悬停查看星座</p>
   </div>
 
-  <!-- 移动端：标签云（触屏无 hover，星图缩到手机宽度不可读） -->
+  <div class="subject-desk">
+    <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
+  </div>
+
+  <!-- 移动端：标签云（触屏无 hover，星图缩到手机宽度不可读）。单主题藏书 >20 本才显示 chip，其余靠「全部主题」入口（与著者云一致） -->
   <div class="subject-cloud subject-cloud-mobile">
-    {nodes.map(nd => (
+    {nodes.filter(nd => nd.n > 20).map(nd => (
       <a class="subject-chip" href={`/subjects/${nd.s.replace(/\//g, '／')}/`} style={`font-size:${(12 + 6 * Math.sqrt(nd.n / max)).toFixed(1)}px`}>
         {nd.s}<span class="mono">{nd.n}</span>
       </a>
     ))}
+    <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
   </div>
 </section>
 

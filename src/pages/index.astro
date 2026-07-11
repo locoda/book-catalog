@@ -1,40 +1,168 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import type { CollectionEntry } from 'astro:content';
 import ReadingTimeline from '../components/ReadingTimeline.astro';
 import LangFlow from '../components/LangFlow.astro';
 import SubjectCloud from '../components/SubjectCloud.astro';
 import AuthorCloud from '../components/AuthorCloud.astro';
+import { langLabel } from '../lib/lang';
+
+type Work = CollectionEntry<'works'>;
+
+const works = await getCollection('works');
+const people = await getCollection('people');
+
+const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
+
+const workCount = works.length;
+const langCount = new Set(works.map((w) => w.data.orig_lang)).size;
+const peopleCount = people.length;
+
+const years = works
+  .flatMap((w) => w.data.readings.map((r) => parseInt(r.date.slice(0, 4))))
+  .filter((n) => !isNaN(n));
+const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
+
+const pick = (w: Work) => {
+  const mineExpr = w.data.expressions.find((e) => e.mine);
+  return {
+    id: w.id,
+    title: mineExpr?.title ?? w.data.title,
+    creator: peopleMap.get(w.data.creators[0]) ?? '',
+    lang: mineExpr?.lang ?? w.data.orig_lang,
+  };
+};
+
+const dated = works
+  .map((w) => {
+    const ds = w.data.readings.map((r) => r.date).filter(Boolean);
+    return { w, latest: ds.length ? ds.reduce((a, b) => (a > b ? a : b)) : null };
+  })
+  .filter((x) => x.latest)
+  .sort((a, b) => (b.latest as string).localeCompare(a.latest as string))
+  .slice(0, 10)
+  .map((x) => ({ ...pick(x.w), date: x.latest as string }));
+
+const recentIds = new Set(dated.map((d) => d.id));
+const rated = works
+  .map((w) => {
+    const ds = w.data.readings.map((r) => r.date).filter(Boolean);
+    const latest = ds.length ? ds.reduce((a, b) => (a > b ? a : b)) : null;
+    return { w, latest };
+  })
+  .filter(
+    (x) =>
+      x.latest &&
+      typeof x.w.data.rating === 'number' &&
+      (x.w.data.rating as number) === 10 &&
+      !recentIds.has(x.w.id)
+  )
+  .sort((a, b) => (b.latest as string).localeCompare(a.latest as string))
+  .slice(0, 10)
+  .map((x) => ({ ...pick(x.w), rating: x.w.data.rating as number }));
 ---
 <Base>
-  <section class="portal wrap">
-    <p class="portal-intro">
-      為讀過的每一本書，立一條目。
-    </p>
+  {/* ---------- HERO ---------- */}
+  <section class="hero wrap">
+    <p class="hero-eyebrow">Personal Catalog · 私人编目</p>
+    <h1>乙醚书目</h1>
+    <p class="hero-sub">ETHER CATALOG</p>
+    <p class="hero-tag">为读过的每一本书，立一条目。</p>
+    <div class="hero-cta">
+      <a href="/works/" class="btn btn-primary">浏览全部馆藏 →</a>
+      <a href="#insights" class="btn btn-ghost">馆藏速览</a>
+      <a href="#featured" class="btn btn-ghost">最近在读</a>
+    </div>
   </section>
 
-  <ReadingTimeline />
-  <LangFlow />
-  <SubjectCloud />
-  <AuthorCloud />
+  {/* ---------- STAT BAND（点按跳到馆藏速览） ---------- */}
+  <a class="statband wrap" id="statband" href="#insights" aria-label="查看馆藏速览" title="查看馆藏速览">
+    <div class="stat">
+      <b>{workCount}</b>
+      <span class="stat-label">册</span>
+      <span class="stat-en">works</span>
+    </div>
+    <div class="stat">
+      <b>{langCount}</b>
+      <span class="stat-label">原语言</span>
+      <span class="stat-en">languages</span>
+    </div>
+    <div class="stat">
+      <b>{peopleCount}</b>
+      <span class="stat-label">著者</span>
+      <span class="stat-en">people</span>
+    </div>
+    <div class="stat stat-wide">
+      <b>{yearRange || '—'}</b>
+      <span class="stat-label">年份跨度</span>
+      <span class="stat-en">span</span>
+    </div>
+    <span class="statband-jump mono">↘ 馆藏速览</span>
+  </a>
 
+  {/* ---------- FEATURED ---------- */}
+  <section class="featured wrap" id="featured">
+    <header class="sec-head">
+      <small class="mono">SELECTED</small>
+      <h2>精选</h2>
+    </header>
+    <div class="feat-grid">
+      <div class="feat-col">
+        <h3>最近读 · RECENT</h3>
+        <div class="feat-list">
+          {dated.map((b) => (
+            <a class="feat-card" href={`/works/${b.id}/`}>
+              <span class="feat-title">{b.title}</span>
+              <span class="feat-meta">
+                <span class="lang">{langLabel(b.lang)}</span> · {b.date.slice(0, 7)}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="feat-col">
+        <h3>五星 · 5-STAR</h3>
+        <div class="feat-list">
+          {rated.map((b) => (
+            <a class="feat-card" href={`/works/${b.id}/`}>
+              <span class="feat-title">{b.title}</span>
+              <span class="feat-meta">
+                <span class="lang">{langLabel(b.lang)}</span> · <span class="hl">{b.rating.toFixed(1)}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="feat-all">
+      <a class="subject-chip subject-more mono" href="/works/">查看全部馆藏 →</a>
+    </div>
+  </section>
+
+  {/* ---------- INSIGHTS (reframed visualizations) ---------- */}
+  <section class="insights wrap" id="insights">
+    <header class="sec-head">
+      <small class="mono">AT A GLANCE</small>
+      <h2>馆藏速览</h2>
+    </header>
+    <p class="insight-lede">数字替这座书架说话：这些年读得怎样、原文与译本各占几成、又在反复回到哪些主题与著者。</p>
+    <ReadingTimeline />
+    <LangFlow />
+    <SubjectCloud />
+    <AuthorCloud />
+  </section>
+
+  {/* ---------- ENTRY CTA ---------- */}
   <section class="wrap portal-bottom">
     <header class="sec-head">
-      <small class="mono">INDEXES</small>
-      <h2>检索入口</h2>
+      <small class="mono">ENTER THE CATALOG</small>
+      <h2>进入目录</h2>
     </header>
     <nav class="portal-nav">
-      <a href="/works/" class="portal-card">
-        <span class="portal-card-title">全部馆藏</span>
-        <small>WORKS</small>
-      </a>
-      <a href="/people/" class="portal-card">
-        <span class="portal-card-title">著者索引</span>
-        <small>PEOPLE</small>
-      </a>
-      <a href="/subjects/" class="portal-card">
-        <span class="portal-card-title">主题词</span>
-        <small>SUBJECTS</small>
-      </a>
+      <a href="/works/" class="subject-chip subject-more mono">全部馆藏 →</a>
+      <a href="/people/" class="subject-chip subject-more mono">著者索引 →</a>
+      <a href="/subjects/" class="subject-chip subject-more mono">主题词 →</a>
     </nav>
   </section>
 </Base>
