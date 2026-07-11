@@ -28,7 +28,6 @@ if (deskAll.length === 0) return new Response(null, { status: 204 });
 const desk = deskAll.slice(0, TOP_N);
 const mob  = mobAll;
 
-const size = (n: number, max: number) => (12 + 7 * Math.sqrt(n / max)).toFixed(1);
 
 const deskMax = desk[0]![1];
 const mobMax  = mob[0]![1];
@@ -80,7 +79,7 @@ function displayName(id: string): string {
   <!-- 桌面：≥3 -->
   <div class="subject-cloud show-desk">
     {desk.map(([id, count]) => (
-      <a class="subject-chip" href={`/people/${id}/`} style={`font-size:${size(count, deskMax)}px`}>
+      <a class="subject-chip" href={`/people/${id}/`}>
         {displayName(id)}<span class="mono">{count}</span>
       </a>
     ))}
@@ -90,7 +89,7 @@ function displayName(id: string): string {
   <!-- 手机：≥7 -->
   <div class="subject-cloud show-mob">
     {mob.map(([id, count]) => (
-      <a class="subject-chip" href={`/people/${id}/`} style={`font-size:${size(count, mobMax)}px`}>
+      <a class="subject-chip" href={`/people/${id}/`}>
         {displayName(id)}<span class="mono">{count}</span>
       </a>
     ))}

@@ -76,6 +76,15 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       <span class="facet-label">作者</span>
       <input class="facet-input" type="text" id="author-input" placeholder="输入著者名筛选…" autocomplete="off" />
     </div>
+    <div class="facet-row">
+      <span class="facet-label">版本</span>
+      <select class="facet-select" id="edition-select">
+        <option value="">全部</option>
+        <option value="print">实体书</option>
+        <option value="ebook">电子书</option>
+        <option value="audiobook">有声书</option>
+      </select>
+    </div>
     </div>
   </section>
 
@@ -103,6 +112,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           data-creators={r.creatorNames}
           data-rating={r.data.rating ?? -1}
           data-title={r.mineTitle}
+          data-edition={r.data.readings[0]?.edition ?? ''}
         >
           <span class="mono">{r.data.callno ?? r.id}</span>
           <span>{r.mineTitle} <span class="byline">· {r.creatorNames}</span></span>
@@ -117,7 +127,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
   </section>
 
   <script>
-    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '', author: '' };
+    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '', author: '', edition: '' };
     let pubFrom = 0, pubTo = 0, readFrom = 0, readTo = 0;
     const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
     let sortMode = 'callno';
@@ -204,6 +214,13 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       apply();
     });
 
+    // 版本下拉
+    const editionSelect = document.getElementById('edition-select') as HTMLSelectElement;
+    editionSelect?.addEventListener('change', () => {
+      active.edition = editionSelect.value;
+      apply();
+    });
+
     // 年份输入
     const pubYearInput = document.getElementById('pubyear-input') as HTMLInputElement;
     const readYearInput = document.getElementById('readyear-input') as HTMLInputElement;
@@ -243,7 +260,8 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
         const okReadYear = inRange(parseInt(el.dataset.readyear ?? '0') || 0, readFrom, readTo);
         const r = parseFloat(el.dataset.rating ?? '-1');
         const okRating = ratingNone ? r < 0 : inRange(r, ratingFrom, ratingTo);
-        const ok = okOrig && okMine && okSubj && okPubYear && okReadYear && okRating && okAuthor;
+        const okEdition = !active.edition || (el.dataset.edition ?? '') === active.edition;
+        const ok = okOrig && okMine && okSubj && okPubYear && okReadYear && okRating && okAuthor && okEdition;
         el.classList.toggle('hidden', !ok);
         if (ok) { shown++; visible.push(el); }
       });
@@ -273,7 +291,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       visible.forEach((el) => rowsEl.appendChild(el));
 
       document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
-      const anyFilter = active.orig || active.mine || active.subject || active.author || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
+      const anyFilter = active.orig || active.mine || active.subject || active.author || active.edition || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
       const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '评分' : sortMode === 'year' ? '年份' : '题名'}`;
       document.getElementById('result-label')!.textContent = anyFilter
         ? `FACET / 切面 — ${shown} 种${sortLabel}`
