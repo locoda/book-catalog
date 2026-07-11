@@ -1,11 +1,13 @@
 work_type: book
-title: 鳄鱼手记
-orig_lang: zh-Hans
+title: 鱷魚手記
+orig_lang: zh-Hant
 year: 1994
 creators: [qiu-miaojin]
 callno: CF-QIU-1994-EYUS
 subjects: [未命名的关系, 不按剧本的她们]
 expressions:
+  - lang: zh-Hant
+    title: 鱷魚手記
   - lang: zh-Hans
     title: 鳄鱼手记
     mine: true
