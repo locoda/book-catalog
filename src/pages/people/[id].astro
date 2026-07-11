@@ -23,7 +23,7 @@ works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
       <table class="expr-table">
         <caption>NAME&nbsp;FORMS / 名称形式</caption>
         <tr><th>script</th><th>形式</th></tr>
-        {person.data.forms.map((f) => (
+        {person.data.forms.sort((a, b) => a.script.localeCompare(b.script)).map((f) => (
           <tr><td class="mono">{f.script}</td><td class="jp">{f.value}</td></tr>
         ))}
       </table>

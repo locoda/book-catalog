@@ -100,7 +100,7 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
             <h3>AUTHORITY&nbsp;RECORD</h3>
             <div class="auth-name">{person!.data.name}</div>
             <div class="auth-forms">
-              {person!.data.forms.map((f) => (
+              {person!.data.forms.sort((a, b) => a.script.localeCompare(b.script)).map((f) => (
                 <div><span class="mono">{f.script}</span><span class="jp">{f.value}</span></div>
               ))}
               <div><span class="mono">id</span><span>p-{person!.id}</span></div>
