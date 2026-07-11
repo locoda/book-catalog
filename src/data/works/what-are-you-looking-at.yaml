@@ -17,4 +17,5 @@ readings:
 - date: '2021-10-19'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 3rvumEb6Un9yw1tOJ1qzdU

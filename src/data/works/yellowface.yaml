@@ -1,6 +1,6 @@
 work_type: book
 title: Yellowface
-callno: EF-KUA-2023-HUAN
+callno: EF-KUA-2023-YELL
 orig_lang: en
 year: 2023
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2024-06-11'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 0KdTv7gfmWxmPiEGP0yBpA

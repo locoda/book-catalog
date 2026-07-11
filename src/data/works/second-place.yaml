@@ -3,7 +3,7 @@ title: Second Place
 orig_lang: en
 year: 2021
 creators: [cusk-rachel]
-callno: EN-CUS-2021-SECO
+callno: EF-CUS-2021-SECO
 subjects: [记忆的地形]
 expressions:
   - lang: en
@@ -16,4 +16,5 @@ readings:
   - date: "2024-12-22"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 6SWkm7Av4gNLX4yhrifSQn

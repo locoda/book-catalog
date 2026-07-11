@@ -3,7 +3,7 @@ title: Departure(s)
 orig_lang: en
 year: 2026
 creators: [barnes-julian]
-callno: EN-BAR-2026-DEPA
+callno: EF-BAR-2026-DEPA
 subjects: [与丧失同居, 记忆的地形]
 expressions:
   - lang: en
@@ -13,4 +13,5 @@ readings:
   - date: "2026-04-23"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 7VYIKeD5Svw5WMFqbsFGjt

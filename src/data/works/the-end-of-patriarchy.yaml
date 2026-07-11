@@ -1,6 +1,6 @@
 work_type: book
 title: The End of Patriarchy
-callno: EF-JEN-2017-ENDO
+callno: EN-JEN-2017-ENDO
 orig_lang: en
 year: 2017
 creators: [jensen-robert]
@@ -13,4 +13,5 @@ readings:
   - date: '2022-01-23'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 0UaexmgYs9OlKOOkrZOJee

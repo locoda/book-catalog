@@ -1,6 +1,6 @@
 work_type: book
 title: The Anthropocene Reviewed
-callno: EF-GRE-2021-ANTH
+callno: EN-GRE-2021-ANTH
 orig_lang: en
 year: 2021
 creators: [green-john]
@@ -13,4 +13,5 @@ readings:
   - date: '2023-07-18'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 5AzXxtx0kZmX0mLRvFQbYk

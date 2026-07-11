@@ -1,6 +1,6 @@
 work_type: book
 title: Flowers for Algernon
-callno: EN-KEY-1966-FLOW
+callno: EF-KEY-1966-FLOW
 orig_lang: en
 year: 1966
 creators:
@@ -17,4 +17,5 @@ readings:
 - date: '2022-04-01'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 4RcTj1AilRVONB8RIKJSVA

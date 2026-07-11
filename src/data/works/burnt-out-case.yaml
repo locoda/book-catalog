@@ -1,6 +1,6 @@
 work_type: book
 title: A Burnt-Out Case
-callno: EF-GRE-1960-YIGE
+callno: EF-GRE-1960-BURN
 orig_lang: en
 year: 1960
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2023-06-18'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 2Eena07ko1tyMaZfhOdeRZ

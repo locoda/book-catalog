@@ -16,4 +16,5 @@ readings:
 - date: '2023-06-16'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 7J1vDXb5pS3fwfrVhRylPT

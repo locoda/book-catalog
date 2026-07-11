@@ -1,6 +1,6 @@
 work_type: book
 title: The Unconsoled
-callno: EN-ISH-1995-UNCO
+callno: EF-ISH-1995-UNCO
 orig_lang: en
 year: 1995
 creators:
@@ -17,4 +17,5 @@ readings:
 - date: '2023-06-11'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 3WnDLpOF4J4BhFQt6F2yU2

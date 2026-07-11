@@ -1,5 +1,5 @@
 work_type: book
-title: A Room of Ones Own
+title: A Room of One's Own
 callno: EN-WOO-1929-ROOM
 orig_lang: en
 year: 1929
@@ -8,7 +8,7 @@ creators:
 subjects: [父权的解剖]
 expressions:
 - lang: en
-  title: A Room of Ones Own
+  title: A Room of One's Own
 - lang: zh-Hans
   title: 一间自己的房间
   mine: true

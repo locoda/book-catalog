@@ -3,7 +3,7 @@ title: The Good Doctor
 orig_lang: en
 year: 2003
 creators: [galgut-damon]
-callno: EN-GAL-2003-GOOD
+callno: EF-GAL-2003-GOOD
 subjects: [谁在定义现实]
 expressions:
   - lang: en
@@ -16,4 +16,5 @@ readings:
   - date: "2024-11-09"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 20SQXZqE7E86jwHdfRsAxJ

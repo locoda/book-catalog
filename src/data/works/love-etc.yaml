@@ -3,7 +3,7 @@ title: Love, etc
 orig_lang: en
 year: 2000
 creators: [barnes-julian]
-callno: EN-BAR-2000-LOVE
+callno: EF-BAR-2000-LOVE
 subjects: [并肩的孤独]
 expressions:
   - lang: en
@@ -16,4 +16,5 @@ readings:
   - date: "2023-01-29"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 3xicI79gepaTCO7odzTLkm

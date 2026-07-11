@@ -3,7 +3,7 @@ title: Mrs Dalloway
 orig_lang: en
 year: 1925
 creators: [woolf-virginia]
-callno: EN-WOO-1925-MRSD
+callno: EF-WOO-1925-MRSD
 subjects: [不按剧本的她们, 记忆的地形]
 expressions:
   - lang: en
@@ -16,4 +16,5 @@ readings:
   - date: "2022-12-16"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 6zhnAB1P0QhWDbCGlvgjJ6

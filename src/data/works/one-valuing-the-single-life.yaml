@@ -1,5 +1,5 @@
 work_type: book
-title: "One: Valuing the Single Life"
+title: "One"
 orig_lang: en
 year: 2018
 creators: [payne-clare]
@@ -7,7 +7,7 @@ callno: EN-PAY-2018-ONEV
 subjects: [父权的解剖]
 expressions:
   - lang: en
-    title: "One: Valuing the Single Life"
+    title: "One"
   - lang: zh-Hans
     title: 单身偏见
     translator: 张林
@@ -16,4 +16,5 @@ readings:
   - date: "2023-03-25"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 2PWijlQCtorqFfJ9XB2zeO

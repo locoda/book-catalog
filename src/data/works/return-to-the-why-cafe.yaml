@@ -15,5 +15,6 @@ readings:
   - date: "2023-07-02"
 rating: 10
 status: read
+confirmed: true
 neodb_uuid: 4SzeTIKCWZtyKWzCXIlmt4
 callno: EN-STR-2015-RETU

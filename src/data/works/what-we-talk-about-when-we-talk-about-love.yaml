@@ -3,7 +3,7 @@ title: What We Talk About When We Talk About Love
 orig_lang: en
 year: 1981
 creators: [carver-raymond]
-callno: EN-CAR-1981-WHAT
+callno: EF-CAR-1981-WHAT
 subjects: [并肩的孤独]
 expressions:
   - lang: en
@@ -16,4 +16,5 @@ readings:
   - date: "2022-10-09"
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 3DmFjmLl499VurXWB15mee

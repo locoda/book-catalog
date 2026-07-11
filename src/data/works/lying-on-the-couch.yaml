@@ -1,6 +1,6 @@
 work_type: book
 title: Lying on the Couch
-callno: EN-YAL-1996-LYIN
+callno: EF-YAL-1996-LYIN
 orig_lang: en
 year: 1996
 creators:
@@ -16,4 +16,5 @@ readings:
 - date: '2025-08-09'
 rating: 8
 status: read
+confirmed: true
 neodb_uuid: 0kp9XFbW7CH4XkSLFV6CKq
