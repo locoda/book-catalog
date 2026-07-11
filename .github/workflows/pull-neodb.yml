@@ -1,8 +1,8 @@
 name: pull-neodb
 
 on:
-  schedule:
-    - cron: '23 21 * * 1'   # 每周二 05:23 北京时间（UTC 周一 21:23）
+  # schedule:
+  #   - cron: '23 21 * * 1'   # 每周二 05:23 北京时间（UTC 周一 21:23）
   workflow_dispatch:         # 也可以随时手动跑
 
 permissions:
