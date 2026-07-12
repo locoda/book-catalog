@@ -16,7 +16,7 @@ const { subject } = Astro.props;
 const allWorks = await getCollection('works');
 
 const matched = allWorks
-  .filter((w) => w.data.subjects.includes(subject.name))
+  .filter((w) => w.data.subjects.includes(subject.slug))
   .sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
 
 const rows = await Promise.all(matched.map(async (w) => {

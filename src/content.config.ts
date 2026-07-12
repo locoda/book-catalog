@@ -1,6 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { SUBJECT_NAMES } from './lib/subjects';
+import { SUBJECT_SLUGS } from './lib/subjects';
 
 /** mine: true 版本的语言封闭集——馆长实际的阅读语言 */
 const MINE_LANGS = new Set(['zh-Hans', 'zh-Hant', 'en']);
@@ -40,7 +40,7 @@ const works = defineCollection({
   }).superRefine((w, ctx) => {
     // 硬性规则 1：主题词只能出自受控词表（src/data/subjects.yaml）
     for (const s of w.subjects) {
-      if (!SUBJECT_NAMES.has(s)) {
+      if (!SUBJECT_SLUGS.has(s)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ['subjects'],

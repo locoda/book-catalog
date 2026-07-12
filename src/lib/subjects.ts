@@ -17,9 +17,14 @@ export interface Subject {
 export const SUBJECTS: Subject[] = parse(raw);
 
 export const SUBJECT_NAMES = new Set(SUBJECTS.map((s) => s.name));
+export const SUBJECT_SLUGS = new Set(SUBJECTS.map((s) => s.slug));
 export const bySlug = new Map(SUBJECTS.map((s) => [s.slug, s]));
 export const byName = new Map(SUBJECTS.map((s) => [s.name, s]));
 
-/** name → 主题页 URL */
-export const subjectUrl = (name: string) =>
-  `/subjects/${byName.get(name)?.slug ?? encodeURIComponent(name)}/`;
+/** slug → 主题页 URL */
+export const subjectUrl = (slug: string) =>
+  `/subjects/${bySlug.has(slug) ? slug : encodeURIComponent(slug)}/`;
+
+/** slug → 显示名（用于 YAML 存 slug 后面向读者展示中文名） */
+export const getName = (slug: string): string =>
+  bySlug.get(slug)?.name ?? slug;

@@ -63,8 +63,6 @@ const rated = works
   .map((x) => ({ ...pick(x.w), rating: x.w.data.rating as number }));
 ---
 <Base>
-  <!-- 光芒开场 -->
-  <div id="page-reveal" aria-hidden="true"></div>
 
   {/* ---------- HERO ---------- */}
   <section class="hero wrap">
@@ -158,61 +156,3 @@ const rated = works
 
 </Base>
 
-<style>
-  /* 光芒开场 */
-  #page-reveal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    background: var(--ink);
-    animation: reveal-bg 1.5s cubic-bezier(0.33, 0, 0.67, 1) forwards;
-  }
-  #page-reveal::after {
-    content: '';
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 16vmax;
-    height: 16vmax;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle,
-      #FFFDF8 0%,
-      rgba(245, 240, 232, 0.75) 35%,
-      rgba(245, 240, 232, 0.15) 70%,
-      transparent 100%
-    );
-    filter: blur(3px);
-    animation: light-burst 1.5s cubic-bezier(0.33, 0, 0.67, 1) forwards;
-  }
-  .hero { animation: content-in 1.4s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
-  .statband { animation: content-in 1.2s 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
-
-  @keyframes light-burst {
-    0%   { transform: translate(-50%, -50%) scale(0.2); opacity: 0.4; }
-    28%  { transform: translate(-50%, -50%) scale(3);   opacity: 1; }
-    50%  { transform: translate(-50%, -50%) scale(3.5); opacity: 0.7; }
-    100% { transform: translate(-50%, -50%) scale(12);  opacity: 0; }
-  }
-  @keyframes reveal-bg {
-    0%         { opacity: 1; }
-    35%        { opacity: 0.85; }
-    100%       { opacity: 0; }
-  }
-  @keyframes content-in {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @media (max-width:640px) {
-    #page-reveal,
-    #page-reveal::after { animation: none; opacity: 0; }
-    .hero, .statband { animation: none; opacity: 1; transform: none; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #page-reveal,
-    #page-reveal::after { animation: none; opacity: 0; }
-    .hero, .statband { animation: none; opacity: 1; transform: none; }
-  }
-</style>

@@ -3,7 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langLabel } from '../../lib/lang';
 import { editionLabel } from '../../lib/edition';
-import { subjectUrl } from '../../lib/subjects';
+import { subjectUrl, getName } from '../../lib/subjects';
 
 export async function getStaticPaths() {
   const works = await getCollection('works');
@@ -74,7 +74,7 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
       {d.subjects.length > 0 && (
         <div class="subjects">
           <span class="facet-label">主题词</span><br />
-          {d.subjects.map((s) => <a class="subj" href={subjectUrl(s)}>{s}</a>)}
+          {d.subjects.map((s) => <a class="subj" href={subjectUrl(s)}>{getName(s)}</a>)}
         </div>
       )}
 

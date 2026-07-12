@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langLabel, langBucket, BUCKET_LABELS, type LangBucket } from '../../lib/lang';
+import { getName } from '../../lib/subjects';
 
 const works = await getCollection('works');
 
@@ -60,7 +61,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       <span class="facet-label">主题</span>
       <select class="facet-select" id="subject-select">
         <option value="">全部</option>
-        {subjects.map((s) => <option value={s}>{s}</option>)}
+        {subjects.map((s) => <option value={s}>{getName(s)}</option>)}
       </select>
     </div>
     <div class="facet-row">

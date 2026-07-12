@@ -51,9 +51,9 @@ const errors = [];
 const warns = [];
 
 const peopleIds = new Set(yamlFiles(PEOPLE).map((p) => basename(p, '.yaml')));
-// 词表 v3：{slug, name, desc}[]；校验用 name 集合，顺带查 slug/name 唯一
+// 词表 v3：{slug, name, desc}[]；校验用 slug 集合（works 的 subjects 字段存 slug），顺带查 slug/name 唯一
 const subjectEntries = parse(readFileSync(SUBJECTS_FILE, 'utf-8')) ?? [];
-const vocab = new Set(subjectEntries.map((s) => s?.name));
+const vocab = new Set(subjectEntries.map((s) => s?.slug));
 for (const key of ['slug', 'name']) {
   const seen = new Set();
   for (const s of subjectEntries) {

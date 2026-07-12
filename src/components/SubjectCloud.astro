@@ -5,7 +5,7 @@
  * 布局为构建期确定性力导向模拟，无运行时依赖；hover 高亮邻接星 + 例书浮层。
  */
 import { getCollection } from 'astro:content';
-import { subjectUrl } from '../lib/subjects';
+import { subjectUrl, getName } from '../lib/subjects';
 
 const works = await getCollection('works');
 
@@ -283,7 +283,7 @@ const hoverData = names.map((s, i) => ({
             x={nd.lx} y={nd.ly}
             style={`font-size:${nd.fs}px`}
             text-anchor={nd.anchor}
-          >{nd.s}<tspan class="sky-count mono"> {nd.n}</tspan></text>
+          >{getName(nd.s)}<tspan class="sky-count mono"> {nd.n}</tspan></text>
         </a>
       ))}
     </svg>
@@ -299,7 +299,7 @@ const hoverData = names.map((s, i) => ({
   <div class="subject-cloud subject-cloud-mobile">
     {nodes.filter(nd => nd.n > 20).map(nd => (
       <a class="subject-chip" href={subjectUrl(nd.s)}>
-        {nd.s}<span class="mono">{nd.n}</span>
+        {getName(nd.s)}<span class="mono">{nd.n}</span>
       </a>
     ))}
     <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
