@@ -1,6 +1,6 @@
 # 著录规范 · Cataloging Rules
 
-**版本 v0.8 · 本文档是本目录唯一的著录依据。**
+**版本 v0.13（版本记录见 §8）· 本文档是本目录唯一的著录依据。**
 
 本文档的目标读者包括 AI。所有规则写成可机械执行的形式；执行者（人或 AI）在规则未覆盖的情形下**必须停下标记问题，不允许自行发明规则**。
 
@@ -32,7 +32,7 @@
 - **title（规范题名）= 初版原语言书名，文字照原样，不翻译、不音译、不简化**（`流浪の月` 不写 `流浪之月`；`女ぎらい` 不写全副标题，副标题进 expressions 的完整题名）。Unicode 一律 NFC 规范化。
 - **orig_lang**：初版语言，BCP 47 代码。`ja` / `en`；**中文用文字子标签区分简繁**——`zh-Hans`（简体）/ `zh-Hant`（繁体），不用地区码（`zh-CN`/`zh-TW`），因为简繁是文字问题不是地区问题（新马简体、港台繁体）。其他语言用纯语言代码（`fr` `ko` `de`……），**不**额外加文字子标签（不写 `ja-Jpan`）——这些语言在本目录范围内只对应一种常用文字，加了是冗余，不符合 BCP47 的 Suppress-Script 惯例。
 - **year**：初版年（不是你读的版本的出版年）。查不到 → `TODO`。
-- **creators**：people id 数组，顺序照初版署名。**只允许引用已存在的 people 记录**；对应记录不存在 → 先建 person（§3），再回填。
+- **creators**：people id 数组，顺序照初版署名。**只允许引用已存在的 people 记录**；对应记录不存在 → 先建 person（§3），再回填。多人合集等无单一责任著者时可留空数组（馆长裁决 2026-07-10），此时 callno 著者号写 `UNK`。
 - **expressions**：每个语言层版本一条；`mine: true` 恰好标在实际读过的版本上（读过多个版本可多个 mine）。译者写在版本上。非 mine 版本的 `lang` 开放取值（记录该译本客观存在的语言）；**`mine: true` 的 `lang` 是封闭集，只能是 `zh-Hans` / `zh-Hant` / `en`**——这是馆长实际的阅读语言，其它一律不成立，出现即视为数据错误。
 - **readings**：阅读事件，`date` 用 `YYYY-MM-DD` 或 `YYYY-MM`。占位/示意数据必须在 work 上标 `placeholder: true`。`edition`（可选）记录载体形式——`ebook`/`print`/`audiobook` 三选一封闭枚举，取代了早期版本里几乎全员写"NeoDB 标记"、没有信息量的 `platform` 字段；不确定就留空，不猜，遇到再补。
 - **rating**：NeoDB 十分制原值，不换算。
@@ -46,7 +46,7 @@
   1. 英译本版权页署名（如 `Yuu Nagira` 就写 `Yuu Nagira`，名序照版权页）；
   2. VIAF / LC 权威档中的英文形式；
   3. 无英译时系统音译：日文用修订赫本式（姓 名 序），中文用汉语拼音（姓 名 序）。
-- **sort**：`姓, 名` 形式的排序键（`Murata, Sayaka`）。
+- **sort**：`姓, 名` 形式的排序键（`Murata, Sayaka`）。单名或团体著者无姓名可分（Qiaomai、Uketsu、NHK「女性の貧困」取材班），`sort` 原样等于 `name` 不倒置（馆长裁决 2026-07-10）——机器核查以 `sort === name` 识别此豁免。
 - **forms**：收录所有见过的形式——原文、假名、罗马字、中文译名等，`script` 标 `ja` / `ja-kana` / `romaji` / `zh` / `en`。原文形式必须收录。
 - **id（=文件名）**：规范形式的 slug 化（§5 规则），`姓-名` 顺序：`murata-sayaka`。
 
@@ -143,24 +143,21 @@
 
 ## 9. 编目作业流程
 
-完整流水线：**导入 → 审阅 → 迁入 → 编目 → 复核 → 确认**。
+完整流水线：**导入 → 编目（草稿区内）→ 迁入 → 校验 → 确认**。编目在草稿区就地完成，`works/` 永远只见成品；编目时查证原题/初版年留下的来源证据，直接复用为确认依据——**一次查证，两个产出**。
 
 ```
 NeoDB API
   │  import_neodb.mjs
   ▼
 src/data/works-draft/     ← 草稿区（不受 Astro 扫描，不影响构建）
-  │  人工审阅（书对不对？有无重复？）
+  │  就地编目（§9.1 算法，原题/初版年必须带来源链接）
   ▼
-promote.mjs --all          ← 校验 slug/UUID/结构后移入正式目录
+promote.mjs                ← 校验 slug/UUID/结构后移入正式目录
   │
-src/data/works/            ← 正式目录（开始编目）
-  │  逐文件编目（§9.1 算法）
+src/data/works/            ← 正式目录（只收成品）
+  │  validate.mjs → build   ← 阻断性校验 + npm run audit
   ▼
-validate.mjs → build       ← 阻断性校验
-  │  VERIFICATION.md
-  ▼
-confirmed: true            ← 馆长确认，标识符永久冻结
+confirmed: true            ← 馆长批准后写入，标识符永久冻结（§9.4）
 ```
 
 ### 9.0 导入与迁入
@@ -171,22 +168,21 @@ confirmed: true            ← 馆长确认，标识符永久冻结
 - `--force` 忽略 checkpoint 全量重拉；`--out src/data/works` 可跳过草稿直入正式目录（兼容旧流程）。
 - 导入脚本不验证书目质量——`creators` 留空、`subjects` 留空、`orig_lang` 可能不准，这些是后续编目步骤的事。
 
-**审阅**（人工）：
-- 扫一眼草稿目录：书对不对？有没有多语言版本该合并的？明显错漏？
-- 可以在 draft 阶段就手动修正明显的错误（如修正 `untitled` 文件名）。
+**编目**（草稿区内，§9.1 算法）：
+- `node scripts/promote.mjs --list` 查看待办。每批 ≤ 10 条（编目比复核重）。
+- 在 `works-draft/` 内就地完成全部编目步骤后再迁入；查不到原题/初版年 → 字段写 `TODO` + 记 QUESTIONS，留在草稿区待补，**不带病迁入**。
 
 **迁入**（`scripts/promote.mjs`）：
-- `--list` 列出所有草稿及校验结果。
 - `--slug <name>` 迁入单本；`--all` 迁入全部。
-- 迁入前自动校验：slug 冲突、UUID 冲突、title/orig_lang 不为空或 TODO。
-- 校验失败拒绝迁入，列出原因；修复后重试。
-- 迁入成功 = 文件从 `works-draft/` 移动到 `works/`（非复制）。
+- 迁入前自动校验：slug 冲突、UUID 冲突、title/orig_lang 不为空或 TODO；失败拒绝迁入并列出原因。
+- **UUID 冲突的正确解读**：通常说明这是已有 work 的另一语言版本或重复标记，不是新书——按 VERIFICATION.md §2 合并规则并入已有记录（版本进 expressions、readings 保留），删除草稿，批末报告注明。
+- 迁入成功 = 文件从 `works-draft/` 移动到 `works/`（非复制）。迁入后跑 `npm run validate` + `npm run audit`，必须干净。
 
 > 本节是操作流程；字段规则依据仍在 §2–§6，不在此重复。§0 四条禁令全程有效。
 
 ### 9.1 逐文件算法
 
-**Step 1 — 识别作品。** 判断现有 `title` 是不是译名。是 → 查明初版原语言书名和初版年（§2 规则）。原书名/初版年拿不准 → `TODO` + 记 `docs/QUESTIONS.md`，跳到 Step 3。
+**Step 1 — 识别作品。** 判断现有 `title` 是不是译名。是 → 查明初版原语言书名和初版年（§2 规则）。**原题与初版年必须带一手来源链接**（来源优先级见 VERIFICATION.md §1），这份证据在批末报告里复用为确认依据——核实 ≠ 反推，历史教训是反推的原题七成是编造的。拿不准 → `TODO` + 记 `docs/QUESTIONS.md`，跳到 Step 3。
 
 **Step 2 — 改写 work 层。**
 
@@ -214,7 +210,7 @@ confirmed: true            ← 馆长确认，标识符永久冻结
 
 ### 9.2 批处理协议
 
-按 §8 执行：每批 ≤ 20 个文件，批末输出变更摘要 + 新建 people 列表 + QUESTIONS 新增条目，跑 §7 校验清单。
+按 §8 执行：批末输出变更摘要（§9.3 格式）+ 新建 people 列表 + **原题/初版年证据表**（`| slug | 字段 | 记录值 | 核实结果 | 来源 | 结论 |`）+ QUESTIONS 新增条目，跑 §7 校验清单。然后等馆长批复，进入 §9.4。
 
 ### 9.3 完整示例（输入 → 输出）
 
@@ -283,8 +279,19 @@ untitled.yaml → hisoyaka-na-kessho.yaml：译名还原为日文原题；语言
 QUESTIONS: 无
 ```
 
+### 9.4 确认与冻结（confirm）
+
+编目批次经馆长批复后收尾。`confirmed: true` **只能在馆长批准后写入**（回复"批准 batch N"或指出例外）；执行者的产出是带证据的报告，不是直接确认。
+
+- 批准的 work 加一行 `confirmed: true`（放 `status` 行附近即可）；本批新建/引用的未确认 people 一并核实提请（`name` 英文惯称是否通行、`sort` 切分、`forms` 含原文、身份唯一无重复建档），批准后同样加 `confirmed: true`。同一 person 只核一次。
+- 需修正的条目：先修正（标识符联动——改 title/orig_lang/year → slug/callno 按 §4/§5 重算；改 people id → 同步所有引用），**下一批**再提请确认，不当批自证。
+- 确认后即冻结（§0.2）：slug / callno / people id 永不再改，内容字段仍可经 VERIFICATION 受控流程修正。
+
+**边界情形**：找不到可靠来源 → 不改不确认，记 QUESTIONS；来源矛盾 → 取书目级来源（NDL/Worldcat/出版社官网），报告注明；`placeholder: true` → 跳过确认；`creators` 留空与 `sort === name` 是馆长已裁决的合法形态（§2/§3），不按错误处理。
+
 ## 版本记录
 
+- v0.13（2026-07-11）文档合并（馆长批准）：CONFIRMATION.md（原 CONFIRM-PLAYBOOK）退役——存量核实作业已完成（493/493 confirmed + edition 全回填），其增量流程并入本文档 §9（§9.0 改为"草稿区内编目→promote 成品"，Step 1 增加原题/初版年必须带来源链接的硬要求，新增 §9.4 确认与冻结），核实方法论与来源优先级并入 VERIFICATION.md §1。两条馆长裁决沉淀进规范：creators 可留空（§2）、单名/团体著者 sort === name 豁免（§3）。docs/ 回到三件套：CATALOGING / VERIFICATION / QUESTIONS。
 - v0.12（2026-07-11）主题词表 v3（馆长批准）：告别"XX的XX"句式，全表 28 词换为多样句式并新增 slug + 一句话释义；`subjects.yaml` 改为 `{slug, name, desc}` 结构，新增 `src/lib/subjects.ts` 统一读取入口；主题页 URL 从中文题名改为 slug（如 `/subjects/embers/`），词表页重写为释义卡片，主题详情页显示释义。含义与 v2 一一对应，仅换名不重标：未命名的关系→悬而未名、爱的余烬→余烬未冷、并肩的孤独→并肩而孤、心动配方→心动症候、记忆的地形→故地重游、街角的人间→市井烟火、不按剧本的她们→脱稿的她们、父权的解剖→解剖父权、打卡的灵魂→职场浮生、血缘的引力→血缘引力、我是谁的练习→成为自己、叙事的迷宫→叙事迷宫、文学的后台→书页背后、精巧的圈套→机关重重、沙发上的自我→诊疗室、欲望的旷野→欲望旷野、不同频的大脑→异频心智、观看的训练→观看之道、怠工的自由→不事生产、轻盈的重量→举重若轻、老年的形状→老之将至；与丧失同居/谁在定义现实/见字如面/练习告别/概念急救箱/一餐一饭/非人尺度 7 词保留。
 - v0.11（2026-07-11）在读（progress）不入目录（馆长裁决）：读完才编目。`status` 枚举去掉 `reading`（现存数据无一使用）；导入脚本仅拉 complete/wishlist，workflow 与页面在读标记同步移除。附带修复导入脚本：增量停止改为「uuid 精确 + 日期兜底」双条件（原日期兜底是死代码，checkpoint 失效会全量重拉）；`--force` 真正全量（原来会被 works/ 初始化悄悄变回增量）；checkpoint 初始化兼容平铺风格 readings 日期；骨架不再写已废除的 `platform` 字段。
 - v0.10（2026-07-11）导入流水线重构：新增 `scripts/promote.mjs`（草稿迁入脚本，带 slug/UUID/结构校验），`import_neodb.mjs` 默认输出改 `src/data/works-draft/`（Astro 不扫描的草稿区），增加 UUID checkpoint 文件（`scripts/.import-state.json`）替代逐文件扫描日期。完整流程：导入→审阅→迁入→编目→复核→确认。旧流程仍可通过 `--out src/data/works` 使用。
