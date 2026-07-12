@@ -94,8 +94,8 @@ npm run preview    # 预览构建产物
 
 ```bash
 export NEODB_TOKEN=xxxx    # neodb.social → 设置 → 应用 → 生成 access token
-node scripts/import_neodb.mjs                   # 已读
-node scripts/import_neodb.mjs --shelf progress  # 在读
+node scripts/import_neodb.mjs        # 已读 → src/data/works-draft/（草稿区）
+node scripts/promote.mjs --list      # 审阅草稿，校验通过后 --all 迁入正式目录
 ```
 
 脚本生成的是骨架——把原始导入变成一条 work 记录，之后需要人工完成：work/expression 归并、权威记录建立、主题词标引。这些判断不交给脚本，因为编目本身就是阅读行为的一部分。

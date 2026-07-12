@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 /**
- * 从 NeoDB 拉取本人书籍标记，生成 work YAML 骨架到 src/data/works/。
+ * 从 NeoDB 拉取本人书籍标记，生成 work YAML 骨架。
+ * 默认写入 src/data/works-draft/（草稿区），确认后通过 promote.mjs 迁入正式目录。
  * （Node 版，替代 import_neodb.py——与 validate.mjs 统一运行时，CI 无需 Python）
  *
  * 用法:
  *   export NEODB_TOKEN=xxxx        # neodb.social -> 设置 -> 应用/API -> 生成 token
  *   node scripts/import_neodb.mjs [--instance https://neodb.social] [--shelf complete]
+ *   （在读 progress 不导入——馆长裁决 2026-07-11：读完才编目）
+ *
+ * 增量模式（默认）：
+ *   - 读取 scripts/.import-state.json 记录的上次导入位置
+ *   - 只拉取新增的条目，避免重复导入
+ *   - --force 忽略 checkpoint，全量重拉并重置状态
+ *
+ * 输出路径：
+ *   - 默认 src/data/works-draft/（不在 Astro 内容集合范围内，不会影响构建）
+ *   - --out src/data/works 可跳过草稿直接入正式目录（兼容旧流程）
  *
  * 注意:
  *   - 每个 NeoDB 条目生成一条 work，你读的那个版本标 mine: true。
@@ -15,9 +26,13 @@
  *   - 已存在的文件不会覆盖（--force 可覆盖）。
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { pinyin } from 'pinyin-pro';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const STATE_FILE = join(__dirname, '.import-state.json');
 
 function slugify(s) {
   // 中文转拼音，其他非 ASCII 字符剥离
@@ -45,12 +60,56 @@ function yamlStr(s) {
   return s;
 }
 
+/** 读取 checkpoint: { last_imported_uuid, last_imported_date, shelf } */
+function readState() {
+  try {
+    if (existsSync(STATE_FILE)) {
+      return JSON.parse(readFileSync(STATE_FILE, 'utf-8'));
+    }
+  } catch { /* 文件损坏视为无状态 */ }
+  return null;
+}
+
+/** 写入 checkpoint */
+function writeState(state) {
+  mkdirSync(dirname(STATE_FILE), { recursive: true });
+  writeFileSync(STATE_FILE, JSON.stringify(state, null, 2) + '\n', 'utf-8');
+}
+
+/**
+ * 从正式目录的已有工作中提取最新的 neodb_uuid 和日期，用于初始化 checkpoint。
+ * 避免首次运行新脚本时把全库重复拉进 draft。
+ */
+function initStateFromWorks(worksDir) {
+  if (!existsSync(worksDir)) return null;
+  let newestUuid = null;
+  let newestDate = null;
+  const uuidRe = /^neodb_uuid:\s*['"]?([^\s'"]+)['"]?\s*$/m;
+  const dateRe = /^\s*-\s*date:\s*['"]?(\d{4}-\d{2}-\d{2})['"]?/m;  // 兼容平铺（顶格）与缩进两种风格
+
+  for (const name of readdirSync(worksDir)) {
+    if (!name.endsWith('.yaml')) continue;
+    let text;
+    try { text = readFileSync(join(worksDir, name), 'utf-8'); } catch { continue; }
+    const uuid = text.match(uuidRe)?.[1];
+    const date = text.match(dateRe)?.[1];
+    if (uuid && date && (!newestDate || date > newestDate)) {
+      newestDate = date;
+      newestUuid = uuid;
+    }
+  }
+  if (newestUuid) {
+    console.log(`从已有 works/ 初始化 checkpoint: ${newestDate}（${newestUuid.slice(0, 8)}…）`);
+  }
+  return newestUuid ? { last_imported_uuid: newestUuid, last_imported_date: newestDate } : null;
+}
+
 async function api(url, token) {
   const r = await fetch(url, {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: 'application/json',
-      'User-Agent': 'ether-catalog-import/0.2',
+      'User-Agent': 'ether-catalog-import/0.3',
     },
     signal: AbortSignal.timeout(30_000),
   });
@@ -58,37 +117,18 @@ async function api(url, token) {
   return r.json();
 }
 
-const DATE_RE = /['"](\d{4}-\d{2}-\d{2})['"]/g;
-
-/** 扫描已有 work 文件的 readings[].date，返回最新的日期字符串。 */
-function latestReadingDate(worksDir) {
-  let latest = null;
-  for (const name of readdirSync(worksDir)) {
-    if (!name.endsWith('.yaml')) continue;
-    let text;
-    try {
-      text = readFileSync(join(worksDir, name), 'utf-8');
-    } catch {
-      continue;
-    }
-    for (const m of text.matchAll(DATE_RE)) {
-      if (latest === null || m[1] > latest) latest = m[1];
-    }
-  }
-  return latest;
-}
-
 async function main() {
   const { values: args } = parseArgs({
     options: {
       instance: { type: 'string', default: 'https://neodb.social' },
       shelf: { type: 'string', default: 'complete' },
-      out: { type: 'string', default: 'src/data/works' },
+      out: { type: 'string', default: 'src/data/works-draft' },
       force: { type: 'boolean', default: false },
     },
   });
-  if (!['complete', 'progress', 'wishlist'].includes(args.shelf)) {
-    process.exit(console.error('--shelf 只能是 complete / progress / wishlist') ?? 2);
+  // 在读（progress）不入目录（馆长裁决 2026-07-11）：读完才编目
+  if (!['complete', 'wishlist'].includes(args.shelf)) {
+    process.exit(console.error('--shelf 只能是 complete / wishlist（在读不入目录）') ?? 2);
   }
 
   const token = process.env.NEODB_TOKEN;
@@ -99,13 +139,35 @@ async function main() {
 
   mkdirSync(args.out, { recursive: true });
 
-  // 找到已有目录里最新的阅读日期，作为增量导入的截止线
-  const cutoff = args.force ? null : latestReadingDate(args.out);
-  if (cutoff) console.log(`已有目录最新阅读日期: ${cutoff}，仅导入此日期之后的条目。`);
+  // 增量模式：读取 checkpoint；无 checkpoint 时尝试从正式目录初始化
+  // --force 跳过全部初始化，真正全量拉取
+  let state = args.force ? null : readState();
+  if (!state && !args.force) {
+    const init = initStateFromWorks('src/data/works');
+    if (init) {
+      state = init;
+      writeState({ ...init, shelf: args.shelf, updated_at: new Date().toISOString() });
+    }
+  }
+  const checkpointUuid = state?.last_imported_uuid ?? null;
+  const checkpointDate = state?.last_imported_date ?? null;
 
-  const usedSlugs = new Map(); // slug → 已用次数（仅计入通过日期过滤的条目）
+  if (checkpointUuid) {
+    console.log(`增量模式：上次导入到 ${checkpointDate}（uuid: ${checkpointUuid.slice(0, 8)}…），仅拉取此后的条目。`);
+  } else if (args.force) {
+    console.log('--force 模式：忽略 checkpoint，全量拉取。');
+  } else {
+    console.log('无 checkpoint 且 works/ 无可用数据，全量拉取（首次导入）。');
+  }
+  if (args.out !== 'src/data/works-draft') {
+    console.log(`⚠️  输出目标: ${args.out}（非默认草稿目录）`);
+  }
+
+  const usedSlugs = new Map(); // slug → 已用次数
   const collisions = [];
   let page = 1, written = 0, skipped = 0;
+  let reachedCheckpoint = false;
+  let newestWritten = null; // { uuid, date } —— 本轮写入的最新条目
 
   while (true) {
     const data = await api(`${args.instance}/api/me/shelf/${args.shelf}?category=book&page=${page}`, token);
@@ -115,21 +177,24 @@ async function main() {
     for (const mark of results) {
       const item = mark.item ?? {};
       const title = item.title || 'untitled';
+      const itemUuid = item.uuid ?? '';
 
-      // 从 credits 里提取作者和译者
-      const credits = item.credits ?? [];
-      const authors = credits.filter((c) => c.role === 'author').map((c) => c.name);
-      const translators = credits.filter((c) => c.role === 'translator').map((c) => c.name);
-      const rating = mark.rating_grade; // NeoDB 10 分制
+      // 增量停止条件（shelf 按 created_time 降序）：
+      // 1) 精确：遇到 checkpoint uuid 就停；
+      // 2) 兜底：checkpoint uuid 不在本架（被取消标记/换架等）时，靠日期截止，避免全量重拉。
       const created = (mark.created_time ?? '').slice(0, 10);
-      const lang = (item.localized_title ?? [{}])[0]?.lang ?? '';
-
-      // 增量模式：跳过不晚于截止日期的条目
-      if (cutoff && created && created <= cutoff) {
-        skipped++;
-        continue;
+      if (checkpointUuid && itemUuid === checkpointUuid) {
+        reachedCheckpoint = true;
+        break;
+      }
+      if (checkpointDate && created && created < checkpointDate) {
+        reachedCheckpoint = true;
+        break;
       }
 
+      // 检查 draft 目录是否已有此文件（按 neodb_uuid 判断）
+      // 一个简单检查：遍历已有 draft 文件名查找 uuid
+      // 此处用文件名存在性检查作为快速路径
       const base = slugify(title).slice(0, 50);
       const n = (usedSlugs.get(base) ?? 0) + 1;
       usedSlugs.set(base, n);
@@ -146,6 +211,13 @@ async function main() {
         continue;
       }
 
+      // 从 credits 里提取作者和译者
+      const credits = item.credits ?? [];
+      const authors = credits.filter((c) => c.role === 'author').map((c) => c.name);
+      const translators = credits.filter((c) => c.role === 'translator').map((c) => c.name);
+      const rating = mark.rating_grade;
+      const lang = (item.localized_title ?? [{}])[0]?.lang ?? '';
+
       const lines = [
         `title: ${yamlStr(title)}`,
         `orig_lang: ${yamlStr(lang || 'TODO')}`,
@@ -158,25 +230,50 @@ async function main() {
         '    mine: true',
       ];
       if (translators.length) lines.splice(lines.length - 1, 0, `    translator: ${yamlStr(translators[0])}`);
-      if (created) lines.push('readings:', `  - date: ${yamlStr(created)}`, '    platform: NeoDB 标记');
+      if (created) lines.push('readings:', `  - date: ${yamlStr(created)}`);  // edition（载体）由馆长回填，platform 字段已废除（CATALOGING v0.5）
       if (rating !== null && rating !== undefined) lines.push(`rating: ${rating}`);
-      lines.push(`status: ${args.shelf === 'progress' ? 'reading' : 'read'}`);
-      if (item.uuid) lines.push(`neodb_uuid: ${yamlStr(item.uuid)}`);
+      lines.push('status: read');
+      if (itemUuid) lines.push(`neodb_uuid: ${yamlStr(itemUuid)}`);
 
       writeFileSync(path, lines.join('\n') + '\n', 'utf-8');
       written++;
+
+      // 记录本轮最新写入的条目（第一页第一条就是最新的）
+      if (!newestWritten) {
+        newestWritten = { uuid: itemUuid, date: created };
+      }
+    }
+
+    if (reachedCheckpoint) {
+      console.log(`page ${page}: 命中 checkpoint，停止拉取。`);
+      break;
     }
     console.log(`page ${page}: 累计写入 ${written}，跳过 ${skipped}`);
     if (page >= (data.pages ?? 1)) break;
     page++;
   }
 
-  console.log(`完成：${written} 条新著录，${skipped} 条已存在跳过。`);
+  // 更新 checkpoint（除非拉取结果为空）
+  if (newestWritten) {
+    writeState({
+      last_imported_uuid: newestWritten.uuid,
+      last_imported_date: newestWritten.date,
+      shelf: args.shelf,
+      updated_at: new Date().toISOString(),
+    });
+    console.log(`checkpoint 已更新: ${newestWritten.date}（${newestWritten.uuid.slice(0, 8)}…）`);
+  }
+
+  console.log(`\n完成：${written} 条新著录 → ${args.out}，${skipped} 条跳过。`);
   if (collisions.length) {
     console.log(`\n⚠️  ${collisions.length} 组 slug 碰撞（需手动合并）：`);
     for (const [slug, title] of collisions) console.log(`    ${slug} → "${title}"（同名多版本/多语言）`);
   }
-  console.log('下一步：合并多语言重复条目 → 建 people 权威记录 → 回填 creators。');
+  if (args.out === 'src/data/works-draft') {
+    console.log('\n下一步：审阅草稿 → node scripts/promote.mjs --list → --all 迁入正式目录');
+  } else {
+    console.log('下一步：合并多语言重复条目 → 建 people 权威记录 → 回填 creators。');
+  }
 }
 
 main().catch((e) => {

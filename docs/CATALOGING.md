@@ -114,7 +114,44 @@
 
 ## 9. 编目作业流程
 
-把 NeoDB 自动导入的书目骨架整理成合规著录的逐文件算法。适用于 `creators_raw` 还在、callno/slug 未算的生数据。著录已完成后的复核见 `docs/VERIFICATION.md`。
+完整流水线：**导入 → 审阅 → 迁入 → 编目 → 复核 → 确认**。
+
+```
+NeoDB API
+  │  import_neodb.mjs
+  ▼
+src/data/works-draft/     ← 草稿区（不受 Astro 扫描，不影响构建）
+  │  人工审阅（书对不对？有无重复？）
+  ▼
+promote.mjs --all          ← 校验 slug/UUID/结构后移入正式目录
+  │
+src/data/works/            ← 正式目录（开始编目）
+  │  逐文件编目（§9.1 算法）
+  ▼
+validate.mjs → build       ← 阻断性校验
+  │  VERIFICATION.md
+  ▼
+confirmed: true            ← 馆长确认，标识符永久冻结
+```
+
+### 9.0 导入与迁入
+
+**导入**（`scripts/import_neodb.mjs`）：
+- 从 NeoDB 拉取标记，生成 work YAML 骨架写入 `src/data/works-draft/`（默认）。
+- 增量模式：读取 `scripts/.import-state.json` 记录的上次导入位置，仅拉取新增条目。
+- `--force` 忽略 checkpoint 全量重拉；`--out src/data/works` 可跳过草稿直入正式目录（兼容旧流程）。
+- 导入脚本不验证书目质量——`creators` 留空、`subjects` 留空、`orig_lang` 可能不准，这些是后续编目步骤的事。
+
+**审阅**（人工）：
+- 扫一眼草稿目录：书对不对？有没有多语言版本该合并的？明显错漏？
+- 可以在 draft 阶段就手动修正明显的错误（如修正 `untitled` 文件名）。
+
+**迁入**（`scripts/promote.mjs`）：
+- `--list` 列出所有草稿及校验结果。
+- `--slug <name>` 迁入单本；`--all` 迁入全部。
+- 迁入前自动校验：slug 冲突、UUID 冲突、title/orig_lang 不为空或 TODO。
+- 校验失败拒绝迁入，列出原因；修复后重试。
+- 迁入成功 = 文件从 `works-draft/` 移动到 `works/`（非复制）。
 
 > 本节是操作流程；字段规则依据仍在 §2–§6，不在此重复。§0 四条禁令全程有效。
 
@@ -219,6 +256,8 @@ QUESTIONS: 无
 
 ## 版本记录
 
+- v0.11（2026-07-11）在读（progress）不入目录（馆长裁决）：读完才编目。`status` 枚举去掉 `reading`（现存数据无一使用）；导入脚本仅拉 complete/wishlist，workflow 与页面在读标记同步移除。附带修复导入脚本：增量停止改为「uuid 精确 + 日期兜底」双条件（原日期兜底是死代码，checkpoint 失效会全量重拉）；`--force` 真正全量（原来会被 works/ 初始化悄悄变回增量）；checkpoint 初始化兼容平铺风格 readings 日期；骨架不再写已废除的 `platform` 字段。
+- v0.10（2026-07-11）导入流水线重构：新增 `scripts/promote.mjs`（草稿迁入脚本，带 slug/UUID/结构校验），`import_neodb.mjs` 默认输出改 `src/data/works-draft/`（Astro 不扫描的草稿区），增加 UUID checkpoint 文件（`scripts/.import-state.json`）替代逐文件扫描日期。完整流程：导入→审阅→迁入→编目→复核→确认。旧流程仍可通过 `--out src/data/works` 使用。
 - v0.9（2026-07-10）§4 题名词改为"不足 4 字符时用 slug 后续段补足"（馆长批准）：原规则短段直接截止（`el-tunel` → `EL`），导致大量 2 字母题名词且法语冠词书名频繁撞车；新规则 `el-tunel` → `ELTU`、`5-de-gai-bian` → `5DEG`。全库未 confirmed 记录按新规则重算。
 - v0.8（2026-07-10）合并 `docs/TASK.md` 进本文档为 §9「编目作业流程」，消除两文档重复定义导致的矛盾；修正 §4 Callno 格式（原 workmark 制未反映实际数据，改为四段式 `{分类}-{著者号}-{年份}-{题名词}`，与全库 484/492 条实际 callno 一致）；§0 增第 4 条禁令（事实数据原样保留，原 TASK 三禁令之一）；删除已执行的 `docs/SUBJECTS-PROPOSAL-v2.md`（内容已落入 v0.7 记录）。docs/ 现剩 CATALOGING / VERIFICATION / QUESTIONS 三份。
 - v0.7（2026-07-10）主题词表 v2 全面改版（馆长批准）：词表统一为"诗意视角型"语域，共 28 词（当日早先一轮 12 词扩充提案 v0.6 未及使用即被本版取代，记录已删）。「亲密关系」(116 本) 拆为 未命名的关系/爱的余烬/并肩的孤独/心动配方；「空间与记忆」(76 本) 拆为 记忆的地形/街角的人间；「规范性暴力」(5 本) 废除并入 父权的解剖/谁在定义现实；其余 15 词 1→1 更换措辞（哀悼与丧失→与丧失同居、非典型女性经验→不按剧本的她们、厌女结构→父权的解剖、认知权力不对等→谁在定义现实、劳动异化→打卡的灵魂、母职与家庭→血缘的引力、身份流动→我是谁的练习、不可靠/碎片化叙事→叙事的迷宫、书之书→文学的后台、书信体→见字如面、谜题装置→精巧的圈套、终活与身后事→练习告别、诊疗室叙事→沙发上的自我、非规范欲望→欲望的旷野、神经多样性→不同频的大脑）；观看的训练/怠工的自由/概念急救箱/一餐一饭/轻盈的重量/非人尺度/老年的形状 7 词保留。同批补标 23 本原空主题词记录，迁移中不确定的判断已记 QUESTIONS.md。

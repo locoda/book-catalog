@@ -21,24 +21,22 @@ jobs:
 
       - run: npm ci
 
-      - name: Import from NeoDB
+      - name: Import from NeoDB → draft
         env:
           NEODB_TOKEN: ${{ secrets.NEODB_TOKEN }}
-        run: |
-          node scripts/import_neodb.mjs                  # 已读
-          node scripts/import_neodb.mjs --shelf progress # 在读
+        run: node scripts/import_neodb.mjs   # 已读 → drafts/（在读不入目录）
 
-      - name: Validate new records against schema
-        run: npm run build   # prebuild 跑 validate.mjs + zod schema 校验：新著录不合法这里会直接失败，不会污染 main
+      - name: List drafts for review
+        run: node scripts/promote.mjs --list
 
-      - name: Commit & push if anything new
+      - name: Commit & push drafts
         run: |
           git config user.name "catalog-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/works
+          git add src/data/works-draft
           if git diff --cached --quiet; then
-            echo "No new marks this week."
+            echo "No new marks."
           else
-            git commit -m "chore: auto-import from NeoDB ($(date -u +%F))"
+            git commit -m "chore: auto-import drafts from NeoDB ($(date -u +%F))"
             git push
           fi

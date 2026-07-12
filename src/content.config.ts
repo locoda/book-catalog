@@ -43,7 +43,7 @@ const works = defineCollection({
     })).default([]),
     rating: z.number().min(0).max(10).optional(),
     rating_source: z.string().default('NeoDB'),
-    status: z.enum(['read', 'reading', 'shelved']).default('read'),
+    status: z.enum(['read', 'shelved']).default('read'),  // 在读不入目录（馆长裁决 2026-07-11）：读完才编目
     placeholder: z.boolean().default(false),  // 示意数据，待真实导入覆盖
     confirmed: z.boolean().default(false),    // 馆长确认：true 后 slug/callno/people id 永久冻结（CATALOGING §0.2）
   }).superRefine((w, ctx) => {

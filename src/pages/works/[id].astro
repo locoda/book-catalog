@@ -40,9 +40,7 @@ const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
 
   <div class="main wrap">
     <article class="cat-card">
-      {d.status === 'reading'
-        ? <div class="stamp-badge reading"><b>在读</b></div>
-        : d.rating != null && <div class="stamp-badge"><b>{d.rating}</b></div>}
+      {d.rating != null && <div class="stamp-badge"><b>{d.rating}</b></div>}
       <div class="callno"><span>{work.id}</span><span>{d.callno}</span></div>
       <h1 class="work-title jp">{displayTitle}</h1>
       {showOrigSubtitle && (

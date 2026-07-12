@@ -119,7 +119,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           <span class="langs">
             {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
           </span>
-          <span class="score">{r.data.status === 'reading' ? '在读' : r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+          <span class="score">{r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
         </a>
       ))}
       <div class="empty-note hidden" id="empty">这个切面下暂时没有著录。</div>
