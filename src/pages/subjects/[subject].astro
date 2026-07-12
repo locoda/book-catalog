@@ -2,21 +2,21 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langLabel } from '../../lib/lang';
+import { SUBJECTS } from '../../lib/subjects';
 
 export async function getStaticPaths() {
-  const works = await getCollection('works');
-  const subjects = new Set(works.flatMap((w) => w.data.subjects));
-  return [...subjects].map((s) => ({
-    params: { subject: s.replace(/\//g, '／') },
-    props: { originalSubject: s },
+  // 词表 v3：URL 用 slug（冻结），显示用 name
+  return SUBJECTS.map((s) => ({
+    params: { subject: s.slug },
+    props: { subject: s },
   }));
 }
 
-const { originalSubject } = Astro.props;
+const { subject } = Astro.props;
 const allWorks = await getCollection('works');
 
 const matched = allWorks
-  .filter((w) => w.data.subjects.includes(originalSubject!))
+  .filter((w) => w.data.subjects.includes(subject.name))
   .sort((a, b) => (a.data.callno ?? '').localeCompare(b.data.callno ?? ''));
 
 const rows = await Promise.all(matched.map(async (w) => {
@@ -32,11 +32,12 @@ const rows = await Promise.all(matched.map(async (w) => {
   };
 }));
 ---
-<Base title={`${originalSubject} · 主题 · 乙觅书阁`}>
+<Base title={`${subject.name} · 主题 · 乙觅书阁`}>
   <nav class="breadcrumb wrap"><a href="/subjects/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="results wrap">
-    <h3>{originalSubject}&nbsp;/&nbsp;{rows.length}&nbsp;种著作</h3>
+    <h3>{subject.name}&nbsp;/&nbsp;{rows.length}&nbsp;种著作</h3>
+    <p class="subject-desc">{subject.desc}</p>
     <div id="rows">
       {rows.map((r) => (
         <a class="row" href={`/works/${r.id}/`}>
@@ -51,3 +52,12 @@ const rows = await Promise.all(matched.map(async (w) => {
     </div>
   </section>
 </Base>
+
+<style>
+  .subject-desc {
+    margin: 2px 0 18px;
+    color: #9FB0C8;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+</style>

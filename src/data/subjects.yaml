@@ -1,32 +1,89 @@
-# 受控主题词表（机器可读单一来源）
-# - 规则与定义见 docs/CATALOGING.md §6；本文件是 schema（src/content.config.ts）
-#   与 scripts/validate.py 共同读取的唯一词表来源。
-# - 变更须经馆长批准：在此增删词条，并在 CATALOGING.md §8 版本记录里记一行。
-- 未命名的关系
-- 爱的余烬
-- 并肩的孤独
-- 心动配方
-- 记忆的地形
-- 街角的人间
-- 与丧失同居
-- 不按剧本的她们
-- 父权的解剖
-- 谁在定义现实
-- 打卡的灵魂
-- 血缘的引力
-- 我是谁的练习
-- 叙事的迷宫
-- 文学的后台
-- 见字如面
-- 精巧的圈套
-- 练习告别
-- 沙发上的自我
-- 欲望的旷野
-- 不同频的大脑
-- 观看的训练
-- 怠工的自由
-- 概念急救箱
-- 一餐一饭
-- 轻盈的重量
-- 非人尺度
-- 老年的形状
+# 受控主题词表 v3（机器可读单一来源）
+# - 每条：slug（主题页 URL，冻结不改）/ name（显示名）/ desc（一句话释义）
+# - 规则见 docs/CATALOGING.md §6；schema（src/lib/subjects.ts → content.config.ts）
+#   与 scripts/validate.mjs 都从本文件读取，词表外主题词会阻断构建。
+# - 变更须经馆长批准：在此增删改，并在 CATALOGING.md §8 版本记录里记一行。
+- slug: unnamed
+  name: 悬而未名
+  desc: 拒绝归类的关系：友达以上，恋人未满，或无从命名。
+- slug: embers
+  name: 余烬未冷
+  desc: 爱熄灭之后——失恋、离散、旧情残温。
+- slug: alone-together
+  name: 并肩而孤
+  desc: 亲密关系内部的孤独：同床异梦，相对无言。
+- slug: flutter
+  name: 心动症候
+  desc: 心动与热恋进行时：暧昧、试探、坠入。
+- slug: old-haunts
+  name: 故地重游
+  desc: 记忆与空间的交织：旧地、故乡、往事的地貌。
+- slug: street-life
+  name: 市井烟火
+  desc: 街头巷尾的普通人间：小店、邻里、城市烟火。
+- slug: living-with-loss
+  name: 与丧失同居
+  desc: 哀悼是长期同居而非节点：丧亲之后的日常。
+- slug: off-script
+  name: 脱稿的她们
+  desc: 不按社会剧本生活的女性：不婚、出走、重来。
+- slug: patriarchy
+  name: 解剖父权
+  desc: 厌女、性别暴力与父权结构的批判性检视。
+- slug: who-defines-reality
+  name: 谁在定义现实
+  desc: 煤气灯、话语权与认知操纵：现实由谁说了算。
+- slug: nine-to-five
+  name: 职场浮生
+  desc: 劳动、职场与被工作定形的生活。
+- slug: kinship
+  name: 血缘引力
+  desc: 家庭、母职、代际之间的拉扯与羁绊。
+- slug: becoming
+  name: 成为自己
+  desc: 身份的流动与自我构建：性别、族裔、阶层的位移。
+- slug: narrative-maze
+  name: 叙事迷宫
+  desc: 不可靠叙事、碎片结构、需要破解的文本。
+- slug: backstage
+  name: 书页背后
+  desc: 关于书的书：作家、编辑、书店、阅读本身。
+- slug: letters
+  name: 见字如面
+  desc: 书信体与往来通信。
+- slug: contraption
+  name: 机关重重
+  desc: 谜题、诡计与精密的叙事装置。
+- slug: rehearsing-farewell
+  name: 练习告别
+  desc: 终活、临终与身后事：如何练习离开。
+- slug: on-the-couch
+  name: 诊疗室
+  desc: 心理咨询、精神分析与自我修复。
+- slug: wilderness
+  name: 欲望旷野
+  desc: 非规范的欲望与性：越界、禁忌、身体。
+- slug: neurodivergent
+  name: 异频心智
+  desc: 神经多样性：与主流不同步的心智。
+- slug: ways-of-seeing
+  name: 观看之道
+  desc: 视觉、艺术与如何观看（致敬 Berger）。
+- slug: idle
+  name: 不事生产
+  desc: 反生产力：休息、怠工、拒绝内卷。
+- slug: concept-kit
+  name: 概念急救箱
+  desc: 哲学与理论的应急工具箱。
+- slug: daily-bread
+  name: 一餐一饭
+  desc: 食物、烹饪与餐桌上的生活。
+- slug: light-and-heavy
+  name: 举重若轻
+  desc: 以轻盈笔触承载沉重主题。
+- slug: nonhuman
+  name: 非人尺度
+  desc: 动物、植物、机器与超越人类的视角。
+- slug: late-life
+  name: 老之将至
+  desc: 衰老、照护与生命末段的样子。

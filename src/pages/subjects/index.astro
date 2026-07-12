@@ -1,31 +1,46 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { SUBJECTS } from '../../lib/subjects';
 
 const works = await getCollection('works');
 
-// 统计每词作品数
-const subjectMap: Record<string, number> = {};
+// 每词作品数
+const counts = new Map<string, number>();
 for (const w of works) {
-  for (const s of w.data.subjects) {
-    subjectMap[s] = (subjectMap[s] || 0) + 1;
-  }
+  for (const s of w.data.subjects) counts.set(s, (counts.get(s) ?? 0) + 1);
 }
 
-const subjects = Object.entries(subjectMap)
-  .sort(([a, ca], [b, cb]) => cb - ca || a.localeCompare(b, 'zh'));
+// 词表顺序即馆长排定的展示顺序（subjects.yaml）
+const entries = SUBJECTS.map((s) => ({ ...s, count: counts.get(s.name) ?? 0 }));
 ---
 <Base title="主题词 · 乙觅书阁">
   <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
 
   <section class="results wrap">
-    <h3>SUBJECTS&nbsp;/&nbsp;主题词&nbsp;·&nbsp;{subjects.length}&nbsp;个词</h3>
-    <div class="subject-cloud">
-      {subjects.map(([s, count]) => (
-        <a class="subject-chip" href={`/subjects/${s.replace(/\//g, '／')}/`}>
-          {s}<span class="mono">{count}</span>
+    <h3>SUBJECTS&nbsp;/&nbsp;主题词</h3>
+    <div id="rows">
+      {entries.map((s) => (
+        <a class="row" href={`/subjects/${s.slug}/`}>
+          <span class="mono">{s.slug}</span>
+          <span>{s.name}</span>
+          <span class="langs">{s.desc}</span>
+          <span class="score">{s.count} 种著作</span>
         </a>
       ))}
     </div>
   </section>
 </Base>
+
+<style>
+  /* 本页释义列内容长、词名短：调宽第三列（全局 .row 是 1.5fr/1fr） */
+  #rows .row {
+    grid-template-columns: 140px minmax(0, 0.55fr) minmax(0, 2.2fr) 90px;
+  }
+  /* 与全局 820px 断点保持一致的移动端塌缩 */
+  @media (max-width: 820px) {
+    #rows .row {
+      grid-template-columns: 1fr auto;
+    }
+  }
+</style>

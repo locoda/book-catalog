@@ -51,7 +51,17 @@ const errors = [];
 const warns = [];
 
 const peopleIds = new Set(yamlFiles(PEOPLE).map((p) => basename(p, '.yaml')));
-const vocab = new Set(parse(readFileSync(SUBJECTS_FILE, 'utf-8')) ?? []);
+// 词表 v3：{slug, name, desc}[]；校验用 name 集合，顺带查 slug/name 唯一
+const subjectEntries = parse(readFileSync(SUBJECTS_FILE, 'utf-8')) ?? [];
+const vocab = new Set(subjectEntries.map((s) => s?.name));
+for (const key of ['slug', 'name']) {
+  const seen = new Set();
+  for (const s of subjectEntries) {
+    if (!s?.[key]) errors.push([SUBJECTS_FILE, `词表条目缺 ${key}: ${JSON.stringify(s)}`]);
+    else if (seen.has(s[key])) errors.push([SUBJECTS_FILE, `词表 ${key} 重复: ${s[key]}`]);
+    else seen.add(s[key]);
+  }
+}
 const callnos = new Map();
 
 const files = yamlFiles(WORKS);

@@ -5,6 +5,7 @@
  * 布局为构建期确定性力导向模拟，无运行时依赖；hover 高亮邻接星 + 例书浮层。
  */
 import { getCollection } from 'astro:content';
+import { subjectUrl } from '../lib/subjects';
 
 const works = await getCollection('works');
 
@@ -273,7 +274,7 @@ const hoverData = names.map((s, i) => ({
       ))}
 
       {nodes.map(nd => (
-        <a href={`/subjects/${nd.s.replace(/\//g, '／')}/`} class="sky-node" data-i={nd.i}>
+        <a href={subjectUrl(nd.s)} class="sky-node" data-i={nd.i}>
           <circle class="sky-hit" cx={nd.x} cy={nd.y} r={Math.max(nd.r + 14, 20)} fill="transparent"/>
           <circle class="sky-halo" cx={nd.x} cy={nd.y} r={nd.r * 3} fill="url(#star-glow)" opacity="0"/>
           <circle class="sky-star" cx={nd.x} cy={nd.y} r={nd.r} fill-opacity={nd.op}/>
@@ -297,7 +298,7 @@ const hoverData = names.map((s, i) => ({
   <!-- 移动端：标签云（触屏无 hover，星图缩到手机宽度不可读）。单主题藏书 >20 本才显示 chip，其余靠「全部主题」入口（与著者云一致） -->
   <div class="subject-cloud subject-cloud-mobile">
     {nodes.filter(nd => nd.n > 20).map(nd => (
-      <a class="subject-chip" href={`/subjects/${nd.s.replace(/\//g, '／')}/`}>
+      <a class="subject-chip" href={subjectUrl(nd.s)}>
         {nd.s}<span class="mono">{nd.n}</span>
       </a>
     ))}
