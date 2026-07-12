@@ -494,6 +494,7 @@ footer.site{
 /* ---------- 主页 · 主题词云（2d）---------- */
 .cloud{margin-top:64px}
 .cloud .subject-chip{line-height:1.4}
+.subject-chips-side{display:flex;flex-wrap:wrap;gap:7px}
 .subject-more{font-size:12px;color:var(--faint);align-self:center}
 .subject-more:hover{color:#fff}
 
@@ -562,7 +563,7 @@ footer.site{
 .subject-cloud-mobile{display:none}
 @media (max-width:700px){
   .constellation-wrap{display:none}
-  .subject-cloud-mobile{display:flex}
+  .subject-cloud-mobile{display:flex;flex-wrap:wrap;gap:8px}
   .subject-desk{display:none}
 }
 

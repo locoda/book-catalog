@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { getName, subjectUrl } from '../../lib/subjects';
 
 export async function getStaticPaths() {
   const people = await getCollection('people');
@@ -10,6 +11,16 @@ export async function getStaticPaths() {
 const { person } = Astro.props;
 const works = (await getCollection('works')).filter((w) => w.data.creators.some((c) => c.id === person.id));
 works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
+
+// 著者主题摘要：去重 + 按频次排序，全部显示（侧栏 chip）
+const subjectFreq = new Map<string, number>();
+for (const w of works) {
+  for (const s of w.data.subjects) {
+    subjectFreq.set(s, (subjectFreq.get(s) ?? 0) + 1);
+  }
+}
+const topSubjects = [...subjectFreq.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 ---
 <Base title={`${person.data.name} · 乙觅书阁`}>
   <nav class="breadcrumb wrap"><a href="/people/" onclick="history.back();return false">← 返回</a></nav>
@@ -39,5 +50,20 @@ works.sort((a, b) => (a.data.year ?? 0) - (b.data.year ?? 0));
         ))}
       </div>
     </article>
+
+    {topSubjects.length > 0 && (
+      <aside class="side">
+        <div class="panel">
+          <h3>THEMES / 相关主题</h3>
+          <div class="subject-chips-side">
+            {topSubjects.map(([slug, n]) => (
+              <a class="subject-chip" href={subjectUrl(slug)}>
+                {getName(slug)}<span class="mono">{n}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    )}
   </div>
 </Base>
