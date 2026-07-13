@@ -1,9 +1,11 @@
 name: Sonoko Machida
 sort: Machida, Sonoko
+gender: female
 forms:
-  - script: ja
-    value: 町田苑香
-  - script: ja-Latn
-    value: Machida Sonoko
-  - script: zh
-    value: 町田苑香
+- script: ja
+  value: 町田苑香
+- script: ja-Latn
+  value: Machida Sonoko
+- script: zh-Hans
+  value: 町田苑香
+- {script: zh-Hant, value: 町田苑香}

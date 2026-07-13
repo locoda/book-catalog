@@ -1,4 +1,7 @@
 name: Arundhati Roy
 sort: Roy, Arundhati
+gender: female
 forms:
-  - {script: en, value: Arundhati Roy}
+- {script: en, value: Arundhati Roy}
+- {script: zh-Hans, value: 阿兰达蒂·洛伊}
+- {script: zh-Hant, value: 阿蘭達蒂·洛伊}

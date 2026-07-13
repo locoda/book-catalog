@@ -1,7 +1,9 @@
 name: Joan Didion
 sort: Didion, Joan
+gender: female
 forms:
-  - script: en
-    value: Joan Didion
-  - script: zh
-    value: 琼·迪迪恩
+- script: en
+  value: Joan Didion
+- script: zh-Hans
+  value: 琼·迪迪恩
+- {script: zh-Hant, value: 瓊·迪迪恩}

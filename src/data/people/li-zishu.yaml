@@ -1,3 +1,4 @@
 name: Li Zishu
 sort: Li, Zishu
-forms: [{script: zh, value: 黎紫书}, {script: zh-Latn, value: Li Zishu}]
+gender: female
+forms: [{script: zh-Hans, value: 黎紫书}, {script: zh-Latn, value: Li Zishu}, {script: zh-Hant, value: 黎紫書}]

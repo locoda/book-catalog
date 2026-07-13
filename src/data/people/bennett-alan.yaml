@@ -1,7 +1,9 @@
 name: Alan Bennett
 sort: Bennett, Alan
+gender: male
 forms:
-  - script: en
-    value: Alan Bennett
-  - script: zh
-    value: 亞倫·班奈
+- script: en
+  value: Alan Bennett
+- script: zh-Hans
+  value: 亞倫·班奈
+- {script: zh-Hant, value: 亞倫·班奈}

@@ -1,4 +1,7 @@
 name: Max Porter
 sort: Porter, Max
+gender: male
 forms:
-  - {script: en, value: Max Porter}
+- {script: en, value: Max Porter}
+- {script: zh-Hans, value: 马克斯·波特}
+- {script: zh-Hant, value: 馬克斯·波特}

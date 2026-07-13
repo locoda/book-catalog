@@ -1,9 +1,11 @@
 name: Suzumi Suzuki
 sort: Suzuki, Suzumi
+gender: female
 forms:
-  - script: ja
-    value: 鈴木涼美
-  - script: ja-Latn
-    value: Suzuki Suzumi
-  - script: zh
-    value: 铃木凉美
+- script: ja
+  value: 鈴木涼美
+- script: ja-Latn
+  value: Suzuki Suzumi
+- script: zh-Hans
+  value: 铃木凉美
+- {script: zh-Hant, value: 鈴木涼美}

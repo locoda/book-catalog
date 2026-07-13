@@ -1,3 +1,4 @@
 name: Carlo Rovelli
 sort: Rovelli, Carlo
-forms: [{script: it, value: Carlo Rovelli}, {script: zh, value: 卡洛·罗韦利}]
+gender: male
+forms: [{script: it, value: Carlo Rovelli}, {script: zh-Hans, value: 卡洛·罗韦利}, {script: zh-Hant, value: 卡洛·羅韋利}]

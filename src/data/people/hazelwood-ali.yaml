@@ -1,4 +1,7 @@
 name: Ali Hazelwood
 sort: Hazelwood, Ali
+gender: female
 forms:
-  - {script: en, value: Ali Hazelwood}
+- {script: en, value: Ali Hazelwood}
+- {script: zh-Hans, value: 艾丽·黑泽尔伍德}
+- {script: zh-Hant, value: 艾麗·黑澤爾伍德}

@@ -1,7 +1,9 @@
 name: Chizuko Ueno
 sort: Ueno, Chizuko
+gender: female
 forms:
-  - {script: ja, value: 上野千鶴子}
-  - {script: ja-kana, value: うえの ちづこ}
-  - {script: ja-Latn, value: Ueno Chizuko}
-  - {script: zh, value: 上野千鹤子}
+- {script: ja, value: 上野千鶴子}
+- {script: ja-kana, value: うえの ちづこ}
+- {script: ja-Latn, value: Ueno Chizuko}
+- {script: zh-Hans, value: 上野千鹤子}
+- {script: zh-Hant, value: 上野千鶴子}

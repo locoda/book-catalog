@@ -1,5 +1,7 @@
 name: Zygmunt Bauman
 sort: Bauman, Zygmunt
+gender: male
 forms:
-  - {script: en, value: Zygmunt Bauman}
-  - {script: zh, value: 齐格蒙特·鲍曼}
+- {script: en, value: Zygmunt Bauman}
+- {script: zh-Hans, value: 齐格蒙特·鲍曼}
+- {script: zh-Hant, value: 齊格蒙特·鮑曼}

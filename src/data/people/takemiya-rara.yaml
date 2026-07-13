@@ -1,7 +1,10 @@
 name: Rara Takemiya
 sort: Takemiya, Rara
+gender: female
 forms:
-  - script: ja
-    value: 竹美家らら
-  - script: ja-Latn
-    value: Takemiya Rara
+- script: ja
+  value: 竹美家らら
+- script: ja-Latn
+  value: Takemiya Rara
+- {script: zh-Hans, value: 竹美家らら}
+- {script: zh-Hant, value: 竹美家らら}

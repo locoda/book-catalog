@@ -1,4 +1,8 @@
 name: Theresa Hak Kyung Cha
 sort: Cha, Theresa Hak Kyung
+gender: female
 forms:
-  - {script: en, value: Theresa Hak Kyung Cha}
+- {script: en, value: Theresa Hak Kyung Cha}
+- {script: zh-Hans, value: 车学敬}
+- {script: zh-Hant, value: 車學敬}
+- {script: ko, value: 차학경}

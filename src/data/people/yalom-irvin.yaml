@@ -1,7 +1,9 @@
 name: Irvin D. Yalom
 sort: Yalom, Irvin D.
+gender: male
 forms:
 - script: en
   value: Irvin D. Yalom
-- script: zh
+- script: zh-Hans
   value: 欧文·亚隆
+- {script: zh-Hant, value: 歐文·亞隆}

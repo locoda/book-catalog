@@ -1,5 +1,7 @@
 name: Kazuo Ishiguro
 sort: Ishiguro, Kazuo
+gender: male
 forms:
-  - {script: en, value: Kazuo Ishiguro}
-  - {script: zh, value: 石黑一雄}
+- {script: en, value: Kazuo Ishiguro}
+- {script: zh-Hans, value: 石黑一雄}
+- {script: zh-Hant, value: 石黑一雄}

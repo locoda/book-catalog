@@ -1,7 +1,9 @@
 name: Virginia Woolf
 sort: Woolf, Virginia
+gender: female
 forms:
-  - script: en
-    value: Virginia Woolf
-  - script: zh
-    value: 弗吉尼亚·伍尔夫
+- script: en
+  value: Virginia Woolf
+- script: zh-Hans
+  value: 弗吉尼亚·伍尔夫
+- {script: zh-Hant, value: 弗吉尼亞·伍爾夫}

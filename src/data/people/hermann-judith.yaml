@@ -1,9 +1,11 @@
 name: Judith Hermann
 sort: Hermann, Judith
+gender: female
 forms:
 - script: en
   value: Judith Hermann
 - script: de
   value: Judith Hermann
-- script: zh
+- script: zh-Hans
   value: Judith Hermann
+- {script: zh-Hant, value: Judith Hermann}

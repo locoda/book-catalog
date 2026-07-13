@@ -1,3 +1,4 @@
 name: NHK Women's Poverty Reporting Team
 sort: NHK Women's Poverty Reporting Team
-forms: [{script: ja, value: "NHK「女性の貧困」取材班"}, {script: zh, value: NHK「女性贫困」取材班}]
+gender: unknown
+forms: [{script: ja, value: "NHK「女性の貧困」取材班"}, {script: zh-Hans, value: NHK「女性贫困」取材班}, {script: zh-Hant, value: NHK「女性貧困」取材班}]

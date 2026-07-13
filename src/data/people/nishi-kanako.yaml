@@ -1,5 +1,6 @@
 name: Kanako Nishi
 sort: Nishi, Kanako
+gender: female
 forms:
 - script: en
   value: Kanako Nishi
@@ -7,5 +8,6 @@ forms:
   value: 西加奈子
 - script: ja-kana
   value: にし かなこ
-- script: zh
+- script: zh-Hans
   value: 西加奈子
+- {script: zh-Hant, value: 西加奈子}

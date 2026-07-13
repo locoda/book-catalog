@@ -1,5 +1,7 @@
 name: Terry Eagleton
 sort: Eagleton, Terry
+gender: male
 forms:
-  - {script: en, value: Terry Eagleton}
-  - {script: zh, value: 特里·伊格尔顿}
+- {script: en, value: Terry Eagleton}
+- {script: zh-Hans, value: 特里·伊格尔顿}
+- {script: zh-Hant, value: 特里·伊格爾頓}

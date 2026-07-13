@@ -1,9 +1,11 @@
 name: Park Sang-young
 sort: Park, Sang-young
+gender: male
 forms:
 - script: en
   value: Park Sang-young
 - script: ko
   value: 박상영
-- script: zh
+- script: zh-Hans
   value: 朴相映
+- {script: zh-Hant, value: 樸相映}

@@ -1,7 +1,9 @@
 name: Uko Kodama
 sort: Kodama, Uko
+gender: female
 forms:
-  - {script: en, value: Uko Kodama}
-  - {script: ja, value: 兒玉雨子}
-  - {script: ja-kana, value: こだま うこ}
-  - {script: zh, value: 儿玉雨子}
+- {script: en, value: Uko Kodama}
+- {script: ja, value: 兒玉雨子}
+- {script: ja-kana, value: こだま うこ}
+- {script: zh-Hans, value: 儿玉雨子}
+- {script: zh-Hant, value: 兒玉雨子}

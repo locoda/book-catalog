@@ -1,4 +1,8 @@
 name: Jon Fosse
 sort: Fosse, Jon
+gender: male
 forms:
-  - {script: en, value: Jon Fosse}
+- {script: en, value: Jon Fosse}
+- {script: zh-Hans, value: 约恩·福瑟}
+- {script: zh-Hant, value: 約恩·福瑟}
+- {script: no, value: Jon Fosse}

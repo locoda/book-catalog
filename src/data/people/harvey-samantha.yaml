@@ -1,4 +1,7 @@
 name: Samantha Harvey
 sort: Harvey, Samantha
+gender: female
 forms:
-  - {script: en, value: Samantha Harvey}
+- {script: en, value: Samantha Harvey}
+- {script: zh-Hans, value: 萨曼莎·哈维}
+- {script: zh-Hant, value: 薩曼莎·哈維}

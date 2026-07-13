@@ -1,7 +1,9 @@
 name: bell hooks
 sort: hooks, bell
+gender: female
 forms:
-  - script: en
-    value: bell hooks
-  - script: zh
-    value: 贝尔·胡克斯
+- script: en
+  value: bell hooks
+- script: zh-Hans
+  value: 贝尔·胡克斯
+- {script: zh-Hant, value: 貝爾·胡克斯}

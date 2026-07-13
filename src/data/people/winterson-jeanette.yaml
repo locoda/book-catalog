@@ -1,5 +1,7 @@
 name: Jeanette Winterson
 sort: Winterson, Jeanette
+gender: female
 forms:
-  - {script: en, value: Jeanette Winterson}
-  - {script: zh, value: 珍妮特·温特森}
+- {script: en, value: Jeanette Winterson}
+- {script: zh-Hans, value: 珍妮特·温特森}
+- {script: zh-Hant, value: 珍妮特·溫特森}

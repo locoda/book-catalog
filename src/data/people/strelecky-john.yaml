@@ -1,7 +1,9 @@
 name: John Strelecky
 sort: Strelecky, John
+gender: male
 forms:
-  - script: en
-    value: John Strelecky
-  - script: zh
-    value: 约翰·史崔勒基
+- script: en
+  value: John Strelecky
+- script: zh-Hans
+  value: 约翰·史崔勒基
+- {script: zh-Hant, value: 約翰·史崔勒基}

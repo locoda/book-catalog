@@ -1,3 +1,4 @@
 name: Ismail Kadare
 sort: Kadare, Ismail
-forms: [{script: sq, value: Ismail Kadare}, {script: zh, value: 伊斯梅尔·卡达莱}]
+gender: male
+forms: [{script: sq, value: Ismail Kadare}, {script: zh-Hans, value: 伊斯梅尔·卡达莱}, {script: zh-Hant, value: 伊斯梅爾·卡達萊}]

@@ -1,5 +1,7 @@
 name: Ilse Sand
 sort: Sand, Ilse
+gender: female
 forms:
-  - {script: en, value: Ilse Sand}
-  - {script: zh, value: 伊尔斯·桑德}
+- {script: en, value: Ilse Sand}
+- {script: zh-Hans, value: 伊尔斯·桑德}
+- {script: zh-Hant, value: 伊爾斯·桑德}

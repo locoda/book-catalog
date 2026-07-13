@@ -1,7 +1,9 @@
 name: Ryō Asai
 sort: Asai, Ryō
+gender: male
 forms:
-  - {script: en, value: Ryō Asai}
-  - {script: ja, value: 朝井リョウ}
-  - {script: ja-kana, value: あさい りょう}
-  - {script: zh, value: 朝井辽}
+- {script: en, value: Ryō Asai}
+- {script: ja, value: 朝井リョウ}
+- {script: ja-kana, value: あさい りょう}
+- {script: zh-Hans, value: 朝井辽}
+- {script: zh-Hant, value: 朝井遼}

@@ -1,7 +1,9 @@
 name: Dag Solstad
 sort: Solstad, Dag
+gender: male
 forms:
-  - script: no
-    value: Dag Solstad
-  - script: zh
-    value: 達格·索爾斯塔
+- script: no
+  value: Dag Solstad
+- script: zh-Hans
+  value: 達格·索爾斯塔
+- {script: zh-Hant, value: 達格·索爾斯塔}

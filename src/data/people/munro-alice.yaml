@@ -1,5 +1,7 @@
 name: Alice Munro
 sort: Munro, Alice
+gender: female
 forms:
-  - {script: en, value: Alice Munro}
-  - {script: zh, value: 艾丽丝·门罗}
+- {script: en, value: Alice Munro}
+- {script: zh-Hans, value: 艾丽丝·门罗}
+- {script: zh-Hant, value: 艾麗絲·門羅}

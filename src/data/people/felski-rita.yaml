@@ -1,5 +1,7 @@
 name: Rita Felski
 sort: Felski, Rita
+gender: female
 forms:
-  - {script: en, value: Rita Felski}
-  - {script: zh, value: 芮塔·菲尔斯基}
+- {script: en, value: Rita Felski}
+- {script: zh-Hans, value: 芮塔·菲尔斯基}
+- {script: zh-Hant, value: 芮塔·菲爾斯基}

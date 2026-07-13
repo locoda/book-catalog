@@ -1,6 +1,8 @@
 name: Orhan Pamuk
 sort: Pamuk, Orhan
+gender: male
 forms:
-  - {script: en, value: Orhan Pamuk}
-  - {script: tr, value: Orhan Pamuk}
-  - {script: zh, value: 奥尔罕·帕慕克}
+- {script: en, value: Orhan Pamuk}
+- {script: tr, value: Orhan Pamuk}
+- {script: zh-Hans, value: 奥尔罕·帕慕克}
+- {script: zh-Hant, value: 奧爾罕·帕慕克}

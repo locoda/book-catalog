@@ -1,3 +1,4 @@
 name: Choi Eun-young
 sort: Choi, Eun-young
-forms: [{script: ko, value: 최은영}, {script: zh, value: 崔恩荣}]
+gender: female
+forms: [{script: ko, value: 최은영}, {script: zh-Hans, value: 崔恩荣}, {script: zh-Hant, value: 崔恩榮}]

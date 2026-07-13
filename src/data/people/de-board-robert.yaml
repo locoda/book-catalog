@@ -1,5 +1,7 @@
 name: Robert de Board
 sort: De Board, Robert
+gender: male
 forms:
-  - {script: en, value: Robert de Board}
-  - {script: zh, value: 罗伯特·戴博德}
+- {script: en, value: Robert de Board}
+- {script: zh-Hans, value: 罗伯特·戴博德}
+- {script: zh-Hant, value: 羅伯特·戴博德}

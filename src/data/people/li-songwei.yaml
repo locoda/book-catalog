@@ -1,7 +1,9 @@
 name: Li Songwei
 sort: Li, Songwei
+gender: male
 forms:
-  - script: zh
-    value: 李松蔚
-  - script: zh-Latn
-    value: Li Songwei
+- script: zh-Hans
+  value: 李松蔚
+- script: zh-Latn
+  value: Li Songwei
+- {script: zh-Hant, value: 李松蔚}

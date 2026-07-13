@@ -1,5 +1,7 @@
 name: Jonathan Culler
 sort: Culler, Jonathan
+gender: male
 forms:
-  - {script: en, value: Jonathan Culler}
-  - {script: zh, value: 乔纳森·卡勒}
+- {script: en, value: Jonathan Culler}
+- {script: zh-Hans, value: 乔纳森·卡勒}
+- {script: zh-Hant, value: 喬納森·卡勒}

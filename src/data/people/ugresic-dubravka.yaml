@@ -1,7 +1,9 @@
 name: Dubravka Ugrešić
 sort: Ugrešić, Dubravka
+gender: female
 forms:
-  - script: hr
-    value: Dubravka Ugrešić
-  - script: zh
-    value: 杜布拉夫卡·乌格雷西奇
+- script: hr
+  value: Dubravka Ugrešić
+- script: zh-Hans
+  value: 杜布拉夫卡·乌格雷西奇
+- {script: zh-Hant, value: 杜布拉夫卡·烏格雷西奇}

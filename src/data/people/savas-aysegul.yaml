@@ -1,4 +1,8 @@
 name: Ayşegül Savaş
 sort: Savaş, Ayşegül
+gender: female
 forms:
-  - {script: en, value: Ayşegül Savaş}
+- {script: en, value: Ayşegül Savaş}
+- {script: zh-Hans, value: 艾谢居尔·萨瓦什}
+- {script: zh-Hant, value: 艾謝居爾·薩瓦什}
+- {script: tr, value: Ayşegül Savaş}

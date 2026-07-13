@@ -1,7 +1,9 @@
 name: Elizabeth Strout
 sort: Strout, Elizabeth
+gender: female
 forms:
-  - script: en
-    value: Elizabeth Strout
-  - script: zh
-    value: 伊丽莎白·斯特劳特
+- script: en
+  value: Elizabeth Strout
+- script: zh-Hans
+  value: 伊丽莎白·斯特劳特
+- {script: zh-Hant, value: 伊麗莎白·斯特勞特}

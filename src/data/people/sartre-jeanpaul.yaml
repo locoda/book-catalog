@@ -1,7 +1,9 @@
 name: Jean-Paul Sartre
 sort: Sartre, Jean-Paul
+gender: male
 forms:
-  - script: fr
-    value: Jean-Paul Sartre
-  - script: zh
-    value: 让-保罗·萨特
+- script: fr
+  value: Jean-Paul Sartre
+- script: zh-Hans
+  value: 让-保罗·萨特
+- {script: zh-Hant, value: 讓-保羅·薩特}

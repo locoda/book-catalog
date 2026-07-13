@@ -1,9 +1,11 @@
 name: Marcelle Sauvageot
 sort: Sauvageot, Marcelle
+gender: female
 forms:
 - script: en
   value: Marcelle Sauvageot
 - script: fr
   value: Marcelle Sauvageot
-- script: zh
+- script: zh-Hans
   value: 玛塞尔·索瓦热奥
+- {script: zh-Hant, value: 瑪塞爾·索瓦熱奧}

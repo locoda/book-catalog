@@ -1,4 +1,7 @@
 name: Alice Oseman
 sort: Oseman, Alice
+gender: female
 forms:
-  - {script: en, value: Alice Oseman}
+- {script: en, value: Alice Oseman}
+- {script: zh-Hans, value: 爱丽丝·奥斯曼}
+- {script: zh-Hant, value: 愛麗絲·奧斯曼}

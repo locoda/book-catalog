@@ -1,3 +1,4 @@
 name: Stefan Zweig
 sort: Zweig, Stefan
-forms: [{script: de, value: Stefan Zweig}, {script: zh, value: 斯蒂芬·茨威格}]
+gender: male
+forms: [{script: de, value: Stefan Zweig}, {script: zh-Hans, value: 斯蒂芬·茨威格}, {script: zh-Hant, value: 斯蒂芬·茨威格}]

@@ -1,7 +1,9 @@
 name: Yōko Ogawa
 sort: Ogawa, Yōko
+gender: female
 forms:
-  - {script: en, value: Yōko Ogawa}
-  - {script: ja, value: 小川洋子}
-  - {script: ja-kana, value: おがわ ようこ}
-  - {script: zh, value: 小川洋子}
+- {script: en, value: Yōko Ogawa}
+- {script: ja, value: 小川洋子}
+- {script: ja-kana, value: おがわ ようこ}
+- {script: zh-Hans, value: 小川洋子}
+- {script: zh-Hant, value: 小川洋子}

@@ -1,7 +1,9 @@
 name: Amemichi Sunagawa
 sort: Sunagawa, Amemichi
+gender: female
 forms:
-  - {script: en, value: Amemichi Sunagawa}
-  - {script: ja, value: 砂川雨路}
-  - {script: ja-kana, value: すながわ あめみち}
-  - {script: zh, value: 砂川雨路}
+- {script: en, value: Amemichi Sunagawa}
+- {script: ja, value: 砂川雨路}
+- {script: ja-kana, value: すながわ あめみち}
+- {script: zh-Hans, value: 砂川雨路}
+- {script: zh-Hant, value: 砂川雨路}

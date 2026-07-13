@@ -1,4 +1,7 @@
 name: Mark Manson
 sort: Manson, Mark
+gender: male
 forms:
-  - {script: en, value: Mark Manson}
+- {script: en, value: Mark Manson}
+- {script: zh-Hans, value: 马克·曼森}
+- {script: zh-Hant, value: 馬克·曼森}

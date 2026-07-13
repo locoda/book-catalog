@@ -1,7 +1,9 @@
 name: Mizuki Nomura
 sort: Nomura, Mizuki
+gender: female
 forms:
-  - {script: en, value: Mizuki Nomura}
-  - {script: ja, value: 野村美月}
-  - {script: ja-kana, value: のむら みずき}
-  - {script: zh, value: 野村美月}
+- {script: en, value: Mizuki Nomura}
+- {script: ja, value: 野村美月}
+- {script: ja-kana, value: のむら みずき}
+- {script: zh-Hans, value: 野村美月}
+- {script: zh-Hant, value: 野村美月}

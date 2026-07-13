@@ -1,7 +1,9 @@
 name: Ocean Vuong
 sort: Vuong, Ocean
+gender: male
 forms:
-  - script: en
-    value: Ocean Vuong
-  - script: zh
-    value: 王鷗行
+- script: en
+  value: Ocean Vuong
+- script: zh-Hans
+  value: 王鷗行
+- {script: zh-Hant, value: 王鷗行}

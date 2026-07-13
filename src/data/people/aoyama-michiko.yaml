@@ -1,9 +1,11 @@
 name: Michiko Aoyama
 sort: Aoyama, Michiko
+gender: female
 forms:
-  - script: ja
-    value: 青山美智子
-  - script: ja-Latn
-    value: Aoyama Michiko
-  - script: zh
-    value: 青山美智子
+- script: ja
+  value: 青山美智子
+- script: ja-Latn
+  value: Aoyama Michiko
+- script: zh-Hans
+  value: 青山美智子
+- {script: zh-Hant, value: 青山美智子}

@@ -1,6 +1,8 @@
 name: Okajima Futari
 sort: Okajima, Futari
+gender: male
 forms:
-  - {script: en, value: Okajima Futari}
-  - {script: ja, value: 岡嶋二人}
-  - {script: zh, value: 冈岛二人}
+- {script: en, value: Okajima Futari}
+- {script: ja, value: 岡嶋二人}
+- {script: zh-Hans, value: 冈岛二人}
+- {script: zh-Hant, value: 岡島二人}

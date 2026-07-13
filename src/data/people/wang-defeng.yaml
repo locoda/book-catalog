@@ -1,7 +1,9 @@
 name: Wang Defeng
 sort: Wang, Defeng
+gender: male
 forms:
 - script: en
   value: Wang Defeng
-- script: zh
+- script: zh-Hans
   value: 王德峰
+- {script: zh-Hant, value: 王德峯}

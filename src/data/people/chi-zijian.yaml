@@ -1,7 +1,9 @@
 name: Chi Zijian
 sort: Chi, Zijian
+gender: female
 forms:
-  - script: zh
-    value: 迟子建
-  - script: zh-Latn
-    value: Chi Zijian
+- script: zh-Hans
+  value: 迟子建
+- script: zh-Latn
+  value: Chi Zijian
+- {script: zh-Hant, value: 遲子建}

@@ -1,7 +1,9 @@
 name: Steven Pressfield
 sort: Pressfield, Steven
+gender: male
 forms:
 - script: en
   value: Steven Pressfield
-- script: zh
+- script: zh-Hans
   value: 史蒂文·普莱斯菲尔德
+- {script: zh-Hant, value: 史蒂文·普萊斯菲爾德}

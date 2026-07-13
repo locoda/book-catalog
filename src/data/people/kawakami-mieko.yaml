@@ -1,7 +1,9 @@
 name: Mieko Kawakami
 sort: Kawakami, Mieko
+gender: female
 forms:
-  - {script: en, value: Mieko Kawakami}
-  - {script: ja, value: 川上未映子}
-  - {script: ja-kana, value: かわかみ みえこ}
-  - {script: zh, value: 川上未映子}
+- {script: en, value: Mieko Kawakami}
+- {script: ja, value: 川上未映子}
+- {script: ja-kana, value: かわかみ みえこ}
+- {script: zh-Hans, value: 川上未映子}
+- {script: zh-Hant, value: 川上未映子}

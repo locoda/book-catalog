@@ -1,7 +1,9 @@
 name: Sayaka Murata
 sort: Murata, Sayaka
+gender: female
 forms:
-  - {script: ja, value: 村田沙耶香}
-  - {script: ja-kana, value: むらた さやか}
-  - {script: ja-Latn, value: Murata Sayaka}
-  - {script: zh, value: 村田沙耶香}
+- {script: ja, value: 村田沙耶香}
+- {script: ja-kana, value: むらた さやか}
+- {script: ja-Latn, value: Murata Sayaka}
+- {script: zh-Hans, value: 村田沙耶香}
+- {script: zh-Hant, value: 村田沙耶香}

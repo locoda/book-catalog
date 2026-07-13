@@ -1,4 +1,10 @@
 name: Fusako Innami
 sort: Innami, Fusako
+gender: female
 forms:
-  - {script: en, value: Fusako Innami}
+- {script: en, value: Fusako Innami}
+- {script: zh-Hans, value: 印南不二子}
+- {script: zh-Hant, value: 印南不二子}
+- {script: ja, value: 印南不二子}
+- {script: ja-kana, value: いんなみ ふさこ}
+- {script: ja-Latn, value: Innami Fusako}

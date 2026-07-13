@@ -1,7 +1,9 @@
 name: Abbas Kiarostami
 sort: Kiarostami, Abbas
+gender: male
 forms:
 - script: en
   value: Abbas Kiarostami
-- script: zh
+- script: zh-Hans
   value: 阿巴斯·基阿鲁斯达米
+- {script: zh-Hant, value: 阿巴斯·基阿魯斯達米}

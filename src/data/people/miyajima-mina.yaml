@@ -1,7 +1,10 @@
 name: Mina Miyajima
 sort: Miyajima, Mina
+gender: female
 forms:
-  - script: ja
-    value: 宮島未奈
-  - script: ja-Latn
-    value: Miyajima Mina
+- script: ja
+  value: 宮島未奈
+- script: ja-Latn
+  value: Miyajima Mina
+- {script: zh-Hans, value: 宮島未奈}
+- {script: zh-Hant, value: 宮島未奈}

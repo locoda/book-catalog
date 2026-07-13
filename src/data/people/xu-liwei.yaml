@@ -1,7 +1,9 @@
 name: Xu Liwei
 sort: Xu, Liwei
+gender: female
 forms:
 - script: en
   value: Xu Liwei
-- script: zh
+- script: zh-Hans
   value: 许俐葳
+- {script: zh-Hant, value: 許俐葳}

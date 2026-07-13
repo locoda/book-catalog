@@ -1,5 +1,6 @@
 name: Natsuko Imamura
 sort: Imamura, Natsuko
+gender: female
 forms:
 - script: en
   value: Natsuko Imamura
@@ -7,5 +8,6 @@ forms:
   value: 今村夏子
 - script: ja-kana
   value: いまむら なつこ
-- script: zh
+- script: zh-Hans
   value: 今村夏子
+- {script: zh-Hant, value: 今村夏子}

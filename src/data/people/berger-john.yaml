@@ -1,5 +1,7 @@
 name: John Berger
 sort: Berger, John
+gender: male
 forms:
-  - {script: en, value: John Berger}
-  - {script: zh, value: 约翰·伯格}
+- {script: en, value: John Berger}
+- {script: zh-Hans, value: 约翰·伯格}
+- {script: zh-Hant, value: 約翰·伯格}

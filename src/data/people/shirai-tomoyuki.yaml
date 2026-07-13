@@ -1,5 +1,6 @@
 name: Tomoyuki Shirai
 sort: Shirai, Tomoyuki
+gender: male
 forms:
 - script: en
   value: Tomoyuki Shirai
@@ -7,5 +8,6 @@ forms:
   value: 白井智之
 - script: ja-kana
   value: しらい ともゆき
-- script: zh
+- script: zh-Hans
   value: 白井智之
+- {script: zh-Hant, value: 白井智之}

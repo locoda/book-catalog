@@ -1,6 +1,8 @@
 name: Misaki Ichijo
 sort: Ichijo, Misaki
+gender: female
 forms:
-  - {script: ja, value: 一条岬}
-  - {script: ja-kana, value: いちじょう みさき}
-  - {script: zh, value: 一条岬}
+- {script: ja, value: 一条岬}
+- {script: ja-kana, value: いちじょう みさき}
+- {script: zh-Hans, value: 一条岬}
+- {script: zh-Hant, value: 一條岬}

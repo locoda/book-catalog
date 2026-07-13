@@ -1,3 +1,4 @@
 name: V.S. Naipaul
 sort: Naipaul, V.S.
-forms: [{script: en, value: V.S. Naipaul}, {script: zh, value: 奈保尔}]
+gender: male
+forms: [{script: en, value: V.S. Naipaul}, {script: zh-Hans, value: 奈保尔}, {script: zh-Hant, value: 奈保爾}]

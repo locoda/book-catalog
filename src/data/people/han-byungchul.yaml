@@ -1,9 +1,11 @@
 name: Byung-Chul Han
 sort: Han, Byung-Chul
+gender: male
 forms:
-  - script: de
-    value: Byung-Chul Han
-  - script: ko
-    value: 한병철
-  - script: zh
-    value: 韩炳哲
+- script: de
+  value: Byung-Chul Han
+- script: ko
+  value: 한병철
+- script: zh-Hans
+  value: 韩炳哲
+- {script: zh-Hant, value: 韓炳哲}

@@ -1,4 +1,8 @@
 name: Stephanie Foo
 sort: Foo, Stephanie
+gender: female
 forms:
-  - {script: en, value: Stephanie Foo}
+- {script: en, value: Stephanie Foo}
+- {script: zh-Hans, value: 符晓薇}
+- {script: zh-Hant, value: 符曉薇}
+- {script: zh-Latn, value: Foo Xiaowei}

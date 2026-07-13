@@ -1,3 +1,4 @@
 name: Haley McGee
 sort: McGee, Haley
-forms: [{script: en, value: Haley McGee}, {script: zh, value: 海莉·麦克吉}]
+gender: female
+forms: [{script: en, value: Haley McGee}, {script: zh-Hans, value: 海莉·麦克吉}, {script: zh-Hant, value: 海莉·麥克吉}]

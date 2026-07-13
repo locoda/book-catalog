@@ -1,3 +1,4 @@
 name: Diana Athill
 sort: Athill, Diana
-forms: [{script: en, value: Diana Athill}, {script: zh, value: 戴安娜·阿西尔}]
+gender: female
+forms: [{script: en, value: Diana Athill}, {script: zh-Hans, value: 戴安娜·阿西尔}, {script: zh-Hant, value: 戴安娜·阿西爾}]

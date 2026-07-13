@@ -1,7 +1,9 @@
 name: Banana Yoshimoto
 sort: Yoshimoto, Banana
+gender: female
 forms:
-  - {script: en, value: Banana Yoshimoto}
-  - {script: ja, value: よしもとばなな}
-  - {script: ja-kana, value: よしもと ばなな}
-  - {script: zh, value: 吉本芭娜娜}
+- {script: en, value: Banana Yoshimoto}
+- {script: ja, value: よしもとばなな}
+- {script: ja-kana, value: よしもと ばなな}
+- {script: zh-Hans, value: 吉本芭娜娜}
+- {script: zh-Hant, value: 吉本芭娜娜}

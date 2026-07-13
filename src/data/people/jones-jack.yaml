@@ -1,3 +1,4 @@
 name: Jack Jones
 sort: Jones, Jack
-forms: [{script: en, value: Jack Jones}, {script: zh, value: 杰克·琼斯}]
+gender: male
+forms: [{script: en, value: Jack Jones}, {script: zh-Hans, value: 杰克·琼斯}, {script: zh-Hant, value: 傑克·瓊斯}]

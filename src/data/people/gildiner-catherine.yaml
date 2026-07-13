@@ -1,7 +1,9 @@
 name: Catherine Gildiner
 sort: Gildiner, Catherine
+gender: female
 forms:
 - script: en
   value: Catherine Gildiner
-- script: zh
+- script: zh-Hans
   value: 凯瑟琳·吉尔迪纳
+- {script: zh-Hant, value: 凱瑟琳·吉爾迪納}

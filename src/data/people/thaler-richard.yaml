@@ -1,7 +1,9 @@
 name: Richard H. Thaler
 sort: Thaler, Richard H.
+gender: male
 forms:
-  - script: en
-    value: Richard H. Thaler
-  - script: zh
-    value: 理查德·泰勒
+- script: en
+  value: Richard H. Thaler
+- script: zh-Hans
+  value: 理查德·泰勒
+- {script: zh-Hant, value: 理查德·泰勒}

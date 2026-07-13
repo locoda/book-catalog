@@ -1,7 +1,9 @@
 name: Fredrik Backman
 sort: Backman, Fredrik
+gender: male
 forms:
-  - script: sv
-    value: Fredrik Backman
-  - script: zh
-    value: 弗雷德里克·巴克曼
+- script: sv
+  value: Fredrik Backman
+- script: zh-Hans
+  value: 弗雷德里克·巴克曼
+- {script: zh-Hant, value: 弗雷德里克·巴克曼}

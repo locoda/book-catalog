@@ -1,3 +1,4 @@
 name: Liz Climo
 sort: Climo, Liz
-forms: [{script: en, value: Liz Climo}, {script: zh, value: 莉兹·克里莫}]
+gender: female
+forms: [{script: en, value: Liz Climo}, {script: zh-Hans, value: 莉兹·克里莫}, {script: zh-Hant, value: 莉茲·克里莫}]

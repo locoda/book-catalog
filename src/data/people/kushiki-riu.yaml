@@ -1,7 +1,9 @@
 name: Riu Kushiki
 sort: Kushiki, Riu
+gender: male
 forms:
-  - {script: en, value: Riu Kushiki}
-  - {script: ja, value: 櫛木理宇}
-  - {script: ja-kana, value: くしき りう}
-  - {script: zh, value: 栉木理宇}
+- {script: en, value: Riu Kushiki}
+- {script: ja, value: 櫛木理宇}
+- {script: ja-kana, value: くしき りう}
+- {script: zh-Hans, value: 栉木理宇}
+- {script: zh-Hant, value: 櫛木理宇}

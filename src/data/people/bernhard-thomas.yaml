@@ -1,6 +1,8 @@
 name: Thomas Bernhard
 sort: Bernhard, Thomas
+gender: male
 forms:
-  - {script: en, value: Thomas Bernhard}
-  - {script: de, value: Thomas Bernhard}
-  - {script: zh, value: 托马斯·伯恩哈德}
+- {script: en, value: Thomas Bernhard}
+- {script: de, value: Thomas Bernhard}
+- {script: zh-Hans, value: 托马斯·伯恩哈德}
+- {script: zh-Hant, value: 托馬斯·伯恩哈德}

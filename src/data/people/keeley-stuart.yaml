@@ -1,7 +1,9 @@
 name: Stuart Keeley
 sort: Keeley, Stuart
+gender: male
 forms:
 - script: en
   value: Stuart Keeley
-- script: zh
+- script: zh-Hans
   value: 斯图尔特·基利
+- {script: zh-Hant, value: 斯圖爾特·基利}

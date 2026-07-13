@@ -1,7 +1,9 @@
 name: Alberto Moravia
 sort: Moravia, Alberto
+gender: male
 forms:
-  - script: it
-    value: Alberto Moravia
-  - script: zh
-    value: 阿尔贝托·莫拉维亚
+- script: it
+  value: Alberto Moravia
+- script: zh-Hans
+  value: 阿尔贝托·莫拉维亚
+- {script: zh-Hant, value: 阿爾貝託·莫拉維亞}

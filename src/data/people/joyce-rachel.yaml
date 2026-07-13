@@ -1,3 +1,4 @@
 name: Rachel Joyce
 sort: Joyce, Rachel
-forms: [{script: en, value: Rachel Joyce}, {script: zh, value: 蕾秋·乔伊斯}]
+gender: female
+forms: [{script: en, value: Rachel Joyce}, {script: zh-Hans, value: 蕾秋·乔伊斯}, {script: zh-Hant, value: 蕾秋·喬伊斯}]

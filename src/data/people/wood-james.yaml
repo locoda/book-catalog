@@ -1,4 +1,7 @@
 name: James Wood
 sort: Wood, James
+gender: male
 forms:
-  - {script: en, value: James Wood}
+- {script: en, value: James Wood}
+- {script: zh-Hans, value: 詹姆斯·伍德}
+- {script: zh-Hant, value: 詹姆斯·伍德}

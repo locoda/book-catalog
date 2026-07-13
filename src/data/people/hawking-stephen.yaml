@@ -1,3 +1,4 @@
 name: Stephen Hawking
 sort: Hawking, Stephen
-forms: [{script: en, value: Stephen Hawking}, {script: zh, value: 斯蒂芬·霍金}]
+gender: male
+forms: [{script: en, value: Stephen Hawking}, {script: zh-Hans, value: 斯蒂芬·霍金}, {script: zh-Hant, value: 斯蒂芬·霍金}]

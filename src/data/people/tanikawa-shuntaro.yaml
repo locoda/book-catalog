@@ -1,9 +1,11 @@
 name: Shuntarō Tanikawa
 sort: Tanikawa, Shuntarō
+gender: male
 forms:
-  - script: ja
-    value: 谷川俊太郎
-  - script: ja-Latn
-    value: Tanikawa Shuntarō
-  - script: zh
-    value: 谷川俊太郎
+- script: ja
+  value: 谷川俊太郎
+- script: ja-Latn
+  value: Tanikawa Shuntarō
+- script: zh-Hans
+  value: 谷川俊太郎
+- {script: zh-Hant, value: 谷川俊太郎}

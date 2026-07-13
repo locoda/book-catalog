@@ -1,5 +1,7 @@
 name: Jorge Luis Borges
 sort: Borges, Jorge Luis
+gender: male
 forms:
-  - {script: es, value: Jorge Luis Borges}
-  - {script: zh, value: 豪尔赫·路易斯·博尔赫斯}
+- {script: es, value: Jorge Luis Borges}
+- {script: zh-Hans, value: 豪尔赫·路易斯·博尔赫斯}
+- {script: zh-Hant, value: 豪爾赫·路易斯·博爾赫斯}

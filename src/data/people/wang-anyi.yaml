@@ -1,5 +1,7 @@
 name: Wang Anyi
 sort: Wang, Anyi
+gender: female
 forms:
-  - {script: en, value: Wang Anyi}
-  - {script: zh, value: 王安忆}
+- {script: en, value: Wang Anyi}
+- {script: zh-Hans, value: 王安忆}
+- {script: zh-Hant, value: 王安憶}

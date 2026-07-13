@@ -1,7 +1,9 @@
 name: Pete Walker
 sort: Walker, Pete
+gender: male
 forms:
-  - script: en
-    value: Pete Walker
-  - script: zh
-    value: 皮特·沃克
+- script: en
+  value: Pete Walker
+- script: zh-Hans
+  value: 皮特·沃克
+- {script: zh-Hant, value: 皮特·沃克}

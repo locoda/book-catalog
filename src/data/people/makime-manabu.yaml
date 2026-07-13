@@ -1,11 +1,12 @@
 name: Manabu Makime
 sort: Makime, Manabu
+gender: male
 forms:
-  - script: ja
-    value: 万城目学
-  - script: zh-Hant
-    value: 萬城目學
-  - script: ja-Latn
-    value: Makime Manabu
-  - script: zh
-    value: 万城目学
+- script: ja
+  value: 万城目学
+- script: zh-Hant
+  value: 萬城目學
+- script: ja-Latn
+  value: Makime Manabu
+- script: zh-Hans
+  value: 万城目学

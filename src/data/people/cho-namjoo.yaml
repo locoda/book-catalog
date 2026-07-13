@@ -1,9 +1,11 @@
 name: Cho Nam-Joo
 sort: Cho, Nam-Joo
+gender: female
 forms:
-  - script: ko
-    value: 조남주
-  - script: ko-Latn
-    value: Cho Nam-joo
-  - script: zh
-    value: 赵南柱
+- script: ko
+  value: 조남주
+- script: ko-Latn
+  value: Cho Nam-joo
+- script: zh-Hans
+  value: 赵南柱
+- {script: zh-Hant, value: 趙南柱}

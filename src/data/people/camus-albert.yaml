@@ -1,5 +1,7 @@
 name: Albert Camus
 sort: Camus, Albert
+gender: male
 forms:
-  - {script: fr, value: Albert Camus}
-  - {script: zh, value: 阿尔贝·加缪}
+- {script: fr, value: Albert Camus}
+- {script: zh-Hans, value: 阿尔贝·加缪}
+- {script: zh-Hant, value: 阿爾貝·加繆}

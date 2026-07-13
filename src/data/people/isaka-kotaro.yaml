@@ -1,7 +1,9 @@
 name: Kotaro Isaka
 sort: Isaka, Kotaro
+gender: male
 forms:
-  - {script: en, value: Kotaro Isaka}
-  - {script: ja, value: 伊坂幸太郎}
-  - {script: ja-kana, value: いさか こうたろう}
-  - {script: zh, value: 伊坂幸太郎}
+- {script: en, value: Kotaro Isaka}
+- {script: ja, value: 伊坂幸太郎}
+- {script: ja-kana, value: いさか こうたろう}
+- {script: zh-Hans, value: 伊坂幸太郎}
+- {script: zh-Hant, value: 伊坂幸太郎}

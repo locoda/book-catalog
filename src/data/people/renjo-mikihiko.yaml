@@ -1,5 +1,6 @@
 name: Mikihiko Renjo
 sort: Renjo, Mikihiko
+gender: male
 forms:
 - script: en
   value: Mikihiko Renjo
@@ -7,5 +8,6 @@ forms:
   value: 連城三紀彦
 - script: ja-kana
   value: れんじょう みきひこ
-- script: zh
+- script: zh-Hans
   value: 连城三纪彦
+- {script: zh-Hant, value: 連城三紀彥}

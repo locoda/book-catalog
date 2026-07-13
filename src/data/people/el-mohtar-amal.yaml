@@ -1,4 +1,7 @@
 name: Amal El-Mohtar
 sort: El-Mohtar, Amal
+gender: female
 forms:
-  - {script: en, value: Amal El-Mohtar}
+- {script: en, value: Amal El-Mohtar}
+- {script: zh-Hans, value: 阿迈勒·埃尔-莫赫塔尔}
+- {script: zh-Hant, value: 阿邁勒·埃爾-莫赫塔爾}

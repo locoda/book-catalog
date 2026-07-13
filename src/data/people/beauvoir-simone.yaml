@@ -1,6 +1,8 @@
 name: Simone de Beauvoir
 sort: Beauvoir, Simone de
+gender: female
 forms:
-  - {script: en, value: Simone de Beauvoir}
-  - {script: fr, value: Simone de Beauvoir}
-  - {script: zh, value: 西蒙娜·德·波伏瓦}
+- {script: en, value: Simone de Beauvoir}
+- {script: fr, value: Simone de Beauvoir}
+- {script: zh-Hans, value: 西蒙娜·德·波伏瓦}
+- {script: zh-Hant, value: 西蒙娜·德·波伏瓦}

@@ -1,5 +1,7 @@
 name: Mark Honigsbaum
 sort: Honigsbaum, Mark
+gender: male
 forms:
-  - {script: en, value: Mark Honigsbaum}
-  - {script: zh, value: 马克·霍尼斯鲍姆}
+- {script: en, value: Mark Honigsbaum}
+- {script: zh-Hans, value: 马克·霍尼斯鲍姆}
+- {script: zh-Hant, value: 馬克·霍尼斯鮑姆}

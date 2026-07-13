@@ -1,7 +1,9 @@
 name: Asako Yuzuki
 sort: Yuzuki, Asako
+gender: female
 forms:
-  - {script: en, value: Asako Yuzuki}
-  - {script: ja, value: 柚木麻子}
-  - {script: ja-kana, value: ゆずき あさこ}
-  - {script: zh, value: 柚木麻子}
+- {script: en, value: Asako Yuzuki}
+- {script: ja, value: 柚木麻子}
+- {script: ja-kana, value: ゆずき あさこ}
+- {script: zh-Hans, value: 柚木麻子}
+- {script: zh-Hant, value: 柚木麻子}

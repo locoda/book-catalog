@@ -1,7 +1,9 @@
 name: Romain Monnery
 sort: Monnery, Romain
+gender: male
 forms:
-  - script: fr
-    value: Romain Monnery
-  - script: zh
-    value: 罗曼·莫内里
+- script: fr
+  value: Romain Monnery
+- script: zh-Hans
+  value: 罗曼·莫内里
+- {script: zh-Hant, value: 羅曼·莫內里}

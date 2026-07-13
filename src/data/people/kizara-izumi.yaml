@@ -1,9 +1,11 @@
 name: Kizara Izumi
 sort: Kizara, Izumi
+gender: female
 forms:
-  - script: ja
-    value: 木皿泉
-  - script: ja-kana
-    value: きざら いずみ
-  - script: zh
-    value: 木皿泉
+- script: ja
+  value: 木皿泉
+- script: ja-kana
+  value: きざら いずみ
+- script: zh-Hans
+  value: 木皿泉
+- {script: zh-Hant, value: 木皿泉}

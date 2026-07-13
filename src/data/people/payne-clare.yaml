@@ -1,7 +1,9 @@
 name: Clare Payne
 sort: Payne, Clare
+gender: female
 forms:
-  - script: en
-    value: Clare Payne
-  - script: zh
-    value: 克莱尔·佩恩
+- script: en
+  value: Clare Payne
+- script: zh-Hans
+  value: 克莱尔·佩恩
+- {script: zh-Hant, value: 克萊爾·佩恩}

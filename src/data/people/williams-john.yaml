@@ -1,7 +1,9 @@
 name: John Williams
 sort: Williams, John
+gender: male
 forms:
 - script: en
   value: John Williams
-- script: zh
+- script: zh-Hans
   value: 约翰·威廉斯
+- {script: zh-Hant, value: 約翰·威廉斯}

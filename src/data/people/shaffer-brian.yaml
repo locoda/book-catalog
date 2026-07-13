@@ -1,5 +1,7 @@
 name: Brian W. Shaffer
 sort: Shaffer, Brian W.
+gender: male
 forms:
-  - {script: en, value: Brian W. Shaffer}
-  - {script: zh, value: 布莱恩·谢弗}
+- {script: en, value: Brian W. Shaffer}
+- {script: zh-Hans, value: 布莱恩·谢弗}
+- {script: zh-Hant, value: 布萊恩·謝弗}

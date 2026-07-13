@@ -1,5 +1,8 @@
 name: Uketsu
 sort: Uketsu
+gender: male
 forms:
-  - {script: en, value: Uketsu}
-  - {script: ja, value: 雨穴}
+- {script: en, value: Uketsu}
+- {script: ja, value: 雨穴}
+- {script: zh-Hans, value: 雨穴}
+- {script: zh-Hant, value: 雨穴}

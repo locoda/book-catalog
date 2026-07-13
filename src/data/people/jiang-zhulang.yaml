@@ -1,7 +1,9 @@
 name: Jiang Zhulang
 sort: Jiang, Zhulang
+gender: male
 forms:
 - script: en
   value: Jiang Zhulang
-- script: zh
+- script: zh-Hans
   value: 江逐浪
+- {script: zh-Hant, value: 江逐浪}

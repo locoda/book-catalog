@@ -1,7 +1,9 @@
 name: Taro Okamoto
 sort: Okamoto, Taro
+gender: male
 forms:
-  - {script: en, value: Taro Okamoto}
-  - {script: ja, value: 岡本太郎}
-  - {script: ja-kana, value: おかもと たろう}
-  - {script: zh, value: 冈本太郎}
+- {script: en, value: Taro Okamoto}
+- {script: ja, value: 岡本太郎}
+- {script: ja-kana, value: おかもと たろう}
+- {script: zh-Hans, value: 冈本太郎}
+- {script: zh-Hant, value: 岡本太郎}

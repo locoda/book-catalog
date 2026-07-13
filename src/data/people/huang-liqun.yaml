@@ -1,5 +1,7 @@
 name: Huang Liqun
 sort: Huang, Liqun
+gender: female
 forms:
-  - {script: zh, value: 黄丽群}
-  - {script: zh-Latn, value: Huang Liqun}
+- {script: zh-Hans, value: 黄丽群}
+- {script: zh-Latn, value: Huang Liqun}
+- {script: zh-Hant, value: 黃麗羣}

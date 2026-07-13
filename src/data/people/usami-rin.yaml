@@ -1,9 +1,11 @@
 name: Rin Usami
 sort: Usami, Rin
+gender: female
 forms:
-  - script: ja
-    value: 宇佐見りん
-  - script: ja-Latn
-    value: Usami Rin
-  - script: zh
-    value: 宇佐见铃
+- script: ja
+  value: 宇佐見りん
+- script: ja-Latn
+  value: Usami Rin
+- script: zh-Hans
+  value: 宇佐见铃
+- {script: zh-Hant, value: 宇佐見鈴}

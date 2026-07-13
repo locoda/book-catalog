@@ -1,6 +1,8 @@
 name: Ia Genberg
 sort: Genberg, Ia
+gender: female
 forms:
-  - {script: en, value: Ia Genberg}
-  - {script: sv, value: Ia Genberg}
-  - {script: zh, value: 伊娅·根伯格}
+- {script: en, value: Ia Genberg}
+- {script: sv, value: Ia Genberg}
+- {script: zh-Hans, value: 伊娅·根伯格}
+- {script: zh-Hant, value: 伊婭·根伯格}

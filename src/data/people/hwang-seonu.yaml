@@ -1,5 +1,7 @@
 name: Hwang Seonu
 sort: Hwang, Seonu
+gender: male
 forms:
-  - {script: ko, value: 황선우}
-  - {script: zh, value: 黃善宇}
+- {script: ko, value: 황선우}
+- {script: zh-Hans, value: 黃善宇}
+- {script: zh-Hant, value: 黃善宇}

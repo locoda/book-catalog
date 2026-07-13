@@ -1,3 +1,4 @@
 name: Shunji Iwai
 sort: Iwai, Shunji
-forms: [{script: ja, value: 岩井俊二}, {script: zh, value: 岩井俊二}]
+gender: male
+forms: [{script: ja, value: 岩井俊二}, {script: zh-Hans, value: 岩井俊二}, {script: zh-Hant, value: 巖井俊二}]

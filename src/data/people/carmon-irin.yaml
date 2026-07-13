@@ -1,7 +1,9 @@
 name: Irin Carmon
 sort: Carmon, Irin
+gender: female
 forms:
 - script: en
   value: Irin Carmon
-- script: zh
+- script: zh-Hans
   value: 伊琳·卡蒙
+- {script: zh-Hant, value: 伊琳·卡蒙}

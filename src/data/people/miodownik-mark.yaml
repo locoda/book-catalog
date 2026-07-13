@@ -1,3 +1,4 @@
 name: Mark Miodownik
 sort: Miodownik, Mark
-forms: [{script: en, value: Mark Miodownik}, {script: zh, value: 马克·米奥多尼克}]
+gender: male
+forms: [{script: en, value: Mark Miodownik}, {script: zh-Hans, value: 马克·米奥多尼克}, {script: zh-Hant, value: 馬克·米奧多尼克}]

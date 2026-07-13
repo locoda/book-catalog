@@ -69,8 +69,9 @@ const people = defineCollection({
   schema: z.object({
     name: z.string(),                     // 权威形式（原语言）
     sort: z.string().optional(),          // 排序键
+    gender: z.enum(['male', 'female', 'non-binary', 'unknown']).default('unknown'),
     forms: z.array(z.object({
-      script: z.string(),                 // ja-kana / romaji / zh / en ...
+      script: z.string(),                 // ja-kana / romaji / zh-Hans / zh-Hant / en ...
       value: z.string(),
     })).default([]),
     confirmed: z.boolean().default(false),  // 馆长确认：true 后 id（文件名）永久冻结（CATALOGING §0.2）

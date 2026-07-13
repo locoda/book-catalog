@@ -1,3 +1,4 @@
 name: Jasmin Lee Cori
 sort: Cori, Jasmin Lee
-forms: [{script: en, value: Jasmin Lee Cori}, {script: zh, value: 贾丝明·李·科里}]
+gender: female
+forms: [{script: en, value: Jasmin Lee Cori}, {script: zh-Hans, value: 贾丝明·李·科里}, {script: zh-Hant, value: 賈絲明·李·科里}]

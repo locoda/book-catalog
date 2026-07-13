@@ -1,5 +1,6 @@
 name: Asuka Asahina
 sort: Asahina, Asuka
+gender: female
 forms:
 - script: en
   value: Asuka Asahina
@@ -7,5 +8,6 @@ forms:
   value: 朝比奈明日香
 - script: ja-kana
   value: あさひな あすか
-- script: zh
+- script: zh-Hans
   value: 朝比奈明日香
+- {script: zh-Hant, value: 朝比奈明日香}

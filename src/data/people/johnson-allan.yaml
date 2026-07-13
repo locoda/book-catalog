@@ -1,5 +1,7 @@
 name: Allan G. Johnson
 sort: Johnson, Allan G.
+gender: male
 forms:
-  - {script: en, value: Allan G. Johnson}
-  - {script: zh, value: 艾伦·约翰逊}
+- {script: en, value: Allan G. Johnson}
+- {script: zh-Hans, value: 艾伦·约翰逊}
+- {script: zh-Hant, value: 艾倫·約翰遜}

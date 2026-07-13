@@ -1,7 +1,9 @@
 name: Zheng Zining
 sort: Zheng, Zining
+gender: female
 forms:
 - script: en
   value: Zheng Zining
-- script: zh
+- script: zh-Hans
   value: 郑子宁
+- {script: zh-Hant, value: 鄭子寧}

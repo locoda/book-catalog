@@ -1,3 +1,4 @@
 name: Jared Diamond
 sort: Diamond, Jared
-forms: [{script: en, value: Jared Diamond}, {script: zh, value: 贾雷德·戴蒙德}]
+gender: male
+forms: [{script: en, value: Jared Diamond}, {script: zh-Hans, value: 贾雷德·戴蒙德}, {script: zh-Hant, value: 賈雷德·戴蒙德}]

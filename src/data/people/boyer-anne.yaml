@@ -1,5 +1,7 @@
 name: Anne Boyer
 sort: Boyer, Anne
+gender: female
 forms:
-  - {script: en, value: Anne Boyer}
-  - {script: zh, value: 安妮·博耶}
+- {script: en, value: Anne Boyer}
+- {script: zh-Hans, value: 安妮·博耶}
+- {script: zh-Hant, value: 安妮·博耶}

@@ -1,4 +1,7 @@
 name: John Green
 sort: Green, John
+gender: male
 forms:
-  - {script: en, value: John Green}
+- {script: en, value: John Green}
+- {script: zh-Hans, value: 约翰·格林}
+- {script: zh-Hant, value: 約翰·格林}

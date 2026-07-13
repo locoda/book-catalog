@@ -1,5 +1,8 @@
 name: Jason Roberts
 sort: Roberts, Jason
+gender: male
 forms:
-  - script: en
-    value: Jason Roberts
+- script: en
+  value: Jason Roberts
+- {script: zh-Hans, value: 杰森·罗伯茨}
+- {script: zh-Hant, value: 傑森·羅伯茨}

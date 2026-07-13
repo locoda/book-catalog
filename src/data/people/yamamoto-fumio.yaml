@@ -1,7 +1,9 @@
 name: Fumio Yamamoto
 sort: Yamamoto, Fumio
+gender: female
 forms:
-  - {script: en, value: Fumio Yamamoto}
-  - {script: ja, value: 山本文緒}
-  - {script: ja-kana, value: やまもと ふみお}
-  - {script: zh, value: 山本文绪}
+- {script: en, value: Fumio Yamamoto}
+- {script: ja, value: 山本文緒}
+- {script: ja-kana, value: やまもと ふみお}
+- {script: zh-Hans, value: 山本文绪}
+- {script: zh-Hant, value: 山本文緒}

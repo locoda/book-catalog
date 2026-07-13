@@ -1,3 +1,4 @@
 name: Freya Rose
 sort: Rose, Freya
-forms: [{script: en, value: Freya Rose}, {script: zh, value: 弗雷亚·罗斯}]
+gender: female
+forms: [{script: en, value: Freya Rose}, {script: zh-Hans, value: 弗雷亚·罗斯}, {script: zh-Hant, value: 弗雷亞·羅斯}]

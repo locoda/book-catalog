@@ -1,5 +1,9 @@
 name: Katie Kitamura
 sort: Kitamura, Katie
+gender: female
 forms:
-  - script: en
-    value: Katie Kitamura
+- script: en
+  value: Katie Kitamura
+- {script: zh-Hans, value: 北村凯蒂}
+- {script: zh-Hant, value: 北村凱蒂}
+- {script: ja, value: 北村}

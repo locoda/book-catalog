@@ -1,7 +1,9 @@
 name: Tommy Butler
 sort: Butler, Tommy
+gender: male
 forms:
 - script: en
   value: Tommy Butler
-- script: zh
+- script: zh-Hans
   value: 汤米·巴特勒
+- {script: zh-Hant, value: 湯米·巴特勒}

@@ -1,7 +1,9 @@
 name: Maiko Seo
 sort: Seo, Maiko
+gender: female
 forms:
-  - {script: en, value: Maiko Seo}
-  - {script: ja, value: 瀬尾まいこ}
-  - {script: ja-kana, value: せお まいこ}
-  - {script: zh, value: 濑尾麻衣子}
+- {script: en, value: Maiko Seo}
+- {script: ja, value: 瀬尾まいこ}
+- {script: ja-kana, value: せお まいこ}
+- {script: zh-Hans, value: 濑尾麻衣子}
+- {script: zh-Hant, value: 瀨尾麻衣子}

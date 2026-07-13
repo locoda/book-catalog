@@ -1,7 +1,9 @@
 name: Daniel Keyes
 sort: Keyes, Daniel
+gender: male
 forms:
 - script: en
   value: Daniel Keyes
-- script: zh
+- script: zh-Hans
   value: 丹尼尔·凯斯
+- {script: zh-Hant, value: 丹尼爾·凱斯}

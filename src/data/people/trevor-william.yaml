@@ -1,5 +1,7 @@
 name: William Trevor
 sort: Trevor, William
+gender: male
 forms:
-  - {script: en, value: William Trevor}
-  - {script: zh, value: 威廉·特雷弗}
+- {script: en, value: William Trevor}
+- {script: zh-Hans, value: 威廉·特雷弗}
+- {script: zh-Hant, value: 威廉·特雷弗}

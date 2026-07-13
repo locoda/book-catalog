@@ -1,5 +1,8 @@
 name: Gail Honeyman
 sort: Honeyman, Gail
+gender: female
 forms:
-  - script: en
-    value: Gail Honeyman
+- script: en
+  value: Gail Honeyman
+- {script: zh-Hans, value: 盖尔·霍尼曼}
+- {script: zh-Hant, value: 蓋爾·霍尼曼}

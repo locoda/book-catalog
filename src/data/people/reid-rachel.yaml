@@ -1,4 +1,7 @@
 name: Rachel Reid
 sort: Reid, Rachel
+gender: female
 forms:
-  - {script: en, value: Rachel Reid}
+- {script: en, value: Rachel Reid}
+- {script: zh-Hans, value: 瑞秋·里德}
+- {script: zh-Hant, value: 瑞秋·里德}

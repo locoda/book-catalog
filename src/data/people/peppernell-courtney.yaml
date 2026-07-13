@@ -1,4 +1,7 @@
 name: Courtney Peppernell
 sort: Peppernell, Courtney
+gender: female
 forms:
-  - {script: en, value: Courtney Peppernell}
+- {script: en, value: Courtney Peppernell}
+- {script: zh-Hans, value: 考特妮·佩珀内尔}
+- {script: zh-Hant, value: 考特妮·佩珀內爾}

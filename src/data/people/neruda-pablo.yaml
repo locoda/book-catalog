@@ -1,7 +1,9 @@
 name: Pablo Neruda
 sort: Neruda, Pablo
+gender: male
 forms:
-  - script: es
-    value: Pablo Neruda
-  - script: zh
-    value: 巴勃罗·聂鲁达
+- script: es
+  value: Pablo Neruda
+- script: zh-Hans
+  value: 巴勃罗·聂鲁达
+- {script: zh-Hant, value: 巴勃羅·聶魯達}

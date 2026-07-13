@@ -1,5 +1,7 @@
 name: Mark Johnson
 sort: Johnson, Mark
+gender: male
 forms:
-  - {script: en, value: Mark Johnson}
-  - {script: zh, value: 马克·约翰逊}
+- {script: en, value: Mark Johnson}
+- {script: zh-Hans, value: 马克·约翰逊}
+- {script: zh-Hant, value: 馬克·約翰遜}

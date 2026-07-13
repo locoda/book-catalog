@@ -1,6 +1,8 @@
 name: Kang Hwa-gil
 sort: Kang, Hwa-gil
+gender: female
 forms:
-  - {script: en, value: Kang Hwa-gil}
-  - {script: ko, value: 강화길}
-  - {script: zh, value: 姜禾吉}
+- {script: en, value: Kang Hwa-gil}
+- {script: ko, value: 강화길}
+- {script: zh-Hans, value: 姜禾吉}
+- {script: zh-Hant, value: 姜禾吉}

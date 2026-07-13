@@ -1,4 +1,8 @@
 name: Karissa Chen
 sort: Chen, Karissa
+gender: female
 forms:
-  - {script: en, value: Karissa Chen}
+- {script: en, value: Karissa Chen}
+- {script: zh-Hans, value: 陈凯瑞莎}
+- {script: zh-Hant, value: 陳凱瑞莎}
+- {script: zh-Latn, value: Chen Kairuisha}

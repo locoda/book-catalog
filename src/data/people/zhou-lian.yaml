@@ -1,7 +1,9 @@
 name: Zhou Lian
 sort: Zhou, Lian
+gender: male
 forms:
-  - script: zh
-    value: 周濂
-  - script: zh-Latn
-    value: Zhou Lian
+- script: zh-Hans
+  value: 周濂
+- script: zh-Latn
+  value: Zhou Lian
+- {script: zh-Hant, value: 周濂}

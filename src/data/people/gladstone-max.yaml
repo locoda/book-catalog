@@ -1,4 +1,7 @@
 name: Max Gladstone
 sort: Gladstone, Max
+gender: male
 forms:
-  - {script: en, value: Max Gladstone}
+- {script: en, value: Max Gladstone}
+- {script: zh-Hans, value: 马克斯·格拉德斯通}
+- {script: zh-Hant, value: 馬克斯·格拉德斯通}

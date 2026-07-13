@@ -1,7 +1,9 @@
 name: Yan Bojun
 sort: Yan, Bojun
+gender: male
 forms:
-  - script: zh
-    value: 严伯钧
-  - script: zh-Latn
-    value: Yan Bojun
+- script: zh-Hans
+  value: 严伯钧
+- script: zh-Latn
+  value: Yan Bojun
+- {script: zh-Hant, value: 嚴伯鈞}

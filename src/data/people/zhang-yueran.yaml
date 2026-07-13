@@ -1,7 +1,9 @@
 name: Zhang Yueran
 sort: Zhang, Yueran
+gender: female
 forms:
-  - script: zh
-    value: 张悦然
-  - script: zh-Latn
-    value: Zhang Yueran
+- script: zh-Hans
+  value: 张悦然
+- script: zh-Latn
+  value: Zhang Yueran
+- {script: zh-Hant, value: 張悅然}

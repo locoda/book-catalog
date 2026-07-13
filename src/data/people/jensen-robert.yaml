@@ -1,4 +1,7 @@
 name: Robert Jensen
 sort: Jensen, Robert
+gender: male
 forms:
-  - {script: en, value: Robert Jensen}
+- {script: en, value: Robert Jensen}
+- {script: zh-Hans, value: 罗伯特·詹森}
+- {script: zh-Hant, value: 羅伯特·詹森}

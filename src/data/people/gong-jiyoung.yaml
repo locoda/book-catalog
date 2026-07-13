@@ -1,3 +1,4 @@
 name: Gong Ji-young
 sort: Gong, Ji-young
-forms: [{script: ko, value: 공지영}, {script: zh, value: 孔枝泳}]
+gender: female
+forms: [{script: ko, value: 공지영}, {script: zh-Hans, value: 孔枝泳}, {script: zh-Hant, value: 孔枝泳}]

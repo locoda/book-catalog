@@ -1,5 +1,7 @@
 name: Yu Hua
 sort: Yu, Hua
+gender: male
 forms:
-  - {script: zh, value: 余华}
-  - {script: zh-Latn, value: Yu Hua}
+- {script: zh-Hans, value: 余华}
+- {script: zh-Latn, value: Yu Hua}
+- {script: zh-Hant, value: 余華}

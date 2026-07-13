@@ -1,7 +1,9 @@
 name: Li Ting
 sort: Li, Ting
+gender: female
 forms:
 - script: en
   value: Li Ting
-- script: zh
+- script: zh-Hans
   value: 李停
+- {script: zh-Hant, value: 李停}

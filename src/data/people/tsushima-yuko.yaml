@@ -1,7 +1,9 @@
 name: Yuko Tsushima
 sort: Tsushima, Yuko
+gender: female
 forms:
-  - {script: en, value: Yuko Tsushima}
-  - {script: ja, value: 津島佑子}
-  - {script: ja-kana, value: つしま ゆうこ}
-  - {script: zh, value: 津岛佑子}
+- {script: en, value: Yuko Tsushima}
+- {script: ja, value: 津島佑子}
+- {script: ja-kana, value: つしま ゆうこ}
+- {script: zh-Hans, value: 津岛佑子}
+- {script: zh-Hant, value: 津島佑子}

@@ -1,7 +1,9 @@
 name: Hiromi Itō
 sort: Itō, Hiromi
+gender: female
 forms:
-  - {script: en, value: Hiromi Itō}
-  - {script: ja, value: 伊藤比呂美}
-  - {script: ja-kana, value: いとう ひろみ}
-  - {script: zh, value: 伊藤比吕美}
+- {script: en, value: Hiromi Itō}
+- {script: ja, value: 伊藤比呂美}
+- {script: ja-kana, value: いとう ひろみ}
+- {script: zh-Hans, value: 伊藤比吕美}
+- {script: zh-Hant, value: 伊藤比呂美}

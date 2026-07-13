@@ -1,4 +1,7 @@
 name: Susanna Clarke
 sort: Clarke, Susanna
+gender: female
 forms:
-  - {script: en, value: Susanna Clarke}
+- {script: en, value: Susanna Clarke}
+- {script: zh-Hans, value: 苏珊娜·克拉克}
+- {script: zh-Hant, value: 蘇珊娜·克拉克}

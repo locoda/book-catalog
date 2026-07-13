@@ -1,7 +1,9 @@
 name: Wu Xiaole
 sort: Wu, Xiaole
+gender: female
 forms:
 - script: en
   value: Wu Xiaole
-- script: zh
+- script: zh-Hans
   value: 吴晓乐
+- {script: zh-Hant, value: 吳曉樂}

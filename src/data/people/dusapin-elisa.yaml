@@ -1,5 +1,7 @@
 name: Élisa Shua Dusapin
 sort: Dusapin, Élisa Shua
+gender: female
 forms:
-  - {script: en, value: Élisa Shua Dusapin}
-  - {script: zh, value: 埃莉萨·秀雅·迪萨潘}
+- {script: en, value: Élisa Shua Dusapin}
+- {script: zh-Hans, value: 埃莉萨·秀雅·迪萨潘}
+- {script: zh-Hant, value: 埃莉薩·秀雅·迪薩潘}

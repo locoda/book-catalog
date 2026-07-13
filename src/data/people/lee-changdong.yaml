@@ -1,3 +1,4 @@
 name: Lee Chang-dong
 sort: Lee, Chang-dong
-forms: [{script: ko, value: 이창동}, {script: zh, value: 李沧东}]
+gender: male
+forms: [{script: ko, value: 이창동}, {script: zh-Hans, value: 李沧东}, {script: zh-Hant, value: 李滄東}]

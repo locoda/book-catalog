@@ -1,3 +1,4 @@
 name: Melinda Gates
 sort: Gates, Melinda
-forms: [{script: en, value: Melinda Gates}, {script: zh, value: 梅琳达·盖茨}]
+gender: female
+forms: [{script: en, value: Melinda Gates}, {script: zh-Hans, value: 梅琳达·盖茨}, {script: zh-Hant, value: 梅琳達·蓋茨}]

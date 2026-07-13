@@ -1,6 +1,8 @@
 name: Cordula Nussbaum
 sort: Nussbaum, Cordula
+gender: female
 forms:
-  - {script: en, value: Cordula Nussbaum}
-  - {script: de, value: Cordula Nussbaum}
-  - {script: zh, value: 科尔杜拉·努斯鲍姆}
+- {script: en, value: Cordula Nussbaum}
+- {script: de, value: Cordula Nussbaum}
+- {script: zh-Hans, value: 科尔杜拉·努斯鲍姆}
+- {script: zh-Hant, value: 科爾杜拉·努斯鮑姆}

@@ -1,3 +1,4 @@
 name: Akiko Abe
 sort: Abe, Akiko
-forms: [{script: ja, value: 阿部暁子}, {script: ja-kana, value: あべ あきこ}, {script: zh, value: 阿部曉子}]
+gender: female
+forms: [{script: ja, value: 阿部暁子}, {script: ja-kana, value: あべ あきこ}, {script: zh-Hans, value: 阿部曉子}, {script: zh-Hant, value: 阿部曉子}]

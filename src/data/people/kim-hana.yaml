@@ -1,5 +1,7 @@
 name: Kim Hana
 sort: Kim, Hana
+gender: female
 forms:
-  - {script: ko, value: 김하나}
-  - {script: zh, value: 金荷娜}
+- {script: ko, value: 김하나}
+- {script: zh-Hans, value: 金荷娜}
+- {script: zh-Hant, value: 金荷娜}

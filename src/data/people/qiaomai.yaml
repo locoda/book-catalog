@@ -1,7 +1,9 @@
 name: Qiaomai
 sort: Qiaomai
+gender: female
 forms:
 - script: en
   value: Qiaomai
-- script: zh
+- script: zh-Hans
   value: 荞麦
+- {script: zh-Hant, value: 蕎麥}

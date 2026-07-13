@@ -1,7 +1,9 @@
 name: Douglas Adams
 sort: Adams, Douglas
+gender: male
 forms:
 - script: en
   value: Douglas Adams
-- script: zh
+- script: zh-Hans
   value: 道格拉斯·亚当斯
+- {script: zh-Hant, value: 道格拉斯·亞當斯}

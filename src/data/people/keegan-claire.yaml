@@ -1,4 +1,7 @@
 name: Claire Keegan
 sort: Keegan, Claire
+gender: female
 forms:
-  - {script: en, value: Claire Keegan}
+- {script: en, value: Claire Keegan}
+- {script: zh-Hans, value: 克莱尔·基根}
+- {script: zh-Hant, value: 克萊爾·基根}

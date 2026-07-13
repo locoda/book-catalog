@@ -1,7 +1,9 @@
 name: Julian Barnes
 sort: Barnes, Julian
+gender: male
 forms:
-  - script: en
-    value: Julian Barnes
-  - script: zh
-    value: 朱利安·巴恩斯
+- script: en
+  value: Julian Barnes
+- script: zh-Hans
+  value: 朱利安·巴恩斯
+- {script: zh-Hant, value: 朱利安·巴恩斯}

@@ -1,3 +1,4 @@
 name: Cristina Rivera Garza
 sort: Rivera Garza, Cristina
-forms: [{script: es, value: Cristina Rivera Garza}, {script: zh, value: 克莉絲蒂娜·里維拉·加爾薩}]
+gender: female
+forms: [{script: es, value: Cristina Rivera Garza}, {script: zh-Hans, value: 克莉絲蒂娜·里維拉·加爾薩}, {script: zh-Hant, value: 克莉絲蒂娜·里維拉·加爾薩}]

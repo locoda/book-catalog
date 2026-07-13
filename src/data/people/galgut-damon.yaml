@@ -1,7 +1,9 @@
 name: Damon Galgut
 sort: Galgut, Damon
+gender: male
 forms:
-  - script: en
-    value: Damon Galgut
-  - script: zh
-    value: 达蒙·加尔格特
+- script: en
+  value: Damon Galgut
+- script: zh-Hans
+  value: 达蒙·加尔格特
+- {script: zh-Hant, value: 達蒙·加爾格特}

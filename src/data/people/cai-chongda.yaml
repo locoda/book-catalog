@@ -1,3 +1,4 @@
 name: Cai Chongda
 sort: Cai, Chongda
-forms: [{script: zh, value: 蔡崇达}]
+gender: male
+forms: [{script: zh-Hans, value: 蔡崇达}, {script: zh-Hant, value: 蔡崇達}]

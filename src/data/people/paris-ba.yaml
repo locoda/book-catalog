@@ -1,5 +1,8 @@
 name: B.A. Paris
 sort: Paris, B.A.
+gender: female
 forms:
-  - script: en
-    value: B.A. Paris
+- script: en
+  value: B.A. Paris
+- {script: zh-Hans, value: B.A.·帕里斯}
+- {script: zh-Hant, value: B.A.·帕里斯}

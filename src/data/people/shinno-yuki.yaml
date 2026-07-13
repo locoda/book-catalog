@@ -1,5 +1,7 @@
 name: Yuki Shinno
 sort: Shinno, Yuki
+gender: female
 forms:
-  - {script: ja, value: 神農祐樹}
-  - {script: zh, value: 神农祐树}
+- {script: ja, value: 神農祐樹}
+- {script: zh-Hans, value: 神农祐树}
+- {script: zh-Hant, value: 神農祐樹}

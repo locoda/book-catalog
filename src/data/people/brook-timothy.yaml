@@ -1,5 +1,7 @@
 name: Timothy Brook
 sort: Brook, Timothy
+gender: male
 forms:
-  - {script: en, value: Timothy Brook}
-  - {script: zh, value: 卜正民}
+- {script: en, value: Timothy Brook}
+- {script: zh-Hans, value: 卜正民}
+- {script: zh-Hant, value: 卜正民}

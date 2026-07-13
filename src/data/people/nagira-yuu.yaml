@@ -1,6 +1,9 @@
 name: Yuu Nagira
 sort: Nagira, Yuu
+gender: female
 forms:
-  - {script: ja, value: 凪良ゆう}
-  - {script: ja-kana, value: なぎら ゆう}
-  - {script: ja-Latn, value: Nagira Yuu}
+- {script: ja, value: 凪良ゆう}
+- {script: ja-kana, value: なぎら ゆう}
+- {script: ja-Latn, value: Nagira Yuu}
+- {script: zh-Hans, value: 凪良ゆう}
+- {script: zh-Hant, value: 凪良ゆう}

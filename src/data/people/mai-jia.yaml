@@ -1,3 +1,4 @@
 name: Mai Jia
 sort: Mai, Jia
-forms: [{script: zh, value: 麦家}]
+gender: male
+forms: [{script: zh-Hans, value: 麦家}, {script: zh-Hant, value: 麥家}]

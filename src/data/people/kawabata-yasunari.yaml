@@ -1,7 +1,9 @@
 name: Yasunari Kawabata
 sort: Kawabata, Yasunari
+gender: male
 forms:
-  - {script: en, value: Yasunari Kawabata}
-  - {script: ja, value: 川端康成}
-  - {script: ja-kana, value: かわばた やすなり}
-  - {script: zh, value: 川端康成}
+- {script: en, value: Yasunari Kawabata}
+- {script: ja, value: 川端康成}
+- {script: ja-kana, value: かわばた やすなり}
+- {script: zh-Hans, value: 川端康成}
+- {script: zh-Hant, value: 川端康成}

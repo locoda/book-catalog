@@ -1,9 +1,11 @@
 name: Milan Kundera
 sort: Kundera, Milan
+gender: male
 forms:
-  - script: fr
-    value: Milan Kundera
-  - script: cs
-    value: Milan Kundera
-  - script: zh
-    value: 米兰·昆德拉
+- script: fr
+  value: Milan Kundera
+- script: cs
+  value: Milan Kundera
+- script: zh-Hans
+  value: 米兰·昆德拉
+- {script: zh-Hant, value: 米蘭·昆德拉}

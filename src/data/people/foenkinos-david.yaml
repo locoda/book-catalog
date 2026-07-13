@@ -1,6 +1,8 @@
 name: David Foenkinos
 sort: Foenkinos, David
+gender: male
 forms:
-  - {script: en, value: David Foenkinos}
-  - {script: fr, value: David Foenkinos}
-  - {script: zh, value: 大卫·冯金诺斯}
+- {script: en, value: David Foenkinos}
+- {script: fr, value: David Foenkinos}
+- {script: zh-Hans, value: 大卫·冯金诺斯}
+- {script: zh-Hant, value: 大衛·馮金諾斯}

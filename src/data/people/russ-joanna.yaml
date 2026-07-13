@@ -1,3 +1,4 @@
 name: Joanna Russ
 sort: Russ, Joanna
-forms: [{script: en, value: Joanna Russ}, {script: zh, value: 乔安娜·拉斯}]
+gender: female
+forms: [{script: en, value: Joanna Russ}, {script: zh-Hans, value: 乔安娜·拉斯}, {script: zh-Hant, value: 喬安娜·拉斯}]

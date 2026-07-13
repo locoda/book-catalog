@@ -1,5 +1,7 @@
 name: Hai Zi
 sort: Hai, Zi
+gender: male
 forms:
-  - {script: zh, value: 海子}
-  - {script: zh-Latn, value: Hai Zi}
+- {script: zh-Hans, value: 海子}
+- {script: zh-Latn, value: Hai Zi}
+- {script: zh-Hant, value: 海子}

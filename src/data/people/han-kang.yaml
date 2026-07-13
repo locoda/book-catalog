@@ -1,6 +1,8 @@
 name: Han Kang
 sort: Han, Kang
+gender: female
 forms:
-  - {script: en, value: Han Kang}
-  - {script: ko, value: 한강}
-  - {script: zh, value: 韩江}
+- {script: en, value: Han Kang}
+- {script: ko, value: 한강}
+- {script: zh-Hans, value: 韩江}
+- {script: zh-Hant, value: 韓江}

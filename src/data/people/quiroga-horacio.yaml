@@ -1,7 +1,9 @@
 name: Horacio Quiroga
 sort: Quiroga, Horacio
+gender: male
 forms:
-  - script: es
-    value: Horacio Quiroga
-  - script: zh
-    value: 奥拉西奥·基罗加
+- script: es
+  value: Horacio Quiroga
+- script: zh-Hans
+  value: 奥拉西奥·基罗加
+- {script: zh-Hant, value: 奧拉西奧·基羅加}

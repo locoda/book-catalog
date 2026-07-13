@@ -1,9 +1,10 @@
 name: Qiu Miaojin
 sort: Qiu, Miaojin
+gender: female
 forms:
-  - script: zh-Hant
-    value: 邱妙津
-  - script: zh-Hans
-    value: 邱妙津
-  - script: zh-Latn
-    value: Qiu Miaojin
+- script: zh-Hant
+  value: 邱妙津
+- script: zh-Hans
+  value: 邱妙津
+- script: zh-Latn
+  value: Qiu Miaojin

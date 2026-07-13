@@ -1,5 +1,7 @@
 name: George Lakoff
 sort: Lakoff, George
+gender: male
 forms:
-  - {script: en, value: George Lakoff}
-  - {script: zh, value: 乔治·莱考夫}
+- {script: en, value: George Lakoff}
+- {script: zh-Hans, value: 乔治·莱考夫}
+- {script: zh-Hant, value: 喬治·萊考夫}

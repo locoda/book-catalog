@@ -1,7 +1,9 @@
 name: Mitsuyo Kakuta
 sort: Kakuta, Mitsuyo
+gender: female
 forms:
-  - {script: ja, value: 角田光代}
-  - {script: ja-kana, value: かくた みつよ}
-  - {script: ja-Latn, value: Kakuta Mitsuyo}
-  - {script: zh, value: 角田光代}
+- {script: ja, value: 角田光代}
+- {script: ja-kana, value: かくた みつよ}
+- {script: ja-Latn, value: Kakuta Mitsuyo}
+- {script: zh-Hans, value: 角田光代}
+- {script: zh-Hant, value: 角田光代}

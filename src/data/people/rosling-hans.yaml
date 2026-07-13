@@ -1,3 +1,4 @@
 name: Hans Rosling
 sort: Rosling, Hans
-forms: [{script: en, value: Hans Rosling}, {script: zh, value: 汉斯·罗斯林}]
+gender: male
+forms: [{script: en, value: Hans Rosling}, {script: zh-Hans, value: 汉斯·罗斯林}, {script: zh-Hant, value: 漢斯·羅斯林}]

@@ -1,3 +1,4 @@
 name: Takayoshi Honda
 sort: Honda, Takayoshi
-forms: [{script: ja, value: 本多孝好}, {script: zh, value: 本多孝好}]
+gender: male
+forms: [{script: ja, value: 本多孝好}, {script: zh-Hans, value: 本多孝好}, {script: zh-Hant, value: 本多孝好}]

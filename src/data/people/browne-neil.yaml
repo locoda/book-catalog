@@ -1,7 +1,9 @@
 name: Neil Browne
 sort: Browne, Neil
+gender: male
 forms:
 - script: en
   value: Neil Browne
-- script: zh
+- script: zh-Hans
   value: 尼尔·布朗
+- {script: zh-Hant, value: 尼爾·布朗}

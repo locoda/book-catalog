@@ -1,5 +1,7 @@
 name: Etgar Keret
 sort: Keret, Etgar
+gender: male
 forms:
-  - {script: en, value: Etgar Keret}
-  - {script: zh, value: 埃特加·凯雷特}
+- {script: en, value: Etgar Keret}
+- {script: zh-Hans, value: 埃特加·凯雷特}
+- {script: zh-Hant, value: 埃特加·凱雷特}

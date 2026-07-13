@@ -1,4 +1,7 @@
 name: Roy Schwartz
 sort: Schwartz, Roy
+gender: male
 forms:
-  - {script: en, value: Roy Schwartz}
+- {script: en, value: Roy Schwartz}
+- {script: zh-Hans, value: 罗伊·施瓦茨}
+- {script: zh-Hant, value: 羅伊·施瓦茨}

@@ -1,3 +1,4 @@
 name: Shion Miura
 sort: Miura, Shion
-forms: [{script: ja, value: 三浦しをん}, {script: zh, value: 三浦紫苑}]
+gender: female
+forms: [{script: ja, value: 三浦しをん}, {script: zh-Hans, value: 三浦紫苑}, {script: zh-Hant, value: 三浦紫苑}]

@@ -1,9 +1,11 @@
 name: Ryu Murakami
 sort: Murakami, Ryū
+gender: male
 forms:
-  - script: ja
-    value: 村上龍
-  - script: ja-Latn
-    value: Murakami Ryū
-  - script: zh
-    value: 村上龙
+- script: ja
+  value: 村上龍
+- script: ja-Latn
+  value: Murakami Ryū
+- script: zh-Hans
+  value: 村上龙
+- {script: zh-Hant, value: 村上龍}

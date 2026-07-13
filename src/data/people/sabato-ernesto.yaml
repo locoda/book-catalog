@@ -1,6 +1,8 @@
 name: Ernesto Sabato
 sort: Sabato, Ernesto
+gender: male
 forms:
-  - {script: en, value: Ernesto Sabato}
-  - {script: es, value: Ernesto Sabato}
-  - {script: zh, value: 埃内斯托·萨瓦托}
+- {script: en, value: Ernesto Sabato}
+- {script: es, value: Ernesto Sabato}
+- {script: zh-Hans, value: 埃内斯托·萨瓦托}
+- {script: zh-Hant, value: 埃內斯托·薩瓦託}

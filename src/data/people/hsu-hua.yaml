@@ -1,4 +1,8 @@
 name: Hua Hsu
 sort: Hsu, Hua
+gender: male
 forms:
-  - {script: en, value: Hua Hsu}
+- {script: en, value: Hua Hsu}
+- {script: zh-Hans, value: 许华}
+- {script: zh-Hant, value: 許華}
+- {script: zh-Latn, value: Hsu Hua}

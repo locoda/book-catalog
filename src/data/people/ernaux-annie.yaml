@@ -1,5 +1,7 @@
 name: Annie Ernaux
 sort: Ernaux, Annie
+gender: female
 forms:
-  - {script: fr, value: Annie Ernaux}
-  - {script: zh, value: 安妮·埃尔诺}
+- {script: fr, value: Annie Ernaux}
+- {script: zh-Hans, value: 安妮·埃尔诺}
+- {script: zh-Hant, value: 安妮·埃爾諾}

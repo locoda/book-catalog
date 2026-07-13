@@ -1,7 +1,9 @@
 name: Yūji Sakamoto
 sort: Sakamoto, Yūji
+gender: male
 forms:
-  - {script: en, value: Yūji Sakamoto}
-  - {script: ja, value: 坂元裕二}
-  - {script: ja-kana, value: さかもと ゆうじ}
-  - {script: zh, value: 坂元裕二}
+- {script: en, value: Yūji Sakamoto}
+- {script: ja, value: 坂元裕二}
+- {script: ja-kana, value: さかもと ゆうじ}
+- {script: zh-Hans, value: 坂元裕二}
+- {script: zh-Hant, value: 坂元裕二}

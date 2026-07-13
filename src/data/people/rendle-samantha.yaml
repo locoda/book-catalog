@@ -1,4 +1,7 @@
 name: Samantha Rendle
 sort: Rendle, Samantha
+gender: female
 forms:
-  - {script: en, value: Samantha Rendle}
+- {script: en, value: Samantha Rendle}
+- {script: zh-Hans, value: 萨曼莎·伦德尔}
+- {script: zh-Hant, value: 薩曼莎·倫德爾}

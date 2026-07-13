@@ -1,9 +1,11 @@
 name: Kim Young-ha
 sort: Kim, Young-ha
+gender: male
 forms:
 - script: en
   value: Kim Young-ha
 - script: ko
   value: 김영하
-- script: zh
+- script: zh-Hans
   value: 金英夏
+- {script: zh-Hant, value: 金英夏}

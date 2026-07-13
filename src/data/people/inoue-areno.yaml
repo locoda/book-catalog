@@ -1,9 +1,11 @@
 name: Areno Inoue
 sort: Inoue, Areno
+gender: male
 forms:
-  - script: ja
-    value: 井上荒野
-  - script: ja-Latn
-    value: Inoue Areno
-  - script: zh
-    value: 井上荒野
+- script: ja
+  value: 井上荒野
+- script: ja-Latn
+  value: Inoue Areno
+- script: zh-Hans
+  value: 井上荒野
+- {script: zh-Hant, value: 井上荒野}

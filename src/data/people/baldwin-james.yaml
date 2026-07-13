@@ -1,3 +1,4 @@
 name: James Baldwin
 sort: Baldwin, James
-forms: [{script: en, value: James Baldwin}, {script: zh, value: 詹姆斯·鲍德温}]
+gender: male
+forms: [{script: en, value: James Baldwin}, {script: zh-Hans, value: 詹姆斯·鲍德温}, {script: zh-Hant, value: 詹姆斯·鮑德溫}]

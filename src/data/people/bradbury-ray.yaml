@@ -1,5 +1,7 @@
 name: Ray Bradbury
 sort: Bradbury, Ray
+gender: male
 forms:
-  - {script: en, value: Ray Bradbury}
-  - {script: zh, value: 雷·布拉德伯里}
+- {script: en, value: Ray Bradbury}
+- {script: zh-Hans, value: 雷·布拉德伯里}
+- {script: zh-Hant, value: 雷·布拉德伯里}

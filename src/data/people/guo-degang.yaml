@@ -1,5 +1,7 @@
 name: Guo Degang
 sort: Guo, Degang
+gender: male
 forms:
-  - {script: zh, value: 郭德纲}
-  - {script: zh-Latn, value: Guo Degang}
+- {script: zh-Hans, value: 郭德纲}
+- {script: zh-Latn, value: Guo Degang}
+- {script: zh-Hant, value: 郭德綱}

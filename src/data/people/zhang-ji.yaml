@@ -1,7 +1,9 @@
 name: Zhang Ji
 sort: Zhang, Ji
+gender: male
 forms:
 - script: en
   value: Zhang Ji
-- script: zh
+- script: zh-Hans
   value: 张忌
+- {script: zh-Hant, value: 張忌}

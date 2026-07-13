@@ -1,5 +1,7 @@
 name: Vanessa Springora
 sort: Springora, Vanessa
+gender: female
 forms:
-  - {script: en, value: Vanessa Springora}
-  - {script: zh, value: 瓦内莎·斯普林格拉}
+- {script: en, value: Vanessa Springora}
+- {script: zh-Hans, value: 瓦内莎·斯普林格拉}
+- {script: zh-Hant, value: 瓦內莎·斯普林格拉}

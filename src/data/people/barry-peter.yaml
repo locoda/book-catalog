@@ -1,5 +1,7 @@
 name: Peter Barry
 sort: Barry, Peter
+gender: male
 forms:
-  - {script: en, value: Peter Barry}
-  - {script: zh, value: 彼得·巴里}
+- {script: en, value: Peter Barry}
+- {script: zh-Hans, value: 彼得·巴里}
+- {script: zh-Hant, value: 彼得·巴里}

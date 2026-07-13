@@ -1,5 +1,7 @@
 name: Richard David Precht
 sort: Precht, Richard David
+gender: male
 forms:
-  - {script: en, value: Richard David Precht}
-  - {script: zh, value: 理查德·大卫·普莱希特}
+- {script: en, value: Richard David Precht}
+- {script: zh-Hans, value: 理查德·大卫·普莱希特}
+- {script: zh-Hant, value: 理查德·大衛·普萊希特}

@@ -1,4 +1,7 @@
 name: Jim VandeHei
 sort: VandeHei, Jim
+gender: male
 forms:
-  - {script: en, value: Jim VandeHei}
+- {script: en, value: Jim VandeHei}
+- {script: zh-Hans, value: 吉姆·范德海}
+- {script: zh-Hant, value: 吉姆·范德海}

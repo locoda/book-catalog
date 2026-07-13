@@ -1,4 +1,7 @@
 name: Mike Allen
 sort: Allen, Mike
+gender: male
 forms:
-  - {script: en, value: Mike Allen}
+- {script: en, value: Mike Allen}
+- {script: zh-Hans, value: 迈克·艾伦}
+- {script: zh-Hant, value: 邁克·艾倫}

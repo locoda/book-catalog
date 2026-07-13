@@ -1,7 +1,9 @@
 name: Yusuke Kishi
 sort: Kishi, Yusuke
+gender: male
 forms:
-  - {script: en, value: Yusuke Kishi}
-  - {script: ja, value: 貴志祐介}
-  - {script: ja-kana, value: きし ゆうすけ}
-  - {script: zh, value: 贵志祐介}
+- {script: en, value: Yusuke Kishi}
+- {script: ja, value: 貴志祐介}
+- {script: ja-kana, value: きし ゆうすけ}
+- {script: zh-Hans, value: 贵志祐介}
+- {script: zh-Hant, value: 貴志祐介}

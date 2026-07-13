@@ -1,7 +1,9 @@
 name: Sally Rooney
 sort: Rooney, Sally
+gender: female
 forms:
-  - script: en
-    value: Sally Rooney
-  - script: zh
-    value: 萨莉·鲁尼
+- script: en
+  value: Sally Rooney
+- script: zh-Hans
+  value: 萨莉·鲁尼
+- {script: zh-Hant, value: 薩莉·魯尼}

@@ -1,7 +1,9 @@
 name: Chen Jiaying
 sort: Chen, Jiaying
+gender: male
 forms:
-  - script: zh
-    value: 陈嘉映
-  - script: zh-Latn
-    value: Chen Jiaying
+- script: zh-Hans
+  value: 陈嘉映
+- script: zh-Latn
+  value: Chen Jiaying
+- {script: zh-Hant, value: 陳嘉映}

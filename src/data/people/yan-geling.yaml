@@ -1,5 +1,7 @@
 name: Yan Geling
 sort: Yan, Geling
+gender: female
 forms:
-  - {script: en, value: Yan Geling}
-  - {script: zh, value: 严歌苓}
+- {script: en, value: Yan Geling}
+- {script: zh-Hans, value: 严歌苓}
+- {script: zh-Hant, value: 嚴歌苓}

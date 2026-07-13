@@ -1,4 +1,7 @@
 name: Kat Sandler
 sort: Sandler, Kat
+gender: female
 forms:
-  - {script: en, value: Kat Sandler}
+- {script: en, value: Kat Sandler}
+- {script: zh-Hans, value: 凯特·桑德勒}
+- {script: zh-Hant, value: 凱特·桑德勒}

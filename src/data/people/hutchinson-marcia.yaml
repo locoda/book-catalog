@@ -1,4 +1,7 @@
 name: Marcia Hutchinson
 sort: Hutchinson, Marcia
+gender: female
 forms:
-  - {script: en, value: Marcia Hutchinson}
+- {script: en, value: Marcia Hutchinson}
+- {script: zh-Hans, value: 玛西亚·哈钦森}
+- {script: zh-Hant, value: 瑪西亞·哈欽森}

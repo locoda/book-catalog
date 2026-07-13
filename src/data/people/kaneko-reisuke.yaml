@@ -1,7 +1,9 @@
 name: Reisuke Kaneko
 sort: Kaneko, Reisuke
+gender: male
 forms:
-  - {script: en, value: Reisuke Kaneko}
-  - {script: ja, value: 金子玲介}
-  - {script: ja-kana, value: かねこ れいすけ}
-  - {script: zh, value: 金子玲介}
+- {script: en, value: Reisuke Kaneko}
+- {script: ja, value: 金子玲介}
+- {script: ja-kana, value: かねこ れいすけ}
+- {script: zh-Hans, value: 金子玲介}
+- {script: zh-Hant, value: 金子玲介}

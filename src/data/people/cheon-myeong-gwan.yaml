@@ -1,6 +1,8 @@
 name: Cheon Myeong-gwan
 sort: Cheon, Myeong-gwan
+gender: male
 forms:
-  - {script: en, value: Cheon Myeong-gwan}
-  - {script: ko, value: 천명관}
-  - {script: zh, value: 千明官}
+- {script: en, value: Cheon Myeong-gwan}
+- {script: ko, value: 천명관}
+- {script: zh-Hans, value: 千明官}
+- {script: zh-Hant, value: 千明官}

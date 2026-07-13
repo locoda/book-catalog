@@ -1,5 +1,7 @@
 name: Casey McQuiston
 sort: McQuiston, Casey
+gender: female
 forms:
-  - {script: en, value: Casey McQuiston}
-  - {script: zh, value: 凱西·麥奎斯頓}
+- {script: en, value: Casey McQuiston}
+- {script: zh-Hans, value: 凱西·麥奎斯頓}
+- {script: zh-Hant, value: 凱西·麥奎斯頓}

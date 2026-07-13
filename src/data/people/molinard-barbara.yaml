@@ -1,3 +1,4 @@
 name: Barbara Molinard
 sort: Molinard, Barbara
-forms: [{script: fr, value: Barbara Molinard}, {script: zh, value: 芭芭拉·莫利纳尔}]
+gender: female
+forms: [{script: fr, value: Barbara Molinard}, {script: zh-Hans, value: 芭芭拉·莫利纳尔}, {script: zh-Hant, value: 芭芭拉·莫利納爾}]

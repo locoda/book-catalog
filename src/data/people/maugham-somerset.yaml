@@ -1,3 +1,4 @@
 name: W. Somerset Maugham
 sort: Maugham, W. Somerset
-forms: [{script: en, value: W. Somerset Maugham}, {script: zh, value: 毛姆}]
+gender: male
+forms: [{script: en, value: W. Somerset Maugham}, {script: zh-Hans, value: 毛姆}, {script: zh-Hant, value: 毛姆}]

@@ -1,7 +1,9 @@
 name: Shūichi Yoshida
 sort: Yoshida, Shūichi
+gender: male
 forms:
-  - {script: en, value: Shūichi Yoshida}
-  - {script: ja, value: 吉田修一}
-  - {script: ja-kana, value: よしだ しゅういち}
-  - {script: zh, value: 吉田修一}
+- {script: en, value: Shūichi Yoshida}
+- {script: ja, value: 吉田修一}
+- {script: ja-kana, value: よしだ しゅういち}
+- {script: zh-Hans, value: 吉田修一}
+- {script: zh-Hant, value: 吉田修一}

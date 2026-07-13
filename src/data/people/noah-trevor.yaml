@@ -1,5 +1,7 @@
 name: Trevor Noah
 sort: Noah, Trevor
+gender: male
 forms:
-  - {script: en, value: Trevor Noah}
-  - {script: zh, value: 特雷弗·诺亚}
+- {script: en, value: Trevor Noah}
+- {script: zh-Hans, value: 特雷弗·诺亚}
+- {script: zh-Hant, value: 特雷弗·諾亞}

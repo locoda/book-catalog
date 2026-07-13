@@ -1,6 +1,8 @@
 name: Risa Wataya
 sort: Wataya, Risa
+gender: female
 forms:
-  - {script: ja, value: 綿矢りさ}
-  - {script: ja-kana, value: わたや りさ}
-  - {script: zh, value: 綿矢莉莎}
+- {script: ja, value: 綿矢りさ}
+- {script: ja-kana, value: わたや りさ}
+- {script: zh-Hans, value: 綿矢莉莎}
+- {script: zh-Hant, value: 綿矢莉莎}

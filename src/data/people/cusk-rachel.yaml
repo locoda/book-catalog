@@ -1,7 +1,9 @@
 name: Rachel Cusk
 sort: Cusk, Rachel
+gender: female
 forms:
-  - script: en
-    value: Rachel Cusk
-  - script: zh
-    value: 蕾切尔·卡斯克
+- script: en
+  value: Rachel Cusk
+- script: zh-Hans
+  value: 蕾切尔·卡斯克
+- {script: zh-Hant, value: 蕾切爾·卡斯克}

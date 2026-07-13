@@ -1,5 +1,7 @@
 name: Graham Greene
 sort: Greene, Graham
+gender: male
 forms:
-  - {script: en, value: Graham Greene}
-  - {script: zh, value: 格雷厄姆·格林}
+- {script: en, value: Graham Greene}
+- {script: zh-Hans, value: 格雷厄姆·格林}
+- {script: zh-Hant, value: 格雷厄姆·格林}

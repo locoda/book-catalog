@@ -1,7 +1,9 @@
 name: Deborah Levy
 sort: Levy, Deborah
+gender: female
 forms:
 - script: en
   value: Deborah Levy
-- script: zh
+- script: zh-Hans
   value: 德博拉·利维
+- {script: zh-Hant, value: 德博拉·利維}

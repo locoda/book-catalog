@@ -1,7 +1,9 @@
 name: Shana Knizhnik
 sort: Knizhnik, Shana
+gender: female
 forms:
 - script: en
   value: Shana Knizhnik
-- script: zh
+- script: zh-Hans
   value: 莎娜·卡尼兹尼克
+- {script: zh-Hant, value: 莎娜·卡尼茲尼克}

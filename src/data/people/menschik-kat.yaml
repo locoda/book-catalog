@@ -1,9 +1,11 @@
 name: Kat Menschik
 sort: Menschik, Kat
+gender: female
 forms:
 - script: en
   value: Kat Menschik
 - script: de
   value: Kat Menschik
-- script: zh
+- script: zh-Hans
   value: 卡特·曼施克
+- {script: zh-Hant, value: 卡特·曼施克}

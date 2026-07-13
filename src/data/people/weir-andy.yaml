@@ -1,5 +1,7 @@
 name: Andy Weir
 sort: Weir, Andy
+gender: male
 forms:
-  - {script: en, value: Andy Weir}
-  - {script: zh, value: 安迪·威尔}
+- {script: en, value: Andy Weir}
+- {script: zh-Hans, value: 安迪·威尔}
+- {script: zh-Hant, value: 安迪·威爾}

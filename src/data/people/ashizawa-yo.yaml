@@ -1,6 +1,8 @@
 name: Yo Ashizawa
 sort: Ashizawa, Yo
+gender: female
 forms:
-  - {script: ja, value: 芦沢央}
-  - {script: ja-kana, value: あしざわ よう}
-  - {script: zh, value: 蘆澤央}
+- {script: ja, value: 芦沢央}
+- {script: ja-kana, value: あしざわ よう}
+- {script: zh-Hans, value: 蘆澤央}
+- {script: zh-Hant, value: 蘆澤央}

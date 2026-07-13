@@ -1,3 +1,4 @@
 name: Tabi Jackson Gee
 sort: Jackson Gee, Tabi
-forms: [{script: en, value: Tabi Jackson Gee}, {script: zh, value: 塔比·杰克逊·吉}]
+gender: female
+forms: [{script: en, value: Tabi Jackson Gee}, {script: zh-Hans, value: 塔比·杰克逊·吉}, {script: zh-Hant, value: 塔比·傑克遜·吉}]

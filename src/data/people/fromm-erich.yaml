@@ -1,9 +1,11 @@
 name: Erich Fromm
 sort: Fromm, Erich
+gender: male
 forms:
-  - script: en
-    value: Erich Fromm
-  - script: de
-    value: Erich Fromm
-  - script: zh
-    value: 埃里希·弗洛姆
+- script: en
+  value: Erich Fromm
+- script: de
+  value: Erich Fromm
+- script: zh-Hans
+  value: 埃里希·弗洛姆
+- {script: zh-Hant, value: 埃里希·弗洛姆}

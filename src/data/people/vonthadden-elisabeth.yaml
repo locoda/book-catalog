@@ -1,9 +1,11 @@
 name: Elisabeth von Thadden
 sort: von Thadden, Elisabeth
+gender: female
 forms:
 - script: en
   value: Elisabeth von Thadden
 - script: de
   value: Elisabeth von Thadden
-- script: zh
+- script: zh-Hans
   value: 伊丽莎白·冯·塔登
+- {script: zh-Hant, value: 伊麗莎白·馮·塔登}

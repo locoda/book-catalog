@@ -1,3 +1,4 @@
 name: Takashi Kazuki
 sort: Kazuki, Takashi
-forms: [{script: ja, value: 香月孝史}, {script: zh, value: 香月孝史}]
+gender: male
+forms: [{script: ja, value: 香月孝史}, {script: zh-Hans, value: 香月孝史}, {script: zh-Hant, value: 香月孝史}]

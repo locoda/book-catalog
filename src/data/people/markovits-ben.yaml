@@ -1,4 +1,7 @@
 name: Ben Markovits
 sort: Markovits, Ben
+gender: male
 forms:
-  - {script: en, value: Ben Markovits}
+- {script: en, value: Ben Markovits}
+- {script: zh-Hans, value: 本·马科维茨}
+- {script: zh-Hant, value: 本·馬科維茨}

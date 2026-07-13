@@ -1,9 +1,11 @@
 name: Muneki Yamada
 sort: Yamada, Muneki
+gender: male
 forms:
-  - script: ja
-    value: 山田宗樹
-  - script: ja-Latn
-    value: Yamada Muneki
-  - script: zh
-    value: 山田宗树
+- script: ja
+  value: 山田宗樹
+- script: ja-Latn
+  value: Yamada Muneki
+- script: zh-Hans
+  value: 山田宗树
+- {script: zh-Hant, value: 山田宗樹}

@@ -1,7 +1,9 @@
 name: Paulo Coelho
 sort: Coelho, Paulo
+gender: male
 forms:
-  - script: pt
-    value: Paulo Coelho
-  - script: zh
-    value: 保罗·柯艾略
+- script: pt
+  value: Paulo Coelho
+- script: zh-Hans
+  value: 保罗·柯艾略
+- {script: zh-Hant, value: 保羅·柯艾略}

@@ -1,5 +1,6 @@
 name: Shinsuke Numata
 sort: Numata, Shinsuke
+gender: male
 forms:
 - script: en
   value: Shinsuke Numata
@@ -7,5 +8,6 @@ forms:
   value: 沼田真佑
 - script: ja-kana
   value: ぬまた しんすけ
-- script: zh
+- script: zh-Hans
   value: 沼田真佑
+- {script: zh-Hant, value: 沼田真佑}

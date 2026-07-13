@@ -1,5 +1,7 @@
 name: Li Jiaying
 sort: Li, Jiaying
+gender: female
 forms:
-  - {script: zh, value: 李佳穎}
-  - {script: zh-Latn, value: Li Jiaying}
+- {script: zh-Hans, value: 李佳穎}
+- {script: zh-Latn, value: Li Jiaying}
+- {script: zh-Hant, value: 李佳穎}

@@ -1,6 +1,8 @@
 name: Min Jihyoung
 sort: Min, Jihyoung
+gender: female
 forms:
-  - {script: en, value: Min Jihyoung}
-  - {script: ko, value: 민지형}
-  - {script: zh, value: 闵智炯}
+- {script: en, value: Min Jihyoung}
+- {script: ko, value: 민지형}
+- {script: zh-Hans, value: 闵智炯}
+- {script: zh-Hant, value: 閔智炯}

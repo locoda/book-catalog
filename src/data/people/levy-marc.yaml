@@ -1,3 +1,4 @@
 name: Marc Levy
 sort: Levy, Marc
-forms: [{script: fr, value: Marc Levy}, {script: zh, value: 马克·李维}]
+gender: male
+forms: [{script: fr, value: Marc Levy}, {script: zh-Hans, value: 马克·李维}, {script: zh-Hant, value: 馬克·李維}]

@@ -1,9 +1,11 @@
 name: Go Katsuhiro
 sort: Go, Katsuhiro
+gender: male
 forms:
-  - script: ja
-    value: 呉勝浩
-  - script: ja-Latn
-    value: Go Katsuhiro
-  - script: zh
-    value: 吳勝浩
+- script: ja
+  value: 呉勝浩
+- script: ja-Latn
+  value: Go Katsuhiro
+- script: zh-Hans
+  value: 吳勝浩
+- {script: zh-Hant, value: 吳勝浩}

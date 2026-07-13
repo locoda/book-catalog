@@ -1,6 +1,8 @@
 name: Junko Takase
 sort: Takase, Junko
+gender: female
 forms:
-  - {script: ja, value: 高瀬隼子}
-  - {script: ja-kana, value: たかせ じゅんこ}
-  - {script: zh, value: 高瀨隼子}
+- {script: ja, value: 高瀬隼子}
+- {script: ja-kana, value: たかせ じゅんこ}
+- {script: zh-Hans, value: 高瀨隼子}
+- {script: zh-Hant, value: 高瀨隼子}

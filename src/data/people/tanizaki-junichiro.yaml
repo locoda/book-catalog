@@ -1,9 +1,11 @@
 name: Jun'ichirō Tanizaki
 sort: Tanizaki, Jun'ichirō
+gender: male
 forms:
-  - script: ja
-    value: 谷崎潤一郎
-  - script: ja-Latn
-    value: Tanizaki Jun'ichirō
-  - script: zh
-    value: 谷崎润一郎
+- script: ja
+  value: 谷崎潤一郎
+- script: ja-Latn
+  value: Tanizaki Jun'ichirō
+- script: zh-Hans
+  value: 谷崎润一郎
+- {script: zh-Hant, value: 谷崎潤一郎}

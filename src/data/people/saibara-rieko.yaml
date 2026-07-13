@@ -1,5 +1,6 @@
 name: Rieko Saibara
 sort: Saibara, Rieko
+gender: female
 forms:
 - script: en
   value: Rieko Saibara
@@ -7,5 +8,6 @@ forms:
   value: 西原理惠子
 - script: ja-kana
   value: さいばら りえこ
-- script: zh
+- script: zh-Hans
   value: 西原理惠子
+- {script: zh-Hant, value: 西原理惠子}

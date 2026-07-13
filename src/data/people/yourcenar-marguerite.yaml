@@ -1,6 +1,8 @@
 name: Marguerite Yourcenar
 sort: Yourcenar, Marguerite
+gender: female
 forms:
-  - {script: en, value: Marguerite Yourcenar}
-  - {script: fr, value: Marguerite Yourcenar}
-  - {script: zh, value: 玛格丽特·尤瑟纳尔}
+- {script: en, value: Marguerite Yourcenar}
+- {script: fr, value: Marguerite Yourcenar}
+- {script: zh-Hans, value: 玛格丽特·尤瑟纳尔}
+- {script: zh-Hant, value: 瑪格麗特·尤瑟納爾}

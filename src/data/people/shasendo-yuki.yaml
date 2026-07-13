@@ -1,7 +1,9 @@
 name: Yuki Shasendo
 sort: Shasendo, Yuki
+gender: female
 forms:
-  - script: ja
-    value: 斜線堂有紀
-  - script: zh
-    value: 斜线堂有纪
+- script: ja
+  value: 斜線堂有紀
+- script: zh-Hans
+  value: 斜线堂有纪
+- {script: zh-Hant, value: 斜線堂有紀}

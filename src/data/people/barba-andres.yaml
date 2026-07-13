@@ -1,6 +1,8 @@
 name: Andrés Barba
 sort: Barba, Andrés
+gender: male
 forms:
-  - {script: en, value: Andrés Barba}
-  - {script: es, value: Andrés Barba}
-  - {script: zh, value: 安德烈斯·巴尔瓦}
+- {script: en, value: Andrés Barba}
+- {script: es, value: Andrés Barba}
+- {script: zh-Hans, value: 安德烈斯·巴尔瓦}
+- {script: zh-Hant, value: 安德烈斯·巴爾瓦}

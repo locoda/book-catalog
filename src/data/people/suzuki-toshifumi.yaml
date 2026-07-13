@@ -1,3 +1,4 @@
 name: Toshifumi Suzuki
 sort: Suzuki, Toshifumi
-forms: [{script: ja, value: 鈴木敏文}, {script: ja-kana, value: すずき としふみ}, {script: zh, value: 铃木敏文}]
+gender: male
+forms: [{script: ja, value: 鈴木敏文}, {script: ja-kana, value: すずき としふみ}, {script: zh-Hans, value: 铃木敏文}, {script: zh-Hant, value: 鈴木敏文}]

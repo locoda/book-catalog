@@ -1,7 +1,9 @@
 name: Haruo Yūki
 sort: Yūki, Haruo
+gender: male
 forms:
-  - {script: en, value: Haruo Yūki}
-  - {script: ja, value: 夕木春央}
-  - {script: ja-kana, value: ゆうき はるお}
-  - {script: zh, value: 夕木春央}
+- {script: en, value: Haruo Yūki}
+- {script: ja, value: 夕木春央}
+- {script: ja-kana, value: ゆうき はるお}
+- {script: zh-Hans, value: 夕木春央}
+- {script: zh-Hant, value: 夕木春央}

@@ -1,6 +1,8 @@
 name: Nina Kim
 sort: Kim, Nina
+gender: female
 forms:
-  - {script: en, value: Nina Kim}
-  - {script: ko, value: 니나킴}
-  - {script: zh, value: 金镇率}
+- {script: en, value: Nina Kim}
+- {script: ko, value: 니나킴}
+- {script: zh-Hans, value: 金镇率}
+- {script: zh-Hant, value: 金鎮率}

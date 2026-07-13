@@ -1,7 +1,9 @@
 name: Susan Sontag
 sort: Sontag, Susan
+gender: female
 forms:
-  - script: en
-    value: Susan Sontag
-  - script: zh
-    value: 苏珊·桑塔格
+- script: en
+  value: Susan Sontag
+- script: zh-Hans
+  value: 苏珊·桑塔格
+- {script: zh-Hant, value: 蘇珊·桑塔格}

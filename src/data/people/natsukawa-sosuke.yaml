@@ -1,7 +1,9 @@
 name: Sōsuke Natsukawa
 sort: Natsukawa, Sōsuke
+gender: male
 forms:
-  - {script: en, value: Sōsuke Natsukawa}
-  - {script: ja, value: 夏川草介}
-  - {script: ja-kana, value: なつかわ そうすけ}
-  - {script: zh, value: 夏川草介}
+- {script: en, value: Sōsuke Natsukawa}
+- {script: ja, value: 夏川草介}
+- {script: ja-kana, value: なつかわ そうすけ}
+- {script: zh-Hans, value: 夏川草介}
+- {script: zh-Hant, value: 夏川草介}

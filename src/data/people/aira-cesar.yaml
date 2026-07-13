@@ -1,9 +1,11 @@
 name: César Aira
 sort: Aira, César
+gender: male
 forms:
 - script: en
   value: César Aira
 - script: es
   value: César Aira
-- script: zh
+- script: zh-Hans
   value: 塞萨尔·艾拉
+- {script: zh-Hant, value: 塞薩爾·艾拉}

@@ -1,7 +1,9 @@
 name: Raymond Carver
 sort: Carver, Raymond
+gender: male
 forms:
-  - script: en
-    value: Raymond Carver
-  - script: zh
-    value: 雷蒙德·卡佛
+- script: en
+  value: Raymond Carver
+- script: zh-Hans
+  value: 雷蒙德·卡佛
+- {script: zh-Hant, value: 雷蒙德·卡佛}

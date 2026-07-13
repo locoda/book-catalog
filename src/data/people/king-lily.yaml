@@ -1,4 +1,7 @@
 name: Lily King
 sort: King, Lily
+gender: female
 forms:
-  - {script: en, value: Lily King}
+- {script: en, value: Lily King}
+- {script: zh-Hans, value: 莉莉·金}
+- {script: zh-Hant, value: 莉莉·金}

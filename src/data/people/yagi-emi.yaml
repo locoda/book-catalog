@@ -1,9 +1,11 @@
 name: Emi Yagi
 sort: Yagi, Emi
+gender: female
 forms:
-  - script: ja
-    value: 八木詠美
-  - script: ja-Latn
-    value: Yagi Emi
-  - script: zh
-    value: 八木咏美
+- script: ja
+  value: 八木詠美
+- script: ja-Latn
+  value: Yagi Emi
+- script: zh-Hans
+  value: 八木咏美
+- {script: zh-Hant, value: 八木詠美}

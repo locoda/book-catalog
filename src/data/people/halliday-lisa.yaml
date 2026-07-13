@@ -1,7 +1,9 @@
 name: Lisa Halliday
 sort: Halliday, Lisa
+gender: female
 forms:
-  - script: en
-    value: Lisa Halliday
-  - script: zh
-    value: 莉萨·哈利迪
+- script: en
+  value: Lisa Halliday
+- script: zh-Hans
+  value: 莉萨·哈利迪
+- {script: zh-Hant, value: 莉薩·哈利迪}

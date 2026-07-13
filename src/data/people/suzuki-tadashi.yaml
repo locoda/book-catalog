@@ -1,7 +1,9 @@
 name: Tadashi Suzuki
 sort: Suzuki, Tadashi
+gender: male
 forms:
-  - {script: en, value: Tadashi Suzuki}
-  - {script: ja, value: 鈴木忠志}
-  - {script: ja-kana, value: すずき ただし}
-  - {script: zh, value: 铃木忠志}
+- {script: en, value: Tadashi Suzuki}
+- {script: ja, value: 鈴木忠志}
+- {script: ja-kana, value: すずき ただし}
+- {script: zh-Hans, value: 铃木忠志}
+- {script: zh-Hant, value: 鈴木忠志}

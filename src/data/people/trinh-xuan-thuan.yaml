@@ -1,7 +1,9 @@
 name: Trinh Xuan Thuan
 sort: Trinh, Xuan Thuan
+gender: male
 forms:
 - script: en
   value: Trinh Xuan Thuan
-- script: zh
+- script: zh-Hans
   value: 郑春顺
+- {script: zh-Hant, value: 鄭春順}

@@ -1,3 +1,4 @@
 name: Tara Westover
 sort: Westover, Tara
-forms: [{script: en, value: Tara Westover}, {script: zh, value: 塔拉·韦斯特弗}]
+gender: female
+forms: [{script: en, value: Tara Westover}, {script: zh-Hans, value: 塔拉·韦斯特弗}, {script: zh-Hant, value: 塔拉·韋斯特弗}]

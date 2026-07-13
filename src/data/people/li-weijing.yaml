@@ -1,5 +1,7 @@
 name: Li Weijing
 sort: Li, Weijing
+gender: female
 forms:
-  - {script: zh, value: 李维菁}
-  - {script: zh-Latn, value: Li Weijing}
+- {script: zh-Hans, value: 李维菁}
+- {script: zh-Latn, value: Li Weijing}
+- {script: zh-Hant, value: 李維菁}

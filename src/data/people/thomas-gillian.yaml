@@ -1,7 +1,9 @@
 name: Gillian Thomas
 sort: Thomas, Gillian
+gender: female
 forms:
 - script: en
   value: Gillian Thomas
-- script: zh
+- script: zh-Hans
   value: 吉莉恩·托马斯
+- {script: zh-Hant, value: 吉莉恩·托馬斯}

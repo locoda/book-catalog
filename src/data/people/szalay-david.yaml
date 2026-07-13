@@ -1,4 +1,7 @@
 name: David Szalay
 sort: Szalay, David
+gender: male
 forms:
-  - {script: en, value: David Szalay}
+- {script: en, value: David Szalay}
+- {script: zh-Hans, value: 大卫·萨莱}
+- {script: zh-Hant, value: 大衛·薩萊}

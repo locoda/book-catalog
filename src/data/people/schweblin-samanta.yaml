@@ -1,7 +1,9 @@
 name: Samanta Schweblin
 sort: Schweblin, Samanta
+gender: female
 forms:
-  - script: es
-    value: Samanta Schweblin
-  - script: zh
-    value: 萨曼塔·施维伯林
+- script: es
+  value: Samanta Schweblin
+- script: zh-Hans
+  value: 萨曼塔·施维伯林
+- {script: zh-Hant, value: 薩曼塔·施維伯林}

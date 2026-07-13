@@ -1,7 +1,9 @@
 name: Hermann Hesse
 sort: Hesse, Hermann
+gender: male
 forms:
-  - script: de
-    value: Hermann Hesse
-  - script: zh
-    value: 赫尔曼·黑塞
+- script: de
+  value: Hermann Hesse
+- script: zh-Hans
+  value: 赫尔曼·黑塞
+- {script: zh-Hant, value: 赫爾曼·黑塞}

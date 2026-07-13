@@ -1,6 +1,8 @@
 name: Akira Toshimori
 sort: Toshimori, Akira
+gender: female
 forms:
-  - {script: ja, value: 年森瑛}
-  - {script: ja-kana, value: としもり あきら}
-  - {script: zh, value: 年森瑛}
+- {script: ja, value: 年森瑛}
+- {script: ja-kana, value: としもり あきら}
+- {script: zh-Hans, value: 年森瑛}
+- {script: zh-Hant, value: 年森瑛}

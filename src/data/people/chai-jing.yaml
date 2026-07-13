@@ -1,5 +1,7 @@
 name: Chai Jing
 sort: Chai, Jing
+gender: female
 forms:
-  - {script: zh, value: 柴静}
-  - {script: zh-Latn, value: Chai Jing}
+- {script: zh-Hans, value: 柴静}
+- {script: zh-Latn, value: Chai Jing}
+- {script: zh-Hant, value: 柴靜}

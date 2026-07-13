@@ -1,7 +1,9 @@
 name: R.F. Kuang
 sort: Kuang, R.F.
+gender: female
 forms:
-  - script: en
-    value: R.F. Kuang
-  - script: zh
-    value: 匡靈秀
+- script: en
+  value: R.F. Kuang
+- script: zh-Hans
+  value: 匡靈秀
+- {script: zh-Hant, value: 匡靈秀}

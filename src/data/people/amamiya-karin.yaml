@@ -1,9 +1,11 @@
 name: Karin Amamiya
 sort: Amamiya, Karin
+gender: female
 forms:
-  - script: ja
-    value: 雨宮処凛
-  - script: ja-Latn
-    value: Amamiya Karin
-  - script: zh
-    value: 雨宫处凛
+- script: ja
+  value: 雨宮処凛
+- script: ja-Latn
+  value: Amamiya Karin
+- script: zh-Hans
+  value: 雨宫处凛
+- {script: zh-Hant, value: 雨宮處凜}

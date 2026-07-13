@@ -1,5 +1,6 @@
 name: Saou Ichikawa
 sort: Ichikawa, Saou
+gender: female
 forms:
 - script: en
   value: Saou Ichikawa
@@ -7,5 +8,6 @@ forms:
   value: 市川沙央
 - script: ja-kana
   value: いちかわ さおう
-- script: zh
+- script: zh-Hans
   value: 市川沙央
+- {script: zh-Hant, value: 市川沙央}

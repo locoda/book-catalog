@@ -1,6 +1,8 @@
 name: Bunji Sunakawa
 sort: Sunakawa, Bunji
+gender: male
 forms:
-  - {script: ja, value: 砂川文次}
-  - {script: ja-kana, value: すなかわ ぶんじ}
-  - {script: zh, value: 砂川文次}
+- {script: ja, value: 砂川文次}
+- {script: ja-kana, value: すなかわ ぶんじ}
+- {script: zh-Hans, value: 砂川文次}
+- {script: zh-Hant, value: 砂川文次}

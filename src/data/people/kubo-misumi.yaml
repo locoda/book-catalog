@@ -1,8 +1,10 @@
 name: Misumi Kubo
 sort: Kubo, Misumi
+gender: female
 forms:
-  - {script: en, value: Misumi Kubo}
-  - {script: ja, value: 窪美澄}
-  - {script: ja-kana, value: くぼ みすみ}
-  - {script: ja-Latn, value: Kubo Misumi}
-  - {script: zh, value: 窪美澄}
+- {script: en, value: Misumi Kubo}
+- {script: ja, value: 窪美澄}
+- {script: ja-kana, value: くぼ みすみ}
+- {script: ja-Latn, value: Kubo Misumi}
+- {script: zh-Hans, value: 窪美澄}
+- {script: zh-Hant, value: 窪美澄}

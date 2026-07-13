@@ -1,7 +1,9 @@
 name: Will Gompertz
 sort: Gompertz, Will
+gender: male
 forms:
 - script: en
   value: Will Gompertz
-- script: zh
+- script: zh-Hans
   value: 威尔·贡培兹
+- {script: zh-Hant, value: 威爾·貢培茲}

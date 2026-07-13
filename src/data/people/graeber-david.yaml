@@ -1,5 +1,7 @@
 name: David Graeber
 sort: Graeber, David
+gender: male
 forms:
-  - {script: en, value: David Graeber}
-  - {script: zh, value: 大卫·格雷伯}
+- {script: en, value: David Graeber}
+- {script: zh-Hans, value: 大卫·格雷伯}
+- {script: zh-Hant, value: 大衛·格雷伯}

@@ -1,7 +1,9 @@
 name: Tian Er
 sort: Tian, Er
+gender: male
 forms:
-  - script: zh
-    value: 田耳
-  - script: zh-Latn
-    value: Tian Er
+- script: zh-Hans
+  value: 田耳
+- script: zh-Latn
+  value: Tian Er
+- {script: zh-Hant, value: 田耳}

@@ -1,7 +1,9 @@
 name: Italo Calvino
 sort: Calvino, Italo
+gender: male
 forms:
-  - script: it
-    value: Italo Calvino
-  - script: zh
-    value: 伊塔洛·卡尔维诺
+- script: it
+  value: Italo Calvino
+- script: zh-Hans
+  value: 伊塔洛·卡尔维诺
+- {script: zh-Hant, value: 伊塔洛·卡爾維諾}

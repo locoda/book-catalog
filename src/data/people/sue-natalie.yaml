@@ -1,4 +1,7 @@
 name: Natalie Sue
 sort: Sue, Natalie
+gender: female
 forms:
-  - {script: en, value: Natalie Sue}
+- {script: en, value: Natalie Sue}
+- {script: zh-Hans, value: 娜塔莉·苏}
+- {script: zh-Hant, value: 娜塔莉·蘇}

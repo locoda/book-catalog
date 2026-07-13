@@ -1,4 +1,7 @@
 name: Virginia Evans
 sort: Evans, Virginia
+gender: female
 forms:
-  - {script: en, value: Virginia Evans}
+- {script: en, value: Virginia Evans}
+- {script: zh-Hans, value: 弗吉尼亚·埃文斯}
+- {script: zh-Hant, value: 弗吉尼亞·埃文斯}

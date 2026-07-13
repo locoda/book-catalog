@@ -1,7 +1,9 @@
 name: Satoshi Kawasaki
 sort: Kawasaki, Satoshi
+gender: male
 forms:
-  - {script: en, value: Satoshi Kawasaki}
-  - {script: ja, value: 川崎悟司}
-  - {script: ja-kana, value: かわさき さとし}
-  - {script: zh, value: 川崎悟司}
+- {script: en, value: Satoshi Kawasaki}
+- {script: ja, value: 川崎悟司}
+- {script: ja-kana, value: かわさき さとし}
+- {script: zh-Hans, value: 川崎悟司}
+- {script: zh-Hant, value: 川崎悟司}

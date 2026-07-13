@@ -1,4 +1,7 @@
 name: Kiran Desai
 sort: Desai, Kiran
+gender: female
 forms:
-  - {script: en, value: Kiran Desai}
+- {script: en, value: Kiran Desai}
+- {script: zh-Hans, value: 基兰·德赛}
+- {script: zh-Hant, value: 基蘭·德賽}

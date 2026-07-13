@@ -1,6 +1,8 @@
 name: Mario Vargas Llosa
 sort: Vargas Llosa, Mario
+gender: male
 forms:
-  - {script: en, value: Mario Vargas Llosa}
-  - {script: es, value: Mario Vargas Llosa}
-  - {script: zh, value: 马里奥·巴尔加斯·略萨}
+- {script: en, value: Mario Vargas Llosa}
+- {script: es, value: Mario Vargas Llosa}
+- {script: zh-Hans, value: 马里奥·巴尔加斯·略萨}
+- {script: zh-Hant, value: 馬里奧·巴爾加斯·略薩}

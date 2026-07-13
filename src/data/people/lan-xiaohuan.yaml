@@ -1,7 +1,9 @@
 name: Lan Xiaohuan
 sort: Lan, Xiaohuan
+gender: male
 forms:
 - script: en
   value: Lan Xiaohuan
-- script: zh
+- script: zh-Hans
   value: 兰小欢
+- {script: zh-Hant, value: 蘭小歡}

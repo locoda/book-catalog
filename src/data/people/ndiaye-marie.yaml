@@ -1,4 +1,8 @@
 name: Marie NDiaye
 sort: NDiaye, Marie
+gender: female
 forms:
-  - {script: en, value: Marie NDiaye}
+- {script: en, value: Marie NDiaye}
+- {script: zh-Hans, value: 玛丽·恩迪亚耶}
+- {script: zh-Hant, value: 瑪麗·恩迪亞耶}
+- {script: fr, value: Marie NDiaye}

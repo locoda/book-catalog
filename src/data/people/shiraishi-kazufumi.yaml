@@ -1,5 +1,6 @@
 name: Kazufumi Shiraishi
 sort: Shiraishi, Kazufumi
+gender: male
 forms:
 - script: en
   value: Kazufumi Shiraishi
@@ -7,5 +8,6 @@ forms:
   value: 白石一文
 - script: ja-kana
   value: しらいし かずふみ
-- script: zh
+- script: zh-Hans
   value: 白石一文
+- {script: zh-Hant, value: 白石一文}

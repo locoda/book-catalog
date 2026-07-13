@@ -1,7 +1,9 @@
 name: Haruki Murakami
 sort: Murakami, Haruki
+gender: male
 forms:
-  - {script: en, value: Haruki Murakami}
-  - {script: ja, value: 村上春樹}
-  - {script: ja-kana, value: むらかみ はるき}
-  - {script: zh, value: 村上春树}
+- {script: en, value: Haruki Murakami}
+- {script: ja, value: 村上春樹}
+- {script: ja-kana, value: むらかみ はるき}
+- {script: zh-Hans, value: 村上春树}
+- {script: zh-Hant, value: 村上春樹}

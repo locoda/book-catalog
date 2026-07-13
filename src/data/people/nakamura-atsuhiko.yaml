@@ -1,7 +1,10 @@
 name: Atsuhiko Nakamura
 sort: Nakamura, Atsuhiko
+gender: male
 forms:
-  - script: ja
-    value: 中村淳彦
-  - script: ja-Latn
-    value: Nakamura Atsuhiko
+- script: ja
+  value: 中村淳彦
+- script: ja-Latn
+  value: Nakamura Atsuhiko
+- {script: zh-Hans, value: 中村淳彦}
+- {script: zh-Hant, value: 中村淳彦}

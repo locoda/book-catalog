@@ -1,7 +1,9 @@
 name: Lori Gottlieb
 sort: Gottlieb, Lori
+gender: female
 forms:
 - script: en
   value: Lori Gottlieb
-- script: zh
+- script: zh-Hans
   value: 洛莉·戈特利布
+- {script: zh-Hant, value: 洛莉·戈特利布}

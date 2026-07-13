@@ -1,7 +1,9 @@
 name: Rabindranath Tagore
 sort: Tagore, Rabindranath
+gender: male
 forms:
-  - script: en
-    value: Rabindranath Tagore
-  - script: zh
-    value: 泰戈尔
+- script: en
+  value: Rabindranath Tagore
+- script: zh-Hans
+  value: 泰戈尔
+- {script: zh-Hant, value: 泰戈爾}

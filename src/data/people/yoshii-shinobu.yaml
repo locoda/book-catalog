@@ -1,7 +1,10 @@
 name: Shinobu Yoshii
 sort: Yoshii, Shinobu
+gender: female
 forms:
-  - script: ja
-    value: 吉井忍
-  - script: ja-Latn
-    value: Yoshii Shinobu
+- script: ja
+  value: 吉井忍
+- script: ja-Latn
+  value: Yoshii Shinobu
+- {script: zh-Hans, value: 吉井忍}
+- {script: zh-Hant, value: 吉井忍}

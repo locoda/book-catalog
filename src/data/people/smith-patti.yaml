@@ -1,7 +1,9 @@
 name: Patti Smith
 sort: Smith, Patti
+gender: female
 forms:
 - script: en
   value: Patti Smith
-- script: zh
+- script: zh-Hans
   value: 帕蒂·史密斯
+- {script: zh-Hant, value: 帕蒂·史密斯}

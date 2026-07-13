@@ -1,3 +1,4 @@
 name: Haruna Terachi
 sort: Terachi, Haruna
-forms: [{script: ja, value: 寺地はるな}, {script: ja-kana, value: てらち はるな}, {script: zh, value: 寺地春奈}]
+gender: female
+forms: [{script: ja, value: 寺地はるな}, {script: ja-kana, value: てらち はるな}, {script: zh-Hans, value: 寺地春奈}, {script: zh-Hant, value: 寺地春奈}]

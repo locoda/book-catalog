@@ -1,5 +1,9 @@
 name: Cynthia F. Wong
 sort: Wong, Cynthia F.
+gender: female
 forms:
-  - script: en
-    value: Cynthia F. Wong
+- script: en
+  value: Cynthia F. Wong
+- {script: zh-Hans, value: 黄辛西娅}
+- {script: zh-Hant, value: 黃辛西婭}
+- {script: zh-Latn, value: Wong Xinya}

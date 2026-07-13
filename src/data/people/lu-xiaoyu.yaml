@@ -1,5 +1,7 @@
 name: Lü Xiaoyu
 sort: Lü, Xiaoyu
+gender: male
 forms:
-  - {script: en, value: Lü Xiaoyu}
-  - {script: zh, value: 吕晓宇}
+- {script: en, value: Lü Xiaoyu}
+- {script: zh-Hans, value: 吕晓宇}
+- {script: zh-Hant, value: 呂曉宇}

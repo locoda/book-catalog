@@ -1,6 +1,8 @@
 name: Maria Stepanova
 sort: Stepanova, Maria
+gender: female
 forms:
-  - {script: ru, value: Мария Степанова}
-  - {script: en, value: Maria Stepanova}
-  - {script: zh, value: 玛丽亚·斯捷潘诺娃}
+- {script: ru, value: Мария Степанова}
+- {script: en, value: Maria Stepanova}
+- {script: zh-Hans, value: 玛丽亚·斯捷潘诺娃}
+- {script: zh-Hant, value: 瑪麗亞·斯捷潘諾娃}

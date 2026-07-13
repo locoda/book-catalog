@@ -1,7 +1,9 @@
 name: Fatima Das
 sort: Das, Fatima
+gender: female
 forms:
 - script: en
   value: Fatima Das
-- script: zh
+- script: zh-Hans
   value: 法蒂瑪·達斯
+- {script: zh-Hant, value: 法蒂瑪·達斯}

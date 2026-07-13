@@ -1,4 +1,7 @@
 name: Rene Karabash
 sort: Karabash, Rene
+gender: female
 forms:
-  - {script: en, value: Rene Karabash}
+- {script: en, value: Rene Karabash}
+- {script: zh-Hans, value: 勒内·卡拉巴什}
+- {script: zh-Hant, value: 勒內·卡拉巴什}

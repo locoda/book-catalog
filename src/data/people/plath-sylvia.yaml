@@ -1,7 +1,9 @@
 name: Sylvia Plath
 sort: Plath, Sylvia
+gender: female
 forms:
 - script: en
   value: Sylvia Plath
-- script: zh
+- script: zh-Hans
   value: Sylvia Plath
+- {script: zh-Hant, value: Sylvia Plath}

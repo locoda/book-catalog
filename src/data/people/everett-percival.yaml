@@ -1,4 +1,7 @@
 name: Percival Everett
 sort: Everett, Percival
+gender: male
 forms:
-  - {script: en, value: Percival Everett}
+- {script: en, value: Percival Everett}
+- {script: zh-Hans, value: 珀西瓦尔·埃弗雷特}
+- {script: zh-Hant, value: 珀西瓦爾·埃弗雷特}

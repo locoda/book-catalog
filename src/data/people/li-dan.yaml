@@ -1,5 +1,7 @@
 name: Li Dan
 sort: Li, Dan
+gender: male
 forms:
-  - {script: zh, value: 李诞}
-  - {script: zh-Latn, value: Li Dan}
+- {script: zh-Hans, value: 李诞}
+- {script: zh-Latn, value: Li Dan}
+- {script: zh-Hant, value: 李誕}

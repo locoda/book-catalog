@@ -1,7 +1,9 @@
 name: Jami Attenberg
 sort: Attenberg, Jami
+gender: female
 forms:
 - script: en
   value: Jami Attenberg
-- script: zh
+- script: zh-Hans
   value: 杰米·阿滕贝格
+- {script: zh-Hant, value: 傑米·阿滕貝格}

@@ -1,7 +1,9 @@
 name: Maggie Nelson
 sort: Nelson, Maggie
+gender: female
 forms:
-  - script: en
-    value: Maggie Nelson
-  - script: zh
-    value: 玛吉·尼尔森
+- script: en
+  value: Maggie Nelson
+- script: zh-Hans
+  value: 玛吉·尼尔森
+- {script: zh-Hant, value: 瑪吉·尼爾森}

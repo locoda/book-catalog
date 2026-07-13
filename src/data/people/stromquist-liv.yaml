@@ -1,9 +1,11 @@
 name: Liv Strömquist
 sort: Strömquist, Liv
+gender: female
 forms:
 - script: en
   value: Liv Strömquist
 - script: sv
   value: Liv Strömquist
-- script: zh
+- script: zh-Hans
   value: 利夫·斯特伦奎斯特
+- {script: zh-Hant, value: 利夫·斯特倫奎斯特}

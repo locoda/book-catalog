@@ -1,4 +1,8 @@
 name: Yiyun Li
 sort: Li, Yiyun
+gender: female
 forms:
-  - {script: en, value: Yiyun Li}
+- {script: en, value: Yiyun Li}
+- {script: zh-Hans, value: 李翊云}
+- {script: zh-Hant, value: 李翊雲}
+- {script: zh-Latn, value: Li Yiyun}

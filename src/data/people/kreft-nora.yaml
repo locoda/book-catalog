@@ -1,5 +1,7 @@
 name: Nora Kreft
 sort: Kreft, Nora
+gender: female
 forms:
-  - {script: en, value: Nora Kreft}
-  - {script: zh, value: 诺拉·克雷弗特}
+- {script: en, value: Nora Kreft}
+- {script: zh-Hans, value: 诺拉·克雷弗特}
+- {script: zh-Hant, value: 諾拉·克雷弗特}

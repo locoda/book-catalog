@@ -1,3 +1,4 @@
 name: Herta Müller
 sort: Müller, Herta
-forms: [{script: de, value: Herta Müller}, {script: zh, value: 赫塔·米勒}]
+gender: female
+forms: [{script: de, value: Herta Müller}, {script: zh-Hans, value: 赫塔·米勒}, {script: zh-Hant, value: 赫塔·米勒}]

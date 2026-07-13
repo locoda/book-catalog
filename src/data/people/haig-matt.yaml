@@ -1,5 +1,7 @@
 name: Matt Haig
 sort: Haig, Matt
+gender: male
 forms:
-  - {script: en, value: Matt Haig}
-  - {script: zh, value: 马特·海格}
+- {script: en, value: Matt Haig}
+- {script: zh-Hans, value: 马特·海格}
+- {script: zh-Hant, value: 馬特·海格}

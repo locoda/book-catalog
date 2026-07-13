@@ -1,5 +1,7 @@
 name: Sándor Márai
 sort: Márai, Sándor
+gender: male
 forms:
-  - {script: en, value: Sándor Márai}
-  - {script: zh, value: 马洛伊·山多尔}
+- {script: en, value: Sándor Márai}
+- {script: zh-Hans, value: 马洛伊·山多尔}
+- {script: zh-Hant, value: 馬洛伊·山多爾}
