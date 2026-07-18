@@ -9,5 +9,5 @@ forms:
 - script: ja-kana
   value: あさひな あすか
 - script: zh-Hans
-  value: 朝比奈あすか
+  value: 朝比奈明日香
 - {script: zh-Hant, value: 朝比奈あすか}
