@@ -29,14 +29,19 @@ jobs:
       - name: List drafts for review
         run: node scripts/promote.mjs --list
 
-      - name: Commit & push drafts
+      # 汇总 src/data/works → public/catalog.json
+      # （草稿在 works-draft，promote 之后才进索引；这里刷新的是已促成的正式记录）
+      - name: Generate consolidated index
+        run: npm run build:index
+
+      - name: Commit & push drafts and index
         run: |
           git config user.name "catalog-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/works-draft
+          git add src/data/works-draft public/catalog.json
           if git diff --cached --quiet; then
             echo "No new marks."
           else
-            git commit -m "chore: auto-import drafts from NeoDB ($(date -u +%F))"
+            git commit -m "chore: auto-import drafts from NeoDB & refresh catalog index ($(date -u +%F))"
             git push
           fi
