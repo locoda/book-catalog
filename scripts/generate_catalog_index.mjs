@@ -8,6 +8,8 @@
  * 让 AI 与外部工具一次读取即可拿到全量书单，不必逐个文件抓取。
  * public/ 由 Astro 原样拷进 dist/，站点上即 /catalog.json（只读 API）。
  *
+ * 排序：按最后一次阅读时间倒序，最近读的在最前。
+ *
  * 字段取自 FRBR-lite schema（src/content.config.ts）：
  *   title           我读的版本题名（expressions[].mine），无则回退原题
  *   original_title  原语言权威题名（work.title），与 title 相同时留空
@@ -93,8 +95,15 @@ for (const file of yamlFiles(WORKS_DIR)) {
   });
 }
 
-// 4. 按题名排序（中文按拼音，id 兜底保证同名书顺序稳定）
-works.sort((a, b) => a.title.localeCompare(b.title, 'zh-Hans-CN') || a.id.localeCompare(b.id));
+// 4. 按阅读时间倒序（最近读的在最前）。
+//    取最后一次阅读为排序键（重读的书跟着最新一次走）；readings 缺失的排末尾。
+//    日期形如 "2021-03" / "2026-06-24"，ISO 前缀直接字典序即可比较。
+const lastRead = (w) => (w.read_dates.length ? w.read_dates.reduce((x, y) => (x > y ? x : y)) : '');
+works.sort((a, b) => {
+  const [x, y] = [lastRead(a), lastRead(b)];
+  if (x !== y) return x && y ? y.localeCompare(x) : x ? -1 : 1;
+  return a.title.localeCompare(b.title, 'zh-Hans-CN') || a.id.localeCompare(b.id);
+});
 
 // 5. 写出 public/catalog.json
 mkdirSync(dirname(PUBLIC_JSON), { recursive: true });
