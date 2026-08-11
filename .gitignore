@@ -8,3 +8,6 @@ scripts/.import-state.json
 # 构建产物：由 scripts/generate_catalog_index.mjs 从 src/data/works/*.yaml 生成
 # npm run build 会自动重生成，不入库避免派生数据漂移
 public/catalog.json
+
+# 个人输出（图表、画像、草稿等，不提交）
+outputs/
