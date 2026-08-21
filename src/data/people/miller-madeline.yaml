@@ -1,0 +1,7 @@
+name: Madeline Miller
+sort: Miller, Madeline
+gender: female
+forms:
+- {script: en, value: Madeline Miller}
+- {script: zh-Hans, value: 玛德琳·米勒}
+- {script: zh-Hant, value: 瑪德琳·米勒}

@@ -26,6 +26,7 @@
  *   - 已存在的文件不会覆盖（--force 可覆盖）。
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -104,6 +105,18 @@ function initStateFromWorks(worksDir) {
   return newestUuid ? { last_imported_uuid: newestUuid, last_imported_date: newestDate } : null;
 }
 
+/** 解析 NeoDB token：优先环境变量，其次从 neodb-api skill 的 references 自动读取（自动化 shell 无 env 时兜底）。 */
+function resolveToken() {
+  if (process.env.NEODB_TOKEN) return process.env.NEODB_TOKEN;
+  const refPath = join(homedir(), '.workbuddy', 'skills', 'neodb-api', 'references', 'api_docs.md');
+  try {
+    const txt = readFileSync(refPath, 'utf-8');
+    const m = txt.match(/Bearer\s+([A-Za-z0-9._~-]+)/);
+    if (m) return m[1];
+  } catch { /* 文件不存在则走下方无 token 报错 */ }
+  return null;
+}
+
 async function api(url, token) {
   const r = await fetch(url, {
     headers: {
@@ -131,9 +144,9 @@ async function main() {
     process.exit(console.error('--shelf 只能是 complete / wishlist（在读不入目录）') ?? 2);
   }
 
-  const token = process.env.NEODB_TOKEN;
+  const token = resolveToken();
   if (!token) {
-    console.error('缺少 NEODB_TOKEN 环境变量。');
+    console.error('缺少 NEODB_TOKEN 环境变量（且未在 neodb-api skill 凭据文件中找到 token）。');
     process.exit(2);
   }
 
