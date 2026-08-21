@@ -120,7 +120,7 @@
 - [futtara-doshaburi] mine 版本 lang=ja（题名「ふったらどしゃぶり~When it rains, it pours~完全版」），不在 zh-Hans/zh-Hant/en 封闭集内
 - [naito-gaden] mine 版本 lang=ja（题名「ナイトガーデン 完全版」），同上
 - 两条记录均 `confirmed: true`，著者同为一穂ミチ+竹美家らら。是你确实读的日文原版，还是应该标记为另一个语言版本？若确实读日文原版，需要馆长决定是否放开封闭集（改规则）还是把这两条标为特例。
-- [rakuen]（2026-08-20 周度编目新增，留草稿区）夕木春央『楽園』（講談社，2026-07-23 单行本初版）mine 版本 lang=ja。该书刚出版约一个月、查无中译本（NeoDB 条目 translator 为空、language 为空），确系读日文原版。若确认放开封闭集，需同步改 `src/content.config.ts` 的 MINE_LANGS 与 `scripts/validate.mjs` E6，否则无法迁入。待馆长决定。
+- ~~[rakuen]（2026-08-20 周度编目）mine 版本 lang=ja，疑似读日文原版~~ 已解决：馆长确认读的是**民间中文翻译版**（非日文原版），mine lang 已改 zh-Hans（译名「乐园」），已迁入正式目录。教训：NeoDB 条目 translator 为空 ≠ 读原版，可能是民间译本（无官方 translator 记录），此类书需向馆长确认实际阅读语言而非默认日文原版。
 
 ### 重复 work 记录（已合并）
 - ~~[huin] 与 [huin-2] 重复~~ 两条记录都是韩江《흰》(2016)，只是"mine"版本不同（huin=简体《失语者》2022-01-01读，huin-2=繁体《白》2025-01-01读），callno 撞车（都是 OF-HAN-2016-HUIN，是这次跑 callno 唯一性校验时发现的）。按 schema 本就支持"读过多个版本可多个 mine"，已合并进 huin.yaml（两个 mine 版本 + 两条 readings 都保留），删除 huin-2.yaml。huin-2 的 neodb_uuid（7Zzb00mceTenPcRNdAzsad）随文件删除丢失，只保留了 huin 的 uuid，馆长如需两个 uuid 都留痕请告知。
