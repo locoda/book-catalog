@@ -2,16 +2,19 @@ work_type: book
 title: Homeseeking
 orig_lang: en
 year: 2025
-creators: [chen-karissa]
+creators:
+- chen-karissa
 callno: EF-CHE-2025-HOME
-subjects: [becoming, old-haunts, embers]
+subjects:
+- becoming
+- old-haunts
 expressions:
-  - lang: en
-    title: Homeseeking
-    mine: true
+- lang: en
+  title: Homeseeking
+  mine: true
 readings:
-  - date: '2025-08-08'
-    edition: audiobook
+- date: '2025-08-08'
+  edition: audiobook
 rating: 10
 status: read
 confirmed: true

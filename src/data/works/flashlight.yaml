@@ -1,15 +1,18 @@
 title: Flashlight
 orig_lang: en
 year: 2025
-creators: [choi-susan]
+creators:
+- choi-susan
 callno: EF-CHO-2025-FLAS
-subjects: [living-with-loss, narrative-maze, kinship]
+subjects:
+- living-with-loss
+- kinship
 expressions:
-  - lang: en
-    title: Flashlight
-    mine: true
+- lang: en
+  title: Flashlight
+  mine: true
 readings:
-  - date: "2026-07-28"
+- date: '2026-07-28'
 rating: 10
 status: read
 neodb_uuid: 4t6etUqyDixcvDBejHSvZc

@@ -1,18 +1,21 @@
 title: Circe
 orig_lang: en
 year: 2018
-creators: [miller-madeline]
+creators:
+- miller-madeline
 callno: EF-MIL-2018-CIRC
-subjects: [becoming, off-script, patriarchy]
+subjects:
+- becoming
+- patriarchy
 expressions:
-  - lang: en
-    title: Circe
-  - lang: zh-Hans
-    title: 喀耳刻
-    translator: 姜小瑁
-    mine: true
+- lang: en
+  title: Circe
+- lang: zh-Hans
+  title: 喀耳刻
+  translator: 姜小瑁
+  mine: true
 readings:
-  - date: '2026-08-14'
+- date: '2026-08-14'
 rating: 10
 status: read
 neodb_uuid: 5XcpmfXrOEexncH1NpyG7T

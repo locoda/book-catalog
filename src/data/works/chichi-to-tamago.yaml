@@ -2,19 +2,22 @@ work_type: book
 title: 乳と卵
 orig_lang: ja
 year: 2008
-creators: [kawakami-mieko]
+creators:
+- kawakami-mieko
 callno: JF-KAW-2008-CHIC
-subjects: [patriarchy, kinship, off-script]
+subjects:
+- patriarchy
+- kinship
 expressions:
-  - lang: ja
-    title: 乳と卵
-  - lang: zh-Hans
-    title: 乳与卵
-    translator: 楊明綺
-    mine: true
+- lang: ja
+  title: 乳と卵
+- lang: zh-Hans
+  title: 乳与卵
+  translator: 楊明綺
+  mine: true
 readings:
-  - date: '2026-03-22'
-    edition: ebook
+- date: '2026-03-22'
+  edition: ebook
 rating: 8
 status: read
 confirmed: true

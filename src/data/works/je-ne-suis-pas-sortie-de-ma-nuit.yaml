@@ -5,7 +5,9 @@ orig_lang: fr
 year: 1997
 creators:
 - ernaux-annie
-subjects: [rehearsing-farewell, late-life, kinship]
+subjects:
+- late-life
+- kinship
 expressions:
 - lang: fr
   title: Je ne suis pas sortie de ma nuit

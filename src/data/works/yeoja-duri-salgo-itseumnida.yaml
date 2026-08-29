@@ -2,19 +2,23 @@ work_type: book
 title: 여자 둘이 살고 있습니다
 orig_lang: ko
 year: 2019
-creators: [kim-hana, hwang-seonu]
+creators:
+- kim-hana
+- hwang-seonu
 callno: ON-KIM-2019-YEOJ
-subjects: [off-script, unnamed, street-life]
+subjects:
+- off-script
+- unnamed
 expressions:
-  - lang: ko
-    title: 여자 둘이 살고 있습니다
-  - lang: zh-Hant
-    title: 兩個女人住一起
-    translator: 簡郁璇
-    mine: true
+- lang: ko
+  title: 여자 둘이 살고 있습니다
+- lang: zh-Hant
+  title: 兩個女人住一起
+  translator: 簡郁璇
+  mine: true
 readings:
-  - date: "2026-04-12"
-    edition: ebook
+- date: '2026-04-12'
+  edition: ebook
 rating: 8
 status: read
 confirmed: true

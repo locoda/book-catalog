@@ -2,19 +2,22 @@ work_type: book
 title: ラヴレター
 orig_lang: ja
 year: 1995
-creators: [iwai-shunji]
+creators:
+- iwai-shunji
 callno: JF-IWA-1995-LOVE
-subjects: [living-with-loss, embers, letters]
+subjects:
+- living-with-loss
+- embers
 expressions:
-  - lang: ja
-    title: ラヴレター
-  - lang: zh-Hans
-    title: 情书
-    translator: 穆晓芳
-    mine: true
+- lang: ja
+  title: ラヴレター
+- lang: zh-Hans
+  title: 情书
+  translator: 穆晓芳
+  mine: true
 readings:
-  - date: '2023-06-23'
-    edition: ebook
+- date: '2023-06-23'
+  edition: ebook
 rating: 10
 status: read
 confirmed: true

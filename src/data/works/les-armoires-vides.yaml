@@ -2,18 +2,21 @@ work_type: book
 title: Les Armoires vides
 orig_lang: fr
 year: 1974
-creators: [ernaux-annie]
+creators:
+- ernaux-annie
 callno: OF-ERN-1974-LESA
-subjects: [off-script, becoming, kinship]
+subjects:
+- becoming
+- kinship
 expressions:
-  - lang: fr
-    title: Les Armoires vides
-  - lang: zh-Hans
-    title: 空衣橱
-    translator: 张洁
-    mine: true
+- lang: fr
+  title: Les Armoires vides
+- lang: zh-Hans
+  title: 空衣橱
+  translator: 张洁
+  mine: true
 readings:
-  - date: "2026-08-28"
+- date: '2026-08-28'
 rating: 8
 status: read
 neodb_uuid: 1jbZN2aExHiU56o2SYPtRg

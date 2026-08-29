@@ -2,19 +2,22 @@ work_type: book
 title: Остайница
 orig_lang: bg
 year: 2018
-creators: [karabash-rene]
+creators:
+- karabash-rene
 callno: OF-KAR-2018-OSTA
-subjects: [becoming, patriarchy, off-script]
+subjects:
+- becoming
+- patriarchy
 expressions:
-  - lang: bg
-    title: Остайница
-  - lang: en
-    title: She Who Remains
-    translator: Izidora Angel
-    mine: true
+- lang: bg
+  title: Остайница
+- lang: en
+  title: She Who Remains
+  translator: Izidora Angel
+  mine: true
 readings:
-  - date: "2026-06-26"
-    edition: ebook
+- date: '2026-06-26'
+  edition: ebook
 rating: 10
 status: read
 confirmed: true

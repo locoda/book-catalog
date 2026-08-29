@@ -2,19 +2,22 @@ work_type: book
 title: La Sorcière
 orig_lang: fr
 year: 1996
-creators: [ndiaye-marie]
+creators:
+- ndiaye-marie
 callno: OF-NDI-1996-LASO
-subjects: [kinship, off-script, patriarchy]
+subjects:
+- kinship
+- patriarchy
 expressions:
-  - lang: fr
-    title: La Sorcière
-  - lang: en
-    title: "The Witch: A Novel"
-    translator: Jordan Stump
-    mine: true
+- lang: fr
+  title: La Sorcière
+- lang: en
+  title: 'The Witch: A Novel'
+  translator: Jordan Stump
+  mine: true
 readings:
-  - date: "2026-04-17"
-    edition: ebook
+- date: '2026-04-17'
+  edition: ebook
 rating: 8
 status: read
 confirmed: true

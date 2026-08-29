@@ -5,7 +5,9 @@ orig_lang: en
 year: 2011
 creators:
 - winterson-jeanette
-subjects: [kinship, off-script, wilderness]
+subjects:
+- off-script
+- wilderness
 expressions:
 - lang: en
   title: Why Be Happy When You Could Be Normal?
