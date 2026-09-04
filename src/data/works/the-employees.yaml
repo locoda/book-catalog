@@ -1,0 +1,22 @@
+work_type: book
+title: De ansatte
+orig_lang: da
+year: 2018
+creators:
+  - olga-ravn
+callno: OF-RAV-2018-DEAN
+subjects:
+  - nine-to-five
+  - nonhuman
+expressions:
+  - lang: da
+    title: De ansatte
+  - lang: en
+    title: The Employees
+    translator: Martin Aitken
+    mine: true
+readings:
+  - date: '2026-08-28'
+rating: 8
+status: read
+neodb_uuid: 2RZFkCUVrTRuADtxKOlzjV
