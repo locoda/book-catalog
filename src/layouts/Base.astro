@@ -23,6 +23,16 @@ const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}`
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script is:inline>
+    (function(){
+      try {
+        const saved = localStorage.getItem('ethercase-theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = saved || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') document.documentElement.setAttribute('data-theme','light');
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site">
@@ -32,6 +42,7 @@ const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}`
         <a href="/works/">目录</a>
         <a href="/people/">著者</a>
         <a href="/subjects/">主题</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换明暗" aria-pressed="false" title="切换明暗">○</button>
       </nav>
     </div>
   </header>
@@ -43,5 +54,28 @@ const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}`
     <span>generated from <a href="https://github.com/locoda/book-catalog">locoda/book-catalog</a></span>
     <span>sources: NeoDB · 手工著录</span>
   </footer>
+  <script is:inline>
+    (function(){
+      const btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      function apply(theme){
+        if (theme === 'light') document.documentElement.setAttribute('data-theme','light');
+        else document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('ethercase-theme', theme); } catch(e){}
+        btn.textContent = theme === 'light' ? '●' : '○';
+        btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+        btn.title = theme === 'light' ? '切换到暗色' : '切换到亮色';
+      }
+      try {
+        const saved = localStorage.getItem('ethercase-theme');
+        const current = document.documentElement.getAttribute('data-theme') || (saved === 'light' ? 'light' : 'dark');
+        apply(current);
+      } catch(e){}
+      btn.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        apply(isLight ? 'dark' : 'light');
+      });
+    })();
+  </script>
 </body>
 </html>
