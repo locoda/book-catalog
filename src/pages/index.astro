@@ -70,29 +70,16 @@ const rated = works
     <h1>乙椟</h1>
     <p class="hero-sub">ETHERCASE</p>
     <p class="hero-tag">为读过的每一本书，立一条目。</p>
-    <div class="hero-search">
-      <input id="hero-search" class="facet-input" type="search" placeholder="搜书名、著者、索书号…" autocomplete="off" />
-      <span class="facet-hint">回车去馆藏</span>
-    </div>
+    <form class="hero-search" action="/works/" method="get" role="search">
+      <input id="hero-search" class="facet-input" type="search" name="q" placeholder="搜书名、著者、索书号…" autocomplete="off" aria-label="搜索馆藏" />
+      <button type="submit" class="btn btn-ghost">搜索</button>
+    </form>
     <div class="hero-cta">
       <a href="#insights" class="btn btn-ghost">馆藏速览</a>
       <a href="#featured" class="btn btn-ghost">最近在读</a>
       <a href="/works/" class="btn btn-primary">浏览全部馆藏 →</a>
     </div>
   </section>
-  <script is:inline>
-    (function(){
-      const input = document.getElementById('hero-search');
-      if (!input) return;
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          const q = input.value.trim();
-          if (q) location.href = '/works/?q=' + encodeURIComponent(q);
-          else location.href = '/works/';
-        }
-      });
-    })();
-  </script>
 
   {/* ---------- STAT BAND（点按跳到馆藏速览） ---------- */}
   <div class="statband wrap" id="statband">

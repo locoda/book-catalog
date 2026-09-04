@@ -11,12 +11,23 @@ const rows = await Promise.all(works.map(async (w) => {
   const creators = await Promise.all(w.data.creators.map((ref) => getEntry(ref)));
   const mine = w.data.expressions.find((e) => e.mine);
   const mineTitle = mine?.title ?? w.data.title;
+  const creatorNames = creators.filter(Boolean).map((p) => p!.data.name).join(' · ');
+  // 搜索用全文：我读的题名、原题名、各版本题名、著者、索书号、work id
+  const searchText = [...new Set([
+    mineTitle,
+    w.data.title,
+    ...w.data.expressions.map((e) => e.title),
+    creatorNames,
+    w.data.callno ?? '',
+    w.id,
+  ].filter(Boolean))].join('\n');
   return {
     id: w.id,
     data: w.data,
-    creatorNames: creators.filter(Boolean).map((p) => p!.data.name).join(' · '),
+    creatorNames,
     mineLang: mine?.lang ?? w.data.orig_lang,
     mineTitle,
+    searchText,
     translated: mine && mine.lang !== w.data.orig_lang,
     origBucket: langBucket(w.data.orig_lang),
     firstReadYear: w.data.readings[0]?.date?.slice(0, 4) ?? '',
@@ -118,6 +129,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           data-creators={r.creatorNames}
           data-rating={r.data.rating ?? -1}
           data-title={r.mineTitle}
+          data-search={r.searchText}
           data-edition={r.data.readings[0]?.edition ?? ''}
         >
           <span class="mono">{r.data.callno ?? r.id}</span>
@@ -138,12 +150,15 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
     const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
     let sortMode = 'callno';
 
+    // 搜索规范化：全半角统一 + 小写，查询与索引两边都用
+    const norm = (s: string) => s.normalize('NFKC').toLowerCase();
+
     // 读取 ?q=
     try {
       const params = new URLSearchParams(location.search);
       const initialQ = params.get('q')?.trim() ?? '';
       if (initialQ) {
-        active.q = initialQ.toLowerCase();
+        active.q = norm(initialQ);
         const qInput = document.getElementById('q-input') as HTMLInputElement;
         if (qInput) qInput.value = initialQ;
       }
@@ -231,14 +246,15 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       apply();
     });
 
-    // 书名/索书号搜索
+    // 关键词搜索（题名/著者/索书号/id 统一索引，见 data-search）
     const qInput = document.getElementById('q-input') as HTMLInputElement;
     qInput?.addEventListener('input', () => {
-      active.q = qInput.value.trim().toLowerCase();
+      const raw = qInput.value.trim();
+      active.q = norm(raw);
       // 同步到 URL 但不跳页
       try {
         const url = new URL(location.href);
-        if (active.q) url.searchParams.set('q', qInput.value.trim());
+        if (raw) url.searchParams.set('q', raw);
         else url.searchParams.delete('q');
         history.replaceState(null,'',url.toString());
       } catch(e){}
@@ -306,7 +322,7 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
         const okMine = !active.mine || el.dataset.mine === active.mine;
         const okSubj = !active.subject || (el.dataset.subjects ?? '').split('|').includes(active.subject);
         const okAuthor = !active.author || (el.dataset.creators ?? '').toLowerCase().includes(active.author);
-        const okQ = !active.q || (el.dataset.title ?? '').toLowerCase().includes(active.q) || (el.dataset.creators ?? '').toLowerCase().includes(active.q) || (el.querySelector('.mono')?.textContent ?? '').toLowerCase().includes(active.q);
+        const okQ = !active.q || norm(el.dataset.search ?? '').includes(active.q);
         const okPubYear = inRange(parseInt(el.dataset.pubyear ?? '0') || 0, pubFrom, pubTo);
         const okReadYear = inRange(parseInt(el.dataset.readyear ?? '0') || 0, readFrom, readTo);
         const r = parseFloat(el.dataset.rating ?? '-1');
