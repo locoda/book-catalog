@@ -1,7 +1,5 @@
 name: Annie Baker
 sort: Baker, Annie
-gender: female
 forms:
-  - {script: en, value: Annie Baker}
-  - {script: zh-Hans, value: 安妮·贝克}
-  - {script: zh-Hant, value: 安妮·貝克}
+  - script: en
+    value: Annie Baker

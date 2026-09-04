@@ -1,9 +1,9 @@
 title: The Flick
 orig_lang: en
-year: 2013
+year: 2014
 creators:
   - baker-annie
-callno: EF-BAK-2013-FLIC
+callno: EF-BAK-2014-FLIC
 subjects:
   - nine-to-five
   - alone-together
@@ -11,12 +11,9 @@ subjects:
 expressions:
   - lang: en
     title: The Flick
-  - lang: en
-    title: The Flick
     mine: true
 readings:
   - date: "2026-08-31"
-    edition: ebook
 rating: 8
 status: read
 neodb_uuid: 4vgUUitHT2r7AvQMexvTy2
