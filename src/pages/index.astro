@@ -70,37 +70,54 @@ const rated = works
     <h1>乙椟</h1>
     <p class="hero-sub">ETHERCASE</p>
     <p class="hero-tag">为读过的每一本书，立一条目。</p>
+    <div class="hero-search">
+      <input id="hero-search" class="facet-input" type="search" placeholder="搜书名、著者、索书号…" autocomplete="off" />
+      <span class="facet-hint">回车去馆藏</span>
+    </div>
     <div class="hero-cta">
       <a href="#insights" class="btn btn-ghost">馆藏速览</a>
       <a href="#featured" class="btn btn-ghost">最近在读</a>
       <a href="/works/" class="btn btn-primary">浏览全部馆藏 →</a>
     </div>
   </section>
+  <script is:inline>
+    (function(){
+      const input = document.getElementById('hero-search');
+      if (!input) return;
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const q = input.value.trim();
+          if (q) location.href = '/works/?q=' + encodeURIComponent(q);
+          else location.href = '/works/';
+        }
+      });
+    })();
+  </script>
 
   {/* ---------- STAT BAND（点按跳到馆藏速览） ---------- */}
-  <a class="statband wrap" id="statband" href="#insights" aria-label="查看馆藏速览" title="查看馆藏速览">
-    <div class="stat">
+  <div class="statband wrap" id="statband">
+    <a class="stat" href="/works/" aria-label="浏览全部馆藏">
       <b>{workCount}</b>
       <span class="stat-label">册</span>
       <span class="stat-en">works</span>
-    </div>
-    <div class="stat">
+    </a>
+    <a class="stat" href="#insights" aria-label="查看语言分布">
       <b>{langCount}</b>
       <span class="stat-label">原语言</span>
       <span class="stat-en">languages</span>
-    </div>
-    <div class="stat">
+    </a>
+    <a class="stat" href="/people/" aria-label="查看著者">
       <b>{peopleCount}</b>
       <span class="stat-label">著者</span>
       <span class="stat-en">people</span>
-    </div>
+    </a>
     <div class="stat stat-wide">
       <b>{yearRange || '—'}</b>
       <span class="stat-label">年份跨度</span>
       <span class="stat-en">span</span>
     </div>
-    <span class="statband-jump mono">↘ 馆藏速览</span>
-  </a>
+    <a class="statband-jump mono" href="#insights">↘ 馆藏速览</a>
+  </div>
 
   {/* ---------- FEATURED ---------- */}
   <section class="featured wrap" id="featured">
@@ -111,7 +128,7 @@ const rated = works
     <div class="feat-grid">
       <div class="feat-col">
         <h3>最近读 · RECENT</h3>
-        <div class="feat-list">
+        <div class="feat-list" id="feat-recent">
           {dated.map((b) => (
             <a class="feat-card" href={`/works/${b.id}/`}>
               <span class="feat-title">{b.title}</span>
@@ -121,10 +138,11 @@ const rated = works
             </a>
           ))}
         </div>
+        <button class="feat-toggle" data-target="feat-recent">显示全部 10 ▾</button>
       </div>
       <div class="feat-col">
         <h3>五星 · 5-STAR</h3>
-        <div class="feat-list">
+        <div class="feat-list" id="feat-star">
           {rated.map((b) => (
             <a class="feat-card" href={`/works/${b.id}/`}>
               <span class="feat-title">{b.title}</span>
@@ -134,12 +152,28 @@ const rated = works
             </a>
           ))}
         </div>
+        <button class="feat-toggle" data-target="feat-star">显示全部 10 ▾</button>
       </div>
     </div>
     <div class="feat-all">
       <a class="subject-chip subject-more mono" href="/works/">查看全部馆藏 →</a>
     </div>
   </section>
+  <script is:inline>
+    (function(){
+      document.querySelectorAll('.feat-toggle').forEach(btn => {
+        const id = btn.getAttribute('data-target');
+        const list = document.getElementById(id);
+        if (!list) return;
+        // hide toggle if <=5
+        if (list.children.length <= 5) { btn.style.display='none'; return; }
+        btn.addEventListener('click', () => {
+          const open = list.classList.toggle('show-all');
+          btn.textContent = open ? '收起 ▴' : '显示全部 10 ▾';
+        });
+      });
+    })();
+  </script>
 
   {/* ---------- INSIGHTS (reframed visualizations) ---------- */}
   <section class="insights wrap" id="insights">

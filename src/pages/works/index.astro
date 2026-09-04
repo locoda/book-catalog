@@ -35,9 +35,14 @@ const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
 const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
 ---
 <Base title="馆藏列表 · 乙椟">
-  <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
+  <nav class="breadcrumb wrap"><a href="/">← 首页</a> · <a href="/works/">全部馆藏</a></nav>
 
   <section class="facets wrap">
+    <div class="facet-row">
+      <span class="facet-label">搜索</span>
+      <input class="facet-input" type="search" id="q-input" placeholder="搜书名、著者、索书号…" autocomplete="off" />
+      <button class="chip facet-toggle" id="clear-filters">清空筛选</button>
+    </div>
     <div class="facet-row" data-facet="orig">
       <span class="facet-label">原语言</span>
       <button class="chip on" data-value="">全部</button>
@@ -128,10 +133,21 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
   </section>
 
   <script>
-    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '', author: '', edition: '' };
+    const active: Record<string, string> = { orig: '', origSub: '', mine: '', subject: '', author: '', edition: '', q: '' };
     let pubFrom = 0, pubTo = 0, readFrom = 0, readTo = 0;
     const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
     let sortMode = 'callno';
+
+    // 读取 ?q=
+    try {
+      const params = new URLSearchParams(location.search);
+      const initialQ = params.get('q')?.trim() ?? '';
+      if (initialQ) {
+        active.q = initialQ.toLowerCase();
+        const qInput = document.getElementById('q-input') as HTMLInputElement;
+        if (qInput) qInput.value = initialQ;
+      }
+    } catch(e){}
 
     // 通用 range 解析器：支持 X / X- / -X / X-Y
     function parseRange(v: string): [number, number] {
@@ -215,6 +231,39 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       apply();
     });
 
+    // 书名/索书号搜索
+    const qInput = document.getElementById('q-input') as HTMLInputElement;
+    qInput?.addEventListener('input', () => {
+      active.q = qInput.value.trim().toLowerCase();
+      // 同步到 URL 但不跳页
+      try {
+        const url = new URL(location.href);
+        if (active.q) url.searchParams.set('q', qInput.value.trim());
+        else url.searchParams.delete('q');
+        history.replaceState(null,'',url.toString());
+      } catch(e){}
+      apply();
+    });
+
+    document.getElementById('clear-filters')?.addEventListener('click', () => {
+      active.orig=''; active.origSub=''; active.mine=''; active.subject=''; active.author=''; active.edition=''; active.q='';
+      pubFrom=0; pubTo=0; readFrom=0; readTo=0;
+      ratingFrom=0; ratingTo=0; ratingNone=false;
+      document.querySelectorAll('.facet-row .chip').forEach(c=>c.classList.remove('on'));
+      document.querySelectorAll('[data-facet="orig"] .chip')[0]?.classList.add('on');
+      document.querySelectorAll('[data-facet="mine"] .chip')[0]?.classList.add('on');
+      if (origSubRow) origSubRow.classList.add('hidden');
+      (document.getElementById('subject-select') as HTMLSelectElement).value='';
+      (document.getElementById('author-input') as HTMLInputElement).value='';
+      (document.getElementById('pubyear-input') as HTMLInputElement).value='';
+      (document.getElementById('readyear-input') as HTMLInputElement).value='';
+      (document.getElementById('rating-input') as HTMLInputElement).value='';
+      (document.getElementById('edition-select') as HTMLSelectElement).value='';
+      (document.getElementById('q-input') as HTMLInputElement).value='';
+      try { history.replaceState(null,'', location.pathname); } catch(e){}
+      apply();
+    });
+
     // 版本下拉
     const editionSelect = document.getElementById('edition-select') as HTMLSelectElement;
     editionSelect?.addEventListener('change', () => {
@@ -257,12 +306,13 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
         const okMine = !active.mine || el.dataset.mine === active.mine;
         const okSubj = !active.subject || (el.dataset.subjects ?? '').split('|').includes(active.subject);
         const okAuthor = !active.author || (el.dataset.creators ?? '').toLowerCase().includes(active.author);
+        const okQ = !active.q || (el.dataset.title ?? '').toLowerCase().includes(active.q) || (el.dataset.creators ?? '').toLowerCase().includes(active.q) || (el.querySelector('.mono')?.textContent ?? '').toLowerCase().includes(active.q);
         const okPubYear = inRange(parseInt(el.dataset.pubyear ?? '0') || 0, pubFrom, pubTo);
         const okReadYear = inRange(parseInt(el.dataset.readyear ?? '0') || 0, readFrom, readTo);
         const r = parseFloat(el.dataset.rating ?? '-1');
         const okRating = ratingNone ? r < 0 : inRange(r, ratingFrom, ratingTo);
         const okEdition = !active.edition || (el.dataset.edition ?? '') === active.edition;
-        const ok = okOrig && okMine && okSubj && okPubYear && okReadYear && okRating && okAuthor && okEdition;
+        const ok = okOrig && okMine && okSubj && okPubYear && okReadYear && okRating && okAuthor && okEdition && okQ;
         el.classList.toggle('hidden', !ok);
         if (ok) { shown++; visible.push(el); }
       });
@@ -292,11 +342,14 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
       visible.forEach((el) => rowsEl.appendChild(el));
 
       document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
-      const anyFilter = active.orig || active.mine || active.subject || active.author || active.edition || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
+      const anyFilter = active.orig || active.mine || active.subject || active.author || active.edition || active.q || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
       const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '评分' : sortMode === 'year' ? '年份' : '题名'}`;
       document.getElementById('result-label')!.textContent = anyFilter
         ? `FACET / 切面 — ${shown} 种${sortLabel}`
         : `ALL WORKS / 全部馆藏${sortLabel}`;
     }
+
+    // 初始 apply 以支持 ?q=
+    apply();
   </script>
 </Base>
