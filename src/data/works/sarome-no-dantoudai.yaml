@@ -8,6 +8,9 @@ subjects: [contraption]
 expressions:
   - lang: ja
     title: サロメの断頭台
+  - lang: zh-Hans
+    title: 莎乐美的断头台
+    mine: true
 readings:
   - date: '2026-09-02'
     edition: ebook
