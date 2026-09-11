@@ -153,3 +153,9 @@
 ### 机器翻译阅读（mine 标注）
 
 - [sarome-no-dantoudai] 『サロメの断頭台』2024：馆长于 2026-09-01/02 以日文原版电子书经机器翻译为简中阅读，NeoDB 标记 2026-09-02 评 8 分，评语“怪东西！但蛮好看的哈哈哈”。该书尚无官方中/英译本，按 CATALOGING.md §2，`mine` 设在 `zh-Hans` 版本 `莎乐美的断头台`，`translator: 机器翻译` 以如实记录阅读形态，`ja` 原版保留为对照。参考 [rakuen]（『楽園』民间中译本）先例，民间/机翻无官方译者时以实际阅读语言标 mine。StoryGraph 完成日 2026-09-01 与 NeoDB 2026-09-02 差 1 天为时区换算所致（PT 9/1 22:53 = UTC 9/2 05:53），非事实差异。
+
+### 2026-09-10 周度编目疑点
+- [yi-wei-wu-ren-qing-ting-de-ta-men] NeoDB 条目 orig_title 误标 "Choice words: writers on abortion"（实为 Annie Finch 编的英文文集，与本书无关），已忽略；本书为游擊文化 2025 年原创繁中文集，非译作。来源：NeoDB /api/book/2Zi25xNIGCpoVDuNh7Oe14（publisher 游擊文化，pub 2025-06，ISBN 9786269952267）+ 豆瓣 37345171。
+- [yi-wei-wu-ren-qing-ting-de-ta-men] creators：9 位撰稿人 + 主編吳曉樂，无单一责任著者，按多人合集裁决（CATALOGING §2）留空 creators、callno 著者号 UNK；主編吳曉樂（people/wu-xiaole.yaml 已存在）是否应列入 creators，请馆长裁决。
+- [yi-wei-wu-ren-qing-ting-de-ta-men] 虚构性：輯一含短篇小说/诗/独幕剧，輯二为访谈故事/论文/法律史/医疗实务，按出版方"跨領域文集"归类为 N（CN-UNK-2025-YIWE）；如馆长认为应按 CF，请指示。
+- [sarome-no-dantoudai] 本周导入草稿 untitled-3.yaml 为重复标记（neodb_uuid 36tMaXQjRZDJ7sgi6mGvF3 与已有记录一致，阅读日期/评分相同），草稿已删除，未做合并。

@@ -1,0 +1,16 @@
+work_type: book
+title: 那个苹果也很好
+orig_lang: zh-Hans
+year: 2023
+creators: [luan-yingxin]
+callno: CN-LUA-2023-NAGE
+subjects: [becoming, old-haunts]
+expressions:
+- lang: zh-Hans
+  title: 那个苹果也很好
+  mine: true
+readings:
+- date: '2026-09-08'
+rating: 8
+status: read
+neodb_uuid: 0sb4X61lNSIEmFttKfOfB8
