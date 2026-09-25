@@ -1,0 +1,11 @@
+name: Mari Mori
+sort: Mori, Mari
+forms:
+  - script: ja
+    value: 森茉莉
+  - script: ja-kana
+    value: もり まり
+  - script: romaji
+    value: Mari Mori
+  - script: zh
+    value: 森茉莉
