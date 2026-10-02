@@ -159,3 +159,6 @@
 - [yi-wei-wu-ren-qing-ting-de-ta-men] creators：9 位撰稿人 + 主編吳曉樂，无单一责任著者，按多人合集裁决（CATALOGING §2）留空 creators、callno 著者号 UNK；主編吳曉樂（people/wu-xiaole.yaml 已存在）是否应列入 creators，请馆长裁决。
 - [yi-wei-wu-ren-qing-ting-de-ta-men] 虚构性：輯一含短篇小说/诗/独幕剧，輯二为访谈故事/论文/法律史/医疗实务，按出版方"跨領域文集"归类为 N（CN-UNK-2025-YIWE）；如馆长认为应按 CF，请指示。
 - [sarome-no-dantoudai] 本周导入草稿 untitled-3.yaml 为重复标记（neodb_uuid 36tMaXQjRZDJ7sgi6mGvF3 与已有记录一致，阅读日期/评分相同），草稿已删除，未做合并。
+
+### 2026-10-02 全库主题词复核疑点
+- [muzej-bezuvjetne-predaje] callno: orig_lang=hr 但 callno 为 EF-UGR-1997-MUZE（按 §4 应为 O 类）。记录已 confirmed，callno 冻结未动；是否解冻改为 OF-UGR-1997-MUZE 请馆长裁决。
