@@ -161,4 +161,4 @@
 - [sarome-no-dantoudai] 本周导入草稿 untitled-3.yaml 为重复标记（neodb_uuid 36tMaXQjRZDJ7sgi6mGvF3 与已有记录一致，阅读日期/评分相同），草稿已删除，未做合并。
 
 ### 2026-10-02 全库主题词复核疑点
-- [muzej-bezuvjetne-predaje] callno: orig_lang=hr 但 callno 为 EF-UGR-1997-MUZE（按 §4 应为 O 类）。记录已 confirmed，callno 冻结未动；是否解冻改为 OF-UGR-1997-MUZE 请馆长裁决。
+- ~~[muzej-bezuvjetne-predaje] callno: orig_lang=hr 但 callno 为 EF-UGR-1997-MUZE（按 §4 应为 O 类）~~ 馆长裁决（2026-10-03）解冻改为 OF-UGR-1997-MUZE（confirmed 记录，馆长本人指示覆盖冻结规则）。
