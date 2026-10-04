@@ -9,7 +9,7 @@ subjects: [nine-to-five]
 expressions:
 - lang: ja
   title: 中吊り
-- lang: zh-Hans
+- lang: zh-Hant
   title: 中調
   mine: true
 readings:

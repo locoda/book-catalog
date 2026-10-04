@@ -9,7 +9,7 @@ subjects: [kinship, daily-bread]
 expressions:
 - lang: ja
   title: カレーの時間
-- lang: zh-Hans
+- lang: zh-Hant
   title: 咖哩時間
   mine: true
 readings:

@@ -9,7 +9,7 @@ subjects: [kinship]
 expressions:
 - lang: ja
   title: スモールワールズ
-- lang: zh-Hans
+- lang: zh-Hant
   title: 小小世界
   mine: true
 readings:
