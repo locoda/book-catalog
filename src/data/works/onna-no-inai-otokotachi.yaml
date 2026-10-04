@@ -8,9 +8,9 @@ subjects: [embers, living-with-loss]
 expressions:
   - lang: ja
     title: 女のいない男たち
-  - lang: zh-Hans
+  - lang: zh-Hant
     title: 沒有女人的男人們
-    translator: 赖明珠
+    translator: 賴明珠
     mine: true
 readings:
   - date: '2023-10-06'

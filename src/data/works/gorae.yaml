@@ -8,7 +8,7 @@ subjects: [patriarchy, off-script]
 expressions:
   - lang: ko
     title: 고래
-  - lang: zh-Hans
+  - lang: zh-Hant
     title: 鯨
     translator: 胡椒筒
     mine: true

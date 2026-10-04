@@ -8,7 +8,7 @@ subjects: [embers, off-script]
 expressions:
   - lang: ja
     title: 恋愛中毒
-  - lang: zh-Hans
+  - lang: zh-Hant
     title: 戀愛中毒
     translator: 黃心寧
     mine: true
