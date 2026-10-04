@@ -266,7 +266,7 @@ footer.site{
 .spine::before{top:6px}
 .spine::after{bottom:24px}
 .spine .st{flex:1;display:flex;flex-direction:column;align-items:center;font-weight:600;font-size:13px;line-height:1.1;overflow:hidden;min-height:0}
-.spine .st.lat{writing-mode:vertical-rl;font-family:var(--disp);font-weight:500;font-style:normal;white-space:nowrap;letter-spacing:.02em}
+.spine .st.lat{writing-mode:vertical-rl;align-items:flex-start;justify-content:center;font-family:var(--disp);font-weight:500;font-style:normal;white-space:nowrap;letter-spacing:.02em}
 .spine .sr{position:absolute;bottom:7px;font-family:var(--mono);font-size:9px;opacity:.8}
 .spine:hover,.spine:focus-visible{--ty:-26px}
 .spine:focus-visible{outline-offset:2px}
