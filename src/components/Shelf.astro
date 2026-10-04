@@ -44,6 +44,7 @@ const books = works
       r: w.data.rating ?? null,
       cn: w.data.callno ?? '',
       y: w.data.year ?? null,
+      lc: w.data.orig_lang,
       ol: w.data.orig_lang === ml ? `${langLabel(w.data.orig_lang)} · 原文` : `${langLabel(w.data.orig_lang)} → 我读${MINE_LABEL[ml] ?? langLabel(ml)}`,
       s: w.data.subjects.map(getName),
       // 渲染用（不进客户端 JSON）
@@ -183,7 +184,8 @@ const json = JSON.stringify({ books: clientData, months }).replace(/</g, '\\u003
 <script type="application/json" id="shelf-data" set:html={json}></script>
 
 <script>
-  type Book = { id: string; t: string; o: string; a: string; b: string; d: string; r: number | null; cn: string; y: number | null; ol: string; s: string[] };
+  import { getState, setFilter, onFilter, type FilterState } from '../scripts/catalogFilter';
+  type Book = { id: string; t: string; o: string; a: string; b: string; d: string; r: number | null; cn: string; y: number | null; lc: string; ol: string; s: string[] };
 
   function initShelf() {
     const dataEl = document.getElementById('shelf-data');
@@ -352,21 +354,33 @@ const json = JSON.stringify({ books: clientData, months }).replace(/</g, '\\u003
       };
       requestAnimationFrame(step);
     }
+    // 语言筛选与首页其他图共用一份状态（src/scripts/catalogFilter.ts）：
+    // 书架按钮写入该分类下的全部原语言代码；流向图里点某种语言，书架也同步只亮这些书
     const legend = $('legend');
-    let active: string | null = null;
+    const BUCKET_NAME: Record<string, string> = { zh: '中文原作', ja: '日文原作', en: '英文原作', ot: '其他语言原作' };
+    const codesOf = (bucket: string) => [...new Set(books.filter((b) => b.b === bucket).map((b) => b.lc))].sort();
     legend.addEventListener('click', (e) => {
       const btn = (e.target as Element).closest<HTMLButtonElement>('button');
       if (!btn) return;
-      active = active === btn.dataset.l ? null : btn.dataset.l!;
-      legend.querySelectorAll<HTMLButtonElement>('button').forEach((x) => {
-        x.classList.toggle('on', x.dataset.l === active);
-        x.setAttribute('aria-pressed', String(x.dataset.l === active));
-      });
-      shelf.classList.toggle('filtering', !!active);
-      spines.forEach((s) => s.classList.toggle('match', books[+s.dataset.i!].b === active));
-      countTo(active ? books.filter((b) => b.b === active).length : books.length);
-      $('sh-count-label').textContent = active ? '本 · ' + btn.textContent!.trim() : '本 · WORKS';
+      const codes = codesOf(btn.dataset.l!);
+      const same = getState().langs?.slice().sort().join() === codes.join();
+      setFilter(same ? { langs: null } : { langs: codes, langsLabel: BUCKET_NAME[btn.dataset.l!] });
     });
+    function applyLangs(s: FilterState) {
+      const langs = s.langs ? new Set(s.langs) : null;
+      const key = s.langs?.slice().sort().join();
+      legend.querySelectorAll<HTMLButtonElement>('button').forEach((x) => {
+        const on = !!key && codesOf(x.dataset.l!).join() === key;
+        x.classList.toggle('on', on);
+        x.setAttribute('aria-pressed', String(on));
+      });
+      shelf!.classList.toggle('filtering', !!langs);
+      spines.forEach((sp) => sp.classList.toggle('match', !!langs && langs.has(books[+sp.dataset.i!].lc)));
+      countTo(langs ? books.filter((b) => langs.has(b.lc)).length : books.length);
+      $('sh-count-label').textContent = langs ? '本 · ' + (s.langsLabel ?? '筛选') : '本 · WORKS';
+    }
+    let lastLangs = getState().langs;
+    onFilter((s) => { if (s.langs !== lastLangs) { lastLangs = s.langs; applyLangs(s); } });
 
     /* ---- 开场：停在最新一端，可见书脊依次升起，总数计数 ---- */
     shelf.scrollLeft = shelf.scrollWidth;

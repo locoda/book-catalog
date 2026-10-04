@@ -2,7 +2,7 @@
 /**
  * 主题星图：28 个主题词为星，藏书量定星等；
  * 同一本书共现过的词之间连线成星座（共现 ≥2 才连线，线宽/亮度按共现次数）。
- * 布局为构建期确定性力导向模拟，无运行时依赖；hover 高亮邻接星 + 例书浮层。
+ * 布局为构建期确定性力导向模拟；客户端按联动筛选重算星等与连线，hover 看星座，点星固定并展开书单。
  */
 import { getCollection } from 'astro:content';
 import { subjectUrl, getName } from '../lib/subjects';
@@ -12,19 +12,10 @@ const works = await getCollection('works');
 // —— 统计 ——
 const counts = new Map<string, number>();
 const co = new Map<string, number>();
-const samples = new Map<string, string[]>();
-
-const displayTitle = (w: any) => {
-  const mine = (w.data.expressions ?? []).find((e: any) => e.mine && e.title);
-  return mine?.title ?? w.data.title;
-};
-
 for (const w of works) {
   const subs: string[] = w.data.subjects ?? [];
   for (const s of subs) {
     counts.set(s, (counts.get(s) ?? 0) + 1);
-    const arr = samples.get(s) ?? [];
-    if (arr.length < 3) { arr.push(displayTitle(w)); samples.set(s, arr); }
   }
   const sorted = [...subs].sort((a, b) => a.localeCompare(b, 'zh'));
   for (let i = 0; i < sorted.length; i++)
@@ -240,17 +231,15 @@ const edgePath = (e: Edge, k: number) => {
 };
 
 const maxW = Math.max(...edges.map(e => e.w), 2);
-const hoverData = names.map((s, i) => ({
-  nbrs: [...new Set(adj[i])],
-  books: samples.get(s) ?? [],
-  n: counts.get(s)!,
-}));
+const rank = new Map(order.map((i, k) => [i, k]));
+const top = names[0];
+const skyCfg = JSON.stringify({ names, max, maxW }).replace(/</g, '\\u003c');
 ---
-<section class="cloud wrap">
-  <header class="sec-head">
-    <small class="mono">SUBJECTS</small>
-    <h2>主题词</h2>
-    <span class="sec-meta mono">{N} 个词</span>
+<figure class="plate cloud" id="fig-sky">
+  <header class="plate-head">
+    <span class="kicker">FIG. 03 · Subjects</span>
+    <h3>最常回到<b class="plate-num">{getName(top)}</b><span class="mono plate-sub">{counts.get(top)} 种</span></h3>
+    <p class="plate-lede">{N} 个栏目是 {N} 颗星：星越亮，收的书越多；同一本书里一起出现过两次以上的栏目连成星座。</p>
   </header>
 
   <div class="constellation-wrap">
@@ -267,14 +256,16 @@ const hoverData = names.map((s, i) => ({
           class="sky-edge"
           data-a={e.a} data-b={e.b}
           d={edgePath(e, k)}
+          pathLength="1"
           fill="none"
           stroke-width={(0.5 + 1.3 * (e.w / maxW)).toFixed(2)}
           opacity={(0.14 + 0.3 * (e.w / maxW)).toFixed(2)}
+          style={`--d:${(300 + k * 6)}ms`}
         />
       ))}
 
       {nodes.map(nd => (
-        <a href={subjectUrl(nd.s)} class="sky-node" data-i={nd.i}>
+        <a href={subjectUrl(nd.s)} class="sky-node" data-i={nd.i} data-s={nd.s} style={`--d:${(rank.get(nd.i) ?? 0) * 45}ms`} aria-label={`${getName(nd.s)} · ${nd.n} 种`}>
           <circle class="sky-hit" cx={nd.x} cy={nd.y} r={Math.max(nd.r + 14, 20)} fill="transparent"/>
           <circle class="sky-halo" cx={nd.x} cy={nd.y} r={nd.r * 3} fill="url(#star-glow)" opacity="0"/>
           <circle class="sky-star" cx={nd.x} cy={nd.y} r={nd.r} fill-opacity={nd.op}/>
@@ -288,69 +279,136 @@ const hoverData = names.map((s, i) => ({
       ))}
     </svg>
     <div id="sky-tip" class="sky-tip" hidden></div>
-    <p class="sky-caption mono">连线为同书共现 · 悬停查看星座</p>
   </div>
 
-  <div class="subject-desk">
-    <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
-  </div>
-
-  <!-- 移动端：标签云（触屏无 hover，星图缩到手机宽度不可读）。单主题藏书 >20 本才显示 chip，其余靠「全部主题」入口（与著者云一致） -->
+  <!-- 移动端：标签云（触屏无 hover，星图缩到手机宽度不可读）。单主题藏书 >20 本才显示 chip，其余靠「全部主题」入口 -->
   <div class="subject-cloud subject-cloud-mobile">
     {nodes.filter(nd => nd.n > 20).map(nd => (
-      <a class="subject-chip" href={subjectUrl(nd.s)}>
+      <a class="subject-chip" href={subjectUrl(nd.s)} data-s={nd.s}>
         {getName(nd.s)}<span class="mono">{nd.n}</span>
       </a>
     ))}
     <a class="subject-chip subject-more mono" href="/subjects/">全部主题 →</a>
   </div>
-</section>
+  <figcaption>悬停看星座，点一颗星展开这个栏目的书单；再点相邻的星，就在星座之间游走。<a class="ulink" href="/subjects/">全部栏目 →</a></figcaption>
+  <script type="application/json" id="sky-cfg" set:html={skyCfg}></script>
+</figure>
 
-<script is:inline define:vars={{ hoverData }}>
+<script>
+  import { getState, setFilter, onFilter, getData, matches, type FilterState } from '../scripts/catalogFilter';
+
   const svg = document.getElementById('subject-sky');
   const tip = document.getElementById('sky-tip');
-  if (svg && tip) {
-    const wrap = svg.parentElement;
-    const nodes = [...svg.querySelectorAll('.sky-node')];
-    const edges = [...svg.querySelectorAll('.sky-edge')];
+  const cfgEl = document.getElementById('sky-cfg');
+  if (svg && tip && cfgEl) {
+    const { names, max, maxW } = JSON.parse(cfgEl.textContent!) as { names: string[]; max: number; maxW: number };
+    const { books, subjects } = getData();
+    const wrap = svg.parentElement!;
+    const nodes = [...svg.querySelectorAll<SVGAElement>('.sky-node')];
+    const edges = [...svg.querySelectorAll<SVGPathElement>('.sky-edge')];
+    const R = (n: number) => 3 + 12 * Math.pow(n / max, 0.85);
+    const OP = (n: number) => 0.5 + 0.5 * Math.sqrt(n / max);
+    const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
-    const clear = () => {
-      svg.classList.remove('focused');
-      nodes.forEach(n => n.classList.remove('lit', 'dim'));
-      edges.forEach(e => e.classList.remove('lit'));
-      tip.hidden = true;
-    };
-
-    nodes.forEach(node => {
-      const i = +node.dataset.i;
-      node.addEventListener('mouseenter', () => {
-        const d = hoverData[i];
-        svg.classList.add('focused');
-        const keep = new Set([i, ...d.nbrs]);
-        nodes.forEach(n => n.classList.toggle('lit', keep.has(+n.dataset.i)));
-        nodes.forEach(n => n.classList.toggle('dim', !keep.has(+n.dataset.i)));
-        edges.forEach(e => e.classList.toggle('lit', +e.dataset.a === i || +e.dataset.b === i));
-
-        tip.innerHTML =
-          `<b>${d.n}</b> 本` +
-          (d.books.length ? '<span class="sky-tip-books">' +
-            d.books.map(t => `<span>${t.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</span>`).join('') +
-            (d.n > d.books.length ? '<span class="mono">…</span>' : '') + '</span>' : '');
-        tip.hidden = false;
-
-        const star = node.querySelector('.sky-star');
-        const nb = star.getBoundingClientRect();
-        const wb = wrap.getBoundingClientRect();
-        let x = nb.left - wb.left + nb.width / 2 + 14;
-        let y = nb.top - wb.top - 8;
-        tip.style.left = '0'; tip.style.top = '0';
-        const tw = tip.offsetWidth, th = tip.offsetHeight;
-        if (x + tw > wrap.clientWidth - 8) x = nb.left - wb.left - tw - 14;
-        y = Math.max(4, Math.min(y, wrap.clientHeight - th - 4));
-        tip.style.left = x + 'px'; tip.style.top = y + 'px';
+    // 当前切面下每颗星的篇数、共现与例书
+    let cnt: number[] = [], nbrs: Set<number>[] = [], samples: string[][] = [], co = new Map<string, number>();
+    function recount(s: FilterState) {
+      const idx = new Map(names.map((n, i) => [n, i]));
+      cnt = names.map(() => 0); samples = names.map(() => []); co = new Map();
+      for (const b of books) {
+        if (!matches(b, s, ['subject'])) continue;
+        const ids = b.s.map((x) => idx.get(x)).filter((x): x is number => x != null).sort((a, c) => a - c);
+        for (const i of ids) { cnt[i]++; if (samples[i].length < 3) samples[i].push(b.t); }
+        for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
+          const k = ids[i] + '-' + ids[j];
+          co.set(k, (co.get(k) ?? 0) + 1);
+        }
+      }
+      nbrs = names.map(() => new Set<number>());
+      edges.forEach((e) => {
+        const a = +e.dataset.a!, b = +e.dataset.b!;
+        const w = co.get(Math.min(a, b) + '-' + Math.max(a, b)) ?? 0;
+        e.classList.toggle('gone', w < 2);
+        if (w >= 2) {
+          e.setAttribute('stroke-width', (0.5 + 1.3 * (w / maxW)).toFixed(2));
+          e.setAttribute('opacity', (0.14 + 0.3 * (w / maxW)).toFixed(2));
+          nbrs[a].add(b); nbrs[b].add(a);
+        }
       });
-      node.addEventListener('mouseleave', clear);
+      nodes.forEach((nd) => {
+        const i = +nd.dataset.i!, n = cnt[i];
+        const star = nd.querySelector<SVGCircleElement>('.sky-star')!;
+        star.setAttribute('r', n ? R(n).toFixed(1) : '2');
+        star.setAttribute('fill-opacity', n ? OP(n).toFixed(2) : '0.25');
+        nd.querySelector('.sky-count')!.textContent = ' ' + n;
+        nd.classList.toggle('empty', n === 0);
+      });
+      document.querySelectorAll<HTMLElement>('.subject-cloud-mobile [data-s]').forEach((c) => {
+        const i = names.indexOf(c.dataset.s!);
+        c.querySelector('.mono')!.textContent = String(cnt[i] ?? 0);
+        c.classList.toggle('on', getState().subject === c.dataset.s);
+      });
+    }
+
+    // 聚焦：固定（点选）或临时（悬停）
+    function focus(i: number | null) {
+      svg!.classList.toggle('focused', i != null);
+      if (i == null) {
+        nodes.forEach((n) => n.classList.remove('lit', 'dim', 'pinned'));
+        edges.forEach((e) => e.classList.remove('lit'));
+        return;
+      }
+      const keep = new Set([i, ...nbrs[i]]);
+      const pinnedSlug = getState().subject;
+      nodes.forEach((n) => {
+        const j = +n.dataset.i!;
+        n.classList.toggle('lit', keep.has(j));
+        n.classList.toggle('dim', !keep.has(j));
+        n.classList.toggle('pinned', n.dataset.s === pinnedSlug);
+      });
+      edges.forEach((e) => e.classList.toggle('lit', !e.classList.contains('gone') && (+e.dataset.a! === i || +e.dataset.b! === i)));
+    }
+    const pinnedIndex = () => { const s = getState().subject; return s ? names.indexOf(s) : null; };
+
+    function showTip(node: SVGAElement) {
+      const i = +node.dataset.i!;
+      const books = samples[i];
+      tip!.innerHTML = `<b>${cnt[i]}</b> 本` +
+        (books.length ? '<span class="sky-tip-books">' + books.map((t) => `<span>${esc(t)}</span>`).join('') +
+          (cnt[i] > books.length ? '<span class="mono">…</span>' : '') + '</span>' : '');
+      tip!.hidden = false;
+      const nb = node.querySelector('.sky-star')!.getBoundingClientRect();
+      const wb = wrap.getBoundingClientRect();
+      let x = nb.left - wb.left + nb.width / 2 + 14;
+      let y = nb.top - wb.top - 8;
+      tip!.style.left = '0'; tip!.style.top = '0';
+      const tw = tip!.offsetWidth, th = tip!.offsetHeight;
+      if (x + tw > wrap.clientWidth - 8) x = nb.left - wb.left - tw - 14;
+      y = Math.max(4, Math.min(y, wrap.clientHeight - th - 4));
+      tip!.style.left = x + 'px'; tip!.style.top = y + 'px';
+    }
+
+    nodes.forEach((node) => {
+      node.addEventListener('mouseenter', () => { focus(+node.dataset.i!); showTip(node); });
+      node.addEventListener('mouseleave', () => { tip!.hidden = true; focus(pinnedIndex()); });
+      node.addEventListener('click', (e) => {
+        const me = e as MouseEvent;
+        if (me.metaKey || me.ctrlKey || me.shiftKey || me.altKey) return;
+        e.preventDefault();
+        const slug = node.dataset.s!;
+        setFilter(getState().subject === slug ? { subject: null } : { subject: slug, subjectLabel: subjects[slug]?.name ?? slug });
+      });
     });
-    svg.addEventListener('mouseleave', clear);
+    svg.addEventListener('mouseleave', () => { tip!.hidden = true; focus(pinnedIndex()); });
+    // 手机标签云同样可点选
+    document.querySelectorAll<HTMLAnchorElement>('.subject-cloud-mobile [data-s]').forEach((c) => c.addEventListener('click', (e) => {
+      e.preventDefault();
+      const slug = c.dataset.s!;
+      setFilter(getState().subject === slug ? { subject: null } : { subject: slug, subjectLabel: subjects[slug]?.name ?? slug });
+    }));
+
+    function render(s: FilterState) { recount(s); focus(pinnedIndex()); }
+    recount(getState());
+    onFilter(render);
   }
 </script>

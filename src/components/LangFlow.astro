@@ -1,236 +1,238 @@
 ---
 /**
- * 2b 语言流向：原语言 → 我读的语言。手写 SVG 桑基，构建时算好布局，零 JS。
+ * FIG. 02 语言流向：原语言 → 我读的语言。
+ * 构建时用 src/lib/flowLayout.ts 出静态 SVG（无 JS 可读）；客户端订阅联动筛选，
+ * 用同一份布局函数重排，色带/节点以 CSS 过渡到新位置。
  */
 import { getCollection } from 'astro:content';
-import { langFlows } from '../lib/stats';
-import { langLabel, langBucket, BUCKET_LABELS } from '../lib/lang';
+import { flowRecords, otherSources, flowsFromRecords } from '../lib/stats';
+import { deskLayout, mobLayout, DESK, MOB, MOB_BOT, MOB_H } from '../lib/flowLayout';
+import { langLabel, BUCKET_LABELS } from '../lib/lang';
 
 const works = await getCollection('works');
-const { sources, targets, links, totalWorks } = langFlows(works);
+const records = flowRecords(works);
+const other = otherSources(records);
+const full = flowsFromRecords(records, other);
+const desk = deskLayout(full);
+const mob = mobLayout(full);
 
 const label = (k: string) => (k === 'other' ? '其他语言' : langLabel(k));
+const mLabel = (k: string) => BUCKET_LABELS[k as 'zh' | 'ja' | 'en' | 'other'] ?? label(k);
+const rk = (l: { source: string; target: string; native: boolean }) => `${l.source}|${l.target}|${l.native ? 1 : 0}`;
+const tip = (l: { source: string; target: string; value: number; native: boolean }, m = false) =>
+  `${m ? mLabel(l.source) : label(l.source)} → ${label(l.target)} · ${l.value} 种${l.native ? '（原文直读）' : ''}`;
 
-/* ---- 布局 ---- */
-const U = 0.72;          // px / 種
-const GAP = 10;          // 节点间距
-const NW = 10;           // 节点宽
-const X0 = 120, X1 = 570; // 左右节点 x
-const W = 680, PAD = 40; // 画布窄 → 渲染大
-
-interface Node { key: string; total: number; y0: number; used: number }
-const layout = (col: { key: string; total: number }[], h: number, colH: number): Node[] => {
-  let y = PAD + (h - 2 * PAD - colH) / 2;
-  return col.map((n) => {
-    const node = { ...n, y0: y, used: 0 };
-    y += n.total * U + GAP;
-    return node;
-  });
-};
-const colH = (col: { total: number }[]) =>
-  col.reduce((a, n) => a + n.total * U, 0) + (col.length - 1) * GAP;
-const H = Math.max(colH(sources), colH(targets)) + 2 * PAD;
-
-const srcNodes = layout(sources, H, colH(sources));
-const tgtNodes = layout(targets, H, colH(targets));
-const srcIdx = new Map(srcNodes.map((n) => [n.key, n]));
-const tgtIdx = new Map(tgtNodes.map((n) => [n.key, n]));
-
-// 流排序：先按 source 列序，再按 target 列序，保证 ribbon 不交叉过甚
-const tOrder = new Map(tgtNodes.map((n, i) => [n.key, i]));
-const sOrder = new Map(srcNodes.map((n, i) => [n.key, i]));
-const ordered = [...links].sort((a, b) =>
-  (sOrder.get(a.source)! - sOrder.get(b.source)!) || (tOrder.get(a.target)! - tOrder.get(b.target)!));
-
-// 目标侧偏移需按 target 分组、按 source 列序填充
-const byTargetOrder = [...links].sort((a, b) =>
-  (tOrder.get(a.target)! - tOrder.get(b.target)!) || (sOrder.get(a.source)! - sOrder.get(b.source)!));
-const tOffset = new Map<typeof links[0], number>();
-for (const l of byTargetOrder) {
-  const t = tgtIdx.get(l.target)!;
-  tOffset.set(l, t.y0 + t.used);
-  t.used += l.value * U;
-}
-
-const XM = (X0 + NW + X1) / 2;
-const ribbons = ordered.map((l) => {
-  const s = srcIdx.get(l.source)!;
-  const sy = s.y0 + s.used;
-  s.used += l.value * U;
-  const ty = tOffset.get(l)!;
-  const h = l.value * U;
-  return {
-    ...l,
-    d: `M${X0 + NW},${sy.toFixed(1)} C${XM},${sy.toFixed(1)} ${XM},${ty.toFixed(1)} ${X1},${ty.toFixed(1)} ` +
-       `l0,${h.toFixed(1)} C${XM},${(ty + h).toFixed(1)} ${XM},${(sy + h).toFixed(1)} ${X0 + NW},${(sy + h).toFixed(1)} Z`,
-    tip: `${label(l.source)} → ${label(l.target)} · ${l.value} 种${l.native ? '（原文直读）' : ''}`,
-  };
-});
-
-const nativeTotal = links.filter((l) => l.native).reduce((a, l) => a + l.value, 0);
-
-/* ---- 手機版：垂直桑基（原語言在上 → 我讀的在下）---- */
-const M_W = 360;
-const M_P = 14;
-const M_NH = 22;
-const M_G = 4;
-const M_RH = 200;
-
-// 原語言按 bucket 聚合：英文 / 日文 / 中文 / 其他（節點匾少不疊）
-const mSrcBuckets = new Map<string, number>();
-for (const s of sources) {
-  const b = langBucket(s.key);
-  mSrcBuckets.set(b, (mSrcBuckets.get(b) ?? 0) + s.total);
-}
-const mSources: { key: string; total: number }[] = ['zh', 'ja', 'en', 'other']
-  .filter(b => mSrcBuckets.has(b))
-  .map(b => ({ key: b, total: mSrcBuckets.get(b)! }))
-  .sort((a, b) => b.total - a.total)
-  .sort((a, b) => (a.key === 'other' ? 1 : 0) - (b.key === 'other' ? 1 : 0));
-
-const mLinkMap = new Map<string, { source: string; target: string; value: number; native: boolean }>();
-for (const l of links) {
-  const src = langBucket(l.source);
-  const k = `${src}→${l.target}`;
-  const existing = mLinkMap.get(k);
-  if (existing) { existing.value += l.value; existing.native = existing.native && l.native; }
-  else { mLinkMap.set(k, { source: src, target: l.target, value: l.value, native: l.native }); }
-}
-const mLinks = [...mLinkMap.values()];
-
-// 按比例分配宽度（非等分）
-const mSrcTotalAll = mSources.reduce((a, n) => a + n.total, 0);
-const mTgtTotalAll = targets.reduce((a, n) => a + n.total, 0);
-const mSrcBand = M_W - 2 * M_P - (mSources.length - 1) * M_G;
-const mTgtBand = M_W - 2 * M_P - (targets.length - 1) * M_G;
-
-interface MNode { key: string; total: number; x0: number; w: number; used: number }
-const mSrcNodes: MNode[] = [];
-const mTgtNodes: MNode[] = [];
-{
-  let x = M_P;
-  for (const n of mSources) {
-    const w = (n.total / mSrcTotalAll) * mSrcBand;
-    mSrcNodes.push({ ...n, x0: x, w, used: 0 });
-    x += w + M_G;
-  }
-}
-{
-  let x = M_P;
-  for (const n of targets) {
-    const w = (n.total / mTgtTotalAll) * mTgtBand;
-    mTgtNodes.push({ ...n, x0: x, w, used: 0 });
-    x += w + M_G;
-  }
-}
-
-const mSOrder = new Map(mSrcNodes.map((n, i) => [n.key, i]));
-const mTOrder = new Map(mTgtNodes.map((n, i) => [n.key, i]));
-const mSMap = new Map(mSrcNodes.map(n => [n.key, n]));
-const mTMap = new Map(mTgtNodes.map(n => [n.key, n]));
-
-// 目標側偏移
-const mByTgt = [...mLinks].sort((a, b) =>
-  (mTOrder.get(a.target)! - mTOrder.get(b.target)!) || (mSOrder.get(a.source)! - mSOrder.get(b.source)!));
-const mTOffset = new Map<(typeof mLinks)[0], number>();
-for (const l of mByTgt) {
-  const t = mTMap.get(l.target)!;
-  mTOffset.set(l, t.x0 + t.used);
-  t.used += (l.value / t.total) * t.w;
-}
-
-const M_TOP = 72;
-const M_BOT = M_TOP + M_NH + M_RH;
-const M_H = M_BOT + M_NH + 40;
-const M_MID = (M_TOP + M_NH + M_BOT) / 2;
-
-mSrcNodes.forEach(n => n.used = 0);
-
-const mLabel = (k: string) => BUCKET_LABELS[k as 'zh'|'ja'|'en'|'other'] ?? label(k);
-
-const mOrdered = [...mLinks].sort((a, b) =>
-  (mSOrder.get(a.source)! - mSOrder.get(b.source)!) || (mTOrder.get(a.target)! - mTOrder.get(b.target)!));
-
-const mRibbons = mOrdered.map(l => {
-  const s = mSMap.get(l.source)!;
-  const sx = s.x0 + s.used;
-  const sw = (l.value / s.total) * s.w;
-  s.used += sw;
-  const tx = mTOffset.get(l)!;
-  const t = mTMap.get(l.target)!;
-  const tw = (l.value / t.total) * t.w;
-
-  const topY = M_TOP + M_NH;
-  const botY = M_BOT;
-  return {
-    ...l,
-    d: `M${sx.toFixed(1)},${topY} C${sx.toFixed(1)},${M_MID} ${tx.toFixed(1)},${M_MID} ${tx.toFixed(1)},${botY} ` +
-       `l${tw.toFixed(1)},0 C${(tx + tw).toFixed(1)},${M_MID} ${(sx + sw).toFixed(1)},${M_MID} ${(sx + sw).toFixed(1)},${topY} Z`,
-    tip: `${mLabel(l.source)} → ${label(l.target)} · ${l.value} 种${l.native ? '（原文）' : ''}`,
-  };
-});
-
+const nativeTotal = full.links.filter((l) => l.native).reduce((a, l) => a + l.value, 0);
+const pct = Math.round(((full.totalWorks - nativeTotal) / full.totalWorks) * 100);
+const { NW, X0, X1, W } = DESK;
+const cfg = JSON.stringify({
+  other: [...other],
+  order: { sources: full.sources.map((n) => n.key), targets: full.targets.map((n) => n.key) },
+  H: desk.H,
+  total: full.totalWorks,
+}).replace(/</g, '\\u003c');
 ---
-<section class="langflow wrap">
-  <header class="sec-head">
-    <small class="mono">LANGUAGE FLOW</small>
-    <h2>语言流向</h2>
-    <span class="sec-meta mono">{totalWorks} 种</span>
-    <span class="flow-legend mono"><i class="lg lg-tr"></i>译本&nbsp;&nbsp;<i class="lg lg-na"></i>原文直读&nbsp;{nativeTotal}&nbsp;种</span>
+<figure class="plate langflow" id="fig-flow">
+  <header class="plate-head">
+    <span class="kicker">FIG. 02 · Language flow</span>
+    <h3><b class="plate-num" id="flow-pct">{pct}%</b>经由翻译抵达</h3>
+    <p class="plate-lede">左边是原作的语言，右边是我实际读的版本。<span class="flow-legend mono"><i class="lg lg-tr"></i>译本 <i class="lg lg-na"></i>原文直读 <b id="flow-native">{nativeTotal}</b> 种</span></p>
   </header>
+
   <div class="flow-desk flow-scroll">
-    <svg viewBox={`0 0 ${W} ${Math.ceil(H)}`} role="img" aria-label="原语言到我读的语言的流向图" style={`--h:${Math.ceil(H)}px`}>
+    <svg viewBox={`0 0 ${W} ${Math.ceil(desk.H)}`} role="img" aria-label="原语言到我读的语言的流向图" id="flow-desk">
       <text class="col-head" x={X0 + NW} y={14} text-anchor="end">原语言&nbsp;ORIG</text>
       <text class="col-head" x={X1} y={14} text-anchor="start">我读的&nbsp;MINE</text>
-      {ribbons.map((r) => (
-        <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d}><title>{r.tip}</title></path>
+      <g class="ribbons">
+        {desk.ribbons.map((r) => (
+          <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d} data-k={rk(r)} data-s={r.source} data-t={r.target} tabindex="0" role="button" aria-label={tip(r)}><title>{tip(r)}</title></path>
+        ))}
+      </g>
+      {desk.src.map((n) => (
+        <g class="fnode src" data-k={n.key} style={`transform:translate(${X0}px,${n.y0.toFixed(1)}px)`} tabindex="0" role="button" aria-label={`只看${label(n.key)}原作`}>
+          <rect class="node" width={NW} height={Math.max(n.h, 1.5)} />
+          <text class="nlabel" x={-8} y={n.h / 2 + 4} text-anchor="end">{label(n.key)}<tspan class="ncount">&nbsp;{n.total}</tspan></text>
+        </g>
       ))}
-      {srcNodes.map((n) => (
-        <>
-          <rect class="node" x={X0} y={n.y0} width={NW} height={Math.max(n.total * U, 1.5)} />
-          <text class="nlabel" x={X0 - 8} y={n.y0 + (n.total * U) / 2 + 4} text-anchor="end">
-            {label(n.key)}<tspan class="ncount">&nbsp;{n.total}</tspan>
-          </text>
-        </>
-      ))}
-      {tgtNodes.map((n) => (
-        <>
-          <rect class="node" x={X1} y={n.y0} width={NW} height={Math.max(n.total * U, 1.5)} />
-          <text class="nlabel" x={X1 + NW + 8} y={n.y0 + (n.total * U) / 2 + 4} text-anchor="start">
-            {label(n.key)}<tspan class="ncount">&nbsp;{n.total}</tspan>
-          </text>
-        </>
+      {desk.tgt.map((n) => (
+        <g class="fnode tgt" data-k={n.key} style={`transform:translate(${X1}px,${n.y0.toFixed(1)}px)`}>
+          <rect class="node" width={NW} height={Math.max(n.h, 1.5)} />
+          <text class="nlabel" x={NW + 8} y={n.h / 2 + 4} text-anchor="start">{label(n.key)}<tspan class="ncount">&nbsp;{n.total}</tspan></text>
+        </g>
       ))}
     </svg>
   </div>
 
   <div class="flow-mob">
-    <svg viewBox={`0 0 ${M_W} ${Math.ceil(M_H)}`} role="img" aria-label="原语言到我读的语言的垂直流向图">
-      <text class="col-head" x={M_W / 2} y={28} text-anchor="middle">原语言 → 我读的 &nbsp;ORIG → MINE</text>
-      <!-- 原語言節點（上） -->
-      {mSrcNodes.map((n) => (
-        <>
-          <rect class="node" x={n.x0} y={M_TOP} width={n.w} height={M_NH} rx="2" />
-          <text class="mnlabel" x={n.x0 + n.w / 2} y={M_TOP - 18} text-anchor="middle">
-            {mLabel(n.key)}
-            <tspan class="mncount" x={n.x0 + n.w / 2} dy="13">{n.total}</tspan>
-          </text>
-        </>
+    <svg viewBox={`0 0 ${MOB.W} ${Math.ceil(MOB_H)}`} role="img" aria-label="原语言到我读的语言的垂直流向图" id="flow-mob">
+      <text class="col-head" x={MOB.W / 2} y={28} text-anchor="middle">原语言 → 我读的 &nbsp;ORIG → MINE</text>
+      <g class="ribbons">
+        {mob.ribbons.map((r) => (
+          <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d} data-k={rk(r)} data-s={r.source} data-t={r.target}><title>{tip(r, true)}</title></path>
+        ))}
+      </g>
+      {mob.src.map((n) => (
+        <g class="fnode src" data-k={n.key} style={`transform:translate(${n.x0.toFixed(1)}px,${MOB.TOP}px)`}>
+          <rect class="node" width={Math.max(n.w, 1.5)} height={MOB.NH} rx="2" />
+          <text class="mnlabel" x={n.w / 2} y={-18} text-anchor="middle">{mLabel(n.key)}<tspan class="mncount" x={n.w / 2} dy="13">{n.total}</tspan></text>
+        </g>
       ))}
-      <!-- Ribbons -->
-      {mRibbons.map((r) => (
-        <path class={`ribbon ${r.native ? 'native' : ''}`} d={r.d}><title>{r.tip}</title></path>
-      ))}
-      <!-- 我讀的節點（下） -->
-      {mTgtNodes.map((n) => (
-        <>
-          <rect class="node" x={n.x0} y={M_BOT} width={n.w} height={M_NH} rx="2" />
-          <text class="mnlabel" x={n.x0 + n.w / 2} y={M_BOT + M_NH + 16} text-anchor="middle">
-            {label(n.key)}
-            <tspan class="mncount" x={n.x0 + n.w / 2} dy="13">{n.total}</tspan>
-          </text>
-        </>
+      {mob.tgt.map((n) => (
+        <g class="fnode tgt" data-k={n.key} style={`transform:translate(${n.x0.toFixed(1)}px,${MOB_BOT}px)`}>
+          <rect class="node" width={Math.max(n.w, 1.5)} height={MOB.NH} rx="2" />
+          <text class="mnlabel" x={n.w / 2} y={MOB.NH + 16} text-anchor="middle">{label(n.key)}<tspan class="mncount" x={n.w / 2} dy="13">{n.total}</tspan></text>
+        </g>
       ))}
     </svg>
   </div>
-</section>
+  <figcaption>点左侧原语言只看这种语言的书，点任意一条色带查看这条路径上的书单；各图联动。</figcaption>
+  <script type="application/json" id="flow-cfg" set:html={cfg}></script>
+</figure>
+
+<script>
+  import { flowsFromRecords } from '../lib/stats';
+  import { deskLayout, mobLayout, DESK, MOB, MOB_BOT } from '../lib/flowLayout';
+  import { langLabel, langBucket } from '../lib/lang';
+  import { getState, setFilter, onFilter, getBooks, matches, type FilterState } from '../scripts/catalogFilter';
+
+  const fig = document.getElementById('fig-flow');
+  const cfgEl = document.getElementById('flow-cfg');
+  if (fig && cfgEl) {
+    const cfg = JSON.parse(cfgEl.textContent!) as { other: string[]; order: { sources: string[]; targets: string[] }; H: number; total: number };
+    const other = new Set(cfg.other);
+    const books = getBooks();
+    const deskSvg = document.getElementById('flow-desk')!;
+    const mobSvg = document.getElementById('flow-mob')!;
+    const label = (k: string) => (k === 'other' ? '其他语言' : langLabel(k));
+    const BL: Record<string, string> = { zh: '中文', ja: '日文', en: '英文', other: '其他' };
+
+    /** 某个流向节点 key（桌面为具体语言或 other，手机为四分类）对应的全部原语言代码 */
+    const langsOf = (key: string, mobile: boolean) => [...new Set(books
+      .filter((b) => (mobile ? (b.sk === 'other' ? 'other' : langBucket(b.sk)) === key : b.sk === key))
+      .map((b) => b.ol))];
+
+    function apply(svg: Element, layout: ReturnType<typeof deskLayout> | ReturnType<typeof mobLayout>, mobile: boolean) {
+      const rib = new Map(layout.ribbons.map((r) => [`${r.source}|${r.target}|${r.native ? 1 : 0}`, r]));
+      svg.querySelectorAll<SVGPathElement>('.ribbon').forEach((p) => {
+        const r = rib.get(p.dataset.k!);
+        p.classList.toggle('gone', !r);
+        if (r) {
+          p.setAttribute('d', r.d);
+          p.querySelector('title')!.textContent = `${mobile ? BL[r.source] ?? label(r.source) : label(r.source)} → ${label(r.target)} · ${r.value} 种${r.native ? '（原文直读）' : ''}`;
+        }
+      });
+      const nodes = [...layout.src.map((n) => ['src', n] as const), ...layout.tgt.map((n) => ['tgt', n] as const)];
+      const seen = new Set<string>();
+      for (const [side, n] of nodes) {
+        const g = svg.querySelector<SVGGElement>(`.fnode.${side}[data-k="${n.key}"]`);
+        if (!g) continue;
+        seen.add(side + n.key);
+        g.classList.remove('gone');
+        const rect = g.querySelector('rect')!;
+        const tx = g.querySelector('text')!;
+        const cnt = tx.querySelector('tspan')!;
+        if (mobile) {
+          const m = n as { x0: number; w: number };
+          g.style.transform = `translate(${m.x0.toFixed(1)}px,${side === 'src' ? MOB.TOP : MOB_BOT}px)`;
+          rect.setAttribute('width', String(Math.max(m.w, 1.5)));
+          tx.setAttribute('x', String(m.w / 2));
+          cnt.setAttribute('x', String(m.w / 2));
+          cnt.textContent = String(n.total);
+        } else {
+          const d = n as { y0: number; h: number };
+          g.style.transform = `translate(${side === 'src' ? DESK.X0 : DESK.X1}px,${d.y0.toFixed(1)}px)`;
+          rect.setAttribute('height', String(Math.max(d.h, 1.5)));
+          tx.setAttribute('y', String(d.h / 2 + 4));
+          cnt.textContent = ' ' + n.total;
+        }
+      }
+      svg.querySelectorAll<SVGGElement>('.fnode').forEach((g) => {
+        if (!seen.has((g.classList.contains('src') ? 'src' : 'tgt') + g.dataset.k)) g.classList.add('gone');
+      });
+    }
+
+    function highlight(svg: Element, s: FilterState, mobile: boolean) {
+      const fk = s.flow ? `${s.flow.src}|${s.flow.tgt}|${s.flow.native ? 1 : 0}` : null;
+      const srcKeys = s.langs
+        ? new Set(books.filter((b) => s.langs!.includes(b.ol)).map((b) => (mobile ? (b.sk === 'other' ? 'other' : langBucket(b.sk)) : b.sk)))
+        : null;
+      const focused = !!(fk || srcKeys);
+      svg.classList.toggle('focused', focused);
+      svg.querySelectorAll<SVGPathElement>('.ribbon').forEach((p) => {
+        const mobileFlowMatch = mobile && s.flow && (s.flow.src === 'other' ? 'other' : langBucket(s.flow.src)) === p.dataset.s && s.flow.tgt === p.dataset.t;
+        const on = fk ? (p.dataset.k === fk || !!mobileFlowMatch) : srcKeys ? srcKeys.has(p.dataset.s!) : false;
+        p.classList.toggle('lit', on);
+      });
+      svg.querySelectorAll<SVGGElement>('.fnode.src').forEach((g) => g.classList.toggle('lit', !!srcKeys?.has(g.dataset.k!)));
+    }
+
+    function render(s: FilterState) {
+      // 本图自己的维度（langs / flow）改为高亮，其余维度照常过滤
+      const recs = books.filter((b) => matches(b, s, ['langs', 'flow'])).map((b) => ({ orig: b.ol, mine: b.ml }));
+      const f = flowsFromRecords(recs, other, cfg.order);
+      // 书少时放大单位高度：按总量比的 0.6 次方，且不超过画布
+      const ratio = f.totalWorks ? cfg.total / f.totalWorks : 1;
+      const room = (cfg.H - 2 * DESK.PAD - Math.max(f.sources.length, f.targets.length) * (DESK.GAP + DESK.MIN)) / Math.max(1, f.totalWorks);
+      const U = Math.max(DESK.U, Math.min(DESK.U * Math.pow(ratio, 0.6), room));
+      apply(deskSvg, deskLayout(f, cfg.H, U), false);
+      apply(mobSvg, mobLayout(f), true);
+      highlight(deskSvg, s, false);
+      highlight(mobSvg, s, true);
+      // 导语数字：当前切面（含语言/流向筛选）里的译本比例
+      const cur = books.filter((b) => matches(b, s));
+      const nat = cur.filter((b) => b.ol === b.ml).length;
+      document.getElementById('flow-pct')!.textContent = cur.length ? Math.round(((cur.length - nat) / cur.length) * 100) + '%' : '—';
+      document.getElementById('flow-native')!.textContent = String(nat);
+    }
+
+    /* ---- 交互 ---- */
+    const pickRibbon = (p: SVGPathElement, mobile: boolean) => {
+      const [src, tgt, nat] = p.dataset.k!.split('|');
+      const cur = getState().flow;
+      if (mobile) {
+        // 手机版色带是四分类聚合：落到该分类下的语言筛选 + 目标语言
+        const langs = langsOf(src, true);
+        const same = getState().langs?.join() === langs.join() && cur?.tgt === tgt;
+        setFilter(same ? { langs: null, flow: null } : { langs, langsLabel: `${BL[src]}原作`, flow: null });
+        return;
+      }
+      const same = cur && cur.src === src && cur.tgt === tgt && cur.native === (nat === '1');
+      setFilter(same
+        ? { flow: null }
+        : { flow: { src, tgt, native: nat === '1' }, flowLabel: `${label(src)} → ${label(tgt)}${nat === '1' ? '（原文）' : ''}` });
+    };
+    const pickSource = (key: string, mobile: boolean) => {
+      const langs = langsOf(key, mobile);
+      const same = getState().langs?.slice().sort().join() === langs.slice().sort().join();
+      setFilter(same ? { langs: null } : { langs, langsLabel: `${mobile ? BL[key] : label(key)}原作` });
+    };
+    for (const [svg, mobile] of [[deskSvg, false], [mobSvg, true]] as const) {
+      svg.addEventListener('click', (e) => {
+        const t = e.target as Element;
+        const p = t.closest<SVGPathElement>('.ribbon');
+        if (p) return pickRibbon(p, mobile);
+        const g = t.closest<SVGGElement>('.fnode.src');
+        if (g) pickSource(g.dataset.k!, mobile);
+      });
+      svg.addEventListener('keydown', (e) => {
+        if ((e as KeyboardEvent).key !== 'Enter' && (e as KeyboardEvent).key !== ' ') return;
+        const t = e.target as Element;
+        if (t.classList.contains('ribbon')) { pickRibbon(t as SVGPathElement, mobile); e.preventDefault(); }
+        else if (t.classList.contains('fnode')) { pickSource((t as SVGGElement).dataset.k!, mobile); e.preventDefault(); }
+      });
+      // 悬停节点：只亮它的色带
+      svg.addEventListener('pointerover', (e) => {
+        const g = (e.target as Element).closest<SVGGElement>('.fnode');
+        svg.querySelectorAll('.ribbon.hover').forEach((p) => p.classList.remove('hover'));
+        svg.classList.toggle('hovering', !!g);
+        if (!g) return;
+        const attr = g.classList.contains('src') ? 's' : 't';
+        svg.querySelectorAll<SVGPathElement>(`.ribbon[data-${attr}="${g.dataset.k}"]`).forEach((p) => p.classList.add('hover'));
+      });
+      svg.addEventListener('pointerleave', () => { svg.classList.remove('hovering'); svg.querySelectorAll('.ribbon.hover').forEach((p) => p.classList.remove('hover')); });
+    }
+
+    onFilter(render);
+    if (Object.values(getState()).some((v) => v != null)) render(getState());
+  }
+</script>

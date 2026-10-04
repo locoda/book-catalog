@@ -7,6 +7,7 @@ import ReadingTimeline from '../components/ReadingTimeline.astro';
 import LangFlow from '../components/LangFlow.astro';
 import SubjectCloud from '../components/SubjectCloud.astro';
 import AuthorCloud from '../components/AuthorCloud.astro';
+import InsightsBar from '../components/InsightsBar.astro';
 import { langLabel, langBucket } from '../lib/lang';
 import { bySlug, getName } from '../lib/subjects';
 
@@ -151,11 +152,14 @@ const avg = rated.length ? (rated.reduce((a, b) => a + b, 0) / rated.length).toF
       <small class="mono">AT A GLANCE</small>
       <h2>馆藏速览</h2>
     </header>
-    <p class="insight-lede">数字替这座书架说话：这些年读得怎样、原文与译本各占几成、又在反复回到哪些主题与著者。</p>
-    <ReadingTimeline />
-    <LangFlow />
-    <SubjectCloud />
-    <AuthorCloud />
+    <p class="insight-lede">数字替这座书架说话：这些年读得怎样、原文与译本各占几成、又在反复回到哪些主题与著者。四张图互相联动——点任何一处，其他图跟着变。</p>
+    <InsightsBar />
+    <div class="plates">
+      <ReadingTimeline />
+      <LangFlow />
+      <SubjectCloud />
+      <AuthorCloud />
+    </div>
     <div class="subject-desk" style="margin-top:28px">
       <a class="subject-chip subject-more mono" href="/works/">浏览全部馆藏 →</a>
     </div>
