@@ -1,0 +1,164 @@
+---
+/**
+ * 馆藏速览的联动中枢：输出客户端共享数据，并提供吸顶控制条（年份回放 / 筛选标签 / 计数）
+ * 与书单面板。各图表通过 src/scripts/catalogFilter.ts 读写同一份筛选状态。
+ */
+import { getCollection } from 'astro:content';
+import { flowRecords, otherSources, flowSourceKey } from '../lib/stats';
+import { SUBJECTS } from '../lib/subjects';
+
+const works = await getCollection('works');
+const people = await getCollection('people');
+const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
+const other = otherSources(flowRecords(works));
+
+const books = works.map((w) => {
+  const mine = w.data.expressions.find((e) => e.mine);
+  const dates = w.data.readings.map((r) => r.date).filter(Boolean).sort();
+  const ym = dates.map((d) => d.slice(0, 7)).filter((d) => /^\d{4}-\d{2}$/.test(d));
+  return {
+    id: w.id,
+    t: mine?.title ?? w.data.title,
+    a: w.data.creators.map((c) => peopleMap.get(c.id) ?? c.id).join(' · '),
+    ol: w.data.orig_lang,
+    sk: flowSourceKey(w.data.orig_lang, other),
+    ml: mine?.lang ?? w.data.orig_lang,
+    s: w.data.subjects,
+    ym,
+    fy: dates.length ? parseInt(dates[0].slice(0, 4)) : 0,
+    d: dates[dates.length - 1] ?? '',
+    r: w.data.rating ?? null,
+  };
+});
+const subjects = Object.fromEntries(SUBJECTS.map((s) => [s.slug, { name: s.name, desc: s.desc }]));
+const years = books.map((b) => b.fy).filter((y) => y > 0);
+const y0 = Math.min(...years), y1 = Math.max(...years);
+const json = JSON.stringify({ books, subjects }).replace(/</g, '\\u003c');
+---
+<script type="application/json" id="insights-data" set:html={json}></script>
+
+<div class="ins-bar" id="ins-bar">
+  <div class="ins-replay">
+    <button class="ins-play" id="ins-play" type="button" aria-label="按年份回放">▶</button>
+    <label class="ins-slider">
+      <span class="label">回放 · replay</span>
+      <input type="range" id="ins-year" min={y0} max={y1 + 1} step="1" value={y1 + 1} aria-label="只看到这一年为止读过的书" />
+      <span class="ins-ticks" aria-hidden="true">
+        {Array.from({ length: y1 - y0 + 1 }, (_, i) => <i>{String(y0 + i).slice(2)}</i>)}
+        <i>全部</i>
+      </span>
+    </label>
+    <output class="ins-year-out" id="ins-year-out" for="ins-year">全部</output>
+  </div>
+  <div class="ins-chips" id="ins-chips" aria-live="polite"></div>
+  <button class="ins-count" id="ins-count-btn" type="button" title="查看当前书单">
+    <b id="ins-count">{books.length}</b><span>本 · 书单 →</span>
+  </button>
+</div>
+
+<aside class="ins-panel" id="ins-panel" aria-label="书单" aria-hidden="true">
+  <button class="ins-panel-x" id="ins-panel-x" type="button" aria-label="关闭">✕</button>
+  <span class="kicker" id="ins-panel-kicker">Selection</span>
+  <h3 id="ins-panel-title">当前书单</h3>
+  <p class="ins-panel-desc" id="ins-panel-desc"></p>
+  <div class="ins-panel-list" id="ins-panel-list"></div>
+</aside>
+
+<script>
+  import { getState, setFilter, clearFilter, onFilter, getData, matches, prefersReducedMotion, type FilterState, type Dim } from '../scripts/catalogFilter';
+
+  const $ = (id: string) => document.getElementById(id)!;
+  const { books, subjects } = getData();
+  const slider = $('ins-year') as HTMLInputElement;
+  const out = $('ins-year-out');
+  const maxV = +slider.max;
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+  /* ---- 年份回放 ---- */
+  const yearOf = (v: number) => (v >= maxV ? null : v);
+  slider.addEventListener('input', () => { stop(); setFilter({ until: yearOf(+slider.value) }); });
+  let timer = 0;
+  const play = $('ins-play');
+  function stop() { if (timer) { clearInterval(timer); timer = 0; play.textContent = '▶'; play.classList.remove('on'); } }
+  play.addEventListener('click', () => {
+    if (timer) return stop();
+    let v = +slider.min;
+    play.textContent = '❚❚'; play.classList.add('on');
+    setFilter({ until: v });
+    timer = window.setInterval(() => {
+      v++;
+      setFilter({ until: yearOf(v) });
+      if (v >= maxV) stop();
+    }, prefersReducedMotion() ? 400 : 900);
+  });
+
+  /* ---- 筛选标签 + 计数 ---- */
+  const chips = $('ins-chips');
+  function renderBar(s: FilterState) {
+    slider.value = String(s.until ?? maxV);
+    out.textContent = s.until == null ? '全部' : `到 ${s.until}`;
+    const items: [Dim, string][] = [];
+    if (s.until != null) items.push(['until', `${s.until} 年为止`]);
+    if (s.langs) items.push(['langs', s.langsLabel ?? '原语言']);
+    if (s.flow) items.push(['flow', s.flowLabel ?? '流向']);
+    if (s.subject) items.push(['subject', s.subjectLabel ?? '栏目']);
+    chips.innerHTML = items.length
+      ? items.map(([d, l]) => `<button type="button" class="ins-chip" data-dim="${d}">${esc(l)}<i aria-label="清除">✕</i></button>`).join('') +
+        (items.length > 1 ? '<button type="button" class="ins-chip clear" data-dim="">全部清除</button>' : '')
+      : '<span class="ins-hint">点流向图的色带、星图的星星，或拖动年份，各图会一起联动</span>';
+    $('ins-count').textContent = String(books.filter((b) => matches(b, s)).length);
+  }
+  chips.addEventListener('click', (e) => {
+    const b = (e.target as Element).closest<HTMLElement>('.ins-chip');
+    if (!b) return;
+    stop();
+    b.dataset.dim ? clearFilter(b.dataset.dim as Dim) : clearFilter();
+  });
+
+  /* ---- 书单面板 ---- */
+  const panel = $('ins-panel');
+  let panelOpen = false;
+  function renderPanel(s: FilterState) {
+    const list = books.filter((b) => matches(b, s)).sort((a, b) => b.d.localeCompare(a.d));
+    const subj = s.subject ? subjects[s.subject] : null;
+    $('ins-panel-kicker').textContent = subj ? 'Column · 栏目' : s.flow ? 'Flow · 流向' : s.langs ? 'Language · 原语言' : 'Selection · 书单';
+    $('ins-panel-title').textContent = subj ? subj.name : (s.flow && s.flowLabel) || (s.langs && s.langsLabel) || (s.until != null ? `${s.until} 年为止` : '全部馆藏');
+    const extra = [s.until != null ? `${s.until} 年为止` : '', subj && s.flow ? s.flowLabel : '', (subj || s.flow) && s.langs ? s.langsLabel : '']
+      .filter((x): x is string => !!x);
+    $('ins-panel-desc').textContent = (subj ? subj.desc + ' ' : '') + [`共 ${list.length} 本`, ...extra].join(' · ');
+    $('ins-panel-list').innerHTML = list.slice(0, 300).map((b) =>
+      `<a href="/works/${b.id}/"><span class="t">${esc(b.t)}</span><span class="a">${esc(b.a)}</span><span class="m">${b.d.slice(0, 7)}${b.r != null ? ' · ' + b.r : ''}</span></a>`).join('') ||
+      '<p class="ins-empty">这个切面下没有书。</p>';
+  }
+  function openPanel() { panelOpen = true; panel.classList.add('show'); panel.setAttribute('aria-hidden', 'false'); renderPanel(getState()); }
+  function closePanel() { panelOpen = false; panel.classList.remove('show'); panel.setAttribute('aria-hidden', 'true'); }
+  $('ins-count-btn').addEventListener('click', () => (panelOpen ? closePanel() : openPanel()));
+  $('ins-panel-x').addEventListener('click', closePanel);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && panelOpen) closePanel(); });
+
+  // 点了色带或星星（flow / subject 变化且非空）时自动展开面板
+  let prev = getState();
+  onFilter((s) => {
+    renderBar(s);
+    const picked = (s.flow && s.flow !== prev.flow) || (s.subject && s.subject !== prev.subject);
+    if (picked) openPanel();
+    else if (panelOpen) {
+      if (!s.flow && !s.subject && !s.langs && s.until == null && (prev.flow || prev.subject)) closePanel();
+      else renderPanel(s);
+    }
+    prev = s;
+  });
+  renderBar(getState());
+
+  /* ---- 图版入场：进入视口时加 .in；减少动态时直接显示 ---- */
+  const plates = document.querySelector('.plates');
+  if (plates && 'IntersectionObserver' in window && !prefersReducedMotion()) {
+    for (const sel of ['.heat-row:not(.heat-head)', '.bar-row'])
+      plates.querySelectorAll<HTMLElement>(sel).forEach((r, i) => r.style.setProperty('--r', String(i)));
+    plates.classList.add('js-plates');
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    }), { threshold: 0.25 });
+    plates.querySelectorAll('.plate').forEach((p) => io.observe(p));
+  }
+</script>

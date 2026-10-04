@@ -1,6 +1,7 @@
 ---
 /**
- * 2a 阅读时间线：年 × 月热力网格（桌面）+ 年度柱状图（手机）。构建时渲染，零 JS。
+ * FIG. 01 阅读年表：年 × 月热力网格（桌面）+ 年度柱状图（手机）。
+ * 构建时渲染；客户端随联动筛选重算每格册数，回放时淡出所选年份之后的行，点年份即回放到该年。
  */
 import { getCollection } from 'astro:content';
 import { readingHeatmap } from '../lib/stats';
@@ -15,12 +16,14 @@ const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1);
 // 手机版柱状图：年度总计
 const maxYear = Math.max(...years.map(y => y.total));
 const barAlpha = (n: number) => (n === 0 ? 0 : 0.18 + 0.82 * Math.sqrt(n / maxYear));
+const peak = [...years].sort((a, b) => b.total - a.total)[0];
+const cfg = JSON.stringify({ maxMonth, maxYear });
 ---
-<section class="timeline wrap">
-  <header class="sec-head">
-    <small class="mono">TIMELINE</small>
-    <h2>阅读年表</h2>
-    <span class="sec-meta mono">{totalReadings} 笔</span>
+<figure class="plate timeline" id="fig-timeline">
+  <header class="plate-head">
+    <span class="kicker">FIG. 01 · Timeline</span>
+    <h3><b class="plate-num">{peak?.year}</b>读得最多的一年<span class="mono plate-sub">{peak?.total} 笔</span></h3>
+    <p class="plate-lede">每一格是一个月，颜色越深读得越多。共 <b id="tl-total">{totalReadings}</b> 笔阅读记录。</p>
   </header>
   <!-- 桌面：月份热力图 -->
   <div class="heat-grid">
@@ -31,12 +34,13 @@ const barAlpha = (n: number) => (n === 0 ? 0 : 0.18 + 0.82 * Math.sqrt(n / maxYe
         <span class="heat-total mono">计</span>
       </div>
       {years.map((y) => (
-        <div class="heat-row">
-          <span class="heat-year mono">{y.year}</span>
+        <div class="heat-row" data-y={y.year}>
+          <button type="button" class="heat-year mono" data-y={y.year} title={`回放到 ${y.year} 年`}>{y.year}</button>
           {y.months.map((n, i) => (
             <span
               class={`heat-cell ${alpha(n) > 0.68 ? 'dark-text' : ''}`}
               style={`--a:${alpha(n).toFixed(3)}`}
+              data-ym={`${y.year}-${String(i + 1).padStart(2, '0')}`}
               title={`${y.year}-${String(i + 1).padStart(2, '0')} · ${n} 笔`}
             >{n > 0 && <i>{n}</i>}</span>
           ))}
@@ -49,15 +53,74 @@ const barAlpha = (n: number) => (n === 0 ? 0 : 0.18 + 0.82 * Math.sqrt(n / maxYe
   <!-- 手机：年度柱状图 -->
   <div class="heat-bars">
     {years.map((y) => (
-      <div class="bar-row">
+      <button type="button" class="bar-row" data-y={y.year}>
         <span class="bar-year mono">{y.year}</span>
-        <div class="bar-track">
-          <div class={`bar-fill ${barAlpha(y.total) > 0.68 ? 'dark-text' : ''}`}
+        <span class="bar-track">
+          <span class={`bar-fill ${barAlpha(y.total) > 0.68 ? 'dark-text' : ''}`}
                style={`--w:${(y.total / maxYear * 100).toFixed(1)}%;--a:${barAlpha(y.total).toFixed(3)}`}>
-            {y.total > 0 && <span class="bar-val mono">{y.total}</span>}
-          </div>
-        </div>
-      </div>
+            <span class="bar-val mono">{y.total > 0 ? y.total : ''}</span>
+          </span>
+        </span>
+      </button>
     ))}
   </div>
-</section>
+  <figcaption>点年份，只看到那一年为止读过的书；其他图会跟着回到那一年。</figcaption>
+  <script type="application/json" id="tl-cfg" set:html={cfg}></script>
+</figure>
+
+<script>
+  import { getState, setFilter, onFilter, getBooks, matches, type FilterState } from '../scripts/catalogFilter';
+
+  const fig = document.getElementById('fig-timeline');
+  const cfgEl = document.getElementById('tl-cfg');
+  if (fig && cfgEl) {
+    const { maxMonth, maxYear } = JSON.parse(cfgEl.textContent!) as { maxMonth: number; maxYear: number };
+    const books = getBooks();
+    const alpha = (n: number) => (n === 0 ? 0 : 0.12 + 0.88 * Math.sqrt(n / maxMonth));
+    const barAlpha = (n: number) => (n === 0 ? 0 : 0.18 + 0.82 * Math.sqrt(n / maxYear));
+    const cells = [...fig.querySelectorAll<HTMLElement>('.heat-cell')];
+
+    function render(s: FilterState) {
+      // 年表自己的维度是 until：不过滤，改为淡出之后的行
+      const perMonth = new Map<string, number>();
+      let total = 0;
+      for (const b of books) {
+        if (!matches(b, s, ['until'])) continue;
+        for (const ym of b.ym) { perMonth.set(ym, (perMonth.get(ym) ?? 0) + 1); total++; }
+      }
+      const perYear = new Map<string, number>();
+      for (const c of cells) {
+        const ym = c.dataset.ym!, n = perMonth.get(ym) ?? 0, a = alpha(n);
+        perYear.set(ym.slice(0, 4), (perYear.get(ym.slice(0, 4)) ?? 0) + n);
+        c.style.setProperty('--a', a.toFixed(3));
+        c.classList.toggle('dark-text', a > 0.68);
+        c.innerHTML = n > 0 ? `<i>${n}</i>` : '';
+        c.title = `${ym} · ${n} 笔`;
+      }
+      fig!.querySelectorAll<HTMLElement>('.heat-row[data-y]').forEach((r) => {
+        r.querySelector('.heat-total')!.textContent = String(perYear.get(r.dataset.y!) ?? 0);
+        r.classList.toggle('future', s.until != null && +r.dataset.y! > s.until);
+        r.classList.toggle('current', s.until != null && +r.dataset.y! === s.until);
+      });
+      fig!.querySelectorAll<HTMLElement>('.bar-row').forEach((r) => {
+        const n = perYear.get(r.dataset.y!) ?? 0, a = barAlpha(n);
+        const f = r.querySelector<HTMLElement>('.bar-fill')!;
+        f.style.setProperty('--w', ((n / maxYear) * 100).toFixed(1) + '%');
+        f.style.setProperty('--a', a.toFixed(3));
+        f.classList.toggle('dark-text', a > 0.68);
+        r.querySelector('.bar-val')!.textContent = n > 0 ? String(n) : '';
+        r.classList.toggle('future', s.until != null && +r.dataset.y! > s.until);
+        r.classList.toggle('current', s.until != null && +r.dataset.y! === s.until);
+      });
+      document.getElementById('tl-total')!.textContent = String(total);
+    }
+
+    fig.addEventListener('click', (e) => {
+      const b = (e.target as Element).closest<HTMLElement>('.heat-year[data-y], .bar-row[data-y]');
+      if (!b) return;
+      const y = +b.dataset.y!;
+      setFilter({ until: getState().until === y ? null : y });
+    });
+    onFilter(render);
+  }
+</script>

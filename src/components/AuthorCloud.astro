@@ -1,6 +1,6 @@
 ---
 /**
- * 主页著者云：桌面 ≥3 部作品，手机 ≥7 部作品。字号按各自 max sqrt 加权。
+ * FIG. 04 著者：桌面 ≥THRESH_DESK 部作品，手机 ≥THRESH_MOB 部作品。
  */
 import { getCollection } from 'astro:content';
 
@@ -69,14 +69,14 @@ function displayName(id: string): string {
 }
 ---
 
-<section class="cloud wrap">
-  <header class="sec-head">
-    <small class="mono">PEOPLE</small>
-    <h2>著者</h2>
-    <span class="sec-meta mono">{people.length} 位著者</span>
+<figure class="plate cloud" id="fig-people">
+  <header class="plate-head">
+    <span class="kicker">FIG. 04 · People</span>
+    <h3>读得最多<b class="plate-num">{displayName(desk[0][0])}</b><span class="mono plate-sub">{desk[0][1]} 种</span></h3>
+    <p class="plate-lede">{people.length} 位著者里，馆藏著作 {THRESH_DESK} 种以上的这些人，是反复回去找的名字。</p>
   </header>
 
-  <!-- 桌面：≥3 -->
+  <!-- 桌面：≥THRESH_DESK -->
   <div class="subject-cloud show-desk">
     {desk.map(([id, count]) => (
       <a class="subject-chip" href={`/people/${id}/`}>
@@ -86,7 +86,7 @@ function displayName(id: string): string {
     <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
   </div>
 
-  <!-- 手机：≥7 -->
+  <!-- 手机：≥THRESH_MOB -->
   <div class="subject-cloud show-mob">
     {mob.map(([id, count]) => (
       <a class="subject-chip" href={`/people/${id}/`}>
@@ -95,7 +95,8 @@ function displayName(id: string): string {
     ))}
     <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
   </div>
-</section>
+  <figcaption>按馆藏著作数排列；点名字进入著者的权威记录。</figcaption>
+</figure>
 
 <style>
   .show-mob { display: none; }
