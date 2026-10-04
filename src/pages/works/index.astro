@@ -2,6 +2,8 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langLabel, langBucket, BUCKET_LABELS, type LangBucket } from '../../lib/lang';
+
+const BUCKET_CLASS: Record<LangBucket, string> = { zh: 'l-zh', ja: 'l-ja', en: 'l-en', other: 'l-ot' };
 import { getName } from '../../lib/subjects';
 
 const works = await getCollection('works');
@@ -35,13 +37,34 @@ const mineLangs = [...new Set(rows.map((r) => r.mineLang))].sort();
 const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
 ---
 <Base title="馆藏列表 · 乙椟">
-  <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
+  <section class="wrap">
+    <div class="indexbar">
+      <div class="bigcount"><span id="result-count">{rows.length}</span><small>/ {rows.length} 种</small></div>
+      <div class="facet-block facet-row" data-facet="orig">
+        <span class="label">原语言 · original</span>
+        <div class="tabs">
+          <button class="tab on" data-value="">全部</button>
+          {origBuckets.map((b) => <button class={`tab ${BUCKET_CLASS[b]}`} data-value={b}><i class="dot"></i>{BUCKET_LABELS[b]}</button>)}
+        </div>
+      </div>
+      <div class="facet-block sortblock">
+        <span class="label">排序 · sort</span>
+        <div class="tabs sort-tabs">
+          <button class="tab on" data-sort="callno">索书号</button>
+          <button class="tab" data-sort="rating">评分</button>
+          <button class="tab" data-sort="year">年份</button>
+          <button class="tab" data-sort="title">题名</button>
+        </div>
+      </div>
+    </div>
 
-  <section class="facets wrap">
-    <div class="facet-row" data-facet="orig">
-      <span class="facet-label">原语言</span>
-      <button class="chip on" data-value="">全部</button>
-      {origBuckets.map((b) => <button class="chip" data-value={b}>{BUCKET_LABELS[b]}</button>)}
+    <div class="filters">
+      <div class="facet-row" data-facet="mine">
+        <span class="facet-label">我读的是</span>
+        <button class="chip on" data-value="">全部</button>
+        {mineLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
+      </div>
+      <button class="chip facet-toggle" id="facet-toggle">＋ 更多筛选</button>
     </div>
     {otherLangs.length > 0 && (
       <div class="facet-row facet-sub hidden" data-facet="orig-sub">
@@ -50,58 +73,47 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
         {otherLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
       </div>
     )}
-    <div class="facet-row" data-facet="mine">
-      <span class="facet-label">我读的是</span>
-      <button class="chip on" data-value="">全部</button>
-      {mineLangs.map((l) => <button class="chip" data-value={l}>{langLabel(l)}</button>)}
-    </div>
-    <button class="chip facet-toggle" id="facet-toggle">更多筛选 ▸</button>
     <div class="facet-extra hidden" id="facet-extra">
-    <div class="facet-row" data-facet="subject">
-      <span class="facet-label">主题</span>
-      <select class="facet-select" id="subject-select">
-        <option value="">全部</option>
-        {subjects.map((s) => <option value={s}>{getName(s)}</option>)}
-      </select>
-    </div>
-    <div class="facet-row">
-      <span class="facet-label">年份</span>
-      <input class="facet-input facet-year" type="text" id="pubyear-input" placeholder="作品年" autocomplete="off" />
-      <input class="facet-input facet-year" type="text" id="readyear-input" placeholder="阅读年" autocomplete="off" />
-    </div>
-    <div class="facet-row">
-      <span class="facet-label">評分</span>
-      <input class="facet-input facet-year" type="text" id="rating-input" placeholder="8 / 8- / -8 / 8-10" autocomplete="off" />
-    </div>
-    <div class="facet-row">
-      <span class="facet-label">作者</span>
-      <input class="facet-input" type="text" id="author-input" placeholder="输入著者名筛选…" autocomplete="off" />
-    </div>
-    <div class="facet-row">
-      <span class="facet-label">版本</span>
-      <select class="facet-select" id="edition-select">
-        <option value="">全部</option>
-        <option value="print">实体书</option>
-        <option value="ebook">电子书</option>
-        <option value="audiobook">有声书</option>
-      </select>
-    </div>
+      <div class="facet-row" data-facet="subject">
+        <span class="facet-label">主题</span>
+        <select class="facet-select" id="subject-select">
+          <option value="">全部</option>
+          {subjects.map((s) => <option value={s}>{getName(s)}</option>)}
+        </select>
+      </div>
+      <div class="facet-row">
+        <span class="facet-label">年份</span>
+        <div class="year-pair">
+          <input class="facet-input facet-year" type="text" id="pubyear-input" placeholder="作品年" autocomplete="off" />
+          <input class="facet-input facet-year" type="text" id="readyear-input" placeholder="阅读年" autocomplete="off" />
+        </div>
+      </div>
+      <div class="facet-row">
+        <span class="facet-label">评分</span>
+        <input class="facet-input facet-year" type="text" id="rating-input" placeholder="8 / 8- / -8 / 8-10" autocomplete="off" />
+      </div>
+      <div class="facet-row">
+        <span class="facet-label">作者</span>
+        <input class="facet-input" type="text" id="author-input" placeholder="输入著者名筛选…" autocomplete="off" />
+      </div>
+      <div class="facet-row">
+        <span class="facet-label">版本</span>
+        <select class="facet-select" id="edition-select">
+          <option value="">全部</option>
+          <option value="print">实体书</option>
+          <option value="ebook">电子书</option>
+          <option value="audiobook">有声书</option>
+        </select>
+      </div>
     </div>
   </section>
 
   <section class="results wrap">
-    <div class="sort-row">
-      <span class="facet-label">排序</span>
-      <button class="chip on" data-sort="callno">索书号</button>
-      <button class="chip" data-sort="rating">評分 ↓</button>
-      <button class="chip" data-sort="year">年份 ↓</button>
-      <button class="chip" data-sort="title">题名 A–Z</button>
-    </div>
-    <h3 id="result-label">ALL&nbsp;WORKS&nbsp;/&nbsp;全部馆藏</h3>
+    <h3 id="result-label" class="hidden">ALL&nbsp;WORKS&nbsp;/&nbsp;全部馆藏</h3>
     <div id="rows">
       {rows.map((r) => (
         <a
-          class="row"
+          class={`row ${BUCKET_CLASS[r.origBucket]}`}
           href={`/works/${r.id}/`}
           data-origbucket={r.origBucket}
           data-orig={r.data.orig_lang}
@@ -113,14 +125,17 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           data-creators={r.creatorNames}
           data-rating={r.data.rating ?? -1}
           data-title={r.mineTitle}
+          data-callno={r.data.callno ?? r.id}
           data-edition={r.data.readings[0]?.edition ?? ''}
         >
-          <span class="mono">{r.data.callno ?? r.id}</span>
-          <span>{r.mineTitle} <span class="byline">· {r.creatorNames}</span></span>
-          <span class="langs">
+          <span class="cn">{r.data.callno ?? r.id}</span>
+          <span class="tt">{r.mineTitle}{r.creatorNames && <span class="it">{r.creatorNames}</span>}</span>
+          <span class="lg">
             {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
           </span>
-          <span class="score">{r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+          {r.data.rating != null
+            ? <span class={`seal ${r.data.rating === 10 ? 'full' : ''}`}>{r.data.rating}</span>
+            : <span class="seal none">—</span>}
         </a>
       ))}
       <div class="empty-note hidden" id="empty">这个切面下暂时没有著录。</div>
@@ -132,6 +147,11 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
     let pubFrom = 0, pubTo = 0, readFrom = 0, readTo = 0;
     const origSubRow = document.querySelector<HTMLElement>('[data-facet="orig-sub"]');
     let sortMode = 'callno';
+    // Callno 分类位：原语言 × 虚构性（docs/CATALOGING.md §4）
+    const SECT_LABEL: Record<string, string> = {
+      CF: '中文 · 虚构', CN: '中文 · 非虚构', JF: '日文 · 虚构', JN: '日文 · 非虚构',
+      EF: '英文 · 虚构', EN: '英文 · 非虚构', OF: '其他语言 · 虚构', ON: '其他语言 · 非虚构',
+    };
 
     // 通用 range 解析器：支持 X / X- / -X / X-Y
     function parseRange(v: string): [number, number] {
@@ -157,18 +177,18 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
     const facetExtra = document.getElementById('facet-extra')!;
     facetToggle.addEventListener('click', () => {
       const open = facetExtra.classList.toggle('hidden');
-      facetToggle.textContent = open ? '更多筛选 ▸' : '更多筛选 ▾';
+      facetToggle.textContent = open ? '＋ 更多筛选' : '－ 收起筛选';
       facetToggle.classList.toggle('on', !open);
     });
 
     document.querySelectorAll<HTMLElement>('.facet-row').forEach((row) => {
       const facet = row.dataset.facet!;
-      row.querySelectorAll<HTMLButtonElement>('.chip').forEach((chip) => {
+      row.querySelectorAll<HTMLButtonElement>('.chip, .tab').forEach((chip) => {
         chip.addEventListener('click', () => {
           if (facet === 'orig') {
             active.orig = chip.dataset.value ?? '';
             active.origSub = '';
-            row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+            row.querySelectorAll('.chip, .tab').forEach((c) => c.classList.remove('on'));
             chip.classList.add('on');
             if (origSubRow) {
               const showSub = active.orig === 'other';
@@ -178,11 +198,11 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
             }
           } else if (facet === 'orig-sub') {
             active.origSub = chip.dataset.value ?? '';
-            row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+            row.querySelectorAll('.chip, .tab').forEach((c) => c.classList.remove('on'));
             chip.classList.add('on');
           } else {
             active[facet] = chip.dataset.value ?? '';
-            row.querySelectorAll('.chip').forEach((c) => c.classList.remove('on'));
+            row.querySelectorAll('.chip, .tab').forEach((c) => c.classList.remove('on'));
             chip.classList.add('on');
           }
           apply();
@@ -235,10 +255,10 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
     });
 
     // 排序 chips
-    document.querySelectorAll<HTMLButtonElement>('.sort-row .chip').forEach((chip) => {
+    document.querySelectorAll<HTMLButtonElement>('.sort-tabs [data-sort]').forEach((chip) => {
       chip.addEventListener('click', () => {
         sortMode = chip.dataset.sort!;
-        document.querySelectorAll('.sort-row .chip').forEach((c) => c.classList.remove('on'));
+        document.querySelectorAll('.sort-tabs [data-sort]').forEach((c) => c.classList.remove('on'));
         chip.classList.add('on');
         apply();
       });
@@ -285,18 +305,41 @@ const subjects = [...new Set(rows.flatMap((r) => r.data.subjects))].sort();
           return (a.dataset.title ?? '').localeCompare(b.dataset.title ?? '', 'zh');
         }
         // callno (default)
-        return (a.querySelector('.mono')?.textContent ?? '').localeCompare(b.querySelector('.mono')?.textContent ?? '');
+        return (a.dataset.callno ?? '').localeCompare(b.dataset.callno ?? '');
       });
 
-      // 重新插入排序后的可见行
-      visible.forEach((el) => rowsEl.appendChild(el));
+      // 重新插入排序后的可见行；按索书号排序时在分类位变化处插入书眉
+      rowsEl.querySelectorAll('.sect-head').forEach((h) => h.remove());
+      const sectCounts = new Map<string, number>();
+      if (sortMode === 'callno') visible.forEach((el) => {
+        const k = (el.dataset.callno ?? '').slice(0, 2);
+        sectCounts.set(k, (sectCounts.get(k) ?? 0) + 1);
+      });
+      let lastSect = '';
+      visible.forEach((el) => {
+        const k = (el.dataset.callno ?? '').slice(0, 2);
+        if (sortMode === 'callno' && k !== lastSect) {
+          lastSect = k;
+          const h = document.createElement('div');
+          h.className = 'sect-head ' + ([...el.classList].find((c) => c.startsWith('l-')) ?? '');
+          h.innerHTML = `<b>${k}</b><span>${SECT_LABEL[k] ?? ''}</span><em>${sectCounts.get(k)} 种</em>`;
+          rowsEl.appendChild(h);
+        }
+        rowsEl.appendChild(el);
+      });
+      rowsEl.appendChild(document.getElementById('empty')!);
+      document.getElementById('result-count')!.textContent = String(shown);
 
       document.getElementById('empty')!.classList.toggle('hidden', shown > 0);
       const anyFilter = active.orig || active.mine || active.subject || active.author || active.edition || pubFrom || pubTo || readFrom || readTo || ratingNone || ratingFrom || ratingTo;
       const sortLabel = sortMode === 'callno' ? '' : ` · ${sortMode === 'rating' ? '评分' : sortMode === 'year' ? '年份' : '题名'}`;
-      document.getElementById('result-label')!.textContent = anyFilter
+      const label = document.getElementById('result-label')!;
+      label.classList.toggle('hidden', !anyFilter && sortMode === 'callno');
+      label.textContent = anyFilter
         ? `FACET / 切面 — ${shown} 种${sortLabel}`
         : `ALL WORKS / 全部馆藏${sortLabel}`;
     }
+
+    apply();
   </script>
 </Base>

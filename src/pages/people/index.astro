@@ -40,14 +40,24 @@ for (const p of people) {
 
 const groupOrder = ['Latin', 'Kana', 'Hanzi', 'Other'];
 const groupLabels: Record<string, string> = {
-  Latin: 'LATIN',
-  Kana: '假名',
-  Hanzi: '汉字',
-  Other: 'OTHER',
+  Latin: 'Aa',
+  Kana: 'あ',
+  Hanzi: '汉',
+  Other: '··',
+};
+const groupHints: Record<string, string> = {
+  Latin: 'LATIN · 拉丁字母',
+  Kana: 'KANA · 假名',
+  Hanzi: 'HANZI · 汉字',
+  Other: 'OTHER · 其他',
 };
 ---
 <Base title="著者索引 · 乙椟">
-  <nav class="breadcrumb wrap"><a href="/" onclick="history.back();return false">← 返回</a></nav>
+  <header class="page-head wrap">
+    <span class="kicker">Authority Index</span>
+    <h1>著者</h1>
+    <p class="lede">一人一条权威记录，日、中、英、韩等名称形式全部归拢到同一 id。共 {people.length} 人。</p>
+  </header>
 
   <section class="results wrap" id="people-results">
     <div class="sort-row">
@@ -55,19 +65,18 @@ const groupLabels: Record<string, string> = {
       <button class="chip on" data-sort="name">名称索引</button>
       <button class="chip" data-sort="count">著作数 ↓</button>
     </div>
-    <h3>AUTHORITY&nbsp;INDEX&nbsp;/&nbsp;著者索引&nbsp;·&nbsp;{people.length}&nbsp;人</h3>
     {groupOrder.map((g) => {
       const items = groups[g];
       if (!items || items.length === 0) return null;
       return (
         <div class="people-group" data-group={g}>
-          <div class="group-header">{groupLabels[g]}</div>
+          <div class="group-header sect-head"><b>{groupLabels[g]}</b><span>{groupHints[g]}</span><em>{items.length} 人</em></div>
           {items.map((p) => (
             <a class="row" href={`/people/${p.id}/`} data-sortkey={p.sortKey} data-workcount={p.workCount} data-group={g}>
-              <span class="mono">p-{p.id}</span>
-              <span>{p.data.name}</span>
-              <span class="langs">{p.data.forms.length} 种名称形式</span>
-              <span class="score">{p.workCount} 种著作</span>
+              <span class="cn">p-{p.id}</span>
+              <span class="tt">{p.data.name}{p.data.sort && p.data.sort !== p.data.name && <span class="it">{p.data.sort}</span>}</span>
+              <span class="lg">{p.data.forms.length} 种名称形式</span>
+              <span class="num">{p.workCount} 种</span>
             </a>
           ))}
         </div>

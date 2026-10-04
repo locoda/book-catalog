@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getName, subjectUrl } from '../../lib/subjects';
+import { langLabel, langBucket } from '../../lib/lang';
+
+const BUCKET_CLASS = { zh: 'l-zh', ja: 'l-ja', en: 'l-en', other: 'l-ot' } as const;
 
 export async function getStaticPaths() {
   const people = await getCollection('people');
@@ -25,45 +28,50 @@ const topSubjects = [...subjectFreq.entries()]
 <Base title={`${person.data.name} · 乙椟`}>
   <nav class="breadcrumb wrap"><a href="/people/" onclick="history.back();return false">← 返回</a></nav>
 
-  <div class="main wrap">
-    <article class="cat-card">
-      <div class="callno"><span>p-{person.id}</span><span>AUTHORITY</span></div>
-      <h1 class="work-title jp">{person.data.name}</h1>
-      {person.data.sort && <p class="work-sub mono">{person.data.sort}</p>}
-
-      <table class="expr-table">
-        <caption>NAME&nbsp;FORMS / 名称形式</caption>
-        <tr><th>script</th><th>形式</th></tr>
+  <article class="wrap">
+    <header class="page-head" style="padding-top:clamp(20px,4vw,40px)">
+      <span class="kicker">Authority Record · p-{person.id}</span>
+      <h1>{person.data.name}</h1>
+      {person.data.sort && person.data.sort !== person.data.name && <p class="lede it">{person.data.sort}</p>}
+      <div class="name-forms">
         {person.data.forms.sort((a, b) => a.script.localeCompare(b.script)).map((f) => (
-          <tr><td class="mono">{f.script}</td><td class="jp">{f.value}</td></tr>
-        ))}
-      </table>
-
-      <div class="duecard">
-        <h4>WORKS&nbsp;IN&nbsp;CATALOG&nbsp;/&nbsp;馆藏著作&nbsp;·&nbsp;{works.length}&nbsp;种</h4>
-        {works.map((w) => (
-          <div class="due-row">
-            <span class="mono">{w.data.year ?? ''}</span>
-            <span><a href={`/works/${w.id}/`} style="border-bottom:1px dashed var(--stamp)">{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</a></span>
-            {w.data.rating != null && <em>{w.data.rating} ●</em>}
-          </div>
+          <div><span class="label">{f.script}</span>{f.value}</div>
         ))}
       </div>
-    </article>
+    </header>
+
+    <section class="results">
+      <div class="sect-head"><b>{works.length}</b><span>WORKS IN CATALOG · 馆藏著作</span><em>按初版年排列</em></div>
+      {works.map((w) => {
+        const mine = w.data.expressions.find((e) => e.mine);
+        const ml = mine?.lang ?? w.data.orig_lang;
+        return (
+          <a class={`row ${BUCKET_CLASS[langBucket(w.data.orig_lang)]}`} href={`/works/${w.id}/`}>
+            <span class="cn">{w.data.year ?? '—'} · {w.data.callno ?? w.id}</span>
+            <span class="tt">{mine?.title ?? w.data.title}{mine && mine.title !== w.data.title && <span class="it">{w.data.title}</span>}</span>
+            <span class="lg">{ml === w.data.orig_lang ? `${langLabel(w.data.orig_lang)} 原文` : `${langLabel(w.data.orig_lang)} → ${langLabel(ml)}`}</span>
+            {w.data.rating != null
+              ? <span class={`seal ${w.data.rating === 10 ? 'full' : ''}`}>{w.data.rating}</span>
+              : <span class="seal none">—</span>}
+          </a>
+        );
+      })}
+    </section>
 
     {topSubjects.length > 0 && (
-      <aside class="side">
-        <div class="panel">
-          <h3>THEMES / 相关主题</h3>
-          <div class="subject-chips-side">
-            {topSubjects.map(([slug, n]) => (
-              <a class="subject-chip" href={subjectUrl(slug)}>
-                {getName(slug)}<span class="mono">{n}</span>
-              </a>
-            ))}
-          </div>
+      <section style="margin-top:clamp(32px,5vw,56px)">
+        <header class="sec-head">
+          <small class="mono">THEMES</small>
+          <h2>常写的主题</h2>
+        </header>
+        <div class="subject-chips-side">
+          {topSubjects.map(([slug, n]) => (
+            <a class="subject-chip" href={subjectUrl(slug)}>
+              {getName(slug)}<span class="mono">{n}</span>
+            </a>
+          ))}
         </div>
-      </aside>
+      </section>
     )}
-  </div>
+  </article>
 </Base>

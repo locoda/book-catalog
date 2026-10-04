@@ -3,7 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langLabel } from '../../lib/lang';
 import { editionLabel } from '../../lib/edition';
-import { subjectUrl, getName } from '../../lib/subjects';
+import { subjectUrl, getName, bySlug } from '../../lib/subjects';
 
 export async function getStaticPaths() {
   const works = await getCollection('works');
@@ -27,6 +27,9 @@ const creatorData = creators.map((p) => ({
   otherWorks: allWorks.filter((w) => w.id !== work.id && w.data.creators.some((c) => c.id === p!.id)),
 }));
 
+// 主题词在全库的篇数
+const subjectCount = (slug: string) => allWorks.filter((w) => w.data.subjects.includes(slug)).length;
+
 const mine = d.expressions.find((e) => e.mine);
 const displayTitle = mine?.title ?? d.title;
 const showOrigSubtitle = d.title !== displayTitle;
@@ -35,94 +38,130 @@ const otherTitles = [...new Set(
 )].join(' · ');
 const firstRead = d.readings[0]?.date?.slice(0, 4);
 const lastRead = d.readings[d.readings.length - 1]?.date?.slice(0, 4);
+const lastReading = d.readings[d.readings.length - 1];
+const mineLang = mine?.lang ?? d.orig_lang;
+const lede = d.subjects.length ? bySlug.get(d.subjects[0]) : undefined;
 ---
-<Base title={`${displayTitle} · 乙椟`}>
+<Base title={`${displayTitle} · 乙椟`} progress>
   <nav class="breadcrumb wrap"><a href="/works/" onclick="history.back();return false">← 返回</a></nav>
 
-  <div class="main wrap">
-    <article class="cat-card">
-      {d.rating != null && <div class="stamp-badge"><b>{d.rating}</b></div>}
-      <div class="callno"><span>{work.id}</span><span>{d.callno}</span></div>
-      <h1 class="work-title jp">{displayTitle}</h1>
-      {showOrigSubtitle && (
-        <p class="work-sub work-orig">
-          原题 · <span class="jp">{d.title}</span> <span class="mono">{langLabel(d.orig_lang)}</span>
-        </p>
-      )}
-      {otherTitles && <p class="work-sub">{otherTitles}</p>}
+  <article class="wrap">
+    <header class="feature-hero">
       <div>
-        {creators.map((p) => (
-          <a class="author-link" href={`/people/${p!.id}/`}>{p!.data.name}<span class="mono">→ p-{p!.id}</span></a>
-        ))}
+        {d.subjects.length > 0
+          ? <span class="kicker">{d.subjects.map((s, i) => <>{i > 0 && ' · '}<a class="ulink" href={subjectUrl(s)}>{getName(s)}</a></>)}</span>
+          : <span class="kicker">{d.callno ?? work.id}</span>}
+        <h1>{displayTitle}</h1>
+        {showOrigSubtitle && (
+          <p class="orig it">{d.title}{d.year && `, ${d.year}`}<span class="mono">{langLabel(d.orig_lang)}</span></p>
+        )}
+        {otherTitles && <p class="alt">{otherTitles}</p>}
+        <div class="byline">
+          <span class="label">文</span>
+          {creators.length > 0
+            ? creators.map((p) => <a href={`/people/${p!.id}/`}><b>{p!.data.name}</b></a>)
+            : <span class="tr">佚名 / 合集</span>}
+          {mine?.translator && <span class="tr">· {mine.translator} 译</span>}
+        </div>
+      </div>
+      <aside class="feature-side">
+        {d.rating != null && <div class="bigseal" title={`评分来源：${d.rating_source}`}><b>{d.rating}</b><span>RATING</span></div>}
+        <div class="spec">
+          原语言 <b>{langLabel(d.orig_lang)}</b> {d.orig_lang}<br />
+          初版 <b>{d.year ?? '—'}</b><br />
+          我读的 <b>{mineLang === d.orig_lang ? '原文' : langLabel(mineLang)}{lastReading?.edition && ` · ${editionLabel(lastReading.edition)}`}</b><br />
+          读毕 <b>{lastReading?.date ?? '—'}</b>
+        </div>
+      </aside>
+    </header>
+
+    <div class="feature-body">
+      <div class="col">
+        {d.expressions.length > 0 && (
+          <>
+            <h4>EXPRESSIONS · 版本</h4>
+            <div class="expr-list">
+              {d.expressions.map((e) => (
+                <div class={e.mine ? 'mine' : ''}>
+                  <span class="mono">{e.lang}</span>
+                  <span>
+                    {e.title}{e.mine && <span class="tag-mine">· 我读的版本</span>}
+                    <small>{e.translator ? `${e.translator} 译` : e.lang === d.orig_lang ? '原文' : langLabel(e.lang)}</small>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        {lede && (
+          <p class="pull">{lede.desc}<cite>— 栏目「{lede.name}」释义</cite></p>
+        )}
       </div>
 
-      {d.expressions.length > 0 && (
-        <table class="expr-table">
-          <caption>EXPRESSIONS / 版本</caption>
-          <tr><th>语言</th><th>题名</th><th>译者</th><th></th></tr>
-          {d.expressions.map((e) => (
-            <tr class={e.mine ? 'mine' : ''}>
-              <td>{langLabel(e.lang)} <span class="mono">{e.lang}</span></td>
-              <td class="jp">{e.title}</td>
-              <td>{e.translator ?? (e.lang === d.orig_lang ? '—（原文）' : '')}</td>
-              <td>{e.mine && <span class="tag-mine">我读的版本</span>}</td>
-            </tr>
-          ))}
-        </table>
-      )}
-
-      {d.subjects.length > 0 && (
-        <div class="subjects">
-          <span class="facet-label">主题词</span><br />
-          {d.subjects.map((s) => <a class="subj" href={subjectUrl(s)}>{getName(s)}</a>)}
-        </div>
-      )}
-
-      {d.readings.length > 0 && (
-        <div class="duecard">
-          <h4>READING&nbsp;EVENTS&nbsp;/&nbsp;阅读记录</h4>
-          {d.readings.map((r) => (
-            <div class="due-row">
-              <span class="mono">{r.date}</span>
-              {(r.edition || r.lang) && <span>{[r.edition && editionLabel(r.edition), r.lang].filter(Boolean).join(' · ')}</span>}
-              {r.note && <em>{r.note}</em>}
+      <div class="col">
+        {d.readings.length > 0 && (
+          <>
+            <h4>READINGS · 阅读记录</h4>
+            <div class="tl">
+              {d.readings.map((r) => (
+                <div class="tl-item">
+                  <div class="d">{r.date.replace(/-/g, '.')}</div>
+                  {(r.edition || r.lang) && <div class="e">{[r.edition && editionLabel(r.edition), r.lang && langLabel(r.lang)].filter(Boolean).join(' · ')}</div>}
+                  {r.note && <em>{r.note}</em>}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
-    </article>
+          </>
+        )}
+        {d.subjects.length > 0 && (
+          <>
+            <h4 style="margin-top:22px">SUBJECTS · 收入栏目</h4>
+            <div class="subj-list">
+              {d.subjects.map((s) => (
+                <a href={subjectUrl(s)}><span>{getName(s)}</span><span class="mono">→ {subjectCount(s)} 种</span></a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
 
-    <aside class="side">
-      {creatorData.map(({ person, otherWorks }) => (
-        <>
-          <div class="panel">
-            <h3>AUTHORITY&nbsp;RECORD</h3>
-            <div class="auth-name">{person!.data.name}</div>
+      <div class="col col-auth">
+        {creatorData.map(({ person, otherWorks }, idx) => (
+          <div style={idx > 0 ? 'margin-top:32px' : ''}>
+            <h4>AUTHORITY · 著者</h4>
+            <a class="auth-name" href={`/people/${person!.id}/`}>{person!.data.name}</a>
             <div class="auth-forms">
               {person!.data.forms.sort((a, b) => a.script.localeCompare(b.script)).map((f) => (
-                <div><span class="mono">{f.script}</span><span class="jp">{f.value}</span></div>
+                <div><span class="mono">{f.script}</span><span>{f.value}</span></div>
               ))}
-              <div><span class="mono">id</span><span>p-{person!.id}</span></div>
+              <div><span class="mono">id</span><span class="mono" style="font-size:12px">p-{person!.id}</span></div>
             </div>
             <div class="auth-count">
               馆藏中著作 <b>{otherWorks.length + 1}</b> 种
               {firstRead && <> · 阅读 <b>{firstRead}{lastRead && lastRead !== firstRead ? `–${lastRead}` : ''}</b></>}
             </div>
-          </div>
-
-          {otherWorks.length > 0 && (
-            <div class="panel panel-list">
-              <h3>同著者其他作品</h3>
-              {otherWorks.map((w) => (
-                <a href={`/works/${w.id}/`}>
-                  <span>{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</span>
-                  <span class="mono">{w.data.rating != null ? `${w.data.rating} ●` : ''}</span>
-                </a>
-              ))}
+            <div class="further">
+              <span class="label">延伸阅读 · further</span>
+              {otherWorks.length > 0
+                ? otherWorks.map((w) => (
+                    <a href={`/works/${w.id}/`}>
+                      <span>{w.data.expressions.find((e) => e.mine)?.title ?? w.data.title}</span>
+                      <span class="mono">{w.data.rating != null ? `${w.data.rating} ●` : ''}</span>
+                    </a>
+                  ))
+                : <div class="none">馆藏中暂无其他著作</div>}
             </div>
-          )}
-        </>
-      ))}
-    </aside>
-  </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <footer class="page-colophon">
+      <div><span class="label">索书号</span><span class="mono">{d.callno ?? '—'}</span></div>
+      <div><span class="label">slug</span><span class="mono">{work.id}</span></div>
+      <div><span class="label">原语言</span>{langLabel(d.orig_lang)}</div>
+      <div><span class="label">初版</span>{d.year ?? '—'}</div>
+      <div><span class="label">来源</span>{d.rating_source} · 手工著录{!d.confirmed && <span class="mono" style="color:var(--stamp);margin-left:8px">草</span>}</div>
+    </footer>
+  </article>
 </Base>
