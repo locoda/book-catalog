@@ -1,7 +1,9 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { langLabel } from '../../lib/lang';
+import { langLabel, langBucket } from '../../lib/lang';
+
+const BUCKET_CLASS = { zh: 'l-zh', ja: 'l-ja', en: 'l-en', other: 'l-ot' } as const;
 import { SUBJECTS } from '../../lib/subjects';
 
 export async function getStaticPaths() {
@@ -35,29 +37,26 @@ const rows = await Promise.all(matched.map(async (w) => {
 <Base title={`${subject.name} · 主题 · 乙椟`}>
   <nav class="breadcrumb wrap"><a href="/subjects/" onclick="history.back();return false">← 返回</a></nav>
 
+  <header class="page-head wrap" style="padding-top:clamp(20px,4vw,40px)">
+    <span class="kicker">Column · {subject.slug}</span>
+    <h1>{subject.name}</h1>
+    <p class="pull" style="max-width:720px">{subject.desc}<cite>— 栏目释义 · 收 {rows.length} 种</cite></p>
+  </header>
+
   <section class="results wrap">
-    <h3>{subject.name}&nbsp;/&nbsp;{rows.length}&nbsp;种著作</h3>
-    <p class="subject-desc">{subject.desc}</p>
     <div id="rows">
       {rows.map((r) => (
-        <a class="row" href={`/works/${r.id}/`}>
-          <span class="mono">{r.data.callno ?? r.id}</span>
-          <span>{r.displayTitle} <span class="byline">· {r.creatorNames}</span></span>
-          <span class="langs">
+        <a class={`row ${BUCKET_CLASS[langBucket(r.data.orig_lang)]}`} href={`/works/${r.id}/`}>
+          <span class="cn">{r.data.callno ?? r.id}</span>
+          <span class="tt">{r.displayTitle}{r.creatorNames && <span class="it">{r.creatorNames}</span>}</span>
+          <span class="lg">
             {r.translated ? `${langLabel(r.data.orig_lang)} → ${langLabel(r.mineLang)}` : `${langLabel(r.data.orig_lang)} 原文`}
           </span>
-          <span class="score">{r.data.rating != null ? `${r.data.rating} ●` : '—'}</span>
+          {r.data.rating != null
+            ? <span class={`seal ${r.data.rating === 10 ? 'full' : ''}`}>{r.data.rating}</span>
+            : <span class="seal none">—</span>}
         </a>
       ))}
     </div>
   </section>
 </Base>
-
-<style>
-  .subject-desc {
-    margin: 2px 0 18px;
-    color: #9FB0C8;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-</style>

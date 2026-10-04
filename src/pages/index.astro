@@ -2,146 +2,150 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import type { CollectionEntry } from 'astro:content';
+import Shelf from '../components/Shelf.astro';
 import ReadingTimeline from '../components/ReadingTimeline.astro';
 import LangFlow from '../components/LangFlow.astro';
 import SubjectCloud from '../components/SubjectCloud.astro';
 import AuthorCloud from '../components/AuthorCloud.astro';
-import { langLabel } from '../lib/lang';
+import { langLabel, langBucket } from '../lib/lang';
+import { bySlug, getName } from '../lib/subjects';
 
 type Work = CollectionEntry<'works'>;
 
 const works = await getCollection('works');
 const people = await getCollection('people');
-
 const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
 
-const workCount = works.length;
-const langCount = new Set(works.map((w) => w.data.orig_lang)).size;
-const peopleCount = people.length;
-
-const years = works
-  .flatMap((w) => w.data.readings.map((r) => parseInt(r.date.slice(0, 4))))
-  .filter((n) => !isNaN(n));
-const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
+const BUCKET_CLASS = { zh: 'l-zh', ja: 'l-ja', en: 'l-en', other: 'l-ot' } as const;
+const MINE_LABEL: Record<string, string> = { 'zh-Hans': '简中', 'zh-Hant': '繁中', en: '英文' };
+const latestOf = (w: Work) => w.data.readings.map((r) => r.date).filter(Boolean).sort().pop() ?? null;
 
 const pick = (w: Work) => {
   const mineExpr = w.data.expressions.find((e) => e.mine);
+  const lang = mineExpr?.lang ?? w.data.orig_lang;
+  const title = mineExpr?.title ?? w.data.title;
   return {
     id: w.id,
-    title: mineExpr?.title ?? w.data.title,
-    creator: (w.data.creators[0] && peopleMap.get(w.data.creators[0].id)) ?? '',
-    lang: mineExpr?.lang ?? w.data.orig_lang,
+    w,
+    title,
+    orig: w.data.title !== title ? w.data.title : '',
+    creator: w.data.creators.map((c) => peopleMap.get(c.id) ?? c.id).join(' · '),
+    bucket: BUCKET_CLASS[langBucket(w.data.orig_lang)],
+    route: lang === w.data.orig_lang
+      ? `${langLabel(w.data.orig_lang)} 原文`
+      : `${langLabel(w.data.orig_lang).replace(/文$/, '')} → ${MINE_LABEL[lang] ?? langLabel(lang)}`,
+    rating: w.data.rating,
   };
 };
 
 const dated = works
-  .map((w) => {
-    const ds = w.data.readings.map((r) => r.date).filter(Boolean);
-    return { w, latest: ds.length ? ds.reduce((a, b) => (a > b ? a : b)) : null };
-  })
+  .map((w) => ({ w, latest: latestOf(w) }))
   .filter((x) => x.latest)
-  .sort((a, b) => (b.latest as string).localeCompare(a.latest as string))
-  .slice(0, 10)
+  .sort((a, b) => (b.latest as string).localeCompare(a.latest as string));
+
+const recent = dated.slice(0, 10).map((x) => ({ ...pick(x.w), date: x.latest as string }));
+const lead = recent[0];
+
+const recentIds = new Set(recent.map((d) => d.id));
+const picks = dated
+  .filter((x) => x.w.data.rating === 10 && !recentIds.has(x.w.id))
+  .slice(0, 8)
   .map((x) => ({ ...pick(x.w), date: x.latest as string }));
 
-const recentIds = new Set(dated.map((d) => d.id));
-const rated = works
-  .map((w) => {
-    const ds = w.data.readings.map((r) => r.date).filter(Boolean);
-    const latest = ds.length ? ds.reduce((a, b) => (a > b ? a : b)) : null;
-    return { w, latest };
-  })
-  .filter(
-    (x) =>
-      x.latest &&
-      typeof x.w.data.rating === 'number' &&
-      (x.w.data.rating as number) === 10 &&
-      !recentIds.has(x.w.id)
-  )
-  .sort((a, b) => (b.latest as string).localeCompare(a.latest as string))
-  .slice(0, 10)
-  .map((x) => ({ ...pick(x.w), rating: x.w.data.rating as number }));
+// 头条导语：取头条第一个主题词的释义
+const leadSubjects = lead?.w.data.subjects ?? [];
+const leadDesc = leadSubjects.length ? bySlug.get(leadSubjects[0])?.desc : undefined;
+
+// 本期数据
+const issueMonth = lead?.date.slice(0, 7) ?? '';
+const issueYear = issueMonth.slice(0, 4);
+const issueCount = dated.filter((x) => (x.latest as string).startsWith(issueMonth)).length;
+const yearWorks = dated.filter((x) => (x.latest as string).startsWith(issueYear));
+const native = works.filter((w) => {
+  const m = w.data.expressions.find((e) => e.mine);
+  return (m?.lang ?? w.data.orig_lang) === w.data.orig_lang;
+}).length;
+const nativePct = works.length ? Math.round((native / works.length) * 100) : 0;
+const rated = yearWorks.map((x) => x.w.data.rating).filter((r): r is number => typeof r === 'number');
+const avg = rated.length ? (rated.reduce((a, b) => a + b, 0) / rated.length).toFixed(1) : '—';
 ---
 <Base>
 
-  {/* ---------- HERO ---------- */}
-  <section class="hero wrap">
-    <p class="hero-eyebrow">Personal Catalog · 私人编目</p>
-    <h1>乙椟</h1>
-    <p class="hero-sub">ETHERCASE</p>
-    <p class="hero-tag">为读过的每一本书，立一条目。</p>
-    <div class="hero-cta">
-      <a href="#insights" class="btn btn-ghost">馆藏速览</a>
-      <a href="#featured" class="btn btn-ghost">最近在读</a>
-      <a href="/works/" class="btn btn-primary">浏览全部馆藏 →</a>
+  {/* ---------- 第一屏：最近一架 ---------- */}
+  <Shelf />
+
+  {/* ---------- 第二屏：本期头条 ---------- */}
+  {lead && (
+    <section class="cover reveal" id="cover" aria-label="本期头条">
+      <div class="cover-v">
+        <span>本</span><span>期</span>
+        <small>NO. {issueMonth.slice(5, 7)}</small>
+      </div>
+      <div class="cover-mid">
+        <span class="kicker">本期头条{leadSubjects.length > 0 && ` · ${leadSubjects.map(getName).join(' · ')}`}</span>
+        <h2><a href={`/works/${lead.id}/`}>{lead.title}</a></h2>
+        {lead.orig && <p class="orig it">{lead.orig}{lead.w.data.year && `, ${lead.w.data.year}`}</p>}
+        <p class="by"><span class="label">文</span>{lead.creator || '—'}<span class="mono" style="font-size:12px;color:var(--soft);margin-left:14px">{lead.route} · {lead.date} 读毕</span></p>
+        {leadDesc && (
+          <div class="lede"><p>{leadDesc}</p></div>
+        )}
+      </div>
+      <div class="cover-side">
+        <div class="stat"><b>{issueCount}</b><span class="label">本期新录 · this issue</span></div>
+        <div class="stat"><b>{yearWorks.length}</b><span class="label">{issueYear} 年读毕 · this year</span></div>
+        <div class="stat"><b>{nativePct}%</b><span class="label">原文直读 · in original</span></div>
+        <div class="stat"><b>{avg}</b><span class="label">{issueYear} 平均评分 · avg</span></div>
+      </div>
+    </section>
+  )}
+
+  {/* ---------- 本期篇目 ---------- */}
+  <section class="contents wrap reveal" id="featured">
+    <div class="aside">
+      <span class="kicker">Contents</span>
+      <h2>本期<span class="it">篇目</span></h2>
+      <p>
+        最近读毕的十种，按读毕日期倒序。左侧色带标示原语言：<br />
+        <span class="swatch l-zh"></span>中<span class="swatch l-ja"></span>日<span class="swatch l-en"></span>英<span class="swatch l-ot"></span>其他
+      </p>
     </div>
+    <ol class="toc">
+      {recent.map((b, i) => (
+        <li>
+          <a class={b.bucket} href={`/works/${b.id}/`}>
+            <span class="n">{String(i + 1).padStart(2, '0')}</span>
+            <span class="ti">{b.title}{b.creator && <span class="it">{b.creator}</span>}</span>
+            <span class="meta">{b.route} · {b.date.slice(0, 7)}</span>
+            <span class="r">{b.rating != null ? `${b.rating} ●` : '—'}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
   </section>
 
-  {/* ---------- STAT BAND（点按跳到馆藏速览） ---------- */}
-  <a class="statband wrap" id="statband" href="#insights" aria-label="查看馆藏速览" title="查看馆藏速览">
-    <div class="stat">
-      <b>{workCount}</b>
-      <span class="stat-label">册</span>
-      <span class="stat-en">works</span>
-    </div>
-    <div class="stat">
-      <b>{langCount}</b>
-      <span class="stat-label">原语言</span>
-      <span class="stat-en">languages</span>
-    </div>
-    <div class="stat">
-      <b>{peopleCount}</b>
-      <span class="stat-label">著者</span>
-      <span class="stat-en">people</span>
-    </div>
-    <div class="stat stat-wide">
-      <b>{yearRange || '—'}</b>
-      <span class="stat-label">年份跨度</span>
-      <span class="stat-en">span</span>
-    </div>
-    <span class="statband-jump mono">↘ 馆藏速览</span>
-  </a>
-
-  {/* ---------- FEATURED ---------- */}
-  <section class="featured wrap" id="featured">
-    <header class="sec-head">
-      <small class="mono">SELECTED</small>
-      <h2>精选</h2>
-    </header>
-    <div class="feat-grid">
-      <div class="feat-col">
-        <h3>最近读 · RECENT</h3>
-        <div class="feat-list">
-          {dated.map((b) => (
-            <a class="feat-card" href={`/works/${b.id}/`}>
-              <span class="feat-title">{b.title}</span>
-              <span class="feat-meta">
-                <span class="lang">{langLabel(b.lang)}</span> · {b.date.slice(0, 7)}
-              </span>
-            </a>
-          ))}
-        </div>
+  {/* ---------- 五星 ---------- */}
+  {picks.length > 0 && (
+    <section class="picks wrap reveal">
+      <header class="sec-head">
+        <small class="mono">EDITOR'S PICKS</small>
+        <h2>五星</h2>
+        <span class="sec-meta mono">不在本期篇目里的满分作品 · 最近 {picks.length} 种</span>
+      </header>
+      <div class="picks-grid">
+        {picks.map((b) => (
+          <a class={`pick ${b.bucket}`} href={`/works/${b.id}/`}>
+            <span class="label">{b.route}</span>
+            <b>{b.title}</b>
+            {b.creator && <span class="it">{b.creator}</span>}
+            <span class="pm">{b.date.slice(0, 7)} 读毕</span>
+            <span class="seal full">10</span>
+          </a>
+        ))}
       </div>
-      <div class="feat-col">
-        <h3>五星 · 5-STAR</h3>
-        <div class="feat-list">
-          {rated.map((b) => (
-            <a class="feat-card" href={`/works/${b.id}/`}>
-              <span class="feat-title">{b.title}</span>
-              <span class="feat-meta">
-                <span class="lang">{langLabel(b.lang)}</span> · <span class="hl">{b.rating.toFixed(1)}</span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-    <div class="feat-all">
-      <a class="subject-chip subject-more mono" href="/works/">查看全部馆藏 →</a>
-    </div>
-  </section>
+    </section>
+  )}
 
-  {/* ---------- INSIGHTS (reframed visualizations) ---------- */}
+  {/* ---------- 馆藏速览 ---------- */}
   <section class="insights wrap" id="insights">
     <header class="sec-head">
       <small class="mono">AT A GLANCE</small>
@@ -152,7 +156,9 @@ const rated = works
     <LangFlow />
     <SubjectCloud />
     <AuthorCloud />
+    <div class="subject-desk" style="margin-top:28px">
+      <a class="subject-chip subject-more mono" href="/works/">浏览全部馆藏 →</a>
+    </div>
   </section>
 
 </Base>
-

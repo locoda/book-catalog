@@ -1,0 +1,380 @@
+---
+/**
+ * 首页第一屏：「最近一架」交互书架。
+ * 每本书一根书脊，按最近读毕日期排列，打开时停在最新一端；
+ * 画面只显示一个视窗的书，密度不随藏书量增长。下方月度刻度尺按月聚合，用于跳转。
+ * 构建时渲染全部书脊为普通链接（无 JS 可横向滚动浏览），脚本只做增强。
+ */
+import { getCollection } from 'astro:content';
+import { langLabel, langBucket } from '../lib/lang';
+import { getName } from '../lib/subjects';
+
+const works = await getCollection('works');
+const people = await getCollection('people');
+const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
+
+const BUCKET_CLASS = { zh: 'zh', ja: 'ja', en: 'en', other: 'ot' } as const;
+const MINE_LABEL: Record<string, string> = { 'zh-Hans': '简中', 'zh-Hant': '繁中', en: '英文' };
+
+// 稳定哈希：书脊宽高只由 slug 决定，重建不跳动
+const hash = (s: string) => { let x = 0; for (const c of s) x = (x * 31 + c.codePointAt(0)!) | 0; return Math.abs(x); };
+const CJK = /[぀-ヿ㐀-鿿가-힯豈-﫿]/;
+
+const books = works
+  .map((w) => {
+    const mine = w.data.expressions.find((e) => e.mine);
+    const date = w.data.readings.map((r) => r.date).filter(Boolean).sort().pop() ?? '';
+    const t = mine?.title ?? w.data.title;
+    const ml = mine?.lang ?? w.data.orig_lang;
+    const k = hash(w.id);
+    // 书脊题名：去掉副题，过长截断
+    const short = t.replace(/[：:（(【].*$/, '').trim() || t;
+    const spineTitle = short.length > 13 ? short.slice(0, 12) + '…' : short;
+    return {
+      id: w.id,
+      t,
+      o: w.data.title !== t ? w.data.title : '',
+      a: w.data.creators.map((c) => peopleMap.get(c.id) ?? c.id).join(' · '),
+      b: BUCKET_CLASS[langBucket(w.data.orig_lang)],
+      d: date,
+      r: w.data.rating ?? null,
+      cn: w.data.callno ?? '',
+      y: w.data.year ?? null,
+      ol: w.data.orig_lang === ml ? `${langLabel(w.data.orig_lang)} · 原文` : `${langLabel(w.data.orig_lang)} → 我读${MINE_LABEL[ml] ?? langLabel(ml)}`,
+      s: w.data.subjects.map(getName),
+      // 渲染用（不进客户端 JSON）
+      _w: 26 + (k % 16),
+      _h: 64 + ((k >> 4) % 30),
+      _cjk: CJK.test(spineTitle),
+      _st: spineTitle,
+    };
+  })
+  .filter((b) => b.d)
+  .sort((a, b) => a.d.localeCompare(b.d) || a.id.localeCompare(b.id));
+
+// 书脊之间插入年份隔板
+type Item = { kind: 'book'; i: number } | { kind: 'year'; y: string };
+const items: Item[] = [];
+let lastYear = '';
+books.forEach((b, i) => {
+  const y = b.d.slice(0, 4);
+  if (lastYear && y !== lastYear) items.push({ kind: 'year', y });
+  lastYear = y;
+  items.push({ kind: 'book', i });
+});
+
+// 月度刻度尺：从首月到末月逐月计数（长度随时间增长，与藏书量无关）
+const months: string[] = [];
+if (books.length) {
+  let [y, m] = books[0].d.slice(0, 7).split('-').map(Number);
+  const [ey, em] = books[books.length - 1].d.slice(0, 7).split('-').map(Number);
+  while (y < ey || (y === ey && m <= em)) {
+    months.push(`${y}-${String(m).padStart(2, '0')}`);
+    if (++m > 12) { m = 1; y++; }
+  }
+}
+const perMonth = new Map<string, number>();
+for (const b of books) perMonth.set(b.d.slice(0, 7), (perMonth.get(b.d.slice(0, 7)) ?? 0) + 1);
+const maxMonth = Math.max(1, ...perMonth.values());
+// 年份标签：相邻标签间距过近时跳过
+const yearTicks: { y: string; left: number }[] = [];
+months.forEach((m, i) => {
+  if (i !== 0 && !m.endsWith('-01')) return;
+  const left = (i / months.length) * 100;
+  const prev = yearTicks[yearTicks.length - 1];
+  if (prev && left - prev.left < 9) yearTicks.pop();
+  yearTicks.push({ y: m.slice(0, 4), left });
+});
+
+const total = books.length;
+const clientData = books.map(({ _w, _h, _cjk, _st, ...rest }) => rest);
+const json = JSON.stringify({ books: clientData, months }).replace(/</g, '\\u003c');
+---
+<section class="shelf-hero" aria-label="最近一架">
+  <div class="sh-head">
+    <div>
+      <div class="sh-brand">乙椟</div>
+      <p class="sh-tag">为读过的每一本书，立一条目。<span class="it"> — a catalog, not a library.</span></p>
+    </div>
+    <div class="sh-count"><b id="sh-count">{total}</b><span id="sh-count-label">本 · WORKS</span></div>
+  </div>
+
+  <div class="sh-body">
+    <div class="sh-range">
+      <span>正在看 <b id="sh-range">—</b></span>
+      <button class="sh-latest" id="sh-latest" type="button">最近读完 ↘</button>
+    </div>
+    <div class="shelf" id="shelf" tabindex="-1">
+      <div class="shelf-row" id="shelf-row">
+        <span class="shelf-end start">{books[0]?.d.slice(0, 4)} · 起点</span>
+        {items.map((it) =>
+          it.kind === 'year' ? (
+            <span class="shelf-divider" aria-hidden="true"><span>{it.y}</span></span>
+          ) : (
+            (() => {
+              const b = books[it.i];
+              return (
+                <a
+                  class={`spine l-${b.b}`}
+                  href={`/works/${b.id}/`}
+                  data-i={it.i}
+                  style={`width:${b._w}px;height:${b._h}%`}
+                  aria-label={`${b.t}${b.a ? ' · ' + b.a : ''} · ${b.d}`}
+                >
+                  {b._cjk ? (
+                    <span class="st">{[...b._st].filter((c) => c.trim()).map((c) => <span>{c}</span>)}</span>
+                  ) : (
+                    <span class="st lat">{b._st}</span>
+                  )}
+                  <span class="sr">{b.r ?? ''}</span>
+                </a>
+              );
+            })()
+          )
+        )}
+        <span class="shelf-end">← 最新</span>
+      </div>
+    </div>
+    <div class="shelf-board"></div>
+    <div class="minimap" id="minimap" role="slider" aria-label="按月份跳转" aria-valuemin="0" aria-valuemax={months.length - 1} tabindex="0">
+      {months.map((m) => (
+        <i style={`height:${(((perMonth.get(m) ?? 0) / maxMonth) * 100).toFixed(1)}%`} title={`${m} · ${perMonth.get(m) ?? 0} 本`}></i>
+      ))}
+      <span class="win" id="minimap-win"></span>
+    </div>
+    <div class="mini-years" aria-hidden="true">
+      {yearTicks.map((t) => <span style={`left:${t.left.toFixed(2)}%`}>{t.y}</span>)}
+    </div>
+  </div>
+
+  <div class="sh-ctrl">
+    <div class="legend" id="legend" role="group" aria-label="按原语言筛选">
+      <button type="button" class="l-zh" data-l="zh" aria-pressed="false"><i></i>中文原作</button>
+      <button type="button" class="l-ja" data-l="ja" aria-pressed="false"><i></i>日文原作</button>
+      <button type="button" class="l-en" data-l="en" aria-pressed="false"><i></i>英文原作</button>
+      <button type="button" class="l-ot" data-l="ot" aria-pressed="false"><i></i>其他语言</button>
+    </div>
+    <div class="sh-hint"><b>←</b> 拖动 / 滚轮翻到更早 · 悬停抽出 · 点击查看条目</div>
+  </div>
+</section>
+
+<div class="shelf-tip" id="shelf-tip" aria-hidden="true"></div>
+<aside class="shelf-card" id="shelf-card" aria-live="polite" aria-label="编目卡">
+  <button class="cc-x" id="cc-x" type="button" aria-label="关闭">✕</button>
+  <div class="cc-top"><span id="cc-cn"></span><span id="cc-d"></span></div>
+  <div class="cc-seal" id="cc-r"></div>
+  <h2 id="cc-t"></h2>
+  <div class="cc-o it" id="cc-o"></div>
+  <div class="cc-a" id="cc-a"></div>
+  <dl>
+    <dt>语言</dt><dd id="cc-ol"></dd>
+    <dt>初版</dt><dd id="cc-y"></dd>
+    <dt>栏目</dt><dd id="cc-s"></dd>
+  </dl>
+  <a class="cc-go" id="cc-go" href="#">打开条目 →</a>
+  <span class="cc-nav">← → 切换 · ESC 关闭</span>
+</aside>
+
+<script type="application/json" id="shelf-data" set:html={json}></script>
+
+<script>
+  type Book = { id: string; t: string; o: string; a: string; b: string; d: string; r: number | null; cn: string; y: number | null; ol: string; s: string[] };
+
+  function initShelf() {
+    const dataEl = document.getElementById('shelf-data');
+    const shelf = document.getElementById('shelf');
+    if (!dataEl || !shelf || shelf.dataset.ready) return;
+    shelf.dataset.ready = '1';
+    shelf.classList.add('is-js');
+
+    const { books, months } = JSON.parse(dataEl.textContent || '{}') as { books: Book[]; months: string[] };
+    const spines = [...shelf.querySelectorAll<HTMLAnchorElement>('.spine')];
+    const $ = (id: string) => document.getElementById(id)!;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- 视窗范围 + 刻度尺窗口 ---- */
+    const win = $('minimap-win');
+    const mini = $('minimap');
+    const latestBtn = $('sh-latest');
+    const monthIdx = (d: string) => Math.max(0, months.indexOf(d.slice(0, 7)));
+    const atEnd = () => shelf.scrollLeft + shelf.clientWidth >= shelf.scrollWidth - 4;
+    let raf = 0;
+    function sync() {
+      raf = 0;
+      const r = shelf!.getBoundingClientRect();
+      let lo = '', hi = '';
+      for (const el of spines) {
+        const b = el.getBoundingClientRect();
+        if (b.right > r.left && b.left < r.right) {
+          const d = books[+el.dataset.i!].d;
+          if (!lo) lo = d;
+          hi = d;
+        }
+      }
+      if (!lo) return;
+      $('sh-range').textContent = `${lo.slice(0, 7).replace('-', '.')} — ${hi.slice(0, 7).replace('-', '.')}`;
+      const a = monthIdx(lo), z = monthIdx(hi);
+      win.style.left = (a / months.length) * 100 + '%';
+      win.style.width = Math.max(1, ((z - a + 1) / months.length) * 100) + '%';
+      mini.setAttribute('aria-valuenow', String(z));
+      mini.setAttribute('aria-valuetext', hi.slice(0, 7));
+      latestBtn.textContent = atEnd() ? '最近读完 ↘' : '→ 回到最新';
+    }
+    const schedule = () => { if (!raf) raf = requestAnimationFrame(sync); };
+    shelf.addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', schedule);
+    latestBtn.addEventListener('click', () => shelf.scrollTo({ left: shelf.scrollWidth, behavior: reduce ? 'auto' : 'smooth' }));
+
+    /* ---- 滚轮转横向 + 鼠标拖动 ---- */
+    shelf.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      const max = shelf.scrollWidth - shelf.clientWidth;
+      // 到达两端时放行，让页面继续纵向滚动
+      if ((e.deltaY < 0 && shelf.scrollLeft <= 0) || (e.deltaY > 0 && shelf.scrollLeft >= max - 1)) return;
+      shelf.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }, { passive: false });
+    let dragX: number | null = null, dragLeft = 0, moved = false;
+    shelf.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      dragX = e.clientX; dragLeft = shelf.scrollLeft; moved = false;
+    });
+    addEventListener('pointermove', (e) => {
+      if (dragX === null) return;
+      const dx = e.clientX - dragX;
+      if (!moved && Math.abs(dx) > 5) { moved = true; shelf.classList.add('drag'); hideTip(); }
+      if (moved) shelf.scrollLeft = dragLeft - dx;
+    });
+    addEventListener('pointerup', () => { dragX = null; setTimeout(() => shelf.classList.remove('drag'), 0); });
+
+    /* ---- 刻度尺跳转（点击 / 拖动 / 方向键） ---- */
+    function jumpToMonth(mi: number, smooth: boolean) {
+      const m = months[Math.max(0, Math.min(months.length - 1, mi))];
+      let idx = books.findIndex((b) => b.d.slice(0, 7) >= m);
+      if (idx < 0) idx = books.length - 1;
+      const el = spines.find((s) => +s.dataset.i! === idx) ?? spines[spines.length - 1];
+      shelf!.scrollTo({ left: el.offsetLeft - shelf!.clientWidth / 2, behavior: smooth && !reduce ? 'smooth' : 'auto' });
+    }
+    const miAt = (x: number) => { const r = mini.getBoundingClientRect(); return Math.floor(((x - r.left) / r.width) * months.length); };
+    let miniDrag = false;
+    mini.addEventListener('pointerdown', (e) => { miniDrag = true; mini.setPointerCapture(e.pointerId); jumpToMonth(miAt(e.clientX), true); });
+    mini.addEventListener('pointermove', (e) => { if (miniDrag) jumpToMonth(miAt(e.clientX), false); });
+    mini.addEventListener('pointerup', () => { miniDrag = false; });
+    mini.addEventListener('keydown', (e) => {
+      const cur = +(mini.getAttribute('aria-valuenow') ?? months.length - 1);
+      if (e.key === 'ArrowLeft') { jumpToMonth(cur - 3, true); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { jumpToMonth(cur + 1, true); e.preventDefault(); }
+    });
+
+    /* ---- 悬停提示 ---- */
+    const tip = $('shelf-tip');
+    const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    function hideTip() { tip.classList.remove('show'); }
+    shelf.addEventListener('pointerover', (e) => {
+      const s = (e.target as Element).closest<HTMLElement>('.spine');
+      if (!s || shelf.classList.contains('drag')) return;
+      const b = books[+s.dataset.i!];
+      tip.innerHTML = esc(b.t) + (b.o ? ` <span class="it" style="opacity:.75">${esc(b.o)}</span>` : '') +
+        `<small>${esc(b.a || '—')} · ${b.d}${b.r != null ? ' · ' + b.r + ' ●' : ''}</small>`;
+      const r = s.getBoundingClientRect();
+      tip.style.left = r.left + r.width / 2 + 'px';
+      tip.style.top = r.top + 'px';
+      tip.classList.add('show');
+    });
+    shelf.addEventListener('pointerout', (e) => {
+      const to = e.relatedTarget as Element | null;
+      if (!to || !to.closest || !to.closest('.spine')) hideTip();
+    });
+    shelf.addEventListener('scroll', hideTip, { passive: true });
+
+    /* ---- 编目卡 ---- */
+    const card = $('shelf-card');
+    let cur: HTMLElement | null = null;
+    function open(i: number) {
+      const b = books[i];
+      cur?.classList.remove('on');
+      cur = spines.find((s) => +s.dataset.i! === i) ?? null;
+      cur?.classList.add('on');
+      $('cc-cn').textContent = b.cn;
+      $('cc-d').textContent = '读毕 ' + b.d;
+      $('cc-t').textContent = b.t;
+      $('cc-o').textContent = b.o;
+      $('cc-a').textContent = b.a;
+      $('cc-ol').textContent = b.ol;
+      $('cc-y').textContent = b.y != null ? String(b.y) : '—';
+      $('cc-s').textContent = b.s.join(' · ') || '—';
+      $('cc-r').textContent = b.r != null ? String(b.r) : '—';
+      ($('cc-go') as HTMLAnchorElement).href = `/works/${b.id}/`;
+      card.classList.remove('show');
+      void card.offsetWidth;
+      card.classList.add('show');
+      hideTip();
+    }
+    function close() { card.classList.remove('show'); cur?.classList.remove('on'); cur = null; }
+    shelf.addEventListener('click', (e) => {
+      const s = (e.target as Element).closest<HTMLAnchorElement>('.spine');
+      if (!s) return;
+      if (moved) { e.preventDefault(); return; }
+      // 修饰键 / 中键保留原生链接行为
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      open(+s.dataset.i!);
+    });
+    $('cc-x').addEventListener('click', close);
+    addEventListener('keydown', (e) => {
+      if (!cur) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        const n = +cur.dataset.i! + (e.key === 'ArrowLeft' ? -1 : 1);
+        if (!books[n]) return;
+        open(n);
+        cur?.scrollIntoView({ inline: 'center', block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+        e.preventDefault();
+      }
+    });
+
+    /* ---- 语言筛选 + 计数 ---- */
+    const countEl = $('sh-count');
+    let shown = books.length;
+    function countTo(n: number) {
+      const from = shown; shown = n;
+      if (reduce) { countEl.textContent = String(n); return; }
+      const t0 = performance.now();
+      const step = (t: number) => {
+        const p = Math.min(1, (t - t0) / 700);
+        countEl.textContent = String(Math.round(from + (n - from) * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    const legend = $('legend');
+    let active: string | null = null;
+    legend.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest<HTMLButtonElement>('button');
+      if (!btn) return;
+      active = active === btn.dataset.l ? null : btn.dataset.l!;
+      legend.querySelectorAll<HTMLButtonElement>('button').forEach((x) => {
+        x.classList.toggle('on', x.dataset.l === active);
+        x.setAttribute('aria-pressed', String(x.dataset.l === active));
+      });
+      shelf.classList.toggle('filtering', !!active);
+      spines.forEach((s) => s.classList.toggle('match', books[+s.dataset.i!].b === active));
+      countTo(active ? books.filter((b) => b.b === active).length : books.length);
+      $('sh-count-label').textContent = active ? '本 · ' + btn.textContent!.trim() : '本 · WORKS';
+    });
+
+    /* ---- 开场：停在最新一端，可见书脊依次升起，总数计数 ---- */
+    shelf.scrollLeft = shelf.scrollWidth;
+    sync();
+    if (!reduce) {
+      const vr = shelf.getBoundingClientRect();
+      const vis = spines.filter((s) => { const r = s.getBoundingClientRect(); return r.right > vr.left && r.left < vr.right; }).reverse();
+      vis.forEach((s, k) => { s.style.animationDelay = k * 26 + 'ms'; s.classList.add('rise'); });
+      setTimeout(() => vis.forEach((s) => { s.classList.remove('rise'); s.style.animationDelay = ''; }), vis.length * 26 + 800);
+      shown = 0;
+      countTo(books.length);
+    }
+  }
+
+  initShelf();
+</script>
