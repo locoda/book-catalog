@@ -29,7 +29,11 @@ const books = works
     const k = hash(w.id);
     // 书脊题名：去掉副题，过长截断
     const short = t.replace(/[：:（(【].*$/, '').trim() || t;
-    const spineTitle = short.length > 13 ? short.slice(0, 12) + '…' : short;
+    const cjk = CJK.test(short);
+    // 中日韩逐字竖排每字约 14.3px，西文旋转后每字约 6.8px；上限保证在最矮的书架里也放得下
+    const max = cjk ? 12 : 26;
+    const spineTitle = [...short].length > max ? [...short].slice(0, max - 1).join('') + '…' : short;
+    const minPx = Math.ceil([...spineTitle].length * (cjk ? 14.3 : 6.8)) + 46;
     return {
       id: w.id,
       t,
@@ -45,7 +49,8 @@ const books = works
       // 渲染用（不进客户端 JSON）
       _w: 26 + (k % 16),
       _h: 64 + ((k >> 4) % 30),
-      _cjk: CJK.test(spineTitle),
+      _cjk: cjk,
+      _min: minPx,
       _st: spineTitle,
     };
   })
@@ -87,7 +92,7 @@ months.forEach((m, i) => {
 });
 
 const total = books.length;
-const clientData = books.map(({ _w, _h, _cjk, _st, ...rest }) => rest);
+const clientData = books.map(({ _w, _h, _cjk, _st, _min, ...rest }) => rest);
 const json = JSON.stringify({ books: clientData, months }).replace(/</g, '\\u003c');
 ---
 <section class="shelf-hero" aria-label="最近一架">
@@ -118,7 +123,7 @@ const json = JSON.stringify({ books: clientData, months }).replace(/</g, '\\u003
                   class={`spine l-${b.b}`}
                   href={`/works/${b.id}/`}
                   data-i={it.i}
-                  style={`width:${b._w}px;height:${b._h}%`}
+                  style={`width:${b._w}px;height:max(${b._h}%, ${b._min}px)`}
                   aria-label={`${b.t}${b.a ? ' · ' + b.a : ''} · ${b.d}`}
                 >
                   {b._cjk ? (

@@ -246,7 +246,7 @@ footer.site{
 .sh-range b{color:var(--ink);font-weight:500;font-size:12.5px}
 .sh-latest{background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--stamp)}
 .shelf{
-  height:clamp(230px,36vh,350px);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
+  height:clamp(272px,38vh,360px);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
   position:relative;padding-top:44px;margin-top:-44px;overscroll-behavior-x:contain;
 }
 .shelf::-webkit-scrollbar{display:none}
