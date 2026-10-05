@@ -8,6 +8,8 @@ subjects: [old-haunts, off-script]
 expressions:
   - lang: zh-Hant
     title: 海邊的房間
+  - lang: zh-Hans
+    title: 海边的房间
     mine: true
 readings:
   - date: '2022-02-01'

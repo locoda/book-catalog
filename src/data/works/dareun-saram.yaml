@@ -8,7 +8,7 @@ subjects: [patriarchy, off-script]
 expressions:
 - lang: ko
   title: 다른 사람
-- lang: zh-Hant
+- lang: zh-Hans
   title: 他人
   translator: 简郁璇
   mine: true
