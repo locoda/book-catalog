@@ -1,11 +1,13 @@
 work_type: book
 title: 流俗地
-orig_lang: zh-Hans
+orig_lang: zh-Hant
 year: 2020
 creators: [li-zishu]
 callno: CF-LI-2020-LIUS
 subjects: [street-life, becoming]
 expressions:
+  - lang: zh-Hant
+    title: 流俗地
   - lang: zh-Hans
     title: 流俗地
     mine: true
