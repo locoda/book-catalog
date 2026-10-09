@@ -19,14 +19,14 @@ export interface InsightBook {
 }
 
 export interface FilterState {
-  until: number | null;                        // 回放：只看到这一年为止读过的书
+  years: { from: number; to: number } | null;  // 年份区间：在这几年里读过的书（null = 全部）
   langs: string[] | null; langsLabel?: string; // 原语言代码集合
   subject: string | null; subjectLabel?: string;
   flow: { src: string; tgt: string; native: boolean } | null; flowLabel?: string;
 }
-export type Dim = 'until' | 'langs' | 'subject' | 'flow';
+export type Dim = 'years' | 'langs' | 'subject' | 'flow';
 
-const EMPTY: FilterState = { until: null, langs: null, subject: null, flow: null };
+const EMPTY: FilterState = { years: null, langs: null, subject: null, flow: null };
 
 // 挂在 window 上，保证各组件脚本即使被分别打包也共用同一份状态
 export interface InsightData { books: InsightBook[]; subjects: Record<string, { name: string; desc: string }> }
@@ -59,9 +59,23 @@ export function getData(): InsightData {
 }
 export const getBooks = () => getData().books;
 
+/** 这本书是否有阅读记录落在 [from, to] 年内 */
+export const readIn = (b: InsightBook, from: number, to: number) =>
+  b.ym.some((ym) => { const y = +ym.slice(0, 4); return y >= from && y <= to; });
+
+/** 年份区间的读法：全部 / 2020 / 到 2022 / 2021 起 / 2019–2021 */
+export function yearsLabel(years: FilterState['years'], y0: number, y1: number): string {
+  if (!years) return '全部';
+  const { from, to } = years;
+  if (from === to) return String(from);
+  if (from <= y0) return `到 ${to}`;
+  if (to >= y1) return `${from} 起`;
+  return `${from}–${to}`;
+}
+
 /** 一本书是否命中当前筛选；ignore 中的维度不参与判断（由调用方改为高亮）。 */
 export function matches(b: InsightBook, s: FilterState, ignore: Dim[] = []): boolean {
-  if (s.until != null && !ignore.includes('until') && (b.fy === 0 || b.fy > s.until)) return false;
+  if (s.years && !ignore.includes('years') && !readIn(b, s.years.from, s.years.to)) return false;
   if (s.langs && !ignore.includes('langs') && !s.langs.includes(b.ol)) return false;
   if (s.subject && !ignore.includes('subject') && !b.s.includes(s.subject)) return false;
   if (s.flow && !ignore.includes('flow') && !(b.sk === s.flow.src && b.ml === s.flow.tgt && (b.ol === b.ml) === s.flow.native)) return false;
