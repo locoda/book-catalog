@@ -20,6 +20,7 @@ const books = works.map((w) => {
     id: w.id,
     t: mine?.title ?? w.data.title,
     a: w.data.creators.map((c) => peopleMap.get(c.id) ?? c.id).join(' · '),
+    c: w.data.creators.map((c) => c.id),
     ol: w.data.orig_lang,
     sk: flowSourceKey(w.data.orig_lang, other),
     ml: mine?.lang ?? w.data.orig_lang,
@@ -31,7 +32,7 @@ const books = works.map((w) => {
   };
 });
 const subjects = Object.fromEntries(SUBJECTS.map((s) => [s.slug, { name: s.name, desc: s.desc }]));
-const years = books.map((b) => b.fy).filter((y) => y > 0);
+const years = books.flatMap((b) => b.ym.map((ym) => +ym.slice(0, 4))).filter((y) => y > 0);
 const y0 = Math.min(...years), y1 = Math.max(...years);
 const json = JSON.stringify({ books, subjects }).replace(/</g, '\\u003c');
 ---
@@ -39,16 +40,22 @@ const json = JSON.stringify({ books, subjects }).replace(/</g, '\\u003c');
 
 <div class="ins-bar" id="ins-bar">
   <div class="ins-replay">
-    <button class="ins-play" id="ins-play" type="button" aria-label="按年份回放">▶</button>
-    <label class="ins-slider">
-      <span class="label">回放 · replay</span>
-      <input type="range" id="ins-year" min={y0} max={y1 + 1} step="1" value={y1 + 1} aria-label="只看到这一年为止读过的书" />
-      <span class="ins-ticks" aria-hidden="true">
-        {Array.from({ length: y1 - y0 + 1 }, (_, i) => <i>{String(y0 + i).slice(2)}</i>)}
-        <i>全部</i>
+    <button class="ins-play" id="ins-play" type="button" aria-label="从起始年份逐年回放">▶</button>
+    <div class="ins-slider">
+      <span class="label">年份 · years</span>
+      <div class="ins-range" id="ins-range" style="--lo:0;--hi:1">
+        <span class="ins-range-track" aria-hidden="true"></span>
+        <span class="ins-range-fill" id="ins-range-fill" title="拖动整段平移" aria-hidden="true"></span>
+        <input type="range" id="ins-from" min={y0} max={y1} step="1" value={y0} aria-label="起始年份" />
+        <input type="range" id="ins-to" min={y0} max={y1} step="1" value={y1} aria-label="截止年份" />
+      </div>
+      <span class="ins-ticks" id="ins-ticks">
+        {Array.from({ length: y1 - y0 + 1 }, (_, i) => (
+          <button type="button" data-y={y0 + i} title={`只看 ${y0 + i} 年（按住 Shift 扩展区间）`}>{String(y0 + i).slice(2)}</button>
+        ))}
       </span>
-    </label>
-    <output class="ins-year-out" id="ins-year-out" for="ins-year">全部</output>
+    </div>
+    <output class="ins-year-out" id="ins-year-out" for="ins-from ins-to">全部</output>
   </div>
   <div class="ins-chips" id="ins-chips" aria-live="polite"></div>
   <button class="ins-count" id="ins-count-btn" type="button" title="查看当前书单">
@@ -65,40 +72,88 @@ const json = JSON.stringify({ books, subjects }).replace(/</g, '\\u003c');
 </aside>
 
 <script>
-  import { getState, setFilter, clearFilter, onFilter, getData, matches, prefersReducedMotion, type FilterState, type Dim } from '../scripts/catalogFilter';
+  import { getState, setFilter, clearFilter, onFilter, getData, matches, yearsLabel, prefersReducedMotion, type FilterState, type Dim } from '../scripts/catalogFilter';
 
   const $ = (id: string) => document.getElementById(id)!;
   const { books, subjects } = getData();
-  const slider = $('ins-year') as HTMLInputElement;
+  const fromIn = $('ins-from') as HTMLInputElement;
+  const toIn = $('ins-to') as HTMLInputElement;
+  const range = $('ins-range');
   const out = $('ins-year-out');
-  const maxV = +slider.max;
+  const Y0 = +fromIn.min, Y1 = +fromIn.max;
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
-  /* ---- 年份回放 ---- */
-  const yearOf = (v: number) => (v >= maxV ? null : v);
-  slider.addEventListener('input', () => { stop(); setFilter({ until: yearOf(+slider.value) }); });
+  /* ---- 年份区间（双手柄，互不越过；两端全选即为「全部」） ---- */
+  const setYears = (from: number, to: number) => {
+    from = Math.max(Y0, Math.min(from, Y1)); to = Math.max(from, Math.min(to, Y1));
+    setFilter({ years: from <= Y0 && to >= Y1 ? null : { from, to } });
+  };
+  const cur = () => getState().years ?? { from: Y0, to: Y1 };
+  fromIn.addEventListener('input', () => { stop(); const to = cur().to; if (+fromIn.value > to) fromIn.value = String(to); setYears(+fromIn.value, to); });
+  toIn.addEventListener('input', () => { stop(); const from = cur().from; if (+toIn.value < from) toIn.value = String(from); setYears(from, +toIn.value); });
+
+  // 拖动两手柄之间的选中段：整体平移窗口
+  const fill = $('ins-range-fill');
+  let drag: { x: number; from: number; to: number } | null = null;
+  fill.addEventListener('pointerdown', (e) => {
+    stop();
+    drag = { x: e.clientX, ...cur() };
+    fill.setPointerCapture(e.pointerId);
+    fill.classList.add('drag');
+  });
+  fill.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const step = range.clientWidth / Math.max(1, Y1 - Y0);
+    const d = Math.max(Y0 - drag.from, Math.min(Y1 - drag.to, Math.round((e.clientX - drag.x) / step)));
+    setYears(drag.from + d, drag.to + d);
+  });
+  const endDrag = () => { drag = null; fill.classList.remove('drag'); };
+  fill.addEventListener('pointerup', endDrag);
+  fill.addEventListener('pointercancel', endDrag);
+
+  // 点刻度：只看那一年；Shift 点击：扩展区间到那一年
+  $('ins-ticks').addEventListener('click', (e) => {
+    const t = (e.target as Element).closest<HTMLElement>('[data-y]');
+    if (!t) return;
+    stop();
+    const y = +t.dataset.y!, c = getState().years;
+    if ((e as MouseEvent).shiftKey && c) setYears(Math.min(c.from, y), Math.max(c.to, y));
+    else if (c && c.from === y && c.to === y) setYears(Y0, Y1);
+    else setYears(y, y);
+  });
+
+  /* ---- 回放：起点不动，终点从起点逐年推进到最新 ---- */
   let timer = 0;
   const play = $('ins-play');
   function stop() { if (timer) { clearInterval(timer); timer = 0; play.textContent = '▶'; play.classList.remove('on'); } }
   play.addEventListener('click', () => {
     if (timer) return stop();
-    let v = +slider.min;
+    const from = cur().from;
+    let to = from;
     play.textContent = '❚❚'; play.classList.add('on');
-    setFilter({ until: v });
+    setYears(from, to);
     timer = window.setInterval(() => {
-      v++;
-      setFilter({ until: yearOf(v) });
-      if (v >= maxV) stop();
+      to++;
+      setYears(from, to);
+      if (to >= Y1) stop();
     }, prefersReducedMotion() ? 400 : 900);
   });
 
   /* ---- 筛选标签 + 计数 ---- */
   const chips = $('ins-chips');
   function renderBar(s: FilterState) {
-    slider.value = String(s.until ?? maxV);
-    out.textContent = s.until == null ? '全部' : `到 ${s.until}`;
+    const { from, to } = s.years ?? { from: Y0, to: Y1 };
+    fromIn.value = String(from); toIn.value = String(to);
+    // 两手柄重叠在右端时，让起点手柄浮在上面，否则拖不回来
+    fromIn.classList.toggle('top', from >= Y1);
+    const span = Math.max(1, Y1 - Y0);
+    range.style.setProperty('--lo', String((from - Y0) / span));
+    range.style.setProperty('--hi', String((to - Y0) / span));
+    $('ins-ticks').querySelectorAll<HTMLElement>('[data-y]').forEach((t) => t.classList.toggle('on', +t.dataset.y! >= from && +t.dataset.y! <= to && !!s.years));
+    const yl = yearsLabel(s.years, Y0, Y1);
+    out.textContent = yl;
     const items: [Dim, string][] = [];
-    if (s.until != null) items.push(['until', `${s.until} 年为止`]);
+    if (s.years) items.push(['years', /^\d{4}$/.test(yl) ? `${yl} 年` : yl]);
     if (s.langs) items.push(['langs', s.langsLabel ?? '原语言']);
     if (s.flow) items.push(['flow', s.flowLabel ?? '流向']);
     if (s.subject) items.push(['subject', s.subjectLabel ?? '栏目']);
@@ -122,8 +177,8 @@ const json = JSON.stringify({ books, subjects }).replace(/</g, '\\u003c');
     const list = books.filter((b) => matches(b, s)).sort((a, b) => b.d.localeCompare(a.d));
     const subj = s.subject ? subjects[s.subject] : null;
     $('ins-panel-kicker').textContent = subj ? 'Column · 栏目' : s.flow ? 'Flow · 流向' : s.langs ? 'Language · 原语言' : 'Selection · 书单';
-    $('ins-panel-title').textContent = subj ? subj.name : (s.flow && s.flowLabel) || (s.langs && s.langsLabel) || (s.until != null ? `${s.until} 年为止` : '全部馆藏');
-    const extra = [s.until != null ? `${s.until} 年为止` : '', subj && s.flow ? s.flowLabel : '', (subj || s.flow) && s.langs ? s.langsLabel : '']
+    $('ins-panel-title').textContent = subj ? subj.name : (s.flow && s.flowLabel) || (s.langs && s.langsLabel) || (s.years ? yearsLabel(s.years, Y0, Y1) : '全部馆藏');
+    const extra = [s.years ? yearsLabel(s.years, Y0, Y1) : '', subj && s.flow ? s.flowLabel : '', (subj || s.flow) && s.langs ? s.langsLabel : '']
       .filter((x): x is string => !!x);
     $('ins-panel-desc').textContent = (subj ? subj.desc + ' ' : '') + [`共 ${list.length} 本`, ...extra].join(' · ');
     $('ins-panel-list').innerHTML = list.slice(0, 300).map((b) =>
@@ -143,7 +198,7 @@ const json = JSON.stringify({ books, subjects }).replace(/</g, '\\u003c');
     const picked = (s.flow && s.flow !== prev.flow) || (s.subject && s.subject !== prev.subject);
     if (picked) openPanel();
     else if (panelOpen) {
-      if (!s.flow && !s.subject && !s.langs && s.until == null && (prev.flow || prev.subject)) closePanel();
+      if (!s.flow && !s.subject && !s.langs && !s.years && (prev.flow || prev.subject)) closePanel();
       else renderPanel(s);
     }
     prev = s;

@@ -1,7 +1,7 @@
 ---
 /**
  * FIG. 01 阅读年表：年 × 月热力网格（桌面）+ 年度柱状图（手机）。
- * 构建时渲染；客户端随联动筛选重算每格册数，回放时淡出所选年份之后的行，点年份即回放到该年。
+ * 构建时渲染；客户端随联动筛选重算每格册数，淡出年份区间外的行，点年份即只看该年。
  */
 import { getCollection } from 'astro:content';
 import { readingHeatmap } from '../lib/stats';
@@ -35,7 +35,7 @@ const cfg = JSON.stringify({ maxMonth, maxYear });
       </div>
       {years.map((y) => (
         <div class="heat-row" data-y={y.year}>
-          <button type="button" class="heat-year mono" data-y={y.year} title={`回放到 ${y.year} 年`}>{y.year}</button>
+          <button type="button" class="heat-year mono" data-y={y.year} title={`只看 ${y.year} 年（Shift 扩展区间）`}>{y.year}</button>
           {y.months.map((n, i) => (
             <span
               class={`heat-cell ${alpha(n) > 0.68 ? 'dark-text' : ''}`}
@@ -64,7 +64,7 @@ const cfg = JSON.stringify({ maxMonth, maxYear });
       </button>
     ))}
   </div>
-  <figcaption>点年份，只看到那一年为止读过的书；其他图会跟着回到那一年。</figcaption>
+  <figcaption>点年份只看那一年，按住 Shift 再点可以连成一段；其他图跟着变。</figcaption>
   <script type="application/json" id="tl-cfg" set:html={cfg}></script>
 </figure>
 
@@ -80,12 +80,19 @@ const cfg = JSON.stringify({ maxMonth, maxYear });
     const barAlpha = (n: number) => (n === 0 ? 0 : 0.18 + 0.82 * Math.sqrt(n / maxYear));
     const cells = [...fig.querySelectorAll<HTMLElement>('.heat-cell')];
 
+    // 区间外的行淡出；区间两端标出
+    function mark(r: HTMLElement, s: FilterState) {
+      const y = +r.dataset.y!, w = s.years;
+      r.classList.toggle('out', !!w && (y < w.from || y > w.to));
+      r.classList.toggle('current', !!w && (y === w.from || y === w.to));
+    }
+
     function render(s: FilterState) {
-      // 年表自己的维度是 until：不过滤，改为淡出之后的行
+      // 年表自己的维度是 years：不过滤，改为淡出区间外的行
       const perMonth = new Map<string, number>();
       let total = 0;
       for (const b of books) {
-        if (!matches(b, s, ['until'])) continue;
+        if (!matches(b, s, ['years'])) continue;
         for (const ym of b.ym) { perMonth.set(ym, (perMonth.get(ym) ?? 0) + 1); total++; }
       }
       const perYear = new Map<string, number>();
@@ -99,8 +106,7 @@ const cfg = JSON.stringify({ maxMonth, maxYear });
       }
       fig!.querySelectorAll<HTMLElement>('.heat-row[data-y]').forEach((r) => {
         r.querySelector('.heat-total')!.textContent = String(perYear.get(r.dataset.y!) ?? 0);
-        r.classList.toggle('future', s.until != null && +r.dataset.y! > s.until);
-        r.classList.toggle('current', s.until != null && +r.dataset.y! === s.until);
+        mark(r, s);
       });
       fig!.querySelectorAll<HTMLElement>('.bar-row').forEach((r) => {
         const n = perYear.get(r.dataset.y!) ?? 0, a = barAlpha(n);
@@ -109,8 +115,7 @@ const cfg = JSON.stringify({ maxMonth, maxYear });
         f.style.setProperty('--a', a.toFixed(3));
         f.classList.toggle('dark-text', a > 0.68);
         r.querySelector('.bar-val')!.textContent = n > 0 ? String(n) : '';
-        r.classList.toggle('future', s.until != null && +r.dataset.y! > s.until);
-        r.classList.toggle('current', s.until != null && +r.dataset.y! === s.until);
+        mark(r, s);
       });
       document.getElementById('tl-total')!.textContent = String(total);
     }
@@ -118,8 +123,9 @@ const cfg = JSON.stringify({ maxMonth, maxYear });
     fig.addEventListener('click', (e) => {
       const b = (e.target as Element).closest<HTMLElement>('.heat-year[data-y], .bar-row[data-y]');
       if (!b) return;
-      const y = +b.dataset.y!;
-      setFilter({ until: getState().until === y ? null : y });
+      const y = +b.dataset.y!, w = getState().years;
+      if ((e as MouseEvent).shiftKey && w) setFilter({ years: { from: Math.min(w.from, y), to: Math.max(w.to, y) } });
+      else setFilter({ years: w && w.from === y && w.to === y ? null : { from: y, to: y } });
     });
     onFilter(render);
   }

@@ -1,6 +1,7 @@
 ---
 /**
  * FIG. 04 著者：桌面 ≥THRESH_DESK 部作品，手机 ≥THRESH_MOB 部作品。
+ * 客户端随联动筛选（年份 / 原语言 / 栏目 / 流向）重新统计，切面里读得最多的著者排在前面。
  */
 import { getCollection } from 'astro:content';
 
@@ -28,9 +29,6 @@ if (deskAll.length === 0) return new Response(null, { status: 204 });
 const desk = deskAll.slice(0, TOP_N);
 const mob  = mobAll;
 
-
-const deskMax = desk[0]![1];
-const mobMax  = mob[0]![1];
 
 const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
 
@@ -67,17 +65,21 @@ function displayName(id: string): string {
   const a = peopleMap.get(id)!;
   return n !== a ? n : a;
 }
+
+// 客户端重排用：所有有馆藏著作的著者的显示名
+const names = Object.fromEntries([...counts.keys()].map((id) => [id, displayName(id)]));
+const cfg = JSON.stringify({ names, TOP_N, THRESH_DESK, THRESH_MOB, total: people.length }).replace(/</g, '\\u003c');
 ---
 
 <figure class="plate cloud" id="fig-people">
   <header class="plate-head">
     <span class="kicker">FIG. 04 · People</span>
-    <h3>读得最多<b class="plate-num">{displayName(desk[0][0])}</b><span class="mono plate-sub">{desk[0][1]} 种</span></h3>
-    <p class="plate-lede">{people.length} 位著者里，馆藏著作 {THRESH_DESK} 种以上的这些人，是反复回去找的名字。</p>
+    <h3>读得最多<b class="plate-num" id="ppl-top">{displayName(desk[0][0])}</b><span class="mono plate-sub" id="ppl-top-n">{desk[0][1]} 种</span></h3>
+    <p class="plate-lede" id="ppl-lede">{people.length} 位著者里，馆藏著作 {THRESH_DESK} 种以上的这些人，是反复回去找的名字。</p>
   </header>
 
   <!-- 桌面：≥THRESH_DESK -->
-  <div class="subject-cloud show-desk">
+  <div class="subject-cloud show-desk" id="ppl-desk">
     {desk.map(([id, count]) => (
       <a class="subject-chip" href={`/people/${id}/`}>
         {displayName(id)}<span class="mono">{count}</span>
@@ -87,7 +89,7 @@ function displayName(id: string): string {
   </div>
 
   <!-- 手机：≥THRESH_MOB -->
-  <div class="subject-cloud show-mob">
+  <div class="subject-cloud show-mob" id="ppl-mob">
     {mob.map(([id, count]) => (
       <a class="subject-chip" href={`/people/${id}/`}>
         {displayName(id)}<span class="mono">{count}</span>
@@ -95,8 +97,61 @@ function displayName(id: string): string {
     ))}
     <a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>
   </div>
-  <figcaption>按馆藏著作数排列；点名字进入著者的权威记录。</figcaption>
+  <figcaption>按馆藏著作数排列，随上方年份和其他图的选择重新统计；点名字进入著者的权威记录。</figcaption>
+  <script type="application/json" id="ppl-cfg" set:html={cfg}></script>
 </figure>
+
+<script>
+  import { onFilter, getBooks, matches, type FilterState } from '../scripts/catalogFilter';
+
+  const cfgEl = document.getElementById('ppl-cfg');
+  const deskEl = document.getElementById('ppl-desk');
+  const mobEl = document.getElementById('ppl-mob');
+  if (cfgEl && deskEl && mobEl) {
+    const { names, TOP_N, THRESH_DESK, THRESH_MOB, total } = JSON.parse(cfgEl.textContent!) as
+      { names: Record<string, string>; TOP_N: number; THRESH_DESK: number; THRESH_MOB: number; total: number };
+    const books = getBooks();
+    const orig = { desk: deskEl.innerHTML, mob: mobEl.innerHTML, top: document.getElementById('ppl-top')!.textContent, topN: document.getElementById('ppl-top-n')!.textContent, lede: document.getElementById('ppl-lede')!.textContent };
+    const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const more = '<a class="subject-chip subject-more mono" href="/people/">全部著者 →</a>';
+    const chips = (list: [string, number][]) =>
+      list.map(([id, n]) => `<a class="subject-chip chip-in" href="/people/${id}/">${esc(names[id] ?? id)}<span class="mono">${n}</span></a>`).join('') + more;
+
+    function render(s: FilterState) {
+      const active = s.years || s.langs || s.subject || s.flow;
+      const top = document.getElementById('ppl-top')!, topN = document.getElementById('ppl-top-n')!, lede = document.getElementById('ppl-lede')!;
+      if (!active) {
+        deskEl!.innerHTML = orig.desk; mobEl!.innerHTML = orig.mob;
+        top.textContent = orig.top; topN.textContent = orig.topN; lede.textContent = orig.lede;
+        return;
+      }
+      const cnt = new Map<string, number>();
+      let nBooks = 0;
+      for (const b of books) {
+        if (!matches(b, s)) continue;
+        nBooks++;
+        for (const id of b.c) cnt.set(id, (cnt.get(id) ?? 0) + 1);
+      }
+      const sorted = [...cnt].sort((a, b) => b[1] - a[1] || (names[a[0]] ?? a[0]).localeCompare(names[b[0]] ?? b[0], 'zh'));
+      // 切面里书变少，门槛随之放低：先取「≥门槛」，不足 8 位时退到 ≥2，再不足时退到全部
+      const pick = (thresh: number, cap: number) => {
+        for (const t of [thresh, 2, 1]) {
+          const l = sorted.filter(([, n]) => n >= t);
+          if (l.length >= 8 || t === 1) return l.slice(0, cap);
+        }
+        return [];
+      };
+      deskEl!.innerHTML = chips(pick(THRESH_DESK, TOP_N));
+      mobEl!.innerHTML = chips(pick(THRESH_MOB, 12));
+      if (sorted.length) {
+        top.textContent = names[sorted[0][0]] ?? sorted[0][0];
+        topN.textContent = `${sorted[0][1]} 种`;
+      } else { top.textContent = '—'; topN.textContent = ''; }
+      lede.textContent = `这个切面里有 ${nBooks} 本书、${cnt.size} 位著者（全库 ${total} 位）；读得最多的排在前面。`;
+    }
+    onFilter(render);
+  }
+</script>
 
 <style>
   .show-mob { display: none; }
