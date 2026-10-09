@@ -327,7 +327,7 @@ footer.site{
 .shelf-card .cc-nav{float:right;margin-top:22px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--faint)}
 
 /* ========================================
-   首页 · 第二屏：本期封面 + 篇目
+   首页 · 第二屏：本期头条 + 最近篇目
    ======================================== */
 .cover{
   max-width:var(--maxw);margin:0 auto;

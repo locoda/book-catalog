@@ -100,11 +100,11 @@ const avg = rated.length ? (rated.reduce((a, b) => a + b, 0) / rated.length).toF
     </section>
   )}
 
-  {/* ---------- 本期篇目 ---------- */}
+  {/* ---------- 最近篇目 ---------- */}
   <section class="contents wrap reveal" id="featured">
     <div class="aside">
-      <span class="kicker">Contents</span>
-      <h2>本期<span class="it">篇目</span></h2>
+      <span class="kicker">Recent · Contents</span>
+      <h2>最近<span class="it">篇目</span></h2>
       <p>
         最近读毕的十种，按读毕日期倒序。左侧色带标示原语言：<br />
         <span class="swatch l-zh"></span>中<span class="swatch l-ja"></span>日<span class="swatch l-en"></span>英<span class="swatch l-ot"></span>其他
@@ -130,7 +130,7 @@ const avg = rated.length ? (rated.reduce((a, b) => a + b, 0) / rated.length).toF
       <header class="sec-head">
         <small class="mono">EDITOR'S PICKS</small>
         <h2>五星</h2>
-        <span class="sec-meta mono">不在本期篇目里的满分作品 · 最近 {picks.length} 种</span>
+        <span class="sec-meta mono">不在最近篇目里的满分作品 · 最近 {picks.length} 种</span>
       </header>
       <div class="picks-grid">
         {picks.map((b) => (
