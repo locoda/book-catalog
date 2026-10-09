@@ -774,6 +774,7 @@ footer.site{
 .sky-node.pinned .sky-label{fill:var(--stamp);font-weight:700}
 .sky-node.pinned .sky-halo{opacity:.45}
 .subject-cloud-mobile .subject-chip.on{background:var(--ink);color:var(--paper)}
+.subject-chip.chip-in{animation:chipIn .3s cubic-bezier(.2,.8,.2,1) both}
 /* 入场：星按亮度依次亮起，连线画出来 */
 .js-plates .cloud .sky-node{opacity:0;transition:opacity .6s var(--d,0ms)}
 .js-plates .cloud .sky-edge{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s var(--d,300ms) cubic-bezier(.2,.8,.2,1),opacity .3s,stroke .2s,stroke-width .4s}

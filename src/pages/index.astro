@@ -50,7 +50,7 @@ const lead = recent[0];
 const recentIds = new Set(recent.map((d) => d.id));
 const picks = dated
   .filter((x) => x.w.data.rating === 10 && !recentIds.has(x.w.id))
-  .slice(0, 8)
+  .slice(0, recent.length)
   .map((x) => ({ ...pick(x.w), date: x.latest as string }));
 
 // 头条导语：取头条第一个主题词的释义

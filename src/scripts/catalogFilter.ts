@@ -7,7 +7,8 @@
 export interface InsightBook {
   id: string;
   t: string;        // 显示题名（我读的版本）
-  a: string;        // 著者
+  a: string;        // 著者（显示名）
+  c: string[];      // 著者 people id
   ol: string;       // 原语言代码
   sk: string;       // 流向图左列节点 key（小语种并为 other）
   ml: string;       // 我读的语言

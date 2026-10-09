@@ -20,6 +20,7 @@ const books = works.map((w) => {
     id: w.id,
     t: mine?.title ?? w.data.title,
     a: w.data.creators.map((c) => peopleMap.get(c.id) ?? c.id).join(' · '),
+    c: w.data.creators.map((c) => c.id),
     ol: w.data.orig_lang,
     sk: flowSourceKey(w.data.orig_lang, other),
     ml: mine?.lang ?? w.data.orig_lang,
