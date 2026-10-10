@@ -1,14 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#F5F0E8"/>
-
-  <g transform="translate(256, 194) scale(1.42)">
-
-    <g fill="none" stroke="#7A8B7A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M -152,-60 L 0,-92 L 152,-60 L 152,148 L 0,180 L -152,148 Z"/>
-      <line x1="0" y1="-92" x2="0" y2="180"/>
-    </g>
-
-    <path d="M 30,40 L 102,28 L 102,140 L 30,152 Z" fill="#C4A0A0"/>
-    <path d="M 30,40 A 36,36 0 0 1 102,28 L 102,56 A 36,36 0 0 0 30,68 Z" fill="#C4A0A0"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .bg{fill:#D8CBB2}.zh{fill:#8E3B2E}.ja{fill:#1D2733}.en{fill:#5F6E4C}.wood{fill:#3A2E22}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1A2330}.zh{fill:#C0644F}.ja{fill:#D8CBB2}.en{fill:#8A9B6E}.wood{fill:#B3AC9C}
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="12"/>
+  <rect class="zh" x="11" y="16" width="12" height="36" rx="1.5"/>
+  <rect class="ja" x="26" y="9" width="12" height="43" rx="1.5"/>
+  <rect class="en" x="41" y="21" width="12" height="31" rx="1.5" transform="rotate(8 47 52)"/>
+  <rect class="wood" x="7" y="52" width="50" height="5" rx="1"/>
 </svg>
