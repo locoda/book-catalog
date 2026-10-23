@@ -160,5 +160,6 @@
 - [yi-wei-wu-ren-qing-ting-de-ta-men] 虚构性：輯一含短篇小说/诗/独幕剧，輯二为访谈故事/论文/法律史/医疗实务，按出版方"跨領域文集"归类为 N（CN-UNK-2025-YIWE）；如馆长认为应按 CF，请指示。
 - [sarome-no-dantoudai] 本周导入草稿 untitled-3.yaml 为重复标记（neodb_uuid 36tMaXQjRZDJ7sgi6mGvF3 与已有记录一致，阅读日期/评分相同），草稿已删除，未做合并。
 
-### 2026-10-02 全库主题词复核疑点
-- ~~[muzej-bezuvjetne-predaje] callno: orig_lang=hr 但 callno 为 EF-UGR-1997-MUZE（按 §4 应为 O 类）~~ 馆长裁决（2026-10-03）解冻改为 OF-UGR-1997-MUZE（confirmed 记录，馆长本人指示覆盖冻结规则）。
+### 2026-10-22 周度编目疑点
+- [in-za-megachachi] expressions: NeoDB 标记的版本为日文原版（日本経済新聞出版，2025-09-01，ISBN 9784296121045），mine 版本 lang=ja，不在 CATALOGING §2 封闭集（zh-Hans / zh-Hant / en）内，迁入会触发 validate E6 并阻断构建。按 §9「不带病迁入」，本轮已完成其余编目（year 2025、creators [asai-ryo]、callno JF-ASA-2025-INZA）但留存草稿区待补，请馆长确认实际阅读语言：日文原版 / 机器翻译简中 / 民间中文译本（参考 [rakuen]、[sarome-no-dantoudai] 先例）。
+- [in-za-megachachi] subjects: 空。粉丝经济 / 饭圈热狂题材，现有受控词表无明显贴合词，宁缺毋滥留空；是否需要词表提案请馆长裁决。
