@@ -153,6 +153,7 @@
 ### 机器翻译阅读（mine 标注）
 
 - [sarome-no-dantoudai] 『サロメの断頭台』2024：馆长于 2026-09-01/02 以日文原版电子书经机器翻译为简中阅读，NeoDB 标记 2026-09-02 评 8 分，评语“怪东西！但蛮好看的哈哈哈”。该书尚无官方中/英译本，按 CATALOGING.md §2，`mine` 设在 `zh-Hans` 版本 `莎乐美的断头台`，`translator: 机器翻译` 以如实记录阅读形态，`ja` 原版保留为对照。参考 [rakuen]（『楽園』民间中译本）先例，民间/机翻无官方译者时以实际阅读语言标 mine。StoryGraph 完成日 2026-09-01 与 NeoDB 2026-09-02 差 1 天为时区换算所致（PT 9/1 22:53 = UTC 9/2 05:53），非事实差异。
+- [in-za-megachachi] 『イン・ザ・メガチャーチ』2025：馆长以日文原版电子书经机器翻译为简中阅读（2026-10-22 馆长确认），NeoDB 标记 2026-10-22 评 8 分。该书尚无官方中/英译本，按 CATALOGING.md §2 与 [sarome-no-dantoudai] 先例，`mine` 设在 `zh-Hans` 版本 `在巨型教会`（题名为直译，无官方中译题名），不设 translator，`ja` 原版保留为对照。
 
 ### 2026-09-10 周度编目疑点
 - [yi-wei-wu-ren-qing-ting-de-ta-men] NeoDB 条目 orig_title 误标 "Choice words: writers on abortion"（实为 Annie Finch 编的英文文集，与本书无关），已忽略；本书为游擊文化 2025 年原创繁中文集，非译作。来源：NeoDB /api/book/2Zi25xNIGCpoVDuNh7Oe14（publisher 游擊文化，pub 2025-06，ISBN 9786269952267）+ 豆瓣 37345171。
@@ -161,5 +162,5 @@
 - [sarome-no-dantoudai] 本周导入草稿 untitled-3.yaml 为重复标记（neodb_uuid 36tMaXQjRZDJ7sgi6mGvF3 与已有记录一致，阅读日期/评分相同），草稿已删除，未做合并。
 
 ### 2026-10-22 周度编目疑点
-- [in-za-megachachi] expressions: NeoDB 标记的版本为日文原版（日本経済新聞出版，2025-09-01，ISBN 9784296121045），mine 版本 lang=ja，不在 CATALOGING §2 封闭集（zh-Hans / zh-Hant / en）内，迁入会触发 validate E6 并阻断构建。按 §9「不带病迁入」，本轮已完成其余编目（year 2025、creators [asai-ryo]、callno JF-ASA-2025-INZA）但留存草稿区待补，请馆长确认实际阅读语言：日文原版 / 机器翻译简中 / 民间中文译本（参考 [rakuen]、[sarome-no-dantoudai] 先例）。
+- ~~[in-za-megachachi] expressions: NeoDB 标记的版本为日文原版（日本経済新聞出版，2025-09-01，ISBN 9784296121045），mine 版本 lang=ja，不在 CATALOGING §2 封闭集（zh-Hans / zh-Hant / en）内，迁入会触发 validate E6 并阻断构建。按 §9「不带病迁入」，本轮已完成其余编目（year 2025、creators [asai-ryo]、callno JF-ASA-2025-INZA）但留存草稿区待补，请馆长确认实际阅读语言：日文原版 / 机器翻译简中 / 民间中文译本（参考 [rakuen]、[sarome-no-dantoudai] 先例）。~~ 已解决：馆长 2026-10-22 确认读的是**机器翻译简中**（非日文原版），mine 已按 [sarome-no-dantoudai] 先例标在 zh-Hans 版本（题名直译「在巨型教会」，无官方中译题名），不设 translator，ja 原版保留为对照，机翻形态记入「机器翻译阅读（mine 标注）」节，已迁入正式目录。
 - [in-za-megachachi] subjects: 空。粉丝经济 / 饭圈热狂题材，现有受控词表无明显贴合词，宁缺毋滥留空；是否需要词表提案请馆长裁决。
