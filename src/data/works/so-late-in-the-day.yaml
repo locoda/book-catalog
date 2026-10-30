@@ -1,0 +1,19 @@
+work_type: book
+title: So Late in the Day
+orig_lang: en
+year: 2023
+creators: [keegan-claire]
+callno: EF-KEE-2023-SOLA
+subjects: [patriarchy, embers]
+expressions:
+  - lang: en
+    title: So Late in the Day
+  - lang: zh-Hans
+    title: 天色已晚
+    translator: 马爱农
+    mine: true
+readings:
+  - date: '2026-10-23'
+rating: 8
+status: read
+neodb_uuid: 2WAx7u3bFRrMsakcXpu80g
