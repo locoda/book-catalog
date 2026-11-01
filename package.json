@@ -12,10 +12,10 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^7.3.5"
+    "astro": "^7.4.2"
   },
   "devDependencies": {
-    "pinyin-pro": "^3.29.4",
+    "pinyin-pro": "^3.29.5",
     "yaml": "^2.9.1"
   }
 }
