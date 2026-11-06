@@ -1,0 +1,18 @@
+work_type: book
+title: Switzy
+orig_lang: en
+year: 2026
+creators: [emma-cline]
+callno: EF-CLI-2026-SWIT
+subjects: [rehearsing-farewell, late-life]
+expressions:
+  - lang: en
+    title: Switzy
+  - lang: en
+    title: "Switzy: A Novel"
+    mine: true
+readings:
+  - date: "2026-11-01"
+rating: 10
+status: read
+neodb_uuid: 50P5nWwftr1TPyXeElio9l

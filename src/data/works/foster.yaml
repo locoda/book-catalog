@@ -1,0 +1,19 @@
+work_type: book
+title: Foster
+orig_lang: en
+year: 2010
+creators: [keegan-claire]
+callno: EF-KEE-2010-FOST
+subjects: [kinship, living-with-loss]
+expressions:
+  - lang: en
+    title: Foster
+  - lang: zh-Hans
+    title: 收留
+    translator: 马爱农
+    mine: true
+readings:
+  - date: "2026-11-01"
+rating: 8
+status: read
+neodb_uuid: 0jQZ7VUd3R5mitAEguJIQx
