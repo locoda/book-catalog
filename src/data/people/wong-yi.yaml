@@ -1,0 +1,7 @@
+name: Wong Yi
+sort: Wong, Yi
+gender: female
+forms:
+- {script: en, value: Wong Yi}
+- {script: zh-Hans, value: 黄怡}
+- {script: zh-Hant, value: 黃怡}
