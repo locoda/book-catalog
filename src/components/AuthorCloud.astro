@@ -36,13 +36,15 @@ const peopleMap = new Map(people.map((p) => [p.id, p.data.name]));
 function nativeName(person: typeof people[number]['data']): string {
   if (!person.forms?.length) return person.name;
   const TRANSLIT = new Set(['romaji', 'ja-kana']);
+  // 中文 form 的 script 是 zh-Hans / zh-Hant（旧数据可能是 zh），统一视为 zh
+  const isZh = (s: string) => s === 'zh' || s.startsWith('zh-');
   // 过滤转写类，只留真实文字体系的 form
   const real = person.forms.filter((f) => !TRANSLIT.has(f.script) && !f.script.endsWith('-Latn'));
   // 优先：非 en / zh / ko 的 native script（ja / fr / de ...）
   // 但纯片假名 ja form 跳过——那是外来名转写（如 カズオ・イシグロ），非 native
   function isKatakanaOnly(s: string) { return /^[\u30A0-\u30FF・\s]+$/.test(s); }
   const native = real.find((f) => {
-    if (f.script === 'en' || f.script === 'zh' || f.script === 'ko') return false;
+    if (f.script === 'en' || isZh(f.script) || f.script === 'ko') return false;
     if (f.script === 'ja' && isKatakanaOnly(f.value)) return false;
     return true;
   });
@@ -51,7 +53,7 @@ function nativeName(person: typeof people[number]['data']): string {
   const hasEn = real.some((f) => f.script === 'en');
   const hasKo = real.some((f) => f.script === 'ko');
   if (!hasEn || hasKo) {
-    const zhForm = real.find((f) => f.script === 'zh');
+    const zhForm = real.find((f) => f.script === 'zh-Hans') ?? real.find((f) => isZh(f.script));
     if (zhForm) return zhForm.value;
   }
   return person.name;
